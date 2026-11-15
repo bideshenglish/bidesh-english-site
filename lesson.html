@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#BCE0F3">
+<title>লেসন | Bidesh English</title>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light only;
+    --pine:#0C3A27; --leaf:#1F8A36; --leaf-deep:#17692A; --leaf-soft:#E2F1E4;
+    --sun:#F4B93E; --sun-soft:#FCEBC4; --ink:#14261C; --ink-soft:#33463B;
+    --page:#DFEEE3; --paper:#F1F8F2; --line:#A9C9B3;
+    --bad-bg:#FDE6E0; --bad-ink:#7A1F10; --good-bg:#DDF3E1; --good-ink:#0C3A27;
+    --font:'Anek Bangla','Noto Sans Bengali','Segoe UI',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--page);color:var(--ink);font-family:var(--font);font-size:17px;font-weight:500;line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh;
+    background-image:linear-gradient(180deg,#BCE0F3 0,#D2EBEE 260px,var(--page) 520px);background-repeat:no-repeat;}
+  button{font-family:inherit;}
+  :focus-visible{outline:3px solid var(--pine);outline-offset:3px;border-radius:8px;}
+  .wrap{width:100%;max-width:720px;margin:0 auto;padding:0 18px;}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;gap:12px;}
+  .back{color:var(--pine);font-weight:700;text-decoration:none;font-size:16.5px;padding:8px 14px;background:#fff;border:1.5px solid var(--line);border-radius:999px;}
+  .brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--pine);font-weight:800;font-size:17px;}
+  .brand img{width:34px;height:34px;border-radius:50%;border:2px solid #fff;}
+  h1{margin:8px 0 2px;font-weight:800;font-size:clamp(26px,6.5vw,34px);line-height:1.2;color:var(--pine);letter-spacing:-0.015em;}
+  .sub{margin:0 0 14px;color:var(--ink-soft);font-size:17px;}
+  .progress{list-style:none;display:flex;gap:6px;padding:0;margin:0 0 8px;}
+  .progress li{flex:1;height:9px;border-radius:99px;background:#B4CFBB;}
+  .progress li.done{background:var(--leaf-deep);}
+  .progress li.cur{background:var(--sun);box-shadow:0 0 0 2px rgba(12,58,39,0.35);}
+  .stepname{margin:0 0 12px;font-weight:700;color:var(--pine);font-size:16.5px;}
+  .card{background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:22px 20px;box-shadow:0 16px 28px -20px rgba(12,58,39,0.55);outline:none;}
+  .card h2{margin:0 0 10px;font-size:22px;line-height:1.35;color:var(--pine);font-weight:800;}
+  .lede{font-size:19px;line-height:1.75;margin:0 0 20px;color:var(--ink);font-weight:600;}
+  .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:2px solid transparent;border-radius:999px;padding:13px 24px;font-weight:800;font-size:17px;cursor:pointer;text-decoration:none;line-height:1.3;transition:transform .12s ease, box-shadow .12s ease;}
+  .btn:active{transform:translateY(1px);}
+  .btn-main{background:var(--sun);color:var(--pine);box-shadow:0 8px 16px -8px rgba(190,120,0,0.7);}
+  .btn-alt{background:#fff;color:var(--pine);border-color:var(--pine);}
+  .btn[disabled]{opacity:1;background:#DCE6DE;color:#3D4F44;border-color:#B4CFBB;box-shadow:none;cursor:not-allowed;}
+  .big-en{font-size:clamp(23px,6vw,28px);font-weight:800;line-height:1.35;color:var(--pine);margin:8px 0 10px;letter-spacing:-0.01em;}
+  .bn-line{font-size:19px;font-weight:600;margin:0 0 8px;color:var(--ink);}
+  .tag{display:inline-block;margin:2px 0 0;padding:3px 14px;border-radius:999px;background:var(--sun-soft);color:#4A3000;font-weight:800;font-size:15.5px;}
+  .pr-line{font-size:17px;color:var(--leaf-deep);font-weight:700;margin:0;background:var(--leaf-soft);display:inline-block;padding:4px 12px;border-radius:12px;}
+  .counter{font-weight:700;color:var(--ink-soft);font-size:16px;margin:0 0 4px;}
+  .opts{display:flex;flex-direction:column;gap:10px;margin-top:12px;}
+  .opt{all:unset;box-sizing:border-box;width:100%;background:var(--paper);border:2px solid var(--line);border-radius:16px;padding:14px 16px;font-size:18px;font-weight:700;color:var(--ink);cursor:pointer;line-height:1.45;}
+  .opt:hover{border-color:var(--leaf);background:#fff;}
+  .opt:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+  .opt.good{background:var(--good-bg);border-color:var(--leaf-deep);color:var(--good-ink);}
+  .opt.bad{background:var(--bad-bg);border-color:#C24A33;color:var(--bad-ink);}
+  .opt[aria-disabled="true"]{cursor:default;}
+  .note{margin:14px 0 0;padding:12px 14px;border-radius:14px;font-weight:600;font-size:17px;line-height:1.55;}
+  .note.good{background:var(--good-bg);color:var(--good-ink);}
+  .note.bad{background:var(--bad-bg);color:var(--bad-ink);}
+  .note.info{background:var(--sun-soft);color:#4A3000;}
+  .chat{display:flex;flex-direction:column;gap:10px;margin-bottom:6px;}
+  .bubble{max-width:92%;padding:12px 16px;border-radius:18px;font-weight:600;line-height:1.5;}
+  .bubble small{display:block;font-weight:500;font-size:16px;margin-top:4px;}
+  .b-boss{align-self:flex-start;background:var(--paper);border:1.5px solid var(--line);color:var(--ink);border-bottom-left-radius:6px;}
+  .b-boss small{color:var(--ink-soft);}
+  .b-me{align-self:flex-end;background:#1A7A2E;color:#fff;border-bottom-right-radius:6px;}
+  .who{display:block;font-size:15px;font-weight:700;margin-bottom:2px;}
+  .b-boss .who{color:var(--leaf-deep);}
+  .b-me .who{color:#fff;}
+  .stars{font-size:22px;letter-spacing:2px;}
+  .mic-status{min-height:30px;font-weight:700;color:var(--pine);margin:14px 0 0;font-size:17px;}
+  .result{text-align:center;}
+  .result .party{font-size:54px;line-height:1.1;margin:2px 0 6px;}
+  .big-stars{font-size:38px;letter-spacing:4px;margin:4px 0 2px;}
+  .score-line{font-weight:700;color:var(--pine);margin:0 0 14px;font-size:19px;}
+  .stats{list-style:none;padding:0;margin:0 auto 6px;max-width:420px;text-align:left;}
+  .stats li{display:flex;justify-content:space-between;gap:12px;padding:10px 4px;border-bottom:1px solid var(--line);font-weight:600;}
+  .stats b{color:var(--pine);font-weight:800;}
+  .streak{margin:14px 0 0;display:inline-block;background:var(--sun-soft);color:#4A3000;font-weight:800;padding:8px 18px;border-radius:999px;font-size:18px;}
+  .result .row{justify-content:center;}
+  .missing{text-align:center;padding:26px 6px;}
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;}}
+</style>
+</head>
+<body>
+<header class="wrap bar">
+  <a class="back" href="index.html#needs">← সব লেসন</a>
+  <a class="brand" href="index.html"><img src="logo.png" alt="" width="34" height="34"><span>Bidesh English</span></a>
+</header>
+
+<main class="wrap">
+  <h1 id="lessonTitle">লেসন লোড হচ্ছে…</h1>
+  <p class="sub" id="lessonSub"></p>
+  <ol class="progress" id="progress" aria-label="লেসনের ধাপ"></ol>
+  <p class="stepname" id="stepName"></p>
+  <section class="card" id="stage" tabindex="-1" aria-live="polite"></section>
+</main>
+<div style="height:48px"></div>
+
+<script>
+(function(){
+  var params = new URLSearchParams(location.search);
+  var id = (params.get('id') || '').replace(/[^a-z0-9-]/gi, '');
+  var $ = function(s){ return document.querySelector(s); };
+  var stage = $('#stage');
+  var L, flow, idx = 0, S, WHO = 'বস';
+
+  var STEP_NAME = { scene:'দৃশ্য', phrases:'Phrase Cards', listen:'শুনে চেনা', speak:'বলে Practice', dialogue:'কথোপকথন', quiz:'Quick Quiz', done:'সম্পন্ন!' };
+  var bn = function(n){ return String(n).replace(/\d/g, function(d){ return '০১২৩৪৫৬৭৮৯'[d]; }); };
+  var esc = function(t){ return String(t).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+  var shuffle = function(a){ a = a.slice(); for (var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; };
+
+  /* ---------- storage (safe) ---------- */
+  function read(k, d){ try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } }
+  function write(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+  function dstr(d){ return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); }
+  function bumpStreak(){
+    var s = read('be_streak', { last:'', count:0 });
+    var t = new Date(), y = new Date(); y.setDate(y.getDate()-1);
+    if (s.last === dstr(t)) return s.count;
+    s.count = (s.last === dstr(y)) ? s.count + 1 : 1;
+    s.last = dstr(t); write('be_streak', s); return s.count;
+  }
+
+  /* ---------- speech ---------- */
+  var canSpeak = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  function say(text){
+    if (!canSpeak) return;
+    try {
+      speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(text); u.lang = 'en-US'; u.rate = 0.9;
+      var vs = speechSynthesis.getVoices();
+      var v = vs.find(function(x){ return /^en[-_]US/i.test(x.lang); }) || vs.find(function(x){ return /^en/i.test(x.lang); });
+      if (v) u.voice = v;
+      speechSynthesis.speak(u);
+    } catch(e){}
+  }
+  function words(t){
+    return t.toLowerCase().replace(/i'm/g,'i am').replace(/i'll/g,'i will').replace(/o'clock/g,'oclock').replace(/wasn't/g,'was not')
+      .replace(/[^a-z0-9\s]/g,' ').split(/\s+/).filter(Boolean);
+  }
+  function matchScore(target, heard){
+    var t = words(target), h = words(heard); if (!t.length) return 0;
+    var pool = h.slice(), hit = 0;
+    t.forEach(function(w){ var i = pool.indexOf(w); if (i > -1){ hit++; pool.splice(i,1); } });
+    return hit / t.length;
+  }
+  window.__beMatch = matchScore;
+
+  /* ---------- shell ---------- */
+  function paintProgress(){
+    $('#progress').innerHTML = flow.map(function(_, i){ return '<li class="' + (i < idx ? 'done' : i === idx ? 'cur' : '') + '"></li>'; }).join('');
+    $('#stepName').textContent = 'ধাপ ' + bn(idx+1) + '/' + bn(flow.length) + ' · ' + STEP_NAME[flow[idx]];
+  }
+  function go(n){
+    idx = n; paintProgress();
+    if (canSpeak) { try { speechSynthesis.cancel(); } catch(e){} }
+    R[flow[idx]]();
+    stage.focus({ preventScroll:true });
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+  function next(){ go(idx + 1); }
+  function nextBtn(label, id){ return '<div class="row"><button class="btn btn-main" id="' + (id || 'nextBtn') + '">' + (label || 'পরের ধাপ →') + '</button></div>'; }
+
+  /* ---------- steps ---------- */
+  var R = {};
+
+  R.scene = function(){
+    stage.innerHTML = '<h2>পরিস্থিতি</h2><p class="lede">' + esc(L.scene) + '</p>' + nextBtn('শুরু করি →');
+    $('#nextBtn').onclick = next;
+  };
+
+  R.phrases = function(){
+    var i = 0, P = L.phrases;
+    function card(){
+      var p = P[i], last = i === P.length - 1;
+      stage.innerHTML =
+        '<p class="counter">Phrase ' + bn(i+1) + '/' + bn(P.length) + '</p>' +
+        (p.tag ? '<p class="tag">' + esc(p.tag) + '</p>' : '') +
+        '<p class="big-en">' + esc(p.en) + '</p>' +
+        '<p class="bn-line">' + esc(p.bn) + '</p>' +
+        (p.pr ? '<p class="pr-line">উচ্চারণ: ' + esc(p.pr) + '</p>' : '') +
+        '<div class="row">' +
+          (canSpeak ? '<button class="btn btn-alt" id="hear">🔊 শুনুন</button>' : '') +
+          '<button class="btn btn-main" id="nextCard">' + (last ? 'পরের ধাপ →' : 'পরের phrase →') + '</button>' +
+        '</div>' +
+        (canSpeak ? '' : '<p class="note info">আপনার ডিভাইসে শব্দ শোনার সুবিধা নেই। ইংরেজি লেখা আর উচ্চারণ দেখে পড়ুন।</p>');
+      if ($('#hear')) $('#hear').onclick = function(){ say(p.en); };
+      $('#nextCard').onclick = function(){ if (last) next(); else { i++; card(); } };
+    }
+    card();
+  };
+
+  R.listen = function(){
+    var q = 0, Q = L.listening, ok = 0;
+    S.listenTotal = Q.length; S.listenOk = 0;
+    function ask(){
+      var item = Q[q], opts = shuffle(item.options), done = false;
+      stage.innerHTML =
+        '<p class="counter">প্রশ্ন ' + bn(q+1) + '/' + bn(Q.length) + '</p>' +
+        '<h2>' + (canSpeak ? 'শুনুন, তারপর অর্থ বাছুন' : 'এই বাক্যের অর্থ কী?') + '</h2>' +
+        (canSpeak ? '<button class="btn btn-alt" id="play">🔊 বাজান</button>' : '<p class="big-en">' + esc(item.say) + '</p>') +
+        '<div class="opts" id="opts">' + opts.map(function(o, k){ return '<button class="opt" data-k="' + k + '">' + esc(o.t) + '</button>'; }).join('') + '</div>' +
+        '<div id="fb"></div>';
+      if ($('#play')) { $('#play').onclick = function(){ say(item.say); }; setTimeout(function(){ say(item.say); }, 250); }
+      document.querySelectorAll('#opts .opt').forEach(function(b){
+        b.onclick = function(){
+          if (done) return; done = true;
+          var o = opts[+b.dataset.k];
+          document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); if (opts[+x.dataset.k].ok) x.classList.add('good'); });
+          if (o.ok){ S.listenOk++; $('#fb').innerHTML = '<p class="note good">✅ ঠিক! ' + esc(item.say) + ' — ' + esc(item.why) + '</p>'; }
+          else { b.classList.add('bad'); $('#fb').innerHTML = '<p class="note bad">আরেকটু হলেই হতো। সঠিক উত্তরটি সবুজ রঙে দেখানো হয়েছে। ' + esc(item.why) + '</p>'; }
+          $('#fb').innerHTML += nextBtn(q === Q.length - 1 ? 'পরের ধাপ →' : 'পরের প্রশ্ন →', 'nx');
+          $('#nx').onclick = function(){ if (q === Q.length - 1) next(); else { q++; ask(); } };
+          $('#nx').focus();
+        };
+      });
+    }
+    ask();
+  };
+
+  R.speak = function(){
+    var list = L.speak.map(function(i){ return L.phrases[i]; }), n = 0, busy = false;
+    function show(){
+      var p = list[n], last = n === list.length - 1;
+      stage.innerHTML =
+        '<p class="counter">বলুন ' + bn(n+1) + '/' + bn(list.length) + '</p>' +
+        '<h2>এবার নিজে বলুন</h2>' +
+        '<p class="big-en">' + esc(p.en) + '</p>' +
+        '<p class="bn-line">' + esc(p.bn) + '</p>' +
+        '<div class="row">' +
+          (canSpeak ? '<button class="btn btn-alt" id="hear">🔊 শুনুন</button>' : '') +
+          (SR ? '<button class="btn btn-main" id="mic">🎤 বলুন</button>' : '<button class="btn btn-main" id="manual">আমি নিজে বলেছি ✓</button>') +
+        '</div>' +
+        '<p class="mic-status" id="status" role="status"></p>' +
+        (SR ? '' : '<p class="note info">এই ব্রাউজারে মাইক দিয়ে মেলানো যায় না। জোরে বলে অভ্যাস করুন, তারপর বোতামে চাপুন। মাইক পরীক্ষা করতে Chrome ব্যবহার করুন।</p>') +
+        '<div id="after"></div>';
+      if ($('#hear')) $('#hear').onclick = function(){ say(p.en); };
+      if ($('#manual')) $('#manual').onclick = advance;
+      if ($('#mic')) $('#mic').onclick = function(){ record(p); };
+    }
+    function advance(){ if (n === list.length - 1) next(); else { n++; show(); } }
+    function showNext(good){
+      $('#after').insertAdjacentHTML('beforeend', nextBtn(n === list.length - 1 ? 'পরের ধাপ →' : 'পরের বাক্য →', 'nx'));
+      $('#nx').onclick = advance; $('#nx').focus();
+    }
+    function record(p){
+      if (busy) return;
+      var st = $('#status'), fin = false, got = false, rec;
+      try { rec = new SR(); } catch(e){ st.textContent = 'মাইক চালু করা যায়নি।'; showNext(); return; }
+      rec.lang = 'en-US'; rec.interimResults = false; rec.maxAlternatives = 3;
+      busy = true; st.textContent = '🎤 শুনছি… এখন বলুন';
+      function fail(msg){ if (fin) return; fin = true; busy = false; st.innerHTML = ''; $('#after').innerHTML = '<p class="note bad">' + msg + '</p><div class="row"><button class="btn btn-main" id="again">আবার চেষ্টা করুন</button><button class="btn btn-alt" id="skip">এড়িয়ে যান →</button></div>'; $('#again').onclick = function(){ $('#after').innerHTML = ''; record(p); }; $('#skip').onclick = advance; }
+      rec.onresult = function(e){
+        got = true; if (fin) return; fin = true; busy = false;
+        var alts = []; for (var i=0;i<e.results[0].length;i++) alts.push(e.results[0][i].transcript);
+        var best = 0, bestT = alts[0] || '';
+        alts.forEach(function(a){ var s = matchScore(p.en, a); if (s > best){ best = s; bestT = a; } });
+        if (best >= 0.6){ st.innerHTML = ''; $('#after').innerHTML = '<p class="note good">✅ দারুণ! আপনার বলা মিলে গেছে।</p>'; showNext(true); }
+        else { st.innerHTML = ''; $('#after').innerHTML = '<p class="note bad">আমরা শুনেছি: “' + esc(bestT) + '”। আরেকবার ধীরে ধীরে বলুন।</p><div class="row"><button class="btn btn-main" id="again">আবার চেষ্টা করুন</button><button class="btn btn-alt" id="skip">এড়িয়ে যান →</button></div>'; $('#again').onclick = function(){ $('#after').innerHTML = ''; record(p); }; $('#skip').onclick = advance; }
+      };
+      rec.onerror = function(e){
+        var c = e && e.error;
+        if (c === 'not-allowed' || c === 'service-not-allowed') fail('মাইকের অনুমতি দেওয়া হয়নি। ঠিকানা বারের পাশে মাইক আইকনে চেপে অনুমতি দিন।');
+        else if (c === 'no-speech') fail('কিছু শুনতে পাইনি। আবার চেষ্টা করুন।');
+        else fail('মাইক এখন কাজ করছে না। নিচের বোতামে চেপে এগিয়ে যান।');
+      };
+      rec.onend = function(){ if (!got) fail('কিছু শুনতে পাইনি। আবার চেষ্টা করুন।'); };
+      try { rec.start(); } catch(e){ fail('মাইক চালু করা যায়নি।'); }
+    }
+    show();
+  };
+
+  R.dialogue = function(){
+    var t = 0, D = L.dialogue; S.dStars = 0; S.dMax = D.length * 3;
+    var log = [];
+    function turn(){
+      var d = D[t], choices = shuffle(d.choices), picked = false;
+      stage.innerHTML =
+        '<p class="counter">কথা ' + bn(t+1) + '/' + bn(D.length) + '</p>' +
+        '<div class="chat">' + log.join('') +
+          '<div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(d.boss) + '<small>' + esc(d.bn) + '</small></div>' +
+        '</div>' +
+        '<h2>আপনি কী বলবেন?</h2>' +
+        '<div class="opts" id="opts">' + choices.map(function(c, k){ return '<button class="opt" data-k="' + k + '">' + esc(c.en) + '</button>'; }).join('') + '</div>' +
+        '<div id="fb"></div>';
+      document.querySelectorAll('#opts .opt').forEach(function(b){
+        b.onclick = function(){
+          if (picked) return; picked = true;
+          var c = choices[+b.dataset.k];
+          S.dStars += c.stars;
+          document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); });
+          if (c.stars === 3) b.classList.add('good'); else if (c.stars === 1) b.classList.add('bad');
+          var stars = '⭐'.repeat(c.stars);
+          var cls = c.stars === 3 ? 'good' : c.stars === 1 ? 'bad' : 'info';
+          var head = c.stars === 3 ? 'সবচেয়ে ভালো উত্তর' : c.stars === 2 ? 'মোটামুটি' : 'আরও ভালো বলা যেত';
+          $('#fb').innerHTML =
+            '<div class="chat" style="margin-top:14px"><div class="bubble b-me"><span class="who">আপনি</span>' + esc(c.en) + '</div>' +
+            '<div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(c.reply) + '<small>' + esc(c.replyBn) + '</small></div></div>' +
+            '<p class="note ' + cls + '"><span class="stars" aria-label="' + c.stars + ' তারা">' + stars + '</span> ' + head + '। ' + esc(c.tip) + '</p>' +
+            nextBtn(t === D.length - 1 ? 'পরের ধাপ →' : 'কথা চালিয়ে যান →', 'nx');
+          log.push('<div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(d.boss) + '</div><div class="bubble b-me"><span class="who">আপনি</span>' + esc(c.en) + '</div><div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(c.reply) + '</div>');
+          $('#nx').onclick = function(){ if (t === D.length - 1) next(); else { t++; turn(); } };
+          $('#nx').focus();
+        };
+      });
+    }
+    turn();
+  };
+
+  R.quiz = function(){
+    var q = 0, Q = L.quiz; S.quizOk = 0; S.quizTotal = Q.length;
+    function ask(){
+      var item = Q[q], done = false;
+      stage.innerHTML =
+        '<p class="counter">প্রশ্ন ' + bn(q+1) + '/' + bn(Q.length) + '</p>' +
+        '<h2>' + esc(item.q) + '</h2>' +
+        '<div class="opts" id="opts"><button class="opt" data-v="true">✔ ঠিক</button><button class="opt" data-v="false">✖ ভুল</button></div><div id="fb"></div>';
+      document.querySelectorAll('#opts .opt').forEach(function(b){
+        b.onclick = function(){
+          if (done) return; done = true;
+          var v = b.dataset.v === 'true', right = v === item.a;
+          document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); if ((x.dataset.v === 'true') === item.a) x.classList.add('good'); });
+          if (right){ S.quizOk++; $('#fb').innerHTML = '<p class="note good">✅ ঠিক বলেছেন! ' + esc(item.why) + '</p>'; }
+          else { b.classList.add('bad'); $('#fb').innerHTML = '<p class="note bad">সঠিক উত্তরটি সবুজ রঙে আছে। ' + esc(item.why) + '</p>'; }
+          $('#fb').innerHTML += nextBtn(q === Q.length - 1 ? 'ফলাফল দেখুন →' : 'পরের প্রশ্ন →', 'nx');
+          $('#nx').onclick = function(){ if (q === Q.length - 1) next(); else { q++; ask(); } };
+          $('#nx').focus();
+        };
+      });
+    }
+    ask();
+  };
+
+  R.done = function(){
+    var has = function(k){ return flow.indexOf(k) > -1; };
+    var got = (S.dStars || 0) + (S.quizOk || 0) + (S.listenOk || 0);
+    var max = (S.dMax || 0) + (S.quizTotal || 0) + (S.listenTotal || 0);
+    var five = max ? Math.max(1, Math.round(5 * got / max)) : 5;
+    var prog = read('be_progress', {});
+    var prev = prog[L.id] ? prog[L.id].stars : 0;
+    prog[L.id] = { stars: Math.max(prev, five), date: dstr(new Date()) };
+    write('be_progress', prog);
+    var streak = bumpStreak();
+    var rows = '';
+    if (has('listen')) rows += '<li><span>শুনে চেনা</span><b>' + bn(S.listenOk) + '/' + bn(S.listenTotal) + '</b></li>';
+    if (has('dialogue')) rows += '<li><span>কথোপকথনের তারা</span><b>' + bn(S.dStars) + '/' + bn(S.dMax) + '</b></li>';
+    if (has('quiz')) rows += '<li><span>Quick Quiz</span><b>' + bn(S.quizOk) + '/' + bn(S.quizTotal) + '</b></li>';
+    var nextLabel = L.next && L.next.title ? 'পরের লেসন: ' + esc(L.next.title) : '';
+    stage.innerHTML =
+      '<div class="result"><div class="party" aria-hidden="true">🎉</div>' +
+      '<h2>অভিনন্দন! লেসন সম্পন্ন</h2>' +
+      '<p class="lede" style="margin-bottom:6px">আপনি “' + esc(L.title) + '” শেষ করেছেন।</p>' +
+      '<div class="big-stars" aria-label="৫ এর মধ্যে ' + bn(five) + ' তারা">' + '⭐'.repeat(five) + '</div>' +
+      '<p class="score-line">৫ এর মধ্যে ' + bn(five) + '</p>' +
+      '<ul class="stats">' + rows + '</ul>' +
+      '<div class="streak">🔥 ' + bn(streak) + ' দিন টানা practice</div>' +
+      '<div class="row">' +
+        '<button class="btn btn-alt" id="again">আবার করুন</button>' +
+        (nextLabel ? '<button class="btn btn-main" disabled>' + nextLabel + ' (শীঘ্রই আসছে)</button>' : '') +
+        '<a class="btn btn-main" href="index.html#needs">সব লেসন দেখুন</a>' +
+      '</div></div>';
+    $('#again').onclick = function(){ S = {}; go(0); };
+  };
+
+  /* ---------- start ---------- */
+  function missing(){
+    $('#lessonTitle').textContent = 'লেসনটি পাওয়া যায়নি';
+    $('#progress').innerHTML = ''; $('#stepName').textContent = '';
+    stage.innerHTML = '<div class="missing"><p class="lede">এই লেসনটি এখনো তৈরি হয়নি।</p><a class="btn btn-main" href="index.html#needs">সব লেসনে ফিরুন</a></div>';
+  }
+  function start(){
+    L = window.LESSON; S = {}; WHO = L.who || 'বস';
+    document.title = L.title + ' | Bidesh English';
+    $('#lessonTitle').textContent = L.title;
+    $('#lessonSub').textContent = L.titleBn || '';
+    flow = L.type === 'B' ? ['phrases','listen','speak','done'] : ['scene','phrases','listen','speak','dialogue','quiz','done'];
+    go(0);
+  }
+  if (!id){ missing(); return; }
+  var s = document.createElement('script');
+  s.src = 'lessons/' + id + '.js';
+  s.onload = function(){ if (window.LESSON) start(); else missing(); };
+  s.onerror = missing;
+  document.head.appendChild(s);
+  if (canSpeak) { try { speechSynthesis.getVoices(); } catch(e){} }
+})();
+</script>
+</body>
+</html>
