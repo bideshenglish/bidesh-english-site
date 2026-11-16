@@ -4,7 +4,7 @@ window.LESSON = {
   who: "সুপারভাইজার",
   title: "Understanding Instructions on Site",
   titleBn: "কাজের জায়গায় নির্দেশ বোঝা",
-  next: { title: "Asking for Tools & Materials", id: null },
+  next: { title: "Asking for Tools & Materials", id: "tools-materials" },
 
   scene: "আজ আপনার কাজের প্রথম দিন। সাইটে সুপারভাইজার আপনাকে কাজ বুঝিয়ে দিচ্ছেন। তিনি একটু দ্রুত কথা বলেন, আর কয়েকটি শব্দ আপনার অচেনা। আসুন দেখি কী করবেন।",
 

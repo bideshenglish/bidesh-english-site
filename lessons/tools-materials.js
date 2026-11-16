@@ -4,7 +4,7 @@ window.LESSON = {
   who: "সুপারভাইজার",
   title: "Asking for Tools & Materials",
   titleBn: "যন্ত্রপাতি ও জিনিস চেয়ে নেওয়া",
-  next: { title: "Safety Signs & Warnings", id: null },
+  next: { title: "Safety Signs & Warnings", id: "safety-signs" },
 
   scene: "কাজ শুরুর আগে আপনার কিছু যন্ত্রপাতি দরকার: গ্লাভস, বালতি, মপ। কোথায় পাবেন বা কীভাবে চাইবেন? সুপারভাইজারের সাথে ভদ্রভাবে কথা বলে দেখুন।",
 
