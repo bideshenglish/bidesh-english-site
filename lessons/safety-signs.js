@@ -4,7 +4,7 @@ window.LESSON = {
   who: "সুপারভাইজার",
   title: "Safety Signs & Warnings",
   titleBn: "নিরাপত্তার চিহ্ন ও সতর্কবার্তা",
-  next: { title: "Accident, Injury or Feeling Unwell", id: null },
+  next: { title: "Accident, Injury or Feeling Unwell", id: "accident-unwell" },
 
   scene: "কাজের জায়গায় দেয়াল, দরজা আর মেশিনে লাল-হলুদ চিহ্ন লাগানো থাকে। ওগুলোর মানে না জানলে বিপদ হতে পারে। আজ সবচেয়ে দরকারি চিহ্নগুলো চিনে নিন। না বুঝলে ভদ্রভাবে জিজ্ঞেস করাও শিখবেন।",
 
