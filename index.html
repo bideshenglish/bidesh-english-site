@@ -93,7 +93,7 @@
   .pass-card.active .pass-chev{transform:rotate(180deg);background:var(--sun-soft);}
 
   .drill{max-height:0;overflow:hidden;transition:max-height .35s ease;border-radius:0 0 20px 20px;}
-  .drill.open{max-height:1600px;}
+  .drill.open{max-height:2600px;}
   .drill-inner{padding:6px 16px 20px;border-top:1px solid var(--line);}
   .sub-tabs{display:flex;gap:6px;margin:16px 0 6px;background:var(--leaf-soft);padding:4px;border-radius:14px;}
   .sub-tab{flex:1;text-align:center;background:transparent;border:none;border-radius:10px;padding:10px 4px;font-size:15px;font-weight:700;line-height:1.3;cursor:pointer;color:var(--ink-soft);}
@@ -139,6 +139,22 @@
 
   #toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);background:var(--pine);color:#fff;padding:12px 20px;border-radius:999px;font-size:17px;font-weight:700;box-shadow:0 12px 26px rgba(0,0,0,0.25);opacity:0;pointer-events:none;transition:opacity .25s ease, transform .25s ease;z-index:60;max-width:88%;text-align:center;}
   #toast.show{opacity:1;transform:translate(-50%,0);}
+
+
+  /* ---------- profession picker ---------- */
+  .prof-hint{margin:16px 2px 8px;font-weight:700;font-size:16.5px;color:var(--ink-soft);}
+  .prof-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+  .prof-chip{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:9px;min-height:54px;padding:8px 10px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;font-size:15.5px;font-weight:700;line-height:1.35;color:var(--ink);cursor:pointer;transition:border-color .15s ease, background .15s ease;}
+  .prof-chip .pe{flex:none;font-size:22px;line-height:1;}
+  .prof-chip:hover{border-color:var(--leaf);background:#fff;}
+  .prof-chip:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+  .prof-chip.selected{background:var(--leaf-deep);border-color:var(--leaf-deep);color:#fff;}
+  .prof-chip.core{grid-column:1 / -1;background:var(--sun-soft);border-color:#E7C46A;color:#4A3000;}
+  .prof-chip.core.selected{background:var(--sun);border-color:var(--sun-deep);color:var(--pine);}
+  .prof-title{margin:18px 2px 4px;font-weight:800;font-size:19px;color:var(--pine);}
+  .prof-soon{margin:10px 0 2px;padding:14px 16px;background:var(--sun-soft);color:#4A3000;border-radius:14px;font-weight:600;font-size:16.5px;line-height:1.6;}
+  .prof-soon button{all:unset;cursor:pointer;display:inline-block;margin-top:8px;font-weight:800;color:var(--pine);text-decoration:underline;}
+  @media (min-width:560px){ .prof-grid{grid-template-columns:repeat(3,minmax(0,1fr));} }
 
   /* ---------- larger screens ---------- */
   @media (min-width:760px){
@@ -325,16 +341,15 @@
             <span class="pass-main">
               <span class="pass-title">My Job English</span>
               <span class="pass-bn">আপনার পেশার নির্দিষ্ট ইংরেজি</span>
-              <span class="pass-count">১২টি বিষয়</span>
+              <span class="pass-count">১৭টি পেশা</span>
             </span>
             <span class="pass-chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
           </button>
           <div class="drill" id="drill-job">
             <div class="drill-inner">
-              <div class="sub-tabs" data-group="job">
-                <button class="sub-tab" data-value="jobGeneral">🧹 সাধারণ কর্মী</button>
-                <button class="sub-tab" data-value="jobConstruction">🏗️ নির্মাণ কর্মী</button>
-              </div>
+              <p class="prof-hint">আপনার পেশা বেছে নিন</p>
+              <div class="prof-grid" id="prof-grid"></div>
+              <p class="prof-title" id="prof-title"></p>
               <div class="topic-list" id="topics-job"></div>
             </div>
           </div>
@@ -407,14 +422,14 @@ const topicsData = {
   alreadyWork: ["Talking to Your Boss","Talking to Coworkers","Asking for Leave","Understanding Instructions & Workplace Safety","Workplace Small Talk","Handling Problems at Work"],
   alreadyStudy: ["Campus Life Conversations","Group Study & Assignments","Talking to Academic Advisors","Library & Resources English","Exam & Deadline Conversations","Meeting Other International Students"],
   alreadyLife: ["Renewing Documents & Visa","Dealing with Landlords","Visiting a Doctor or Hospital","Emergency Situations","Post Office & Delivery English","Shopping & Banking Abroad"],
-  jobGeneral: ["Understanding Instructions on Site","Asking for Tools & Materials","Safety Signs & Warnings","Reporting a Problem or Injury","Salary, Overtime & Days Off","Asking Your Supervisor to Repeat or Explain"],
-  jobConstruction: ["Site Instructions & Directions","Tools, Materials & Measurements","Safety Gear & Danger Warnings","Reporting an Accident or Injury","Working with Your Foreman","Salary, Overtime & Accommodation"]
+  jobCore: ["Understanding Instructions on Site","Asking for Tools & Materials","Safety Signs & Warnings","Accident, Injury or Feeling Unwell","Shift, Attendance & Overtime Hours","Salary & Payday","Breaks, Meals & Prayer Time","Camp Life & Roommates"]
 };
 
 // যে লেসনগুলো তৈরি হয়ে গেছে, সেগুলো এখানে যোগ করুন: "লেসনের নাম": "lesson.html?id=ফাইলের-নাম"
 const lessonLinks = {
   "Talking to Your Boss": "lesson.html?id=boss",
-  "Understanding Instructions on Site": "lesson.html?id=site-instructions"
+  "Understanding Instructions on Site": "lesson.html?id=site-instructions",
+    "Asking for Tools & Materials": "lesson.html?id=tools-materials"
 };
 
 function lessonDone(href){
@@ -452,6 +467,56 @@ document.querySelectorAll('.pass-row').forEach(row => {
     if(!isOpen){ drill.classList.add('open'); card.classList.add('active'); row.setAttribute('aria-expanded', 'true'); }
   });
 });
+
+const professions = [
+  ["👷","সাধারণ শ্রমিক / নির্মাণকর্মী"],
+  ["🏠","গৃহকর্মী / কেয়ারগিভার"],
+  ["🚗","ড্রাইভার"],
+  ["🧱","মেসন / কার্পেন্টার"],
+  ["⚡","ইলেকট্রিশিয়ান"],
+  ["🔧","প্লাম্বার / পাইপ ফিটার"],
+  ["🔥","ওয়েল্ডার / ফ্যাব্রিকেটর"],
+  ["❄️","এসি ও রেফ্রিজারেটর টেকনিশিয়ান"],
+  ["🎨","পেইন্টার / টাইলস / স্টিল ফিক্সার"],
+  ["🧹","ক্লিনার / হাউসকিপিং"],
+  ["🍽️","হোটেল ও রেস্তোরাঁ কর্মী"],
+  ["🛍️","সেলসম্যান / রিটেইল কর্মী"],
+  ["🛡️","সেফটি গার্ড"],
+  ["🩺","নার্স / হেলথকেয়ার সহায়ক"],
+  ["🧵","গার্মেন্টস / সেলাই কর্মী"],
+  ["🌾","কৃষিকর্মী / গার্ডেনার"],
+  ["⚙️","মেশিন অপারেটর / ফ্যাক্টরি কর্মী"]
+];
+// যে পেশার লেসন তৈরি হয়ে গেছে, তার নাম এখানে যোগ করুন (যেমন: professionLessons["ড্রাইভার"] = ["লেসন ১", ...])
+const professionLessons = {};
+
+function selectProfession(key){
+  const grid = document.getElementById('prof-grid');
+  grid.querySelectorAll('.prof-chip').forEach(c => c.classList.toggle('selected', c.dataset.key === key));
+  const title = document.getElementById('prof-title');
+  const list = document.getElementById('topics-job');
+  if(key === 'core'){
+    title.textContent = '⭐ সব পেশার জন্য (সবার কাজে লাগে)';
+    renderTopics('topics-job', topicsData.jobCore);
+    return;
+  }
+  const prof = professions[+key];
+  title.textContent = prof[0] + ' ' + prof[1];
+  const lessons = professionLessons[prof[1]];
+  if(lessons && lessons.length){ renderTopics('topics-job', lessons); }
+  else {
+    list.innerHTML = '<div class="prof-soon">🚧 এই পেশার লেসন তৈরি হচ্ছে, শীঘ্রই আসছে।<br>এর মধ্যে সবার কাজের লেসনগুলো শিখে নিন।<br><button type="button" data-go-core="1">সব পেশার জন্য লেসন দেখুন →</button></div>';
+  }
+}
+(function(){
+  const grid = document.getElementById('prof-grid');
+  if(!grid) return;
+  grid.innerHTML = '<button class="prof-chip core" data-key="core"><span class="pe">⭐</span><span>সব পেশার জন্য লেসন</span></button>' +
+    professions.map((p, i) => `<button class="prof-chip" data-key="${i}"><span class="pe">${p[0]}</span><span>${p[1]}</span></button>`).join('');
+  grid.addEventListener('click', e => { const c = e.target.closest('.prof-chip'); if(c) selectProfession(c.dataset.key); });
+  document.getElementById('topics-job').addEventListener('click', e => { if(e.target.closest('[data-go-core]')) selectProfession('core'); });
+  selectProfession('core');
+})();
 
 document.querySelectorAll('.sub-tabs').forEach(row => {
   const group = row.dataset.group;
