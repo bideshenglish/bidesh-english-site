@@ -141,34 +141,60 @@
   #toast.show{opacity:1;transform:translate(-50%,0);}
 
 
-  /* ---------- profession picker ---------- */
-  .prof-hint{margin:16px 2px 8px;font-weight:700;font-size:16.5px;color:var(--ink-soft);}
-  .prof-grid{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
-  .prof-chip{all:unset;box-sizing:border-box;display:flex;align-items:center;gap:9px;min-height:54px;padding:8px 10px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;font-size:15.5px;font-weight:700;line-height:1.35;color:var(--ink);cursor:pointer;transition:border-color .15s ease, background .15s ease, transform .1s ease;}
-  .prof-chip .pe{flex:none;font-size:22px;line-height:1;}
-  .prof-chip:hover{border-color:var(--leaf);background:#fff;}
-  .prof-chip:active{transform:scale(.985);}
-  .prof-chip:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
-  .prof-chip.selected{background:var(--leaf-deep);border-color:var(--leaf-deep);color:#fff;box-shadow:0 10px 18px -12px rgba(12,58,39,0.8);}
+  /* ---------- My Job English: accordion ---------- */
+  #prof-wrap{display:flex;flex-direction:column;gap:12px;padding-top:16px;}
+  .core-btn{all:unset;box-sizing:border-box;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:82px;padding:14px 52px 14px 20px;border-radius:20px;text-align:center;cursor:pointer;color:var(--pine);border:1.5px solid #E2BC57;
+    background-color:#FBE3A6;background-image:linear-gradient(135deg,#FFF1C9 0%,#F7CE6A 100%);box-shadow:0 14px 22px -16px rgba(150,95,0,0.8),inset 0 1px 0 rgba(255,255,255,0.7);transition:transform .1s ease;}
+  .core-btn:active{transform:scale(.99);}
+  .core-btn:focus-visible{outline:3px solid var(--pine);outline-offset:3px;}
+  .core-btn .c-main{font-size:21px;font-weight:700;line-height:1.5;letter-spacing:0;}
+  .core-btn .c-sub{display:inline-block;margin-top:3px;padding:2px 14px;border-radius:999px;font-size:16px;font-weight:600;line-height:1.6;color:#4A3000;background:rgba(255,255,255,0.55);}
+  .core-btn .c-chev{position:absolute;right:14px;top:50%;width:34px;height:34px;margin-top:-17px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,0.6);transition:transform .25s ease;}
+  .core-btn .c-chev svg,.cat-chev svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
+  .core-btn.open{background-color:var(--pine);background-image:linear-gradient(135deg,#14582B 0%,#0C3A27 100%);border-color:var(--pine);color:#fff;}
+  .core-btn.open .c-sub{color:#FFF3CC;background:rgba(255,255,255,0.16);}
+  .core-btn.open .c-chev{transform:rotate(180deg);background:rgba(255,255,255,0.18);color:#fff;}
+  .core-panel{padding:2px 0 4px;}
+  .core-panel[hidden]{display:none;}
+  .core-panel .topic-item,.prof-panel .topic-item{background:#fff;}
 
-  /* featured banner: common lessons */
-  .prof-chip.core{grid-column:1 / -1;flex-direction:column;justify-content:center;gap:2px;text-align:center;min-height:78px;padding:14px 16px;border-radius:18px;border:1.5px solid #E2BC57;color:var(--pine);
-    background-color:#FBE3A6;background-image:linear-gradient(135deg,#FFF1C9 0%,#F7CE6A 100%);box-shadow:0 14px 22px -16px rgba(150,95,0,0.8),inset 0 1px 0 rgba(255,255,255,0.7);}
-  .prof-chip.core .c-main{font-size:21px;font-weight:700;letter-spacing:0;line-height:1.5;text-rendering:optimizeLegibility;}
-  .prof-chip.core .c-sub{display:inline-block;margin-top:4px;padding:2px 14px;border-radius:999px;font-size:16.5px;font-weight:600;letter-spacing:0;line-height:1.6;color:#4A3000;background:rgba(255,255,255,0.55);}
-  .prof-chip.core.selected{background-color:var(--pine);background-image:linear-gradient(135deg,#14582B 0%,#0C3A27 100%);border-color:var(--pine);color:#FFFFFF;}
-  .prof-chip.core.selected .c-main{color:#FFFFFF;}
-  .prof-chip.core.selected .c-sub{color:#FFF3CC;background:rgba(255,255,255,0.16);}
+  .prof-hint{margin:6px 2px 0;font-weight:700;font-size:16.5px;color:var(--ink-soft);}
 
-  /* panel that opens right under the chosen profession */
-  .prof-panel{grid-column:1 / -1;position:relative;margin:10px 0 6px;padding:10px;border-radius:20px;background-color:#EAF5EC;background-image:linear-gradient(180deg,#F3FAF4,#E3F1E6);border:1.5px solid #B9D8C1;box-shadow:0 18px 28px -22px rgba(12,58,39,0.6);animation:panelIn .28s ease both;}
+  .cat{border:1.5px solid var(--line);border-radius:20px;background:#F7FBF8;transition:border-color .2s ease, box-shadow .2s ease;}
+  .cat.open{border-color:#7FB08C;background:#fff;box-shadow:0 18px 26px -22px rgba(12,58,39,0.7);}
+  .cat-row{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:13px;padding:13px 14px;cursor:pointer;border-radius:20px;}
+  .cat-row:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+  .cat-ic{flex:none;width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background-color:#14582B;background-image:linear-gradient(145deg,#1F8A36 0%,#0C3A27 100%);box-shadow:0 12px 18px -12px rgba(12,58,39,0.95),inset 0 1px 0 rgba(255,255,255,0.28);}
+  .cat-ic svg{width:25px;height:25px;fill:none;stroke:#F4B93E;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+  .cat-txt{min-width:0;flex:1;}
+  .cat-title{display:block;margin:0;font-size:18.5px;font-weight:800;color:var(--pine);line-height:1.4;letter-spacing:0;}
+  .cat-sub{display:block;margin:0;font-size:15.5px;font-weight:600;color:var(--ink-soft);line-height:1.5;}
+  .cat-chev{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--leaf-soft);color:var(--leaf-deep);transition:transform .25s ease, background .25s ease;}
+  .cat.open .cat-chev{transform:rotate(180deg);background:var(--sun-soft);}
+  .cat-count{display:inline-block;margin-top:3px;font-size:14.5px;font-weight:700;color:var(--leaf-deep);background:var(--leaf-soft);border-radius:999px;padding:0 10px;}
+  .cat-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease;}
+  .cat.open .cat-body{grid-template-rows:1fr;}
+  .cat-inner{overflow:hidden;min-height:0;}
+  .prof-list{display:flex;flex-direction:column;padding:2px 12px 12px;border-top:1.5px dashed #C3DACA;margin:0 14px;padding-left:0;padding-right:0;}
+
+  .prof-row{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:12px;padding:11px 8px;border-radius:14px;cursor:pointer;margin-top:6px;transition:background .15s ease;}
+  .prof-row:hover{background:var(--leaf-soft);}
+  .prof-row:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+  .prof-row .pi{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--leaf-soft);}
+  .prof-row .pi svg{width:22px;height:22px;fill:none;stroke:var(--leaf-deep);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .prof-row .pn{flex:1;min-width:0;font-size:17.5px;font-weight:700;line-height:1.4;color:var(--ink);}
+  .prof-row .pc{flex:none;width:26px;height:26px;display:grid;place-items:center;color:var(--leaf-deep);transition:transform .2s ease;}
+  .prof-row .pc svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
+  .prof-row.selected{background:var(--leaf-soft);}
+  .prof-row.selected .pi{background:var(--leaf-deep);}
+  .prof-row.selected .pi svg{stroke:#fff;}
+  .prof-row.selected .pc{transform:rotate(90deg);}
+
+  .prof-panel{margin:6px 0 2px;padding:10px;border-radius:16px;background:#F1F8F2;border:1.5px solid #CFE3D4;animation:panelIn .25s ease both;}
   .prof-panel[hidden]{display:none;}
-  .prof-panel::before{content:'';position:absolute;top:-9px;left:var(--cx,50%);width:16px;height:16px;transform:translateX(-50%) rotate(45deg);background:#F3FAF4;border-left:1.5px solid #B9D8C1;border-top:1.5px solid #B9D8C1;border-top-left-radius:4px;}
-  @keyframes panelIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-5px);}to{opacity:1;transform:none;}}
   .prof-panel .topic-list{margin-top:0;}
-  .prof-panel .topic-item{background:#fff;}
 
-  /* coming soon box (compact) */
   .prof-soon{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background-color:#FFF4D6;background-image:linear-gradient(160deg,#FFF9E8 0%,#FCE8B5 100%);border:1.5px dashed #E2BC57;}
   .prof-soon .ps-ic{flex:none;width:42px;height:42px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 6px 12px -6px rgba(150,95,0,0.7);}
   .prof-soon .ps-ic svg{width:22px;height:22px;stroke:#B07A00;}
@@ -177,20 +203,6 @@
   .prof-soon p{margin:0;font-weight:600;font-size:15.5px;line-height:1.5;color:#5A3D00;}
   .prof-soon button{all:unset;cursor:pointer;display:inline-block;margin-top:6px;font-weight:800;font-size:15.5px;color:var(--leaf-deep);text-decoration:underline;text-underline-offset:3px;}
   .prof-soon button:focus-visible{outline:3px solid var(--pine);outline-offset:3px;}
-  @media (min-width:560px){ .prof-grid{grid-template-columns:repeat(3,minmax(0,1fr));} }
-
-  /* ---------- profession categories ---------- */
-  .prof-sec{margin-top:24px;}
-  .prof-sec.first{margin-top:6px;}
-  .cat-head{display:flex;align-items:center;gap:12px;margin:0 0 12px;}
-  .cat-ic{flex:none;width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background-color:#14582B;background-image:linear-gradient(145deg,#1F8A36 0%,#0C3A27 100%);box-shadow:0 12px 18px -12px rgba(12,58,39,0.95),inset 0 1px 0 rgba(255,255,255,0.28);}
-  .cat-ic svg{width:25px;height:25px;fill:none;stroke:#F4B93E;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-  .cat-txt{min-width:0;flex:1;}
-  .cat-title{margin:0;font-size:18.5px;font-weight:800;color:var(--pine);line-height:1.4;letter-spacing:0;}
-  .cat-sub{margin:1px 0 0;font-size:15.5px;font-weight:600;color:var(--ink-soft);line-height:1.5;}
-  .cat-count{flex:none;align-self:flex-start;margin-top:2px;font-size:14.5px;font-weight:700;color:var(--leaf-deep);background:var(--leaf-soft);border-radius:999px;padding:2px 12px;white-space:nowrap;}
-  .prof-sec + .prof-sec{padding-top:2px;border-top:1.5px dashed #C3DACA;padding-top:20px;}
-  .prof-sec.first + .prof-sec{border-top:1.5px dashed #C3DACA;}
 
   /* ---------- larger screens ---------- */
   @media (min-width:760px){
@@ -383,7 +395,6 @@
           </button>
           <div class="drill" id="drill-job">
             <div class="drill-inner">
-              <p class="prof-hint">আপনার পেশা বেছে নিন</p>
               <div id="prof-wrap"></div>
             </div>
           </div>
@@ -503,23 +514,23 @@ document.querySelectorAll('.pass-row').forEach(row => {
 });
 
 const professions = [
-  ["👷","সাধারণ শ্রমিক / নির্মাণকর্মী"],
-  ["🏠","গৃহকর্মী / কেয়ারগিভার"],
-  ["🚗","ড্রাইভার"],
-  ["🧱","মেসন / কার্পেন্টার"],
-  ["⚡","ইলেকট্রিশিয়ান"],
-  ["🔧","প্লাম্বার / পাইপ ফিটার"],
-  ["🔥","ওয়েল্ডার / ফ্যাব্রিকেটর"],
-  ["❄️","এসি ও রেফ্রিজারেটর টেকনিশিয়ান"],
-  ["🎨","পেইন্টার / টাইলস / স্টিল ফিক্সার"],
-  ["🧹","ক্লিনার / হাউসকিপিং"],
-  ["🍽️","হোটেল ও রেস্তোরাঁ কর্মী"],
-  ["🛍️","সেলসম্যান / রিটেইল কর্মী"],
-  ["🛡️","সেফটি গার্ড"],
-  ["🩺","নার্স / হেলথকেয়ার সহায়ক"],
-  ["🧵","গার্মেন্টস / সেলাই কর্মী"],
-  ["🌾","কৃষিকর্মী / গার্ডেনার"],
-  ["⚙️","মেশিন অপারেটর / ফ্যাক্টরি কর্মী"]
+  ['<path d="M4 16a8 8 0 0 1 16 0"/><path d="M2.5 16h19v2.5h-19z"/><path d="M12 8v4"/>', "সাধারণ শ্রমিক / নির্মাণকর্মী"],
+  ['<path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M12 17c-2-1.4-3-2.3-3-3.5a1.6 1.6 0 0 1 3-.7 1.6 1.6 0 0 1 3 .7c0 1.2-1 2.1-3 3.5z"/>', "গৃহকর্মী / কেয়ারগিভার"],
+  ['<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 14v7M3.5 10.5 10 12M20.5 10.5 14 12"/>', "ড্রাইভার"],
+  ['<rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 9.7h18M3 14.3h18M9 5v4.7M15 9.7v4.6M9 14.3V19"/>', "মেসন / কার্পেন্টার"],
+  ['<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>', "ইলেকট্রিশিয়ান"],
+  ['<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>', "প্লাম্বার / পাইপ ফিটার"],
+  ['<path d="M12 3c1 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3 2-4 .5 1.2 1 1.7 2 2 0-3-1-5 1-7z"/>', "ওয়েল্ডার / ফ্যাব্রিকেটর"],
+  ['<path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/><path d="m9.5 4.5 2.5 2 2.5-2M9.5 19.5l2.5-2 2.5 2"/>', "এসি ও রেফ্রিজারেটর টেকনিশিয়ান"],
+  ['<rect x="3" y="3" width="14" height="6" rx="1.5"/><path d="M17 6h2.5A1.5 1.5 0 0 1 21 7.5V11a1.5 1.5 0 0 1-1.5 1.5H12v3"/><rect x="10.5" y="15.5" width="3" height="5.5" rx="1"/>', "পেইন্টার / টাইলস / স্টিল ফিক্সার"],
+  ['<path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15v4M17 17h4"/>', "ক্লিনার / হাউসকিপিং"],
+  ['<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10"/><path d="M17 3c-2 2-2.5 5-2.5 8h2.5v10"/>', "হোটেল ও রেস্তোরাঁ কর্মী"],
+  ['<path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>', "সেলসম্যান / রিটেইল কর্মী"],
+  ['<path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="m9 12 2 2 4-4"/>', "সেফটি গার্ড"],
+  ['<path d="M10 4h4v6h6v4h-6v6h-4v-6H4v-4h6z"/>', "নার্স / হেলথকেয়ার সহায়ক"],
+  ['<rect x="7" y="5" width="10" height="14" rx="2"/><path d="M7 9h10M7 15h10M4 4v16M20 4v16"/>', "গার্মেন্টস / সেলাই কর্মী"],
+  ['<path d="M12 21V11"/><path d="M12 11C12 7 9 5 5 5c0 4 2 6 7 6z"/><path d="M12 14c0-3 2-5 6-5 0 4-2 6-6 6z"/>', "কৃষিকর্মী / গার্ডেনার"],
+  ['<path d="M3 21V11l6 4v-4l6 4V5h6v16z"/><path d="M3 21h18"/>', "মেশিন অপারেটর / ফ্যাক্টরি কর্মী"]
 ];
 // যে পেশার লেসন তৈরি হয়ে গেছে, তার নাম এখানে যোগ করুন (যেমন: professionLessons["ড্রাইভার"] = ["লেসন ১", ...])
 const professionLessons = {};
@@ -537,64 +548,88 @@ const profCats = [
     icon:'<path d="M1 6h13v10H1z"/><path d="M14 9h4l3 3v4h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>' }
 ];
 const toBn = n => String(n).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+const CHEV = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+const CHEV_R = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 6 15 12 9 18"></polyline></svg>';
 
-let profOpen = 'core';
-function placePanel(){
+(function(){
   const wrap = document.getElementById('prof-wrap');
-  const panel = document.getElementById('prof-panel');
-  if(!wrap || !panel) return;
-  if(!profOpen){ panel.hidden = true; return; }
-  const chip = wrap.querySelector('.prof-chip[data-key="' + profOpen + '"]');
-  const grid = chip.parentElement;
-  const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
-  const chips = [...grid.querySelectorAll('.prof-chip')];
-  const idx = chips.indexOf(chip);
-  const anchor = chips[Math.min((Math.floor(idx / cols) + 1) * cols - 1, chips.length - 1)];
-  anchor.after(panel);
-  panel.hidden = false;
-  panel.style.setProperty('--cx', (chip.offsetLeft + chip.offsetWidth / 2) + 'px');
-}
-function selectProfession(key, toggle){
-  const wrap = document.getElementById('prof-wrap');
-  if(toggle && profOpen === key){ profOpen = null; }
-  else { profOpen = key; }
-  wrap.querySelectorAll('.prof-chip').forEach(c => c.classList.toggle('selected', c.dataset.key === profOpen));
-  if(profOpen === null){ placePanel(); return; }
-  if(profOpen === 'core'){ renderTopics('topics-job', topicsData.jobCore); }
-  else {
-    const prof = professions[+profOpen];
-    const lessons = professionLessons[prof[1]];
-    if(lessons && lessons.length){ renderTopics('topics-job', lessons); }
-    else {
-      document.getElementById('topics-job').innerHTML =
+  if(!wrap) return;
+  let coreOpen = true, openCat = null, openProf = null;
+
+  wrap.innerHTML =
+    '<button class="core-btn open" id="core-btn" aria-expanded="true"><span class="c-main">সব কর্মীর জন্য জরুরি ইংরেজি</span><span class="c-sub">৮টি লেসন · সব পেশায় কাজে লাগে</span><span class="c-chev">' + CHEV + '</span></button>' +
+    '<div class="core-panel" id="core-panel"><div class="topic-list" id="topics-core"></div></div>' +
+    '<p class="prof-hint">অথবা আপনার পেশা বেছে নিন</p>' +
+    profCats.map((c, ci) =>
+      `<div class="cat" data-cat="${ci}"><button class="cat-row" aria-expanded="false">` +
+        `<span class="cat-ic"><svg viewBox="0 0 24 24" aria-hidden="true">${c.icon}</svg></span>` +
+        `<span class="cat-txt"><span class="cat-title">${c.title}</span><span class="cat-sub">${c.sub}</span><span class="cat-count">${toBn(c.items.length)}টি পেশা</span></span>` +
+        `<span class="cat-chev">${CHEV}</span></button>` +
+        `<div class="cat-body"><div class="cat-inner"><div class="prof-list">` +
+          c.items.map(i =>
+            `<button class="prof-row" data-key="${i}"><span class="pi"><svg viewBox="0 0 24 24" aria-hidden="true">${professions[i][0]}</svg></span><span class="pn">${professions[i][1]}</span><span class="pc">${CHEV_R}</span></button>` +
+            `<div class="prof-panel" id="pp-${i}" hidden></div>`
+          ).join('') +
+        `</div></div></div></div>`
+    ).join('');
+
+  renderTopics('topics-core', topicsData.jobCore);
+
+  function fillPanel(i){
+    const panel = document.getElementById('pp-' + i);
+    const lessons = professionLessons[professions[i][1]];
+    if(lessons && lessons.length){
+      panel.innerHTML = '<div class="topic-list" id="topics-p' + i + '"></div>';
+      renderTopics('topics-p' + i, lessons);
+    } else {
+      panel.innerHTML =
         '<div class="prof-soon"><div class="ps-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>' +
         '<div class="ps-tx"><h4>শীঘ্রই আসছে</h4><p>এই পেশার লেসন তৈরি হচ্ছে।</p>' +
         '<button type="button" data-go-core="1">জরুরি লেসন দেখুন →</button></div></div>';
     }
   }
-  placePanel();
-  const panel = document.getElementById('prof-panel');
-  if(toggle) setTimeout(() => panel.scrollIntoView({block:'nearest', behavior:'smooth'}), 60);
-}
-(function(){
-  const wrap = document.getElementById('prof-wrap');
-  if(!wrap) return;
-  const chip = i => `<button class="prof-chip" data-key="${i}"><span class="pe">${professions[i][0]}</span><span>${professions[i][1]}</span></button>`;
-  wrap.innerHTML =
-    '<div class="prof-sec first"><div class="prof-grid"><button class="prof-chip core" data-key="core"><span class="c-main">সব কর্মীর জন্য জরুরি ইংরেজি</span><span class="c-sub">৮টি লেসন · সব পেশায় কাজে লাগে</span></button>' +
-    '<div class="prof-panel" id="prof-panel" hidden><div class="topic-list" id="topics-job"></div></div></div></div>' +
-    profCats.map(c =>
-      `<section class="prof-sec"><div class="cat-head"><span class="cat-ic"><svg viewBox="0 0 24 24" aria-hidden="true">${c.icon}</svg></span>` +
-      `<div class="cat-txt"><h3 class="cat-title">${c.title}</h3><p class="cat-sub">${c.sub}</p></div>` +
-      `<span class="cat-count">${toBn(c.items.length)}টি পেশা</span></div>` +
-      `<div class="prof-grid">${c.items.map(chip).join('')}</div></section>`
-    ).join('');
+  function sync(){
+    const cb = document.getElementById('core-btn');
+    cb.classList.toggle('open', coreOpen); cb.setAttribute('aria-expanded', coreOpen);
+    document.getElementById('core-panel').hidden = !coreOpen;
+    wrap.querySelectorAll('.cat').forEach(c => {
+      const open = +c.dataset.cat === openCat;
+      c.classList.toggle('open', open);
+      c.querySelector('.cat-row').setAttribute('aria-expanded', open);
+    });
+    wrap.querySelectorAll('.prof-row').forEach(r => {
+      const sel = +r.dataset.key === openProf;
+      r.classList.toggle('selected', sel);
+      document.getElementById('pp-' + r.dataset.key).hidden = !sel;
+    });
+  }
   wrap.addEventListener('click', e => {
-    if(e.target.closest('[data-go-core]')){ selectProfession('core', true); return; }
-    const c = e.target.closest('.prof-chip'); if(c) selectProfession(c.dataset.key, true);
+    if(e.target.closest('[data-go-core]')){
+      coreOpen = true; openProf = null; sync();
+      document.getElementById('core-btn').scrollIntoView({block:'center', behavior:'smooth'});
+      return;
+    }
+    if(e.target.closest('#core-btn')){ coreOpen = !coreOpen; sync(); return; }
+    const pr = e.target.closest('.prof-row');
+    if(pr){
+      const k = +pr.dataset.key;
+      if(openProf === k){ openProf = null; }
+      else { openProf = k; fillPanel(k); }
+      sync();
+      if(openProf !== null) setTimeout(() => document.getElementById('pp-' + k).scrollIntoView({block:'nearest', behavior:'smooth'}), 80);
+      return;
+    }
+    const cr = e.target.closest('.cat-row');
+    if(cr){
+      const ci = +cr.closest('.cat').dataset.cat;
+      openCat = (openCat === ci) ? null : ci;
+      if(openProf !== null && !profCats[ci].items.includes(openProf)) openProf = null;
+      if(openCat === null) openProf = null;
+      sync();
+      if(openCat !== null) setTimeout(() => cr.scrollIntoView({block:'nearest', behavior:'smooth'}), 80);
+    }
   });
-  let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(placePanel, 120); });
-  selectProfession('core', false);
+  sync();
 })();
 
 document.querySelectorAll('.sub-tabs').forEach(row => {
