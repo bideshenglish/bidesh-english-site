@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#BCE0F3">
+<title>লেসন | Bidesh English</title>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:light only;
+    --pine:#0C3A27; --pine-2:#14582B; --leaf:#1F8A36; --leaf-deep:#17692A; --leaf-soft:#E2F1E4;
+    --sun:#F4B93E; --sun-deep:#D99A12; --sun-soft:#FCEBC4; --ink:#14261C; --ink-soft:#33463B;
+    --page:#DFEEE3; --paper:#F1F8F2; --line:#A9C9B3;
+    --bad-bg:#FDE6E0; --bad-ink:#7A1F10; --good-bg:#DDF3E1; --good-ink:#0C3A27;
+    --font:'Anek Bangla','Noto Sans Bengali','Segoe UI',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--page);color:var(--ink);font-family:var(--font);font-size:17px;font-weight:500;line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh;
+    background-image:linear-gradient(180deg,#B5DCF1 0,#CFE9EE 280px,var(--page) 560px);background-repeat:no-repeat;}
+  button{font-family:inherit;}
+  svg{display:block;}
+  :focus-visible{outline:3px solid var(--pine);outline-offset:3px;border-radius:10px;}
+  .wrap{width:100%;max-width:680px;margin:0 auto;padding:0 18px;}
+
+  /* ---------- top bar ---------- */
+  .bar{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:10px;gap:12px;}
+  .back{display:inline-flex;align-items:center;gap:6px;color:var(--pine);font-weight:700;text-decoration:none;font-size:16.5px;padding:8px 16px 8px 12px;background:#fff;border-radius:999px;box-shadow:0 2px 10px -3px rgba(12,58,39,0.35);}
+  .brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--pine);font-weight:800;font-size:17px;}
+  .brand img{width:34px;height:34px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 8px -2px rgba(12,58,39,0.4);}
+
+  /* ---------- title ---------- */
+  h1{margin:14px 0 2px;font-weight:800;font-size:clamp(28px,7vw,38px);line-height:1.16;color:var(--pine);letter-spacing:-0.02em;}
+  .sub{margin:0 0 18px;color:var(--ink-soft);font-size:18px;font-weight:600;}
+
+  /* ---------- flight-path progress ---------- */
+  .stepname{margin:0 0 2px;font-weight:700;color:var(--ink-soft);font-size:16px;}
+  .pctrow{position:relative;height:26px;}
+  .pct{position:absolute;top:0;font-size:19px;font-weight:800;color:var(--leaf-deep);line-height:26px;white-space:nowrap;transition:left .5s ease, transform .5s ease;}
+  .track{position:relative;height:30px;margin:0 0 18px;}
+  .track::before{content:'';position:absolute;left:0;right:0;top:50%;height:4px;transform:translateY(-50%);
+    background:radial-gradient(circle,#6E9A7B 1.7px,transparent 2.2px) 0 50% / 10px 4px repeat-x;}
+  .track .fill{position:absolute;left:0;top:50%;height:4px;transform:translateY(-50%);border-radius:99px;background:var(--leaf-deep);min-width:4px;transition:width .5s ease;}
+  .plane{position:absolute;top:50%;left:0;width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 3px 10px -2px rgba(12,58,39,0.5);transition:left .5s ease, transform .5s ease;}
+  .plane svg{width:17px;height:17px;transform:rotate(90deg);fill:var(--pine);}
+
+  /* ---------- card ---------- */
+  .card{background:#fff;border-radius:28px;padding:26px 22px 24px;box-shadow:0 1px 2px rgba(12,58,39,0.08),0 30px 50px -30px rgba(12,58,39,0.55);outline:none;}
+  .card.enter{animation:rise .32s ease both;}
+  @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  .card h2{margin:0 0 12px;font-size:23px;line-height:1.35;color:var(--pine);font-weight:800;letter-spacing:-0.01em;}
+  .lede{font-size:19.5px;line-height:1.8;margin:0 0 6px;color:var(--ink);font-weight:600;}
+  .counter{font-weight:700;color:var(--ink-soft);font-size:16px;margin:0 0 6px;}
+  .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:2px solid transparent;border-radius:999px;padding:14px 26px;font-weight:800;font-size:17.5px;cursor:pointer;text-decoration:none;line-height:1.3;transition:transform .12s ease, box-shadow .12s ease;}
+  .btn svg{width:20px;height:20px;fill:currentColor;}
+  .btn:active{transform:translateY(1px);}
+  .btn-main{background:var(--sun);color:var(--pine);box-shadow:0 10px 18px -10px rgba(190,120,0,0.8),inset 0 -3px 0 rgba(0,0,0,0.08);}
+  .btn-alt{background:#fff;color:var(--pine);border-color:var(--pine);}
+  .btn[disabled]{background:#DCE6DE;color:#3D4F44;border-color:#B4CFBB;box-shadow:none;cursor:not-allowed;}
+  .row .btn-main:only-child{flex:1 1 100%;}
+
+  /* ---------- scene ---------- */
+  .scene-ic{width:54px;height:54px;border-radius:50%;background:var(--leaf-soft);display:grid;place-items:center;margin-bottom:14px;}
+  .scene-ic svg{width:26px;height:26px;fill:var(--leaf-deep);transform:rotate(-45deg);}
+
+  /* ---------- phrase ticket ---------- */
+  .card.s-phrases{padding:0;overflow:hidden;}
+  .tk-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;background-color:var(--pine-2);background-image:linear-gradient(160deg,#1A7A2E,#0F5A22);color:#fff;}
+  .tk-count{font-weight:700;font-size:16px;color:#fff;}
+  .tag{display:inline-block;padding:2px 14px;border-radius:999px;background:var(--sun-soft);color:#4A3000;font-weight:800;font-size:15.5px;line-height:1.6;}
+  .tk-body{padding:26px 20px 22px;}
+  .tk-main{display:flex;align-items:center;justify-content:space-between;gap:14px;}
+  .big-en{font-size:clamp(25px,6.6vw,32px);font-weight:800;line-height:1.3;color:var(--pine);margin:0;letter-spacing:-0.015em;}
+  .hear{all:unset;box-sizing:border-box;flex:none;width:56px;height:56px;border-radius:50%;background:var(--leaf-deep);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 18px -8px rgba(12,58,39,0.7);}
+  .hear svg{width:26px;height:26px;fill:#fff;}
+  .hear:active{transform:scale(.96);}
+  .hear:focus-visible{outline:3px solid var(--pine);outline-offset:3px;}
+  .tk-perf{border-top:2.5px dashed #B9D3C0;margin:0 20px;}
+  .tk-foot{padding:18px 20px 6px;background:#fff;}
+  .bn-line{font-size:20px;font-weight:700;margin:0 0 10px;color:var(--ink);line-height:1.6;}
+  .pr-line{font-size:17px;color:var(--leaf-deep);font-weight:700;margin:0;background:var(--leaf-soft);display:inline-block;padding:5px 14px;border-radius:12px;}
+  .tk-actions{padding:6px 20px 22px;}
+  .tk-actions .row{margin-top:14px;}
+
+  /* ---------- options ---------- */
+  .opts{display:flex;flex-direction:column;gap:11px;margin-top:14px;}
+  .opt{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:13px;background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:15px 16px;font-size:18px;font-weight:700;color:var(--ink);cursor:pointer;line-height:1.45;transition:border-color .15s ease, background .15s ease, transform .1s ease;}
+  .opt::before{content:'';flex:none;width:24px;height:24px;border-radius:50%;border:2px solid #7EA88B;background:#fff;display:grid;place-items:center;font-size:14px;font-weight:800;color:#fff;line-height:1;}
+  .opt:hover{border-color:var(--leaf);background:#fff;}
+  .opt:active{transform:scale(.99);}
+  .opt:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+  .opt.good{background:var(--good-bg);border-color:var(--leaf-deep);color:var(--good-ink);}
+  .opt.good::before{content:'✓';background:var(--leaf-deep);border-color:var(--leaf-deep);}
+  .opt.bad{background:var(--bad-bg);border-color:#C24A33;color:var(--bad-ink);}
+  .opt.bad::before{content:'✕';background:#B23A24;border-color:#B23A24;}
+  .opt[aria-disabled="true"]{cursor:default;}
+  .opts.tf{flex-direction:row;gap:12px;}
+  .opts.tf .opt{justify-content:center;font-size:20px;padding:18px 12px;}
+  .opts.tf .opt::before{display:none;}
+  .opts.tf .opt.good::before,.opts.tf .opt.bad::before{display:grid;}
+  .note{margin:16px 0 0;padding:13px 16px;border-radius:16px;font-weight:600;font-size:17px;line-height:1.6;}
+  .note.good{background:var(--good-bg);color:var(--good-ink);}
+  .note.bad{background:var(--bad-bg);color:var(--bad-ink);}
+  .note.info{background:var(--sun-soft);color:#4A3000;}
+
+  /* ---------- chat ---------- */
+  .chat{display:flex;flex-direction:column;gap:10px;margin-bottom:8px;}
+  .bubble{max-width:90%;padding:12px 16px;border-radius:20px;font-weight:600;line-height:1.5;}
+  .bubble small{display:block;font-weight:500;font-size:16px;margin-top:4px;}
+  .b-boss{align-self:flex-start;background:var(--paper);border:1.5px solid #C5DCCB;color:var(--ink);border-bottom-left-radius:6px;}
+  .b-boss small{color:var(--ink-soft);}
+  .b-me{align-self:flex-end;background:#1A7A2E;color:#fff;border-bottom-right-radius:6px;box-shadow:0 8px 16px -10px rgba(12,58,39,0.8);}
+  .who{display:block;font-size:15px;font-weight:700;margin-bottom:2px;}
+  .b-boss .who{color:var(--leaf-deep);}
+  .b-me .who{color:#fff;}
+  .stars{font-size:22px;letter-spacing:2px;}
+  .mic-status{min-height:30px;font-weight:700;color:var(--pine);margin:14px 0 0;font-size:17px;}
+  .speak-box{background:var(--paper);border:1.5px solid #C5DCCB;border-radius:20px;padding:18px 18px 16px;margin:6px 0 0;}
+  .speak-box .tk-main{margin-bottom:8px;}
+
+  /* ---------- result ---------- */
+  .result{text-align:center;}
+  .result .party{font-size:54px;line-height:1.1;margin:2px 0 6px;}
+  .big-stars{font-size:40px;letter-spacing:5px;margin:4px 0 2px;}
+  .big-stars span{display:inline-block;animation:pop .5s cubic-bezier(.2,1.6,.4,1) both;}
+  @keyframes pop{from{opacity:0;transform:scale(.2) rotate(-25deg);}to{opacity:1;transform:none;}}
+  .score-line{font-weight:700;color:var(--pine);margin:0 0 16px;font-size:19px;}
+  .stats{list-style:none;padding:0;margin:0 auto 6px;max-width:420px;text-align:left;background:var(--paper);border-radius:18px;padding:4px 16px;}
+  .stats li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #C5DCCB;font-weight:600;}
+  .stats li:last-child{border-bottom:none;}
+  .stats b{color:var(--pine);font-weight:800;}
+  .streak{margin:16px 0 0;display:inline-block;background:var(--sun-soft);color:#4A3000;font-weight:800;padding:8px 18px;border-radius:999px;font-size:18px;}
+  .result .row{justify-content:center;}
+  .missing{text-align:center;padding:26px 6px;}
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;}}
+</style>
+</head>
+<body>
+<header class="wrap bar">
+  <a class="back" href="index.html#needs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>সব লেসন</a>
+  <a class="brand" href="index.html"><img src="logo.png" alt="" width="34" height="34"><span>Bidesh English</span></a>
+</header>
+
+<main class="wrap">
+  <h1 id="lessonTitle">লেসন লোড হচ্ছে…</h1>
+  <p class="sub" id="lessonSub"></p>
+  <p class="stepname" id="stepName"></p>
+  <div class="pctrow"><span class="pct" id="pct" style="left:0%"></span></div>
+  <div class="track" id="progress" role="progressbar" aria-label="লেসনের অগ্রগতি" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <span class="fill" id="fill" style="width:0%"></span>
+    <span class="plane" id="plane" style="left:0%"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21,16.01L21,14L13,9V3.5C13,2.67 12.33,2 11.5,2S10,2.67 10,3.5V9L2,14V16L10,13.5V19L7.5,20.5V22L11.5,21L15.5,22V20.5L13,19V13.5L21,16.01Z"/></svg></span>
+  </div>
+  <section class="card" id="stage" tabindex="-1" aria-live="polite"></section>
+</main>
+<div style="height:48px"></div>
+
+<script>
+(function(){
+  var params = new URLSearchParams(location.search);
+  var id = (params.get('id') || '').replace(/[^a-z0-9-]/gi, '');
+  var $ = function(s){ return document.querySelector(s); };
+  var stage = $('#stage');
+  var L, flow, idx = 0, S, WHO = 'বস';
+
+  var STEP_NAME = { scene:'দৃশ্য', phrases:'Phrase Cards', listen:'শুনে চেনা', speak:'বলে Practice', dialogue:'কথোপকথন', quiz:'Quick Quiz', done:'সম্পন্ন!' };
+  var ICON_SPEAKER = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4h4l5 4V6L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
+  var ICON_MIC = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-3.1A7 7 0 0 0 19 11h-2z"/></svg>';
+  var ICON_PLANE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21,16.01L21,14L13,9V3.5C13,2.67 12.33,2 11.5,2S10,2.67 10,3.5V9L2,14V16L10,13.5V19L7.5,20.5V22L11.5,21L15.5,22V20.5L13,19V13.5L21,16.01Z"/></svg>';
+  var bn = function(n){ return String(n).replace(/\d/g, function(d){ return '০১২৩৪৫৬৭৮৯'[d]; }); };
+  var esc = function(t){ return String(t).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+  var shuffle = function(a){ a = a.slice(); for (var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; };
+  function enter(){ stage.classList.remove('enter'); void stage.offsetWidth; stage.classList.add('enter'); }
+
+  /* ---------- storage (safe) ---------- */
+  function read(k, d){ try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } }
+  function write(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+  function dstr(d){ return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); }
+  function bumpStreak(){
+    var s = read('be_streak', { last:'', count:0 });
+    var t = new Date(), y = new Date(); y.setDate(y.getDate()-1);
+    if (s.last === dstr(t)) return s.count;
+    s.count = (s.last === dstr(y)) ? s.count + 1 : 1;
+    s.last = dstr(t); write('be_streak', s); return s.count;
+  }
+
+  /* ---------- speech ---------- */
+  var canSpeak = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  function say(text){
+    if (!canSpeak) return;
+    try {
+      speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(text); u.lang = 'en-US'; u.rate = 0.9;
+      var vs = speechSynthesis.getVoices();
+      var v = vs.find(function(x){ return /^en[-_]US/i.test(x.lang); }) || vs.find(function(x){ return /^en/i.test(x.lang); });
+      if (v) u.voice = v;
+      speechSynthesis.speak(u);
+    } catch(e){}
+  }
+  function words(t){
+    return t.toLowerCase().replace(/i'm/g,'i am').replace(/i'll/g,'i will').replace(/o'clock/g,'oclock').replace(/wasn't/g,'was not')
+      .replace(/[^a-z0-9\s]/g,' ').split(/\s+/).filter(Boolean);
+  }
+  function matchScore(target, heard){
+    var t = words(target), h = words(heard); if (!t.length) return 0;
+    var pool = h.slice(), hit = 0;
+    t.forEach(function(w){ var i = pool.indexOf(w); if (i > -1){ hit++; pool.splice(i,1); } });
+    return hit / t.length;
+  }
+  window.__beMatch = matchScore;
+
+  /* ---------- shell ---------- */
+  function paintProgress(){
+    var pc = flow.length > 1 ? Math.round(idx / (flow.length - 1) * 100) : 0;
+    var tf = 'translateX(-' + pc + '%)';
+    $('#fill').style.width = pc + '%';
+    $('#progress').setAttribute('aria-valuenow', pc);
+    $('#pct').textContent = bn(pc) + '%';
+    $('#pct').style.left = pc + '%'; $('#pct').style.transform = tf;
+    $('#plane').style.left = pc + '%'; $('#plane').style.transform = 'translate(-' + pc + '%,-50%)';
+    $('#stepName').textContent = 'ধাপ ' + bn(idx+1) + '/' + bn(flow.length) + ' · ' + STEP_NAME[flow[idx]];
+  }
+  function go(n){
+    idx = n; paintProgress();
+    if (canSpeak) { try { speechSynthesis.cancel(); } catch(e){} }
+    stage.className = 'card s-' + flow[idx];
+    R[flow[idx]]();
+    enter();
+    stage.focus({ preventScroll:true });
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+  function next(){ go(idx + 1); }
+  function nextBtn(label, id){ return '<div class="row"><button class="btn btn-main" id="' + (id || 'nextBtn') + '">' + (label || 'পরের ধাপ →') + '</button></div>'; }
+
+  /* ---------- steps ---------- */
+  var R = {};
+
+  R.scene = function(){
+    stage.innerHTML = '<div class="scene-ic">' + ICON_PLANE + '</div><h2>পরিস্থিতি</h2><p class="lede">' + esc(L.scene) + '</p>' + nextBtn('শুরু করি →');
+    $('#nextBtn').onclick = next;
+  };
+
+  R.phrases = function(){
+    var i = 0, P = L.phrases;
+    function card(){
+      var p = P[i], last = i === P.length - 1;
+      stage.innerHTML =
+        '<div class="tk-head">' + (p.tag ? '<span class="tag">' + esc(p.tag) + '</span>' : '<span></span>') + '<span class="tk-count">Phrase ' + bn(i+1) + '/' + bn(P.length) + '</span></div>' +
+        '<div class="tk-body"><div class="tk-main"><p class="big-en">' + esc(p.en) + '</p>' +
+          (canSpeak ? '<button class="hear" id="hear" aria-label="শুনুন">' + ICON_SPEAKER + '</button>' : '') +
+        '</div></div>' +
+        '<div class="tk-perf"></div>' +
+        '<div class="tk-foot"><p class="bn-line">' + esc(p.bn) + '</p>' +
+          (p.pr ? '<p class="pr-line">উচ্চারণ: ' + esc(p.pr) + '</p>' : '') + '</div>' +
+        '<div class="tk-actions"><div class="row"><button class="btn btn-main" id="nextCard">' + (last ? 'পরের ধাপ →' : 'পরের phrase →') + '</button></div>' +
+          (canSpeak ? '' : '<p class="note info">আপনার ডিভাইসে শব্দ শোনার সুবিধা নেই। ইংরেজি লেখা আর উচ্চারণ দেখে পড়ুন।</p>') + '</div>';
+      if ($('#hear')) $('#hear').onclick = function(){ say(p.en); };
+      $('#nextCard').onclick = function(){ if (last) next(); else { i++; card(); enter(); } };
+    }
+    card();
+  };
+
+  R.listen = function(){
+    var q = 0, Q = L.listening, ok = 0;
+    S.listenTotal = Q.length; S.listenOk = 0;
+    function ask(){
+      var item = Q[q], opts = shuffle(item.options), done = false;
+      stage.innerHTML =
+        '<p class="counter">প্রশ্ন ' + bn(q+1) + '/' + bn(Q.length) + '</p>' +
+        '<h2>' + (canSpeak ? 'শুনুন, তারপর অর্থ বাছুন' : 'এই বাক্যের অর্থ কী?') + '</h2>' +
+        (canSpeak ? '<button class="btn btn-alt" id="play">' + ICON_SPEAKER + 'বাজান</button>' : '<p class="big-en">' + esc(item.say) + '</p>') +
+        '<div class="opts" id="opts">' + opts.map(function(o, k){ return '<button class="opt" data-k="' + k + '">' + esc(o.t) + '</button>'; }).join('') + '</div>' +
+        '<div id="fb"></div>';
+      if ($('#play')) { $('#play').onclick = function(){ say(item.say); }; setTimeout(function(){ say(item.say); }, 250); }
+      document.querySelectorAll('#opts .opt').forEach(function(b){
+        b.onclick = function(){
+          if (done) return; done = true;
+          var o = opts[+b.dataset.k];
+          document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); if (opts[+x.dataset.k].ok) x.classList.add('good'); });
+          if (o.ok){ S.listenOk++; $('#fb').innerHTML = '<p class="note good">✅ ঠিক! ' + esc(item.say) + ' — ' + esc(item.why) + '</p>'; }
+          else { b.classList.add('bad'); $('#fb').innerHTML = '<p class="note bad">আরেকটু হলেই হতো। সঠিক উত্তরটি সবুজ রঙে দেখানো হয়েছে। ' + esc(item.why) + '</p>'; }
+          $('#fb').innerHTML += nextBtn(q === Q.length - 1 ? 'পরের ধাপ →' : 'পরের প্রশ্ন →', 'nx');
+          $('#nx').onclick = function(){ if (q === Q.length - 1) next(); else { q++; ask(); enter(); } };
+          $('#nx').focus();
+        };
+      });
+    }
+    ask();
+  };
+
+  R.speak = function(){
+    var list = L.speak.map(function(i){ return L.phrases[i]; }), n = 0, busy = false;
+    function show(){
+      var p = list[n], last = n === list.length - 1;
+      stage.innerHTML =
+        '<p class="counter">বলুন ' + bn(n+1) + '/' + bn(list.length) + '</p>' +
+        '<h2>এবার নিজে বলুন</h2>' +
+        '<div class="speak-box"><div class="tk-main"><p class="big-en">' + esc(p.en) + '</p>' +
+          (canSpeak ? '<button class="hear" id="hear" aria-label="শুনুন">' + ICON_SPEAKER + '</button>' : '') + '</div>' +
+          '<p class="bn-line" style="margin:8px 0 0">' + esc(p.bn) + '</p></div>' +
+        '<div class="row">' +
+          (SR ? '<button class="btn btn-main" id="mic">' + ICON_MIC + 'বলুন</button>' : '<button class="btn btn-main" id="manual">আমি নিজে বলেছি ✓</button>') +
+        '</div>' +
+        '<p class="mic-status" id="status" role="status"></p>' +
+        (SR ? '' : '<p class="note info">এই ব্রাউজারে মাইক দিয়ে মেলানো যায় না। জোরে বলে অভ্যাস করুন, তারপর বোতামে চাপুন। মাইক পরীক্ষা করতে Chrome ব্যবহার করুন।</p>') +
+        '<div id="after"></div>';
+      if ($('#hear')) $('#hear').onclick = function(){ say(p.en); };
+      if ($('#manual')) $('#manual').onclick = advance;
+      if ($('#mic')) $('#mic').onclick = function(){ record(p); };
+    }
+    function advance(){ if (n === list.length - 1) next(); else { n++; show(); enter(); } }
+    function showNext(good){
+      $('#after').insertAdjacentHTML('beforeend', nextBtn(n === list.length - 1 ? 'পরের ধাপ →' : 'পরের বাক্য →', 'nx'));
+      $('#nx').onclick = advance; $('#nx').focus();
+    }
+    function record(p){
+      if (busy) return;
+      var st = $('#status'), fin = false, got = false, rec;
+      try { rec = new SR(); } catch(e){ st.textContent = 'মাইক চালু করা যায়নি।'; showNext(); return; }
+      rec.lang = 'en-US'; rec.interimResults = false; rec.maxAlternatives = 3;
+      busy = true; st.textContent = '🎤 শুনছি… এখন বলুন';
+      function fail(msg){ if (fin) return; fin = true; busy = false; st.innerHTML = ''; $('#after').innerHTML = '<p class="note bad">' + msg + '</p><div class="row"><button class="btn btn-main" id="again">আবার চেষ্টা করুন</button><button class="btn btn-alt" id="skip">এড়িয়ে যান →</button></div>'; $('#again').onclick = function(){ $('#after').innerHTML = ''; record(p); }; $('#skip').onclick = advance; }
+      rec.onresult = function(e){
+        got = true; if (fin) return; fin = true; busy = false;
+        var alts = []; for (var i=0;i<e.results[0].length;i++) alts.push(e.results[0][i].transcript);
+        var best = 0, bestT = alts[0] || '';
+        alts.forEach(function(a){ var s = matchScore(p.en, a); if (s > best){ best = s; bestT = a; } });
+        if (best >= 0.6){ st.innerHTML = ''; $('#after').innerHTML = '<p class="note good">✅ দারুণ! আপনার বলা মিলে গেছে।</p>'; showNext(true); }
+        else { st.innerHTML = ''; $('#after').innerHTML = '<p class="note bad">আমরা শুনেছি: “' + esc(bestT) + '”। আরেকবার ধীরে ধীরে বলুন।</p><div class="row"><button class="btn btn-main" id="again">আবার চেষ্টা করুন</button><button class="btn btn-alt" id="skip">এড়িয়ে যান →</button></div>'; $('#again').onclick = function(){ $('#after').innerHTML = ''; record(p); }; $('#skip').onclick = advance; }
+      };
+      rec.onerror = function(e){
+        var c = e && e.error;
+        if (c === 'not-allowed' || c === 'service-not-allowed') fail('মাইকের অনুমতি দেওয়া হয়নি। ঠিকানা বারের পাশে মাইক আইকনে চেপে অনুমতি দিন।');
+        else if (c === 'no-speech') fail('কিছু শুনতে পাইনি। আবার চেষ্টা করুন।');
+        else fail('মাইক এখন কাজ করছে না। নিচের বোতামে চেপে এগিয়ে যান।');
+      };
+      rec.onend = function(){ if (!got) fail('কিছু শুনতে পাইনি। আবার চেষ্টা করুন।'); };
+      try { rec.start(); } catch(e){ fail('মাইক চালু করা যায়নি।'); }
+    }
+    show();
+  };
+
+  R.dialogue = function(){
+    var t = 0, D = L.dialogue; S.dStars = 0; S.dMax = D.length * 3;
+    var log = [];
+    function turn(){
+      var d = D[t], choices = shuffle(d.choices), picked = false;
+      stage.innerHTML =
+        '<p class="counter">কথা ' + bn(t+1) + '/' + bn(D.length) + '</p>' +
+        '<div class="chat">' + log.join('') +
+          '<div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(d.boss) + '<small>' + esc(d.bn) + '</small></div>' +
+        '</div>' +
+        '<h2>আপনি কী বলবেন?</h2>' +
+        '<div class="opts" id="opts">' + choices.map(function(c, k){ return '<button class="opt" data-k="' + k + '">' + esc(c.en) + '</button>'; }).join('') + '</div>' +
+        '<div id="fb"></div>';
+      document.querySelectorAll('#opts .opt').forEach(function(b){
+        b.onclick = function(){
+          if (picked) return; picked = true;
+          var c = choices[+b.dataset.k];
+          S.dStars += c.stars;
+          document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); });
+          if (c.stars === 3) b.classList.add('good'); else if (c.stars === 1) b.classList.add('bad');
+          var stars = '⭐'.repeat(c.stars);
+          var cls = c.stars === 3 ? 'good' : c.stars === 1 ? 'bad' : 'info';
+          var head = c.stars === 3 ? 'সবচেয়ে ভালো উত্তর' : c.stars === 2 ? 'মোটামুটি' : 'আরও ভালো বলা যেত';
+          $('#fb').innerHTML =
+            '<div class="chat" style="margin-top:14px"><div class="bubble b-me"><span class="who">আপনি</span>' + esc(c.en) + '</div>' +
+            '<div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(c.reply) + '<small>' + esc(c.replyBn) + '</small></div></div>' +
+            '<p class="note ' + cls + '"><span class="stars" aria-label="' + c.stars + ' তারা">' + stars + '</span> ' + head + '। ' + esc(c.tip) + '</p>' +
+            nextBtn(t === D.length - 1 ? 'পরের ধাপ →' : 'কথা চালিয়ে যান →', 'nx');
+          log.push('<div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(d.boss) + '</div><div class="bubble b-me"><span class="who">আপনি</span>' + esc(c.en) + '</div><div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(c.reply) + '</div>');
+          $('#nx').onclick = function(){ if (t === D.length - 1) next(); else { t++; turn(); enter(); } };
+          $('#nx').focus();
+        };
+      });
+    }
+    turn();
+  };
+
+  R.quiz = function(){
+    var q = 0, Q = L.quiz; S.quizOk = 0; S.quizTotal = Q.length;
+    function ask(){
+      var item = Q[q], done = false;
+      stage.innerHTML =
+        '<p class="counter">প্রশ্ন ' + bn(q+1) + '/' + bn(Q.length) + '</p>' +
+        '<h2>' + esc(item.q) + '</h2>' +
+        '<div class="opts tf" id="opts"><button class="opt" data-v="true">✔ ঠিক</button><button class="opt" data-v="false">✖ ভুল</button></div><div id="fb"></div>';
+      document.querySelectorAll('#opts .opt').forEach(function(b){
+        b.onclick = function(){
+          if (done) return; done = true;
+          var v = b.dataset.v === 'true', right = v === item.a;
+          document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); if ((x.dataset.v === 'true') === item.a) x.classList.add('good'); });
+          if (right){ S.quizOk++; $('#fb').innerHTML = '<p class="note good">✅ ঠিক বলেছেন! ' + esc(item.why) + '</p>'; }
+          else { b.classList.add('bad'); $('#fb').innerHTML = '<p class="note bad">সঠিক উত্তরটি সবুজ রঙে আছে। ' + esc(item.why) + '</p>'; }
+          $('#fb').innerHTML += nextBtn(q === Q.length - 1 ? 'ফলাফল দেখুন →' : 'পরের প্রশ্ন →', 'nx');
+          $('#nx').onclick = function(){ if (q === Q.length - 1) next(); else { q++; ask(); enter(); } };
+          $('#nx').focus();
+        };
+      });
+    }
+    ask();
+  };
+
+  R.done = function(){
+    var has = function(k){ return flow.indexOf(k) > -1; };
+    var got = (S.dStars || 0) + (S.quizOk || 0) + (S.listenOk || 0);
+    var max = (S.dMax || 0) + (S.quizTotal || 0) + (S.listenTotal || 0);
+    var five = max ? Math.max(1, Math.round(5 * got / max)) : 5;
+    var prog = read('be_progress', {});
+    var prev = prog[L.id] ? prog[L.id].stars : 0;
+    prog[L.id] = { stars: Math.max(prev, five), date: dstr(new Date()) };
+    write('be_progress', prog);
+    var streak = bumpStreak();
+    var rows = '';
+    if (has('listen')) rows += '<li><span>শুনে চেনা</span><b>' + bn(S.listenOk) + '/' + bn(S.listenTotal) + '</b></li>';
+    if (has('dialogue')) rows += '<li><span>কথোপকথনের তারা</span><b>' + bn(S.dStars) + '/' + bn(S.dMax) + '</b></li>';
+    if (has('quiz')) rows += '<li><span>Quick Quiz</span><b>' + bn(S.quizOk) + '/' + bn(S.quizTotal) + '</b></li>';
+    var nextLabel = L.next && L.next.title ? 'পরের লেসন: ' + esc(L.next.title) : '';
+    var starHtml = ''; for (var k = 0; k < five; k++) starHtml += '<span style="animation-delay:' + (0.15 + k * 0.12) + 's">⭐</span>';
+    stage.innerHTML =
+      '<div class="result"><div class="party" aria-hidden="true">🎉</div>' +
+      '<h2>অভিনন্দন! লেসন সম্পন্ন</h2>' +
+      '<p class="lede" style="margin-bottom:6px">আপনি “' + esc(L.title) + '” শেষ করেছেন।</p>' +
+      '<div class="big-stars" aria-label="৫ এর মধ্যে ' + bn(five) + ' তারা">' + starHtml + '</div>' +
+      '<p class="score-line">৫ এর মধ্যে ' + bn(five) + '</p>' +
+      '<ul class="stats">' + rows + '</ul>' +
+      '<div class="streak">🔥 ' + bn(streak) + ' দিন টানা practice</div>' +
+      '<div class="row">' +
+        '<button class="btn btn-alt" id="again">আবার করুন</button>' +
+        (nextLabel ? '<button class="btn btn-main" disabled>' + nextLabel + ' (শীঘ্রই আসছে)</button>' : '') +
+        '<a class="btn btn-main" href="index.html#needs">সব লেসন দেখুন</a>' +
+      '</div></div>';
+    $('#again').onclick = function(){ S = {}; go(0); };
+  };
+
+  /* ---------- start ---------- */
+  function missing(){
+    $('#lessonTitle').textContent = 'লেসনটি পাওয়া যায়নি';
+    $('#progress').style.display = 'none'; $('#stepName').textContent = ''; $('#pct').textContent = '';
+    stage.innerHTML = '<div class="missing"><p class="lede">এই লেসনটি এখনো তৈরি হয়নি।</p><a class="btn btn-main" href="index.html#needs">সব লেসনে ফিরুন</a></div>';
+  }
+  function start(){
+    L = window.LESSON; S = {}; WHO = L.who || 'বস';
+    document.title = L.title + ' | Bidesh English';
+    $('#lessonTitle').textContent = L.title;
+    $('#lessonSub').textContent = L.titleBn || '';
+    flow = L.type === 'B' ? ['phrases','listen','speak','done'] : ['scene','phrases','listen','speak','dialogue','quiz','done'];
+    go(0);
+  }
+  if (!id){ missing(); return; }
+  var s = document.createElement('script');
+  s.src = 'lessons/' + id + '.js';
+  s.onload = function(){ if (window.LESSON) start(); else missing(); };
+  s.onerror = missing;
+  document.head.appendChild(s);
+  if (canSpeak) { try { speechSynthesis.getVoices(); } catch(e){} }
+})();
+</script>
+</body>
+</html>
