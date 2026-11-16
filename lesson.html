@@ -438,8 +438,8 @@
       '<div class="streak">🔥 ' + bn(streak) + ' দিন টানা practice</div>' +
       '<div class="row">' +
         '<button class="btn btn-alt" id="again">আবার করুন</button>' +
-        (nextLabel ? '<button class="btn btn-main" disabled>' + nextLabel + ' (শীঘ্রই আসছে)</button>' : '') +
-        '<a class="btn btn-main" href="index.html#needs">সব লেসন দেখুন</a>' +
+        (nextLabel ? (L.next.id ? '<a class="btn btn-main" href="lesson.html?id=' + encodeURIComponent(L.next.id) + '">' + nextLabel + ' →</a>' : '<button class="btn btn-main" disabled>' + nextLabel + ' (শীঘ্রই আসছে)</button>') : '') +
+        '<a class="btn ' + (nextLabel && L.next.id ? 'btn-alt' : 'btn-main') + '" href="index.html#needs">সব লেসন দেখুন</a>' +
       '</div></div>';
     $('#again').onclick = function(){ S = {}; go(0); };
   };
