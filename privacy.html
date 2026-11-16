@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Privacy Policy | Bidesh English</title>
+<meta name="description" content="Bidesh English সাইটে কী তথ্য ব্যবহৃত হয় এবং কীভাবে, তার সহজ ব্যাখ্যা।">
+<meta name="theme-color" content="#BCE0F3">
+<meta name="color-scheme" content="light only">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#0C3A27; --pine-2:#14582B; --leaf:#1F8A36; --leaf-deep:#17692A; --leaf-soft:#E2F1E4;
+    --sun:#F4B93E; --sun-deep:#D99A12; --sun-soft:#FCEBC4;
+    --ink:#14261C; --ink-soft:#33463B; --page:#DFEEE3; --paper:#F1F8F2; --line:#A9C9B3; --wa:#25D366;
+    --font:'Anek Bangla','Noto Sans Bengali','Segoe UI',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--page);color:var(--ink);font-family:var(--font);font-size:17px;font-weight:500;line-height:1.75;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  :focus-visible{outline:3px solid var(--pine);outline-offset:3px;border-radius:6px;}
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px;}
+  h1,h2,h3,p{margin:0;letter-spacing:0;}
+
+  /* hero */
+  .hero{background:
+      radial-gradient(60% 40% at 12% 30%, rgba(255,255,255,0.85), transparent 70%),
+      radial-gradient(50% 35% at 88% 12%, rgba(255,255,255,0.8), transparent 70%),
+      linear-gradient(180deg, #BCE0F3 0%, #D2EBEE 58%, var(--page) 100%);
+    padding-bottom:40px;}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:19px;color:var(--pine);}
+  .brand img{width:42px;height:42px;border-radius:50%;border:2px solid #fff;box-shadow:0 4px 12px -4px rgba(12,58,39,0.4);}
+  .nav-links{display:none;list-style:none;margin:0;padding:0;gap:30px;}
+  .nav-links a{text-decoration:none;font-weight:700;color:var(--pine);}
+  .nav-links a[aria-current]{border-bottom:3px solid var(--sun);padding-bottom:2px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:999px;padding:14px 26px;font-weight:700;font-size:17px;text-decoration:none;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;font-family:inherit;}
+  .btn-sun{background:var(--sun);color:var(--pine);box-shadow:0 8px 18px -8px rgba(190,120,0,0.6);}
+  .btn-sun:hover{transform:translateY(-1px);box-shadow:0 12px 22px -8px rgba(190,120,0,0.7);}
+  .btn-line{background:#fff;color:var(--pine);border:2px solid var(--pine);}
+  .nav-home{padding:9px 18px;font-size:16px;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 16px 7px 12px;font-size:16px;font-weight:700;color:var(--leaf-deep);box-shadow:0 4px 12px -6px rgba(12,58,39,0.3);}
+  .badge i{width:8px;height:8px;border-radius:50%;background:var(--leaf);display:block;}
+  .hero-in{padding-top:22px;max-width:760px;}
+  h1{margin-top:16px;font-size:34px;line-height:1.4;font-weight:800;color:var(--pine);}
+  .hero-in p{margin-top:14px;font-size:18.5px;color:var(--ink);}
+
+  /* sections */
+  section{padding:42px 0 0;}
+  h2{font-size:26px;line-height:1.45;font-weight:800;color:var(--pine);}
+  .sub{margin-top:6px;color:var(--ink-soft);font-weight:600;}
+
+  /* story */
+  .story{margin-top:18px;display:grid;gap:18px;}
+  .story-card{background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 16px 26px -22px rgba(12,58,39,0.6);}
+  .story-card p+p{margin-top:12px;}
+  .chat{display:flex;flex-direction:column;gap:10px;background:var(--paper);border:1.5px solid var(--line);border-radius:22px;padding:20px;}
+  .bubble{max-width:86%;padding:10px 16px;border-radius:18px;font-weight:700;line-height:1.5;}
+  .b-boss{align-self:flex-start;background:#fff;border:1.5px solid var(--line);border-bottom-left-radius:6px;color:var(--ink);}
+  .b-you{align-self:flex-end;background:var(--leaf-deep);color:#fff;border-bottom-right-radius:6px;}
+  .b-ok{align-self:flex-end;background:var(--sun);color:var(--pine);border-bottom-right-radius:6px;}
+  .chat small{display:block;font-weight:600;font-size:14.5px;opacity:.85;}
+  .chat-cap{font-weight:700;color:var(--ink-soft);font-size:15.5px;}
+
+  /* steps */
+  .steps{margin-top:18px;display:grid;gap:14px;}
+  .step{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:18px;}
+  .step .ic{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background-color:#14582B;background-image:linear-gradient(145deg,#1F8A36,#0C3A27);box-shadow:0 12px 18px -12px rgba(12,58,39,.9);}
+  .step .ic svg{width:27px;height:27px;fill:none;stroke:#F4B93E;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+  .step h3{font-size:19px;font-weight:800;color:var(--pine);line-height:1.45;}
+  .step p{margin-top:2px;color:var(--ink-soft);font-weight:600;line-height:1.6;}
+
+  /* audience + promise */
+  .chips{margin-top:16px;display:grid;gap:12px;}
+  .chip{display:flex;align-items:center;gap:14px;background:var(--leaf-soft);border:1.5px solid #BBD8C1;border-radius:18px;padding:14px 18px;font-weight:700;color:var(--pine);}
+  .chip span{font-size:26px;line-height:1;}
+  .promise{margin-top:16px;display:grid;gap:12px;}
+  .pr{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:14px 16px;}
+  .pr b{display:block;color:var(--pine);font-size:18px;font-weight:800;line-height:1.5;}
+  .pr p{color:var(--ink-soft);font-weight:600;line-height:1.6;}
+  .tick{flex:none;width:30px;height:30px;border-radius:50%;background:var(--leaf-deep);display:grid;place-items:center;margin-top:2px;}
+  .tick svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+
+  /* soon */
+  .soon{margin-top:16px;display:flex;gap:14px;align-items:flex-start;background-color:#FFF4D6;background-image:linear-gradient(160deg,#FFF9E8,#FCE8B5);border:1.5px dashed #E2BC57;border-radius:20px;padding:18px;}
+  .soon .ic{flex:none;width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 6px 12px -6px rgba(150,95,0,.7);}
+  .soon .ic svg{width:23px;height:23px;stroke:#B07A00;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+  .soon b{display:block;color:var(--pine);font-size:18px;font-weight:800;}
+  .soon p{color:#5A3D00;font-weight:600;line-height:1.6;}
+
+  /* contact */
+  .contact{background:var(--pine);background-image:linear-gradient(135deg,#14582B 0%,#0C3A27 100%);border-radius:26px;padding:28px 22px;color:#fff;display:grid;gap:16px;box-shadow:0 22px 30px -22px rgba(12,58,39,.9);}
+  .contact h2{color:#fff;}
+  .contact p{color:#E6F3E8;font-weight:600;}
+  .wa-btn{background:var(--wa);color:#073B1C;box-shadow:0 10px 20px -10px rgba(0,0,0,.5);}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;}
+
+  footer{padding:38px 0 48px;text-align:center;}
+  footer img{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);}
+  footer p{margin-top:8px;font-size:16.5px;font-weight:600;color:var(--pine);}
+
+  @media (min-width:760px){
+    .wrap{padding:0 32px;}
+    nav{padding:20px 0;}
+    .nav-links{display:flex;}
+    .nav-home{display:none;}
+    h1{font-size:46px;}
+    .hero-in p{font-size:20px;}
+    h2{font-size:32px;}
+    section{padding-top:60px;}
+    .story{grid-template-columns:1.15fr 1fr;align-items:stretch;gap:22px;}
+    .story-card{padding:28px;}
+    .steps{grid-template-columns:1fr 1fr;gap:16px;}
+    .chips{grid-template-columns:repeat(3,1fr);}
+    .promise{grid-template-columns:1fr 1fr;}
+    .contact{padding:40px;grid-template-columns:1fr auto;align-items:center;}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;}}
+
+  .doc{max-width:760px;}
+  .doc-card{margin-top:18px;background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:24px 22px;box-shadow:0 16px 26px -22px rgba(12,58,39,.6);}
+  .doc-card h2{font-size:21px;margin-top:26px;}
+  .doc-card h2:first-child{margin-top:0;}
+  .doc-card p{margin-top:8px;}
+  .doc-card ul{margin:8px 0 0;padding-left:22px;}
+  .doc-card li{margin-top:6px;}
+  .updated{display:inline-block;margin-top:14px;font-weight:700;font-size:15.5px;color:var(--ink-soft);background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 14px;}
+  .note{margin-top:14px;background:var(--sun-soft);border:1.5px dashed #E2BC57;border-radius:16px;padding:12px 16px;font-weight:600;color:#4A3000;}
+  .flinks{margin-top:6px;font-weight:700;}
+  .flinks a{color:var(--leaf-deep);margin:0 8px;}
+  @media (min-width:760px){.doc-card{padding:34px 36px;}.doc-card h2{font-size:24px;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="index.html"><img src="logo.png" alt="Bidesh English লোগো" width="42" height="42"><span>Bidesh English</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#needs">Learn English</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="about.html#contact">Contact</a></li>
+      </ul>
+      <a class="btn btn-line nav-home" href="index.html">← Home</a>
+    </nav>
+    <div class="hero-in">
+      <h1>Privacy Policy</h1>
+      <span class="updated">সর্বশেষ হালনাগাদ: নভেম্বর ২০২৬</span>
+      <p>গোপনীয়তা নীতি: আপনার তথ্য কীভাবে ব্যবহৃত হয়, সহজ ভাষায় জেনে নিন।</p>
+    </div>
+  </div>
+</header>
+<main class="wrap doc">
+  <div class="doc-card">
+    <h2>১. আমরা কে</h2>
+    <p>Bidesh English (www.bideshenglish.com) বাংলাদেশিদের জন্য একটি বিনামূল্যের Spoken English শেখার ওয়েবসাইট। এই পেজে বলা হয়েছে, সাইট ব্যবহারের সময় কী তথ্য ব্যবহৃত হয় এবং কীভাবে।</p>
+
+    <h2>২. আমরা কী তথ্য সংগ্রহ করি না</h2>
+    <ul>
+      <li>সাইটে কোনো অ্যাকাউন্ট, লগইন বা রেজিস্ট্রেশন নেই।</li>
+      <li>আমরা আপনার নাম, ইমেইল, ফোন নম্বর বা ঠিকানা চাই না।</li>
+      <li>আমরা আপনার ভয়েস রেকর্ড করে আমাদের সার্ভারে জমা রাখি না।</li>
+      <li>সাইটে কোনো পেমেন্ট নেওয়া হয় না।</li>
+    </ul>
+
+    <h2>৩. আপনার ফোন বা ব্রাউজারে যা সেভ থাকে</h2>
+    <p>লেসনের অগ্রগতি (কোন লেসন শেষ হয়েছে) এবং ধারাবাহিকতার হিসাব আপনার নিজের ব্রাউজারের লোকাল স্টোরেজে সেভ থাকে। এই তথ্য শুধু আপনার ডিভাইসে থাকে, আমাদের কাছে পাঠানো হয় না। ব্রাউজারের ডেটা মুছে ফেললে এই অগ্রগতিও মুছে যাবে।</p>
+
+    <h2>৪. মাইক্রোফোন ও বলার অনুশীলন</h2>
+    <p>"নিজে বলুন" অংশে আপনি চাইলে মাইক ব্যবহার করতে পারেন। মাইক ব্যবহারের আগে ব্রাউজার আপনার অনুমতি চায়। অনুমতি না দিলে আপনি ম্যানুয়ালি এগিয়ে যেতে পারেন।</p>
+    <p>কণ্ঠ চেনার কাজটি আপনার ব্রাউজারের নিজস্ব সুবিধা (Web Speech API) দিয়ে হয়। কিছু ব্রাউজারে (যেমন Chrome) এই কাজের জন্য কণ্ঠ ব্রাউজার প্রস্তুতকারকের সার্ভারে (যেমন Google) প্রক্রিয়া হতে পারে। এটি ওই ব্রাউজারের নীতি অনুযায়ী হয়, আমরা এই কণ্ঠ পাই না বা জমা রাখি না।</p>
+
+    <h2>৫. তৃতীয় পক্ষের সেবা</h2>
+    <ul>
+      <li><b>Google Fonts:</b> সাইটের লেখার ফন্ট লোড করতে ব্যবহৃত হয়। এতে আপনার আইপি অ্যাড্রেস Google-এর কাছে যেতে পারে।</li>
+      <li><b>Vercel:</b> আমাদের সাইট হোস্টিং সেবা। সাইটের সাধারণ সার্ভার লগে (যেমন আইপি, ব্রাউজারের ধরন) কিছু প্রযুক্তিগত তথ্য থাকতে পারে।</li>
+      <li><b>WhatsApp:</b> "WhatsApp-এ মেসেজ করুন" বাটনে চাপলে আপনি WhatsApp-এ চলে যান। সেখানে আপনার মেসেজ ও নম্বর WhatsApp-এর নীতি অনুযায়ী পরিচালিত হয়। আপনি মেসেজ পাঠালে আমরা শুধু আপনার প্রশ্নের উত্তর দিতে সেটি ব্যবহার করি।</li>
+    </ul>
+
+    <h2>৬. ভবিষ্যতে পরিবর্তন</h2>
+    <p>ভবিষ্যতে আমরা সাইটের ব্যবহার বোঝার জন্য অ্যানালিটিক্স (যেমন Google Analytics) বা বিজ্ঞাপন যোগ করতে পারি। তেমন হলে এই পেজ আগে হালনাগাদ করা হবে।</p>
+
+    <h2>৭. শিশুদের তথ্য</h2>
+    <p>এই সাইট প্রাপ্তবয়স্কদের জন্য তৈরি। আমরা জেনেশুনে কোনো শিশুর ব্যক্তিগত তথ্য সংগ্রহ করি না।</p>
+
+    <h2>৮. যোগাযোগ</h2>
+    <p>গোপনীয়তা নিয়ে প্রশ্ন থাকলে <a href="https://wa.me/8801356265826" target="_blank" rel="noopener" style="color:var(--leaf-deep);font-weight:700">WhatsApp-এ মেসেজ করুন</a>।</p>
+  </div>
+  <p class="note">এই পেজটি সাধারণ তথ্যের জন্য সহজ ভাষায় লেখা। এটি আইনি পরামর্শ নয়।</p>
+</main>
+<footer>
+  <div class="wrap">
+    <img src="logo.png" alt="" width="40" height="40">
+    <p>Bidesh English — আপনার বিদেশযাত্রার ইংরেজি সঙ্গী</p>
+    <p class="flinks"><a href="about.html">About Us</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a></p>
+  </div>
+</footer>
+</body>
+</html>
