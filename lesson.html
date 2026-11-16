@@ -35,10 +35,11 @@
   .brand img{width:34px;height:34px;border-radius:50%;border:2px solid #fff;}
   h1{margin:8px 0 2px;font-weight:800;font-size:clamp(26px,6.5vw,34px);line-height:1.2;color:var(--pine);letter-spacing:-0.015em;}
   .sub{margin:0 0 14px;color:var(--ink-soft);font-size:17px;}
-  .progress{list-style:none;display:flex;gap:6px;padding:0;margin:0 0 8px;}
-  .progress li{flex:1;height:9px;border-radius:99px;background:#B4CFBB;}
-  .progress li.done{background:var(--leaf-deep);}
-  .progress li.cur{background:var(--sun);box-shadow:0 0 0 2px rgba(12,58,39,0.35);}
+  .progress{height:4px;border-radius:99px;background:#A9C9B3;overflow:hidden;margin:0 0 16px;}
+  .progress .fill{display:block;height:100%;min-width:4px;border-radius:99px;background:#17692A;transition:width .45s ease;}
+  .stepname{margin:0 0 6px;}
+  .pctrow{position:relative;height:24px;margin:0 0 4px;}
+  .pct{position:absolute;top:0;font-size:18px;font-weight:800;color:#17692A;line-height:24px;white-space:nowrap;transition:left .45s ease, transform .45s ease;}
   .stepname{margin:0 0 12px;font-weight:700;color:var(--pine);font-size:16.5px;}
   .card{background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:22px 20px;box-shadow:0 16px 28px -20px rgba(12,58,39,0.55);outline:none;}
   .card h2{margin:0 0 10px;font-size:22px;line-height:1.35;color:var(--pine);font-weight:800;}
@@ -98,8 +99,9 @@
 <main class="wrap">
   <h1 id="lessonTitle">লেসন লোড হচ্ছে…</h1>
   <p class="sub" id="lessonSub"></p>
-  <ol class="progress" id="progress" aria-label="লেসনের ধাপ"></ol>
   <p class="stepname" id="stepName"></p>
+  <div class="pctrow"><span class="pct" id="pct" style="left:0%"></span></div>
+  <div class="progress" id="progress" role="progressbar" aria-label="লেসনের অগ্রগতি" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="fill" id="fill" style="width:0%"></span></div>
   <section class="card" id="stage" tabindex="-1" aria-live="polite"></section>
 </main>
 <div style="height:48px"></div>
@@ -157,7 +159,12 @@
 
   /* ---------- shell ---------- */
   function paintProgress(){
-    $('#progress').innerHTML = flow.map(function(_, i){ return '<li class="' + (i < idx ? 'done' : i === idx ? 'cur' : '') + '"></li>'; }).join('');
+    var pc = flow.length > 1 ? Math.round(idx / (flow.length - 1) * 100) : 0;
+    $('#fill').style.width = pc + '%';
+    $('#progress').setAttribute('aria-valuenow', pc);
+    $('#pct').textContent = bn(pc) + '%';
+    $('#pct').style.left = pc + '%';
+    $('#pct').style.transform = 'translateX(-' + pc + '%)';
     $('#stepName').textContent = 'ধাপ ' + bn(idx+1) + '/' + bn(flow.length) + ' · ' + STEP_NAME[flow[idx]];
   }
   function go(n){
@@ -374,7 +381,7 @@
   /* ---------- start ---------- */
   function missing(){
     $('#lessonTitle').textContent = 'লেসনটি পাওয়া যায়নি';
-    $('#progress').innerHTML = ''; $('#stepName').textContent = '';
+    $('#progress').style.display = 'none'; $('#stepName').textContent = ''; $('#pct').textContent = '';
     stage.innerHTML = '<div class="missing"><p class="lede">এই লেসনটি এখনো তৈরি হয়নি।</p><a class="btn btn-main" href="index.html#needs">সব লেসনে ফিরুন</a></div>';
   }
   function start(){
