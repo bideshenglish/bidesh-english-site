@@ -161,22 +161,36 @@
   .prof-chip.core.selected .c-sub{color:#FFF3CC;background:rgba(255,255,255,0.16);}
 
   /* panel that opens right under the chosen profession */
-  .prof-panel{grid-column:1 / -1;position:relative;margin:10px 0 6px;padding:14px;border-radius:20px;background-color:#EAF5EC;background-image:linear-gradient(180deg,#F3FAF4,#E3F1E6);border:1.5px solid #B9D8C1;box-shadow:0 18px 28px -22px rgba(12,58,39,0.6);animation:panelIn .28s ease both;}
+  .prof-panel{grid-column:1 / -1;position:relative;margin:10px 0 6px;padding:10px;border-radius:20px;background-color:#EAF5EC;background-image:linear-gradient(180deg,#F3FAF4,#E3F1E6);border:1.5px solid #B9D8C1;box-shadow:0 18px 28px -22px rgba(12,58,39,0.6);animation:panelIn .28s ease both;}
   .prof-panel[hidden]{display:none;}
   .prof-panel::before{content:'';position:absolute;top:-9px;left:var(--cx,50%);width:16px;height:16px;transform:translateX(-50%) rotate(45deg);background:#F3FAF4;border-left:1.5px solid #B9D8C1;border-top:1.5px solid #B9D8C1;border-top-left-radius:4px;}
   @keyframes panelIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
   .prof-panel .topic-list{margin-top:0;}
   .prof-panel .topic-item{background:#fff;}
 
-  /* coming soon box */
-  .prof-soon{text-align:center;padding:22px 16px 20px;border-radius:16px;background-color:#FFF4D6;background-image:linear-gradient(160deg,#FFF9E8 0%,#FCE8B5 100%);border:1.5px dashed #E2BC57;}
-  .prof-soon .ps-ic{width:54px;height:54px;margin:0 auto 10px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 8px 16px -8px rgba(150,95,0,0.7);}
-  .prof-soon .ps-ic svg{width:26px;height:26px;stroke:#B07A00;}
-  .prof-soon h4{margin:0 0 4px;font-size:20px;font-weight:800;color:var(--pine);}
-  .prof-soon p{margin:0 auto 14px;max-width:34ch;font-weight:600;font-size:16.5px;line-height:1.6;color:#5A3D00;}
-  .prof-soon button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:999px;background:var(--leaf-deep);color:#fff;font-weight:800;font-size:16.5px;box-shadow:0 10px 18px -10px rgba(12,58,39,0.9);}
+  /* coming soon box (compact) */
+  .prof-soon{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background-color:#FFF4D6;background-image:linear-gradient(160deg,#FFF9E8 0%,#FCE8B5 100%);border:1.5px dashed #E2BC57;}
+  .prof-soon .ps-ic{flex:none;width:42px;height:42px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 6px 12px -6px rgba(150,95,0,0.7);}
+  .prof-soon .ps-ic svg{width:22px;height:22px;stroke:#B07A00;}
+  .prof-soon .ps-tx{min-width:0;flex:1;}
+  .prof-soon h4{margin:0;font-size:17.5px;font-weight:800;color:var(--pine);line-height:1.4;}
+  .prof-soon p{margin:0;font-weight:600;font-size:15.5px;line-height:1.5;color:#5A3D00;}
+  .prof-soon button{all:unset;cursor:pointer;display:inline-block;margin-top:6px;font-weight:800;font-size:15.5px;color:var(--leaf-deep);text-decoration:underline;text-underline-offset:3px;}
   .prof-soon button:focus-visible{outline:3px solid var(--pine);outline-offset:3px;}
   @media (min-width:560px){ .prof-grid{grid-template-columns:repeat(3,minmax(0,1fr));} }
+
+  /* ---------- profession categories ---------- */
+  .prof-sec{margin-top:24px;}
+  .prof-sec.first{margin-top:6px;}
+  .cat-head{display:flex;align-items:center;gap:12px;margin:0 0 12px;}
+  .cat-ic{flex:none;width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background-color:#14582B;background-image:linear-gradient(145deg,#1F8A36 0%,#0C3A27 100%);box-shadow:0 12px 18px -12px rgba(12,58,39,0.95),inset 0 1px 0 rgba(255,255,255,0.28);}
+  .cat-ic svg{width:25px;height:25px;fill:none;stroke:#F4B93E;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .cat-txt{min-width:0;flex:1;}
+  .cat-title{margin:0;font-size:18.5px;font-weight:800;color:var(--pine);line-height:1.4;letter-spacing:0;}
+  .cat-sub{margin:1px 0 0;font-size:15.5px;font-weight:600;color:var(--ink-soft);line-height:1.5;}
+  .cat-count{flex:none;align-self:flex-start;margin-top:2px;font-size:14.5px;font-weight:700;color:var(--leaf-deep);background:var(--leaf-soft);border-radius:999px;padding:2px 12px;white-space:nowrap;}
+  .prof-sec + .prof-sec{padding-top:2px;border-top:1.5px dashed #C3DACA;padding-top:20px;}
+  .prof-sec.first + .prof-sec{border-top:1.5px dashed #C3DACA;}
 
   /* ---------- larger screens ---------- */
   @media (min-width:760px){
@@ -370,7 +384,7 @@
           <div class="drill" id="drill-job">
             <div class="drill-inner">
               <p class="prof-hint">আপনার পেশা বেছে নিন</p>
-              <div class="prof-grid" id="prof-grid"></div>
+              <div id="prof-wrap"></div>
             </div>
           </div>
         </div>
@@ -510,30 +524,41 @@ const professions = [
 // যে পেশার লেসন তৈরি হয়ে গেছে, তার নাম এখানে যোগ করুন (যেমন: professionLessons["ড্রাইভার"] = ["লেসন ১", ...])
 const professionLessons = {};
 
+const profCats = [
+  { title:"নির্মাণ ও ভবনের কাজ", sub:"শ্রমিক, রাজমিস্ত্রি, রং ও ফিনিশিং", items:[0,3,8],
+    icon:'<path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M9 11h.01M15 11h.01"/>' },
+  { title:"কারিগরি ও টেকনিক্যাল কাজ", sub:"বিদ্যুৎ, পাইপ, ওয়েল্ডিং ও এসি", items:[4,5,6,7],
+    icon:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>' },
+  { title:"সার্ভিস, হোটেল ও রিটেইল", sub:"পরিচ্ছন্নতা, রেস্তোরাঁ, দোকান ও নিরাপত্তা", items:[9,10,11,12],
+    icon:'<path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 10h2a2 2 0 0 1 0 4h-2"/><path d="M7 2v3M11 2v3"/>' },
+  { title:"ঘর ও স্বাস্থ্যসেবা", sub:"গৃহকর্ম, যত্ন ও হেলথকেয়ার", items:[1,13],
+    icon:'<path d="M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 21.6l8.8-8.6a5.2 5.2 0 0 0 0-7.4z"/>' },
+  { title:"পরিবহন, কারখানা ও কৃষি", sub:"গাড়ি, মেশিন, সেলাই ও খামার", items:[2,16,14,15],
+    icon:'<path d="M1 6h13v10H1z"/><path d="M14 9h4l3 3v4h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>' }
+];
+const toBn = n => String(n).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+
 let profOpen = 'core';
 function placePanel(){
-  const grid = document.getElementById('prof-grid');
+  const wrap = document.getElementById('prof-wrap');
   const panel = document.getElementById('prof-panel');
-  if(!grid || !panel) return;
+  if(!wrap || !panel) return;
   if(!profOpen){ panel.hidden = true; return; }
+  const chip = wrap.querySelector('.prof-chip[data-key="' + profOpen + '"]');
+  const grid = chip.parentElement;
   const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
-  const chips = [...grid.querySelectorAll('.prof-chip:not(.core)')];
-  let anchor, chip;
-  if(profOpen === 'core'){ chip = anchor = grid.querySelector('.prof-chip.core'); }
-  else {
-    const i = +profOpen;
-    chip = chips[i];
-    anchor = chips[Math.min((Math.floor(i / cols) + 1) * cols - 1, chips.length - 1)];
-  }
+  const chips = [...grid.querySelectorAll('.prof-chip')];
+  const idx = chips.indexOf(chip);
+  const anchor = chips[Math.min((Math.floor(idx / cols) + 1) * cols - 1, chips.length - 1)];
   anchor.after(panel);
   panel.hidden = false;
   panel.style.setProperty('--cx', (chip.offsetLeft + chip.offsetWidth / 2) + 'px');
 }
 function selectProfession(key, toggle){
-  const grid = document.getElementById('prof-grid');
+  const wrap = document.getElementById('prof-wrap');
   if(toggle && profOpen === key){ profOpen = null; }
   else { profOpen = key; }
-  grid.querySelectorAll('.prof-chip').forEach(c => c.classList.toggle('selected', c.dataset.key === profOpen));
+  wrap.querySelectorAll('.prof-chip').forEach(c => c.classList.toggle('selected', c.dataset.key === profOpen));
   if(profOpen === null){ placePanel(); return; }
   if(profOpen === 'core'){ renderTopics('topics-job', topicsData.jobCore); }
   else {
@@ -543,8 +568,8 @@ function selectProfession(key, toggle){
     else {
       document.getElementById('topics-job').innerHTML =
         '<div class="prof-soon"><div class="ps-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>' +
-        '<h4>শীঘ্রই আসছে</h4><p>' + prof[1] + '-এর লেসন তৈরি হচ্ছে। এর মধ্যে সবার জন্য জরুরি লেসনগুলো শিখে নিন।</p>' +
-        '<button type="button" data-go-core="1">জরুরি লেসন দেখুন →</button></div>';
+        '<div class="ps-tx"><h4>শীঘ্রই আসছে</h4><p>এই পেশার লেসন তৈরি হচ্ছে।</p>' +
+        '<button type="button" data-go-core="1">জরুরি লেসন দেখুন →</button></div></div>';
     }
   }
   placePanel();
@@ -552,12 +577,19 @@ function selectProfession(key, toggle){
   if(toggle) setTimeout(() => panel.scrollIntoView({block:'nearest', behavior:'smooth'}), 60);
 }
 (function(){
-  const grid = document.getElementById('prof-grid');
-  if(!grid) return;
-  grid.innerHTML = '<button class="prof-chip core" data-key="core"><span class="c-main">সব কর্মীর জন্য জরুরি ইংরেজি</span><span class="c-sub">৮টি লেসন · সব পেশায় কাজে লাগে</span></button>' +
-    professions.map((p, i) => `<button class="prof-chip" data-key="${i}"><span class="pe">${p[0]}</span><span>${p[1]}</span></button>`).join('') +
-    '<div class="prof-panel" id="prof-panel" hidden><div class="topic-list" id="topics-job"></div></div>';
-  grid.addEventListener('click', e => {
+  const wrap = document.getElementById('prof-wrap');
+  if(!wrap) return;
+  const chip = i => `<button class="prof-chip" data-key="${i}"><span class="pe">${professions[i][0]}</span><span>${professions[i][1]}</span></button>`;
+  wrap.innerHTML =
+    '<div class="prof-sec first"><div class="prof-grid"><button class="prof-chip core" data-key="core"><span class="c-main">সব কর্মীর জন্য জরুরি ইংরেজি</span><span class="c-sub">৮টি লেসন · সব পেশায় কাজে লাগে</span></button>' +
+    '<div class="prof-panel" id="prof-panel" hidden><div class="topic-list" id="topics-job"></div></div></div></div>' +
+    profCats.map(c =>
+      `<section class="prof-sec"><div class="cat-head"><span class="cat-ic"><svg viewBox="0 0 24 24" aria-hidden="true">${c.icon}</svg></span>` +
+      `<div class="cat-txt"><h3 class="cat-title">${c.title}</h3><p class="cat-sub">${c.sub}</p></div>` +
+      `<span class="cat-count">${toBn(c.items.length)}টি পেশা</span></div>` +
+      `<div class="prof-grid">${c.items.map(chip).join('')}</div></section>`
+    ).join('');
+  wrap.addEventListener('click', e => {
     if(e.target.closest('[data-go-core]')){ selectProfession('core', true); return; }
     const c = e.target.closest('.prof-chip'); if(c) selectProfession(c.dataset.key, true);
   });
