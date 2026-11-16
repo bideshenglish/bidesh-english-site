@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>আমাদের সম্পর্কে | Bidesh English</title>
+<meta name="description" content="Bidesh English: বিদেশে যাওয়ার আগে ও বিদেশে থেকে কাজের জায়গার Spoken English শিখুন বাংলায়, সম্পূর্ণ বিনামূল্যে।">
+<meta name="theme-color" content="#BCE0F3">
+<meta name="color-scheme" content="light only">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#0C3A27; --pine-2:#14582B; --leaf:#1F8A36; --leaf-deep:#17692A; --leaf-soft:#E2F1E4;
+    --sun:#F4B93E; --sun-deep:#D99A12; --sun-soft:#FCEBC4;
+    --ink:#14261C; --ink-soft:#33463B; --page:#DFEEE3; --paper:#F1F8F2; --line:#A9C9B3; --wa:#25D366;
+    --font:'Anek Bangla','Noto Sans Bengali','Segoe UI',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--page);color:var(--ink);font-family:var(--font);font-size:17px;font-weight:500;line-height:1.75;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  :focus-visible{outline:3px solid var(--pine);outline-offset:3px;border-radius:6px;}
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px;}
+  h1,h2,h3,p{margin:0;letter-spacing:0;}
+
+  /* hero */
+  .hero{background:
+      radial-gradient(60% 40% at 12% 30%, rgba(255,255,255,0.85), transparent 70%),
+      radial-gradient(50% 35% at 88% 12%, rgba(255,255,255,0.8), transparent 70%),
+      linear-gradient(180deg, #BCE0F3 0%, #D2EBEE 58%, var(--page) 100%);
+    padding-bottom:40px;}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:19px;color:var(--pine);}
+  .brand img{width:42px;height:42px;border-radius:50%;border:2px solid #fff;box-shadow:0 4px 12px -4px rgba(12,58,39,0.4);}
+  .nav-links{display:none;list-style:none;margin:0;padding:0;gap:30px;}
+  .nav-links a{text-decoration:none;font-weight:700;color:var(--pine);}
+  .nav-links a[aria-current]{border-bottom:3px solid var(--sun);padding-bottom:2px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:999px;padding:14px 26px;font-weight:700;font-size:17px;text-decoration:none;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;font-family:inherit;}
+  .btn-sun{background:var(--sun);color:var(--pine);box-shadow:0 8px 18px -8px rgba(190,120,0,0.6);}
+  .btn-sun:hover{transform:translateY(-1px);box-shadow:0 12px 22px -8px rgba(190,120,0,0.7);}
+  .btn-line{background:#fff;color:var(--pine);border:2px solid var(--pine);}
+  .nav-home{padding:9px 18px;font-size:16px;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 16px 7px 12px;font-size:16px;font-weight:700;color:var(--leaf-deep);box-shadow:0 4px 12px -6px rgba(12,58,39,0.3);}
+  .badge i{width:8px;height:8px;border-radius:50%;background:var(--leaf);display:block;}
+  .hero-in{padding-top:22px;max-width:760px;}
+  h1{margin-top:16px;font-size:34px;line-height:1.4;font-weight:800;color:var(--pine);}
+  .hero-in p{margin-top:14px;font-size:18.5px;color:var(--ink);}
+
+  /* sections */
+  section{padding:42px 0 0;}
+  h2{font-size:26px;line-height:1.45;font-weight:800;color:var(--pine);}
+  .sub{margin-top:6px;color:var(--ink-soft);font-weight:600;}
+
+  /* story */
+  .story{margin-top:18px;display:grid;gap:18px;}
+  .story-card{background:#fff;border:1.5px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 16px 26px -22px rgba(12,58,39,0.6);}
+  .story-card p+p{margin-top:12px;}
+  .chat{display:flex;flex-direction:column;gap:10px;background:var(--paper);border:1.5px solid var(--line);border-radius:22px;padding:20px;}
+  .bubble{max-width:86%;padding:10px 16px;border-radius:18px;font-weight:700;line-height:1.5;}
+  .b-boss{align-self:flex-start;background:#fff;border:1.5px solid var(--line);border-bottom-left-radius:6px;color:var(--ink);}
+  .b-you{align-self:flex-end;background:var(--leaf-deep);color:#fff;border-bottom-right-radius:6px;}
+  .b-ok{align-self:flex-end;background:var(--sun);color:var(--pine);border-bottom-right-radius:6px;}
+  .chat small{display:block;font-weight:600;font-size:14.5px;opacity:.85;}
+  .chat-cap{font-weight:700;color:var(--ink-soft);font-size:15.5px;}
+
+  /* steps */
+  .steps{margin-top:18px;display:grid;gap:14px;}
+  .step{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:18px;}
+  .step .ic{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background-color:#14582B;background-image:linear-gradient(145deg,#1F8A36,#0C3A27);box-shadow:0 12px 18px -12px rgba(12,58,39,.9);}
+  .step .ic svg{width:27px;height:27px;fill:none;stroke:#F4B93E;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+  .step h3{font-size:19px;font-weight:800;color:var(--pine);line-height:1.45;}
+  .step p{margin-top:2px;color:var(--ink-soft);font-weight:600;line-height:1.6;}
+
+  /* audience + promise */
+  .chips{margin-top:16px;display:grid;gap:12px;}
+  .chip{display:flex;align-items:center;gap:14px;background:var(--leaf-soft);border:1.5px solid #BBD8C1;border-radius:18px;padding:14px 18px;font-weight:700;color:var(--pine);}
+  .chip span{font-size:26px;line-height:1;}
+  .promise{margin-top:16px;display:grid;gap:12px;}
+  .pr{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:14px 16px;}
+  .pr b{display:block;color:var(--pine);font-size:18px;font-weight:800;line-height:1.5;}
+  .pr p{color:var(--ink-soft);font-weight:600;line-height:1.6;}
+  .tick{flex:none;width:30px;height:30px;border-radius:50%;background:var(--leaf-deep);display:grid;place-items:center;margin-top:2px;}
+  .tick svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+
+  /* soon */
+  .soon{margin-top:16px;display:flex;gap:14px;align-items:flex-start;background-color:#FFF4D6;background-image:linear-gradient(160deg,#FFF9E8,#FCE8B5);border:1.5px dashed #E2BC57;border-radius:20px;padding:18px;}
+  .soon .ic{flex:none;width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 6px 12px -6px rgba(150,95,0,.7);}
+  .soon .ic svg{width:23px;height:23px;stroke:#B07A00;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+  .soon b{display:block;color:var(--pine);font-size:18px;font-weight:800;}
+  .soon p{color:#5A3D00;font-weight:600;line-height:1.6;}
+
+  /* contact */
+  .contact{background:var(--pine);background-image:linear-gradient(135deg,#14582B 0%,#0C3A27 100%);border-radius:26px;padding:28px 22px;color:#fff;display:grid;gap:16px;box-shadow:0 22px 30px -22px rgba(12,58,39,.9);}
+  .contact h2{color:#fff;}
+  .contact p{color:#E6F3E8;font-weight:600;}
+  .wa-btn{background:var(--wa);color:#073B1C;box-shadow:0 10px 20px -10px rgba(0,0,0,.5);}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;}
+
+  footer{padding:38px 0 48px;text-align:center;}
+  footer img{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);}
+  footer p{margin-top:8px;font-size:16.5px;font-weight:600;color:var(--pine);}
+
+  @media (min-width:760px){
+    .wrap{padding:0 32px;}
+    nav{padding:20px 0;}
+    .nav-links{display:flex;}
+    .nav-home{display:none;}
+    h1{font-size:46px;}
+    .hero-in p{font-size:20px;}
+    h2{font-size:32px;}
+    section{padding-top:60px;}
+    .story{grid-template-columns:1.15fr 1fr;align-items:stretch;gap:22px;}
+    .story-card{padding:28px;}
+    .steps{grid-template-columns:1fr 1fr;gap:16px;}
+    .chips{grid-template-columns:repeat(3,1fr);}
+    .promise{grid-template-columns:1fr 1fr;}
+    .contact{padding:40px;grid-template-columns:1fr auto;align-items:center;}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="index.html"><img src="logo.png" alt="Bidesh English লোগো" width="42" height="42"><span>Bidesh English</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#needs">Learn English</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="btn btn-line nav-home" href="index.html">← Home</a>
+    </nav>
+    <div class="hero-in">
+      <span class="badge"><i></i>আমাদের সম্পর্কে</span>
+      <h1>বিদেশের কাজ, আপনার ভাষায় শেখা ইংরেজি</h1>
+      <p>Bidesh English বাংলাদেশিদের জন্য একটি বিনামূল্যের Spoken English প্ল্যাটফর্ম। যারা বিদেশে যাবেন বা বিদেশে আছেন, তাদের কাজের জায়গার দরকারি ইংরেজি সহজ বাংলায় শেখানোই আমাদের লক্ষ্য।</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section aria-labelledby="why">
+    <h2 id="why">কেন Bidesh English?</h2>
+    <div class="story">
+      <div class="story-card">
+        <p>বিদেশে কাজ করতে গিয়ে অনেকেই সুপারভাইজারের কথা বুঝতে পারেন না। ভয়ে বা লজ্জায় না বুঝেই "Yes sir" বলে দেন। তখন কাজ ভুল হয়, আর অনেক সময় দোষ পড়ে নিজের ওপরেই।</p>
+        <p>আমরা বিশ্বাস করি, ইংরেজি শেখার জন্য কঠিন ব্যাকরণ নয়, দরকার কাজের জায়গার বাস্তব বাক্য: কীভাবে বলবেন, কীভাবে বুঝবেন, কীভাবে ভদ্রভাবে আবার জিজ্ঞেস করবেন।</p>
+      </div>
+      <div class="chat" aria-label="উদাহরণ কথোপকথন">
+        <div class="bubble b-boss">Clean this area first.<small>সুপারভাইজার</small></div>
+        <div class="bubble b-you">Yes, yes… <small>না বুঝে বলা</small></div>
+        <div class="bubble b-ok">Sorry, sir. Please say that again slowly.<small>আত্মবিশ্বাসী ও ভদ্র জবাব</small></div>
+        <p class="chat-cap">এই ধরনের জবাব দেওয়াই আমরা শেখাই।</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="how">
+    <h2 id="how">কীভাবে শেখানো হয়</h2>
+    <p class="sub">প্রতিটি লেসন চারটি সহজ ধাপে এগোয়।</p>
+    <div class="steps">
+      <div class="step">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6L8 10z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a8 8 0 0 1 0 11"/></svg></div>
+        <div><h3>শুনুন ও বুঝুন</h3><p>দরকারি বাক্য বাংলা অর্থ ও উচ্চারণসহ শুনুন।</p></div>
+      </div>
+      <div class="step">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+        <div><h3>নিজে বলুন</h3><p>মাইকে বাক্যটি নিজে বলে অনুশীলন করুন।</p></div>
+      </div>
+      <div class="step">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4z"/><path d="M19 9h1a1 1 0 0 1 1 1v7l-3-2h-3"/></svg></div>
+        <div><h3>বসের সাথে কথা বলুন</h3><p>বাস্তব পরিস্থিতির কথোপকথনে সঠিক জবাব বেছে নিন।</p></div>
+      </div>
+      <div class="step">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 3 3 5-6"/></svg></div>
+        <div><h3>কুইজে যাচাই করুন</h3><p>ছোট কুইজে নিজের শেখা ঝালিয়ে নিন।</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="who">
+    <h2 id="who">কাদের জন্য</h2>
+    <div class="chips">
+      <div class="chip"><span aria-hidden="true">✈️</span>যারা বিদেশে যাওয়ার প্রস্তুতি নিচ্ছেন</div>
+      <div class="chip"><span aria-hidden="true">🧰</span>যারা বিদেশে কাজ করছেন</div>
+      <div class="chip"><span aria-hidden="true">🎓</span>যারা বিদেশে পড়তে যাচ্ছেন বা পড়ছেন</div>
+    </div>
+  </section>
+
+  <section aria-labelledby="promise">
+    <h2 id="promise">আমাদের অঙ্গীকার</h2>
+    <div class="promise">
+      <div class="pr"><div class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg></div><div><b>সম্পূর্ণ বিনামূল্যে</b><p>লেসন শেখার জন্য কোনো টাকা লাগে না।</p></div></div>
+      <div class="pr"><div class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg></div><div><b>সহজ বাংলায় ব্যাখ্যা</b><p>কঠিন নিয়ম নয়, সরাসরি কাজে লাগার মতো করে বোঝানো।</p></div></div>
+      <div class="pr"><div class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg></div><div><b>বাস্তব পরিস্থিতির ইংরেজি</b><p>কাজের জায়গা, নিরাপত্তা, বেতন, থাকার জায়গার মতো প্রতিদিনের বিষয়।</p></div></div>
+      <div class="pr"><div class="tick"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"/></svg></div><div><b>মোবাইলেই সহজে চলে</b><p>আলাদা অ্যাপ লাগে না। ফোনের ব্রাউজারেই শুরু করুন।</p></div></div>
+    </div>
+    <div class="soon">
+      <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <div><b>নতুন লেসন যোগ হচ্ছে</b><p>প্রতিটি পেশার জন্য আলাদা লেসন তৈরির কাজ চলছে। নিয়মিত নতুন লেসন যোগ হবে।</p></div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="ct" style="padding-bottom:0">
+    <div class="contact">
+      <div>
+        <h2 id="ct">সরাসরি গাইডেন্স চান?</h2>
+        <p style="margin-top:8px">প্রশ্ন, পরামর্শ বা নিজের পেশার লেসনের অনুরোধ থাকলে WhatsApp-এ মেসেজ করুন।</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn wa-btn" href="https://wa.me/8801356265826" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+          WhatsApp-এ মেসেজ করুন
+        </a>
+        <a class="btn btn-sun" href="index.html#needs">Start Learning Free</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="logo.png" alt="" width="40" height="40">
+    <p>Bidesh English — আপনার বিদেশযাত্রার ইংরেজি সঙ্গী</p>
+  </div>
+</footer>
+
+</body>
+</html>
