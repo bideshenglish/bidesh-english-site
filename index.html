@@ -563,7 +563,7 @@ const CHEV_R = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 
     profCats.map((c, ci) =>
       `<div class="cat" data-cat="${ci}"><button class="cat-row" aria-expanded="false">` +
         `<span class="cat-ic"><svg viewBox="0 0 24 24" aria-hidden="true">${c.icon}</svg></span>` +
-        `<span class="cat-txt"><span class="cat-title">${c.title}</span><span class="cat-sub">${c.sub}</span><span class="cat-count">${toBn(c.items.length)}টি পেশা</span></span>` +
+        `<span class="cat-txt"><span class="cat-title">${c.title}</span><span class="cat-sub">${c.sub}</span></span>` +
         `<span class="cat-chev">${CHEV}</span></button>` +
         `<div class="cat-body"><div class="cat-inner"><div class="prof-list">` +
           c.items.map(i =>
