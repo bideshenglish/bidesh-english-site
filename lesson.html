@@ -171,7 +171,7 @@
   var id = (params.get('id') || '').replace(/[^a-z0-9-]/gi, '');
   var $ = function(s){ return document.querySelector(s); };
   var stage = $('#stage');
-  var L, flow, idx = 0, S, WHO = 'বস';
+  var L, flow, idx = 0, S, WHO = 'বস', sub = 0, startSub = 0;
 
   var STEP_NAME = { scene:'দৃশ্য', phrases:'Phrase Cards', listen:'শুনে চেনা', speak:'বলে Practice', dialogue:'কথোপকথন', quiz:'Quick Quiz', done:'সম্পন্ন!' };
   var ICON_SPEAKER = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4h4l5 4V6L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
@@ -221,8 +221,19 @@
   window.__beMatch = matchScore;
 
   /* ---------- shell ---------- */
+  function unitsOf(st){
+    return st === 'phrases' ? (L.phrases || []).length : st === 'listen' ? (L.listening || []).length :
+           st === 'speak' ? (L.speak || []).length : st === 'dialogue' ? (L.dialogue || []).length :
+           st === 'quiz' ? (L.quiz || []).length : 0;
+  }
+  function pctNow(){
+    if (flow[idx] === 'done') return 100;
+    var tot = 0, before = 0;
+    flow.forEach(function(st, k){ var u = unitsOf(st); tot += u; if (k < idx) before += u; });
+    return tot ? Math.min(99, Math.round((before + sub) / tot * 100)) : 0;
+  }
   function paintProgress(){
-    var pc = flow.length > 1 ? Math.round(idx / (flow.length - 1) * 100) : 0;
+    var pc = pctNow();
     var tf = 'translateX(-' + pc + '%)';
     $('#fill').style.width = pc + '%';
     $('#progress').setAttribute('aria-valuenow', pc);
@@ -231,11 +242,20 @@
     $('#plane').style.left = pc + '%'; $('#plane').style.transform = 'translate(-' + pc + '%,-50%)';
     $('#stepName').textContent = 'ধাপ ' + bn(idx+1) + '/' + bn(flow.length) + ' · ' + STEP_NAME[flow[idx]];
   }
+  function saveResume(){
+    var m = read('be_resume', {});
+    if (flow[idx] === 'done' || flow[idx] === 'scene' || pctNow() === 0) { delete m[L.id]; }
+    else { m[L.id] = { step: idx, sub: sub, pct: pctNow(), S: S, at: Date.now() }; }
+    write('be_resume', m);
+  }
+  function setSub(k){ sub = k; paintProgress(); saveResume(); }
   function go(n){
-    idx = n; paintProgress();
+    idx = n; sub = startSub; paintProgress();
     if (canSpeak) { try { speechSynthesis.cancel(); } catch(e){} }
     stage.className = 'card s-' + flow[idx];
     R[flow[idx]]();
+    startSub = 0;
+    if (flow[idx] === 'scene' || flow[idx] === 'done') saveResume();
     enter();
     stage.focus({ preventScroll:true });
     window.scrollTo({ top: 0, behavior: 'auto' });
@@ -252,9 +272,10 @@
   };
 
   R.phrases = function(){
-    var i = 0, P = L.phrases;
+    var i = Math.min(startSub, L.phrases.length - 1), P = L.phrases;
     function card(){
       var p = P[i], last = i === P.length - 1;
+      setSub(i);
       stage.innerHTML =
         '<div class="tk-head">' + (p.tag ? '<span class="tag">' + esc(p.tag) + '</span>' : '<span></span>') + '<span class="tk-count">Phrase ' + bn(i+1) + '/' + bn(P.length) + '</span></div>' +
         '<div class="tk-body"><div class="tk-main"><p class="big-en">' + esc(p.en) + '</p>' +
@@ -272,10 +293,11 @@
   };
 
   R.listen = function(){
-    var q = 0, Q = L.listening, ok = 0;
-    S.listenTotal = Q.length; S.listenOk = 0;
+    var Q = L.listening, q = Math.min(startSub, Q.length - 1), ok = 0;
+    S.listenTotal = Q.length; if (!startSub) S.listenOk = 0;
     function ask(){
       var item = Q[q], opts = shuffle(item.options), done = false;
+      setSub(q);
       stage.innerHTML =
         '<p class="counter">প্রশ্ন ' + bn(q+1) + '/' + bn(Q.length) + '</p>' +
         '<h2>' + (canSpeak ? 'শুনুন, তারপর অর্থ বাছুন' : 'এই বাক্যের অর্থ কী?') + '</h2>' +
@@ -300,9 +322,10 @@
   };
 
   R.speak = function(){
-    var list = L.speak.map(function(i){ return L.phrases[i]; }), n = 0, busy = false;
+    var list = L.speak.map(function(i){ return L.phrases[i]; }), n = Math.min(startSub, L.speak.length - 1), busy = false;
     function show(){
       var p = list[n], last = n === list.length - 1;
+      setSub(n);
       stage.innerHTML =
         '<p class="counter">বলুন ' + bn(n+1) + '/' + bn(list.length) + '</p>' +
         '<h2>এবার নিজে বলুন</h2>' +
@@ -352,10 +375,11 @@
   };
 
   R.dialogue = function(){
-    var t = 0, D = L.dialogue; S.dStars = 0; S.dMax = D.length * 3;
+    var D = L.dialogue, t = Math.min(startSub, D.length - 1); if (!startSub) S.dStars = 0; S.dMax = D.length * 3;
     var log = [];
     function turn(){
       var d = D[t], choices = shuffle(d.choices), picked = false;
+      setSub(t);
       stage.innerHTML =
         '<p class="counter">কথা ' + bn(t+1) + '/' + bn(D.length) + '</p>' +
         '<div class="chat">' + log.join('') +
@@ -389,9 +413,10 @@
   };
 
   R.quiz = function(){
-    var q = 0, Q = L.quiz; S.quizOk = 0; S.quizTotal = Q.length;
+    var Q = L.quiz, q = Math.min(startSub, Q.length - 1); if (!startSub) S.quizOk = 0; S.quizTotal = Q.length;
     function ask(){
       var item = Q[q], done = false;
+      setSub(q);
       stage.innerHTML =
         '<p class="counter">প্রশ্ন ' + bn(q+1) + '/' + bn(Q.length) + '</p>' +
         '<h2>' + esc(item.q) + '</h2>' +
@@ -456,6 +481,22 @@
     $('#lessonTitle').textContent = L.title;
     $('#lessonSub').textContent = L.titleBn || '';
     flow = L.type === 'B' ? ['phrases','listen','speak','done'] : ['scene','phrases','listen','speak','dialogue','quiz','done'];
+    var saved = read('be_resume', {})[L.id];
+    var ok = saved && typeof saved.step === 'number' && saved.step > 0 && saved.step < flow.length - 1 && flow[saved.step] !== 'scene';
+    if (ok){
+      var u = unitsOf(flow[saved.step]);
+      if (!(saved.sub >= 0 && saved.sub < u)) saved.sub = 0;
+      idx = saved.step; sub = saved.sub; paintProgress();
+      stage.className = 'card s-resume';
+      stage.innerHTML = '<div class="scene-ic">' + ICON_PLANE + '</div><h2>আগের জায়গা থেকে চালিয়ে যাবেন?</h2>' +
+        '<p class="lede">আপনি এই লেসনের ' + bn(pctNow()) + '% শেষ করেছিলেন। যেখানে থেমেছিলেন, সেখান থেকেই শুরু করতে পারেন।</p>' +
+        '<div class="row"><button class="btn btn-main" id="resumeGo">চালিয়ে যান →</button></div>' +
+        '<div class="row"><button class="btn btn-alt" id="resumeNew">শুরু থেকে করুন</button></div>';
+      enter();
+      $('#resumeGo').onclick = function(){ S = saved.S || {}; startSub = saved.sub; go(saved.step); };
+      $('#resumeNew').onclick = function(){ var m = read('be_resume', {}); delete m[L.id]; write('be_resume', m); S = {}; startSub = 0; sub = 0; go(0); };
+      return;
+    }
     go(0);
   }
   if (!id){ missing(); return; }

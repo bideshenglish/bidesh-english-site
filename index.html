@@ -510,24 +510,36 @@ const lessonLinks = {
   "Understanding Instructions on Site": "lesson.html?id=site-instructions",
   "Asking for Tools & Materials": "lesson.html?id=tools-materials",
   "Safety Signs & Warnings": "lesson.html?id=safety-signs",
-  "Accident, Injury or Feeling Unwell": "lesson.html?id=accident-unwell"
+  "Accident, Injury or Feeling Unwell": "lesson.html?id=accident-unwell",
+  "Shift, Attendance & Overtime Hours": "lesson.html?id=shift-overtime"
 };
 
+function lessonId(href){ try { return new URLSearchParams(href.split('?')[1]).get('id'); } catch(e){ return null; } }
 function lessonDone(href){
   try {
-    const id = new URLSearchParams(href.split('?')[1]).get('id');
     const p = JSON.parse(localStorage.getItem('be_progress') || '{}');
+    const id = lessonId(href);
     return p[id] ? p[id].stars : 0;
   } catch(e){ return 0; }
 }
+function lessonResume(href){
+  try {
+    const r = JSON.parse(localStorage.getItem('be_resume') || '{}')[lessonId(href)];
+    return r && r.pct > 0 ? r.pct : 0;
+  } catch(e){ return 0; }
+}
+const toBnNum = n => String(n).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+const topicMemo = {};
 
 function renderTopics(containerId, items){
+  topicMemo[containerId] = items;
   document.getElementById(containerId).innerHTML =
     items.map((t, i) => {
       const href = lessonLinks[t];
       const stars = href ? lessonDone(href) : 0;
+      const part = href && !stars ? lessonResume(href) : 0;
       const chip = href
-        ? `<span class="live-chip">${stars ? '✓ সম্পন্ন' : 'শুরু করুন'}</span>`
+        ? `<span class="live-chip">${stars ? '✓ সম্পন্ন' : part ? 'চলছে ' + toBnNum(part) + '%' : 'শুরু করুন'}</span>`
         : `<span class="soon-chip">শীঘ্রই</span>`;
       return `<button class="topic-item" data-lesson="${t}"${href ? ` data-href="${href}"` : ''}>
       <span class="t-left"><span class="t-num">${i + 1}</span><span class="t-name">${t}</span></span>
@@ -535,6 +547,8 @@ function renderTopics(containerId, items){
     </button>`;
     }).join('');
 }
+
+window.addEventListener('pageshow', e => { if (e.persisted) Object.keys(topicMemo).forEach(id => { if (document.getElementById(id)) renderTopics(id, topicMemo[id]); }); });
 
 document.querySelectorAll('.pass-row').forEach(row => {
   row.addEventListener('click', () => {
