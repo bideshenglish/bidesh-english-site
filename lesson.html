@@ -45,7 +45,7 @@
   .stepname{margin:0 0 2px;font-weight:700;color:var(--ink-soft);font-size:16px;}
   .pctrow{position:relative;height:26px;}
   .pct{position:absolute;top:0;font-size:19px;font-weight:800;color:var(--leaf-deep);line-height:26px;white-space:nowrap;transition:left .5s ease, transform .5s ease;}
-  .track{position:relative;height:30px;margin:0 0 18px;}
+  .track{position:relative;height:30px;margin:0 0 4px;}
   .track::before{content:'';position:absolute;left:0;right:0;top:50%;height:4px;transform:translateY(-50%);
     background:radial-gradient(circle,#6E9A7B 1.7px,transparent 2.2px) 0 50% / 10px 4px repeat-x;}
   .track .fill{position:absolute;left:0;top:50%;height:4px;transform:translateY(-50%);border-radius:99px;background:var(--leaf-deep);min-width:4px;transition:width .5s ease;}
@@ -143,6 +143,33 @@
   .streak{margin:16px 0 0;display:inline-block;background:var(--sun-soft);color:#4A3000;font-weight:800;padding:8px 18px;border-radius:999px;font-size:18px;}
   .result .row{justify-content:center;}
   .missing{text-align:center;padding:26px 6px;}
+  /* ---------- back button ---------- */
+  .backrow{height:28px;margin:0 0 6px;}
+  .backmini{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-size:14.5px;font-weight:700;line-height:1.6;color:var(--ink-soft);padding:1px 13px 1px 9px;border-radius:999px;background:rgba(255,255,255,0.8);border:1px solid var(--line);}
+  .backmini:hover{background:#fff;color:var(--pine);}
+  .backmini:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+
+  /* ---------- short feedback ---------- */
+  .fb{display:flex;align-items:center;gap:12px;margin-top:16px;padding:11px 14px;border-radius:16px;animation:fbIn .25s ease both;}
+  .fb.ok{background:var(--good-bg);} .fb.no{background:var(--bad-bg);} .fb.mid{background:var(--sun-soft);}
+  .fb-ic{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:19px;line-height:1;}
+  .fb.ok .fb-ic{background:var(--leaf-deep);} .fb.no .fb-ic{background:#B23A24;} .fb.mid .fb-ic{background:#A86F00;}
+  .fb-t{font-size:21px;font-weight:800;line-height:1.3;}
+  .fb.ok .fb-t{color:var(--good-ink);} .fb.no .fb-t{color:var(--bad-ink);} .fb.mid .fb-t{color:#4A3000;}
+  .why-btn{all:unset;cursor:pointer;margin-left:auto;font-size:15px;font-weight:700;color:var(--pine);background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:3px 13px;line-height:1.5;white-space:nowrap;}
+  .why-btn:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+  .why{margin:8px 2px 0;padding:10px 14px;background:#fff;border:1.5px solid var(--line);border-radius:14px;font-weight:600;font-size:16.5px;line-height:1.6;color:var(--ink);}
+  .why[hidden]{display:none;}
+  .opt.shake{animation:shake .35s ease;}
+  @keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-7px);}40%{transform:translateX(7px);}60%{transform:translateX(-5px);}80%{transform:translateX(5px);}}
+  @keyframes fbIn{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
+  .review{margin:18px auto 0;max-width:420px;text-align:left;background:var(--sun-soft);border-radius:18px;padding:12px 16px;}
+  .review h3{margin:0 0 6px;font-size:17px;font-weight:800;color:#4A3000;}
+  .review ul{list-style:none;margin:0;padding:0;}
+  .review li{display:flex;align-items:center;gap:10px;padding:6px 0;font-weight:700;color:var(--ink);line-height:1.45;}
+  .hear-mini{all:unset;cursor:pointer;flex:none;width:34px;height:34px;border-radius:50%;background:var(--leaf-deep);display:grid;place-items:center;}
+  .hear-mini svg{width:18px;height:18px;fill:#fff;}
+  .hear-mini:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
   @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;}}
 </style>
 </head>
@@ -161,6 +188,7 @@
     <span class="fill" id="fill" style="width:0%"></span>
     <span class="plane" id="plane" style="left:0%"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21,16.01L21,14L13,9V3.5C13,2.67 12.33,2 11.5,2S10,2.67 10,3.5V9L2,14V16L10,13.5V19L7.5,20.5V22L11.5,21L15.5,22V20.5L13,19V13.5L21,16.01Z"/></svg></span>
   </div>
+  <div class="backrow"><button type="button" class="backmini" id="backBtn" aria-label="Back, আগের ধাপে ফিরুন" style="visibility:hidden"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Back</button></div>
   <section class="card" id="stage" tabindex="-1" aria-live="polite"></section>
 </main>
 <div style="height:48px"></div>
@@ -171,7 +199,7 @@
   var id = (params.get('id') || '').replace(/[^a-z0-9-]/gi, '');
   var $ = function(s){ return document.querySelector(s); };
   var stage = $('#stage');
-  var L, flow, idx = 0, S, WHO = 'বস', sub = 0, startSub = 0;
+  var L, flow, idx = 0, S, WHO = 'বস', sub = 0, startSub = 0, curBack = null, hideBack = false;
 
   var STEP_NAME = { scene:'দৃশ্য', phrases:'Phrase Cards', listen:'শুনে চেনা', speak:'বলে Practice', dialogue:'কথোপকথন', quiz:'Quick Quiz', done:'সম্পন্ন!' };
   var ICON_SPEAKER = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4h4l5 4V6L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
@@ -241,6 +269,7 @@
     $('#pct').style.left = pc + '%'; $('#pct').style.transform = tf;
     $('#plane').style.left = pc + '%'; $('#plane').style.transform = 'translate(-' + pc + '%,-50%)';
     $('#stepName').textContent = 'ধাপ ' + bn(idx+1) + '/' + bn(flow.length) + ' · ' + STEP_NAME[flow[idx]];
+    $('#backBtn').style.visibility = (hideBack || flow[idx] === 'scene' || flow[idx] === 'done') ? 'hidden' : 'visible';
   }
   function saveResume(){
     var m = read('be_resume', {});
@@ -250,7 +279,7 @@
   }
   function setSub(k){ sub = k; paintProgress(); saveResume(); }
   function go(n){
-    idx = n; sub = startSub; paintProgress();
+    idx = n; sub = startSub; curBack = null; hideBack = false; paintProgress();
     if (canSpeak) { try { speechSynthesis.cancel(); } catch(e){} }
     stage.className = 'card s-' + flow[idx];
     R[flow[idx]]();
@@ -264,6 +293,29 @@
   function nextBtn(label, id){ return '<div class="row"><button class="btn btn-main" id="' + (id || 'nextBtn') + '">' + (label || 'পরের ধাপ →') + '</button></div>'; }
 
   /* ---------- steps ---------- */
+  var PRAISE = ['Excellent!', 'Great job!', 'Well done!', 'Perfect!', 'Nice one!'], praiseN = 0;
+  function praise(){ var p = PRAISE[praiseN % PRAISE.length]; praiseN++; return p; }
+  function fbHtml(kind, title, why, openWhy){
+    var ic = kind === 'ok' ? '✓' : kind === 'no' ? '✕' : '★';
+    return '<div class="fb ' + kind + '"><span class="fb-ic" aria-hidden="true">' + ic + '</span><b class="fb-t">' + esc(title) + '</b>' +
+      (why ? '<button type="button" class="why-btn" id="whyBtn" aria-expanded="' + (openWhy ? 'true' : 'false') + '">কেন? ' + (openWhy ? '▴' : '▾') + '</button>' : '') + '</div>' +
+      (why ? '<p class="why" id="whyTxt"' + (openWhy ? '' : ' hidden') + '>' + esc(why) + '</p>' : '');
+  }
+  function wireWhy(){
+    var b = $('#whyBtn'); if (!b) return;
+    b.onclick = function(){
+      var t = $('#whyTxt'), open = t.hasAttribute('hidden');
+      if (open) t.removeAttribute('hidden'); else t.setAttribute('hidden', '');
+      b.setAttribute('aria-expanded', open ? 'true' : 'false'); b.textContent = 'কেন? ' + (open ? '▴' : '▾');
+    };
+  }
+  $('#backBtn').onclick = function(){
+    if (curBack && curBack()) return;
+    if (idx <= 0) return;
+    var pi = idx - 1, u = unitsOf(flow[pi]);
+    startSub = u ? u - 1 : 0; go(pi);
+  };
+
   var R = {};
 
   R.scene = function(){
@@ -273,6 +325,7 @@
 
   R.phrases = function(){
     var i = Math.min(startSub, L.phrases.length - 1), P = L.phrases;
+    curBack = function(){ if (i > 0){ i--; card(); enter(); return true; } return false; };
     function card(){
       var p = P[i], last = i === P.length - 1;
       setSub(i);
@@ -293,10 +346,10 @@
   };
 
   R.listen = function(){
-    var Q = L.listening, q = Math.min(startSub, Q.length - 1), ok = 0;
-    S.listenTotal = Q.length; if (!startSub) S.listenOk = 0;
+    var Q = L.listening, q = Math.min(startSub, Q.length - 1);
+    S.L = S.L || [];
     function ask(){
-      var item = Q[q], opts = shuffle(item.options), done = false;
+      var item = Q[q], opts = shuffle(item.options), done = false, tries = 0;
       setSub(q);
       stage.innerHTML =
         '<p class="counter">প্রশ্ন ' + bn(q+1) + '/' + bn(Q.length) + '</p>' +
@@ -307,22 +360,34 @@
       if ($('#play')) { $('#play').onclick = function(){ say(item.say); }; setTimeout(function(){ say(item.say); }, 250); }
       document.querySelectorAll('#opts .opt').forEach(function(b){
         b.onclick = function(){
-          if (done) return; done = true;
-          var o = opts[+b.dataset.k];
-          document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); if (opts[+x.dataset.k].ok) x.classList.add('good'); });
-          if (o.ok){ S.listenOk++; $('#fb').innerHTML = '<p class="note good">✅ ঠিক! ' + esc(item.say) + ' — ' + esc(item.why) + '</p>'; }
-          else { b.classList.add('bad'); $('#fb').innerHTML = '<p class="note bad">আরেকটু হলেই হতো। সঠিক উত্তরটি সবুজ রঙে দেখানো হয়েছে। ' + esc(item.why) + '</p>'; }
-          $('#fb').innerHTML += nextBtn(q === Q.length - 1 ? 'পরের ধাপ →' : 'পরের প্রশ্ন →', 'nx');
-          $('#nx').onclick = function(){ if (q === Q.length - 1) next(); else { q++; ask(); enter(); } };
-          $('#nx').focus();
+          if (done || b.getAttribute('aria-disabled') === 'true') return;
+          tries++;
+          var o = opts[+b.dataset.k], last = q === Q.length - 1, why = item.say + ' — ' + item.why;
+          if (tries === 1) S.L[q] = o.ok ? 1 : 0;
+          function finish(kind, title, open){
+            done = true;
+            document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); if (opts[+x.dataset.k].ok) x.classList.add('good'); });
+            $('#fb').innerHTML = fbHtml(kind, title, why, open) + nextBtn(last ? 'পরের ধাপ →' : 'পরের প্রশ্ন →', 'nx');
+            wireWhy();
+            $('#nx').onclick = function(){ if (last) next(); else { q++; ask(); enter(); } };
+            $('#nx').focus();
+          }
+          if (o.ok) finish('ok', tries === 1 ? praise() : 'Got it!', tries > 1);
+          else {
+            b.classList.add('bad', 'shake'); b.setAttribute('aria-disabled', 'true');
+            if (tries >= 2) finish('no', 'Not quite', true);
+            else $('#fb').innerHTML = fbHtml('no', 'Try again');
+          }
         };
       });
+      curBack = function(){ if (q > 0){ q--; ask(); enter(); return true; } return false; };
     }
     ask();
   };
 
   R.speak = function(){
     var list = L.speak.map(function(i){ return L.phrases[i]; }), n = Math.min(startSub, L.speak.length - 1), busy = false;
+    curBack = function(){ if (busy) return true; if (n > 0){ n--; show(); enter(); return true; } return false; };
     function show(){
       var p = list[n], last = n === list.length - 1;
       setSub(n);
@@ -375,14 +440,15 @@
   };
 
   R.dialogue = function(){
-    var D = L.dialogue, t = Math.min(startSub, D.length - 1); if (!startSub) S.dStars = 0; S.dMax = D.length * 3;
-    var log = [];
+    var D = L.dialogue, t = Math.min(startSub, D.length - 1), turns = [], seen = {};
+    S.D = S.D || [];
     function turn(){
-      var d = D[t], choices = shuffle(d.choices), picked = false;
+      var d = D[t], choices = shuffle(d.choices), last = t === D.length - 1;
       setSub(t);
+      turns.length = t;
       stage.innerHTML =
         '<p class="counter">কথা ' + bn(t+1) + '/' + bn(D.length) + '</p>' +
-        '<div class="chat">' + log.join('') +
+        '<div class="chat">' + turns.join('') +
           '<div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(d.boss) + '<small>' + esc(d.bn) + '</small></div>' +
         '</div>' +
         '<h2>আপনি কী বলবেন?</h2>' +
@@ -390,32 +456,38 @@
         '<div id="fb"></div>';
       document.querySelectorAll('#opts .opt').forEach(function(b){
         b.onclick = function(){
-          if (picked) return; picked = true;
+          if (b.getAttribute('aria-disabled') === 'true') return;
           var c = choices[+b.dataset.k];
-          S.dStars += c.stars;
+          if (!seen[t]) { seen[t] = true; S.D[t] = c.stars; }
           document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); });
-          if (c.stars === 3) b.classList.add('good'); else if (c.stars === 1) b.classList.add('bad');
-          var stars = '⭐'.repeat(c.stars);
-          var cls = c.stars === 3 ? 'good' : c.stars === 1 ? 'bad' : 'info';
-          var head = c.stars === 3 ? 'সবচেয়ে ভালো উত্তর' : c.stars === 2 ? 'মোটামুটি' : 'আরও ভালো বলা যেত';
+          if (c.stars === 3) b.classList.add('good'); else if (c.stars === 1) b.classList.add('bad', 'shake');
+          var kind = c.stars === 3 ? 'ok' : c.stars === 2 ? 'mid' : 'no';
+          var title = c.stars === 3 ? praise() : c.stars === 2 ? 'Good' : 'Not quite';
           $('#fb').innerHTML =
             '<div class="chat" style="margin-top:14px"><div class="bubble b-me"><span class="who">আপনি</span>' + esc(c.en) + '</div>' +
             '<div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(c.reply) + '<small>' + esc(c.replyBn) + '</small></div></div>' +
-            '<p class="note ' + cls + '"><span class="stars" aria-label="' + c.stars + ' তারা">' + stars + '</span> ' + head + '। ' + esc(c.tip) + '</p>' +
-            nextBtn(t === D.length - 1 ? 'পরের ধাপ →' : 'কথা চালিয়ে যান →', 'nx');
-          log.push('<div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(d.boss) + '</div><div class="bubble b-me"><span class="who">আপনি</span>' + esc(c.en) + '</div><div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(c.reply) + '</div>');
-          $('#nx').onclick = function(){ if (t === D.length - 1) next(); else { t++; turn(); enter(); } };
+            fbHtml(kind, title, c.tip, c.stars < 3) +
+            (c.stars < 3 ? '<div class="row"><button class="btn btn-alt" id="retry">আবার চেষ্টা করুন</button></div>' : '') +
+            nextBtn(last ? 'পরের ধাপ →' : 'কথা চালিয়ে যান →', 'nx');
+          wireWhy();
+          if ($('#retry')) $('#retry').onclick = function(){ turn(); enter(); };
+          $('#nx').onclick = function(){
+            turns[t] = '<div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(d.boss) + '</div><div class="bubble b-me"><span class="who">আপনি</span>' + esc(c.en) + '</div><div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(c.reply) + '</div>';
+            if (last) next(); else { t++; turn(); enter(); }
+          };
           $('#nx').focus();
         };
       });
+      curBack = function(){ if (t > 0){ delete seen[t]; t--; delete seen[t]; turn(); enter(); return true; } return false; };
     }
     turn();
   };
 
   R.quiz = function(){
-    var Q = L.quiz, q = Math.min(startSub, Q.length - 1); if (!startSub) S.quizOk = 0; S.quizTotal = Q.length;
+    var Q = L.quiz, q = Math.min(startSub, Q.length - 1);
+    S.Q = S.Q || [];
     function ask(){
-      var item = Q[q], done = false;
+      var item = Q[q], done = false, tries = 0, last = q === Q.length - 1;
       setSub(q);
       stage.innerHTML =
         '<p class="counter">প্রশ্ন ' + bn(q+1) + '/' + bn(Q.length) + '</p>' +
@@ -423,24 +495,36 @@
         '<div class="opts tf" id="opts"><button class="opt" data-v="true">✔ ঠিক</button><button class="opt" data-v="false">✖ ভুল</button></div><div id="fb"></div>';
       document.querySelectorAll('#opts .opt').forEach(function(b){
         b.onclick = function(){
-          if (done) return; done = true;
+          if (done || b.getAttribute('aria-disabled') === 'true') return;
+          tries++;
           var v = b.dataset.v === 'true', right = v === item.a;
-          document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); if ((x.dataset.v === 'true') === item.a) x.classList.add('good'); });
-          if (right){ S.quizOk++; $('#fb').innerHTML = '<p class="note good">✅ ঠিক বলেছেন! ' + esc(item.why) + '</p>'; }
-          else { b.classList.add('bad'); $('#fb').innerHTML = '<p class="note bad">সঠিক উত্তরটি সবুজ রঙে আছে। ' + esc(item.why) + '</p>'; }
-          $('#fb').innerHTML += nextBtn(q === Q.length - 1 ? 'ফলাফল দেখুন →' : 'পরের প্রশ্ন →', 'nx');
-          $('#nx').onclick = function(){ if (q === Q.length - 1) next(); else { q++; ask(); enter(); } };
-          $('#nx').focus();
+          if (tries === 1) S.Q[q] = right ? 1 : 0;
+          if (right){
+            done = true;
+            document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); if ((x.dataset.v === 'true') === item.a) x.classList.add('good'); });
+            $('#fb').innerHTML = fbHtml('ok', tries === 1 ? praise() : 'Got it!', item.why, tries > 1) + nextBtn(last ? 'ফলাফল দেখুন →' : 'পরের প্রশ্ন →', 'nx');
+            wireWhy();
+            $('#nx').onclick = function(){ if (last) next(); else { q++; ask(); enter(); } };
+            $('#nx').focus();
+          } else {
+            b.classList.add('bad', 'shake'); b.setAttribute('aria-disabled', 'true');
+            $('#fb').innerHTML = fbHtml('no', 'Try again');
+          }
         };
       });
+      curBack = function(){ if (q > 0){ q--; ask(); enter(); return true; } return false; };
     }
     ask();
   };
 
   R.done = function(){
     var has = function(k){ return flow.indexOf(k) > -1; };
-    var got = (S.dStars || 0) + (S.quizOk || 0) + (S.listenOk || 0);
-    var max = (S.dMax || 0) + (S.quizTotal || 0) + (S.listenTotal || 0);
+    var cnt = function(a){ return (a || []).filter(function(x){ return x === 1; }).length; };
+    var sumD = (S.D || []).reduce(function(a, x){ return a + (x || 0); }, 0);
+    var nL = has('listen') ? (L.listening || []).length : 0, nQ = has('quiz') ? (L.quiz || []).length : 0, nD = has('dialogue') ? (L.dialogue || []).length : 0;
+    var okL = cnt(S.L), okQ = cnt(S.Q);
+    var got = (has('dialogue') ? sumD : 0) + okQ + okL;
+    var max = nD * 3 + nQ + nL;
     var five = max ? Math.max(1, Math.round(5 * got / max)) : 5;
     var prog = read('be_progress', {});
     var prev = prog[L.id] ? prog[L.id].stars : 0;
@@ -448,9 +532,16 @@
     write('be_progress', prog);
     var streak = bumpStreak();
     var rows = '';
-    if (has('listen')) rows += '<li><span>শুনে চেনা</span><b>' + bn(S.listenOk) + '/' + bn(S.listenTotal) + '</b></li>';
-    if (has('dialogue')) rows += '<li><span>কথোপকথনের তারা</span><b>' + bn(S.dStars) + '/' + bn(S.dMax) + '</b></li>';
-    if (has('quiz')) rows += '<li><span>Quick Quiz</span><b>' + bn(S.quizOk) + '/' + bn(S.quizTotal) + '</b></li>';
+    if (nL) rows += '<li><span>শুনে চেনা</span><b>' + bn(okL) + '/' + bn(nL) + '</b></li>';
+    if (nD) rows += '<li><span>কথোপকথনের তারা</span><b>' + bn(sumD) + '/' + bn(nD * 3) + '</b></li>';
+    if (nQ) rows += '<li><span>Quick Quiz</span><b>' + bn(okQ) + '/' + bn(nQ) + '</b></li>';
+    var miss = [];
+    (L.listening || []).forEach(function(it, k){ if (has('listen') && S.L && S.L[k] === 0) miss.push(it.say); });
+    (L.dialogue || []).forEach(function(d, k){ if (has('dialogue') && S.D && S.D[k] != null && S.D[k] < 3){ var best = d.choices.filter(function(c){ return c.stars === 3; })[0]; if (best) miss.push(best.en); } });
+    miss = miss.slice(0, 4);
+    var review = miss.length && canSpeak
+      ? '<div class="review"><h3>এই বাক্যগুলো আবার শুনুন</h3><ul>' + miss.map(function(m){ return '<li><button type="button" class="hear-mini" data-say="' + esc(m) + '" aria-label="শুনুন">' + ICON_SPEAKER + '</button><span>' + esc(m) + '</span></li>'; }).join('') + '</ul></div>'
+      : (miss.length ? '<div class="review"><h3>এই বাক্যগুলো আবার পড়ুন</h3><ul>' + miss.map(function(m){ return '<li><span>' + esc(m) + '</span></li>'; }).join('') + '</ul></div>' : '');
     var nextLabel = L.next && L.next.title ? 'পরের লেসন: ' + esc(L.next.title) : '';
     var starHtml = ''; for (var k = 0; k < five; k++) starHtml += '<span style="animation-delay:' + (0.15 + k * 0.12) + 's">⭐</span>';
     stage.innerHTML =
@@ -459,14 +550,15 @@
       '<p class="lede" style="margin-bottom:6px">আপনি “' + esc(L.title) + '” শেষ করেছেন।</p>' +
       '<div class="big-stars" aria-label="৫ এর মধ্যে ' + bn(five) + ' তারা">' + starHtml + '</div>' +
       '<p class="score-line">৫ এর মধ্যে ' + bn(five) + '</p>' +
-      '<ul class="stats">' + rows + '</ul>' +
+      '<ul class="stats">' + rows + '</ul>' + review +
       '<div class="streak">🔥 ' + bn(streak) + ' দিন টানা practice</div>' +
       '<div class="row">' +
         '<button class="btn btn-alt" id="again">আবার করুন</button>' +
         (nextLabel ? (L.next.id ? '<a class="btn btn-main" href="lesson.html?id=' + encodeURIComponent(L.next.id) + '">' + nextLabel + ' →</a>' : '<button class="btn btn-main" disabled>' + nextLabel + ' (শীঘ্রই আসছে)</button>') : '') +
         '<a class="btn ' + (nextLabel && L.next.id ? 'btn-alt' : 'btn-main') + '" href="index.html#needs">সব লেসন দেখুন</a>' +
       '</div></div>';
-    $('#again').onclick = function(){ S = {}; go(0); };
+    stage.querySelectorAll('.hear-mini').forEach(function(b){ b.onclick = function(){ say(b.getAttribute('data-say')); }; });
+    $('#again').onclick = function(){ S = {}; startSub = 0; go(0); };
   };
 
   /* ---------- start ---------- */
@@ -486,7 +578,7 @@
     if (ok){
       var u = unitsOf(flow[saved.step]);
       if (!(saved.sub >= 0 && saved.sub < u)) saved.sub = 0;
-      idx = saved.step; sub = saved.sub; paintProgress();
+      idx = saved.step; sub = saved.sub; hideBack = true; paintProgress();
       stage.className = 'card s-resume';
       stage.innerHTML = '<div class="scene-ic">' + ICON_PLANE + '</div><h2>আগের জায়গা থেকে চালিয়ে যাবেন?</h2>' +
         '<p class="lede">আপনি এই লেসনের ' + bn(pctNow()) + '% শেষ করেছিলেন। যেখানে থেমেছিলেন, সেখান থেকেই শুরু করতে পারেন।</p>' +
