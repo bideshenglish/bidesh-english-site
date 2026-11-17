@@ -4,7 +4,7 @@ window.LESSON = {
   who: "সুপারভাইজার",
   title: "Accident, Injury or Feeling Unwell",
   titleBn: "দুর্ঘটনা, আঘাত বা শরীর খারাপ হলে",
-  next: { title: "Shift, Attendance & Overtime Hours", id: null },
+  next: { title: "Shift, Attendance & Overtime Hours", id: "shift-overtime" },
 
   scene: "কাজের সময় হঠাৎ হাতে আঘাত লাগল, অথবা গরমে মাথা ঘুরছে। ভয় বা লজ্জায় চুপ থাকবেন না। সুপারভাইজারকে পরিষ্কার জানাতে পারাটাই আপনার নিরাপত্তা। আজ শিখুন এমন সময় কী বলবেন।",
 
