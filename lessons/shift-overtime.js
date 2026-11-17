@@ -5,7 +5,7 @@ window.LESSON = {
   title: "Shift, Attendance & Overtime Hours",
   titleBn: "শিফট, হাজিরা ও ওভারটাইম",
 
-  next: { title: "Breaks, Meals & Prayer Time", id: null },
+  next: { title: "Breaks, Meals & Prayer Time", id: "breaks-meals" },
 
   scene: "নতুন কাজে কখন শুরু, কখন শেষ, ছুটি কবে, বাড়তি সময় কাজ করলে কী হবে, এসব না জানলে ভুল বোঝাবুঝি হয়। দেরি হলে বা ছুটি লাগলেও ভদ্রভাবে জানাতে হয়। আজ এই কথাগুলো ইংরেজিতে শিখুন।",
 
