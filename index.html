@@ -273,6 +273,15 @@
     .value{padding:24px 22px;}
   }
 </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PFNZNQD0X9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PFNZNQD0X9');
+  window.track = function(n, p){ try { gtag('event', n, p || {}); } catch(e){} };
+</script>
 </head>
 <body>
 
@@ -577,6 +586,7 @@ window.addEventListener('pageshow', e => { if (e.persisted) Object.keys(topicMem
 document.querySelectorAll('.pass-row').forEach(row => {
   row.addEventListener('click', () => {
     const key = row.dataset.toggle;
+    track('card_toggle',{card:key});
     const drill = document.getElementById('drill-' + key);
     const card = row.closest('.pass-card');
     const isOpen = drill.classList.contains('open');
@@ -588,7 +598,7 @@ document.querySelectorAll('.pass-row').forEach(row => {
 });
 
 document.getElementById('heroJob').addEventListener('click', e => {
-  e.preventDefault();
+  e.preventDefault(); track('hero_job_click');
   const drill = document.getElementById('drill-job'), row = document.querySelector('[data-toggle="job"]');
   if (!drill.classList.contains('open')) row.click();
   const card = row.closest('.pass-card');

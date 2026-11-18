@@ -183,6 +183,15 @@
   .hear-mini:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
   @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;}}
 </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PFNZNQD0X9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PFNZNQD0X9');
+  window.track = function(n, p){ try { gtag('event', n, p || {}); } catch(e){} };
+</script>
 </head>
 <body>
 <header class="wrap bar">
@@ -297,6 +306,7 @@
     idx = n; sub = startSub; curBack = null; hideBack = false; paintProgress();
     if (canSpeak) { try { speechSynthesis.cancel(); } catch(e){} }
     stage.className = 'card s-' + flow[idx];
+    if (flow[idx] !== 'scene' && flow[idx] !== 'done') track('lesson_step',{lesson_id:L.id,step:flow[idx]});
     R[flow[idx]]();
     startSub = 0;
     if (flow[idx] === 'scene' || flow[idx] === 'done') saveResume();
@@ -335,7 +345,7 @@
 
   R.scene = function(){
     stage.innerHTML = '<div class="scene-ic">' + ICON_PLANE + '</div><h2>পরিস্থিতি</h2><p class="lede">' + esc(L.scene) + '</p>' + nextBtn(doneBefore && !replayStarted ? 'আবার practice করি →' : 'শুরু করি →');
-    $('#nextBtn').onclick = function(){ replayStarted = true; next(); };
+    $('#nextBtn').onclick = function(){ replayStarted = true; track('lesson_start',{lesson_id:L.id}); next(); };
   };
 
   R.phrases = function(){
@@ -546,6 +556,7 @@
     prog[L.id] = { stars: Math.max(prev, five), date: dstr(new Date()) };
     write('be_progress', prog);
     var streak = bumpStreak();
+    track('lesson_complete',{lesson_id:L.id,stars:five});
     var rows = '';
     if (nL) rows += '<li><span>শুনে চেনা</span><b>' + bn(okL) + '/' + bn(nL) + '</b></li>';
     if (nD) rows += '<li><span>কথোপকথনের তারা</span><b>' + bn(sumD) + '/' + bn(nD * 3) + '</b></li>';
@@ -585,6 +596,7 @@
   function start(){
     L = window.LESSON; S = {}; WHO = L.who || 'বস';
     var pr = read('be_progress', {})[L.id];
+    track('lesson_open',{lesson_id:L.id,repeat:!!pr});
     doneBefore = !!pr; doneStars = pr && pr.stars ? pr.stars : 0; replayStarted = false;
     document.title = L.title + ' | Bidesh English';
     $('#lessonTitle').textContent = L.title;
