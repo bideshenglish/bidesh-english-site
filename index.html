@@ -71,6 +71,14 @@
   .hero-bn{font-size:clamp(19px,5vw,23px);font-weight:600;color:var(--ink);margin:0 0 8px;max-width:34ch;line-height:1.65;}
   .hero-en{font-size:17px;font-weight:500;color:var(--ink-soft);margin:0 0 24px;max-width:40ch;}
   .hero-cta{display:flex;flex-wrap:wrap;gap:12px;}
+  .hero-job{display:flex;align-items:center;gap:10px;flex:1 1 100%;max-width:460px;padding:12px 16px;background:rgba(255,255,255,0.75);border:1.5px solid var(--line);border-radius:16px;color:var(--pine);font-weight:700;font-size:17px;line-height:1.5;text-decoration:none;}
+  .hero-job:hover{background:#fff;border-color:var(--leaf);}
+  .hero-job:focus-visible{outline:3px solid var(--sun);outline-offset:2px;}
+  .hc-start{order:1;} .hc-job{order:2;} .hc-wa{order:3;}
+  @media (min-width:700px){ .hc-wa{order:2;} .hc-job{order:3;margin-top:4px;} }
+  .hj-ic{font-size:20px;flex:none;}
+  .hj-t{flex:1;}
+  .hj-ar{font-size:26px;line-height:1;color:var(--leaf-deep);flex:none;}
 
   .hero-visual{position:relative;width:min(430px,100%);aspect-ratio:400/300;margin:14px auto 0;}
   .hero-visual svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
@@ -294,8 +302,9 @@
         <p class="hero-bn">বিদেশে যাওয়ার আগে ও পরে দরকারি Spoken English, একসাথে একজায়গায়।</p>
         <p class="hero-en">Practical English for Bangladeshis building a life abroad.</p>
         <div class="hero-cta">
-          <a href="#needs" class="btn btn-sun">Start Learning Free</a>
-          <a href="https://wa.me/8801356265826" target="_blank" rel="noopener" class="btn btn-line">WhatsApp-এ মেসেজ করুন</a>
+          <a href="#needs" class="btn btn-sun hc-start">Start Learning Free</a>
+          <a href="#needs" class="hero-job hc-job" id="heroJob"><span class="hj-ic" aria-hidden="true">💼</span><span class="hj-t">কাজ করছেন? কাজের জায়গার ৮টা জরুরি ইংরেজি লেসন দেখুন</span><span class="hj-ar" aria-hidden="true">›</span></a>
+          <a href="https://wa.me/8801356265826" target="_blank" rel="noopener" class="btn btn-line hc-wa">WhatsApp-এ মেসেজ করুন</a>
         </div>
       </div>
 
@@ -576,6 +585,15 @@ document.querySelectorAll('.pass-row').forEach(row => {
     document.querySelectorAll('.pass-row').forEach(r => r.setAttribute('aria-expanded', 'false'));
     if(!isOpen){ drill.classList.add('open'); card.classList.add('active'); row.setAttribute('aria-expanded', 'true'); }
   });
+});
+
+document.getElementById('heroJob').addEventListener('click', e => {
+  e.preventDefault();
+  const drill = document.getElementById('drill-job'), row = document.querySelector('[data-toggle="job"]');
+  if (!drill.classList.contains('open')) row.click();
+  const card = row.closest('.pass-card');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setTimeout(() => card.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }), 60);
 });
 
 const professions = [
