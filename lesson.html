@@ -265,6 +265,7 @@
            st === 'speak' ? (L.speak || []).length : st === 'dialogue' ? (L.dialogue || []).length :
            st === 'quiz' ? (L.quiz || []).length : 0;
   }
+  var doneBefore = false, doneStars = 0, replayStarted = false;
   function pctNow(){
     if (flow[idx] === 'done') return 100;
     var tot = 0, before = 0;
@@ -272,14 +273,17 @@
     return tot ? Math.min(99, Math.round((before + sub) / tot * 100)) : 0;
   }
   function paintProgress(){
-    var pc = pctNow();
+    var showDone = doneBefore && !replayStarted && flow[idx] === 'scene';
+    var pc = showDone ? 100 : pctNow();
     var tf = 'translateX(-' + pc + '%)';
     $('#fill').style.width = pc + '%';
     $('#progress').setAttribute('aria-valuenow', pc);
     $('#pct').textContent = bn(pc) + '%';
     $('#pct').style.left = pc + '%'; $('#pct').style.transform = tf;
     $('#plane').style.left = pc + '%'; $('#plane').style.transform = 'translate(-' + pc + '%,-50%)';
-    $('#stepName').textContent = 'ধাপ ' + bn(idx+1) + '/' + bn(flow.length) + ' · ' + STEP_NAME[flow[idx]];
+    $('#stepName').textContent = showDone
+      ? '✓ আপনি এই লেসন শেষ করেছেন · ' + bn(doneStars) + '/৫ ⭐'
+      : 'ধাপ ' + bn(idx+1) + '/' + bn(flow.length) + ' · ' + STEP_NAME[flow[idx]] + (doneBefore && flow[idx] !== 'done' ? ' · আবার practice' : '');
     $('#backBtn').style.visibility = (hideBack || flow[idx] === 'scene' || flow[idx] === 'done') ? 'hidden' : 'visible';
   }
   function saveResume(){
@@ -330,8 +334,8 @@
   var R = {};
 
   R.scene = function(){
-    stage.innerHTML = '<div class="scene-ic">' + ICON_PLANE + '</div><h2>পরিস্থিতি</h2><p class="lede">' + esc(L.scene) + '</p>' + nextBtn('শুরু করি →');
-    $('#nextBtn').onclick = next;
+    stage.innerHTML = '<div class="scene-ic">' + ICON_PLANE + '</div><h2>পরিস্থিতি</h2><p class="lede">' + esc(L.scene) + '</p>' + nextBtn(doneBefore && !replayStarted ? 'আবার practice করি →' : 'শুরু করি →');
+    $('#nextBtn').onclick = function(){ replayStarted = true; next(); };
   };
 
   R.phrases = function(){
@@ -580,6 +584,8 @@
   }
   function start(){
     L = window.LESSON; S = {}; WHO = L.who || 'বস';
+    var pr = read('be_progress', {})[L.id];
+    doneBefore = !!pr; doneStars = pr && pr.stars ? pr.stars : 0; replayStarted = false;
     document.title = L.title + ' | Bidesh English';
     $('#lessonTitle').textContent = L.title;
     $('#lessonSub').textContent = L.titleBn || '';
