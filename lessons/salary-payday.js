@@ -5,7 +5,7 @@ window.LESSON = {
   title: "Salary & Payday",
   titleBn: "বেতন ও পেমেন্টের দিন",
 
-  next: { title: "Camp Life & Roommates", id: null },
+  next: { title: "Camp Life & Roommates", id: "camp-roommates" },
 
   scene: "বেতন কবে পাবেন, কত পাবেন, ওভারটাইম ধরা হয়েছে কি না, কেটে নেওয়া হলে কেন, এসব জানা আপনার অধিকার। ভদ্রভাবে আর পরিষ্কার করে জিজ্ঞেস করলে ভুল বোঝাবুঝি কমে। বেতনের হিসাব নিজের কাছে লিখে রাখাও ভালো অভ্যাস। আজ এই কথাগুলো ইংরেজিতে শিখুন।",
 
