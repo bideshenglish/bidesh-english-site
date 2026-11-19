@@ -177,6 +177,12 @@
   .core-panel[hidden]{display:none;}
   .core-panel .topic-item,.prof-panel .topic-item{background:#fff;}
 
+  .prof-row[hidden]{display:none;}
+  .prof-search{position:relative;margin:10px 0 4px;}
+  .prof-search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;fill:none;stroke:var(--leaf-deep);stroke-width:2.2;stroke-linecap:round;pointer-events:none;}
+  .prof-search input{width:100%;box-sizing:border-box;font:inherit;font-size:17px;font-weight:600;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px 12px 44px;}
+  .prof-search input:focus{outline:3px solid var(--sun);outline-offset:1px;border-color:var(--leaf);}
+  .prof-empty{margin:8px 2px;font-weight:600;color:var(--ink-soft);}
   .prof-hint{margin:6px 2px 0;font-weight:700;font-size:16.5px;color:var(--ink-soft);}
 
   .cat{border:1.5px solid var(--line);border-radius:20px;background:#F7FBF8;transition:border-color .2s ease, box-shadow .2s ease;}
@@ -194,6 +200,7 @@
   .cat-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease;}
   .cat.open .cat-body{grid-template-rows:1fr;}
   .cat-inner{overflow:hidden;min-height:0;}
+  .cat.flat .prof-list{border-top:0;margin:0 14px;padding:4px 0 12px;}
   .prof-list{display:flex;flex-direction:column;padding:2px 12px 12px;border-top:1.5px dashed #C3DACA;margin:0 14px;padding-left:0;padding-right:0;}
 
   .prof-row{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:12px;padding:11px 8px;border-radius:14px;cursor:pointer;margin-top:6px;transition:background .15s ease;}
@@ -452,7 +459,7 @@
             <span class="pass-main">
               <span class="pass-title">My Job English</span>
               <span class="pass-bn">আপনার পেশার নির্দিষ্ট ইংরেজি</span>
-              <span class="pass-count">১৭টি পেশা</span>
+              <span class="pass-count">৩৪টি পেশা</span>
             </span>
             <span class="pass-chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
           </button>
@@ -544,7 +551,11 @@ const lessonLinks = {
   "Shift, Attendance & Overtime Hours": "lesson.html?id=shift-overtime",
   "Breaks, Meals & Prayer Time": "lesson.html?id=breaks-meals",
   "Salary & Payday": "lesson.html?id=salary-payday",
-  "Camp Life & Roommates": "lesson.html?id=camp-roommates"
+  "Camp Life & Roommates": "lesson.html?id=camp-roommates",
+  "Common Tools & Equipment": "lesson.html?id=con-tools",
+  "Cement, Sand, Bricks & Rods": "lesson.html?id=con-materials",
+  "Scaffolding & Working at Height": "lesson.html?id=con-height",
+  "Dig, Lift, Pour & Measure": "lesson.html?id=con-tasks"
 };
 
 function lessonId(href){ try { return new URLSearchParams(href.split('?')[1]).get('id'); } catch(e){ return null; } }
@@ -607,39 +618,46 @@ document.getElementById('heroJob').addEventListener('click', e => {
 });
 
 const professions = [
-  ['<path d="M4 16a8 8 0 0 1 16 0"/><path d="M2.5 16h19v2.5h-19z"/><path d="M12 8v4"/>', "সাধারণ শ্রমিক / নির্মাণকর্মী"],
-  ['<path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M12 17c-2-1.4-3-2.3-3-3.5a1.6 1.6 0 0 1 3-.7 1.6 1.6 0 0 1 3 .7c0 1.2-1 2.1-3 3.5z"/>', "গৃহকর্মী / কেয়ারগিভার"],
-  ['<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 14v7M3.5 10.5 10 12M20.5 10.5 14 12"/>', "ড্রাইভার"],
-  ['<rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 9.7h18M3 14.3h18M9 5v4.7M15 9.7v4.6M9 14.3V19"/>', "মেসন / কার্পেন্টার"],
-  ['<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>', "ইলেকট্রিশিয়ান"],
-  ['<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>', "প্লাম্বার / পাইপ ফিটার"],
-  ['<path d="M12 3c1 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3 2-4 .5 1.2 1 1.7 2 2 0-3-1-5 1-7z"/>', "ওয়েল্ডার / ফ্যাব্রিকেটর"],
-  ['<path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/><path d="m9.5 4.5 2.5 2 2.5-2M9.5 19.5l2.5-2 2.5 2"/>', "এসি ও রেফ্রিজারেটর টেকনিশিয়ান"],
-  ['<rect x="3" y="3" width="14" height="6" rx="1.5"/><path d="M17 6h2.5A1.5 1.5 0 0 1 21 7.5V11a1.5 1.5 0 0 1-1.5 1.5H12v3"/><rect x="10.5" y="15.5" width="3" height="5.5" rx="1"/>', "পেইন্টার / টাইলস / স্টিল ফিক্সার"],
-  ['<path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15v4M17 17h4"/>', "ক্লিনার / হাউসকিপিং"],
-  ['<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10"/><path d="M17 3c-2 2-2.5 5-2.5 8h2.5v10"/>', "হোটেল ও রেস্তোরাঁ কর্মী"],
-  ['<path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>', "সেলসম্যান / রিটেইল কর্মী"],
-  ['<path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="m9 12 2 2 4-4"/>', "সেফটি গার্ড"],
-  ['<path d="M10 4h4v6h6v4h-6v6h-4v-6H4v-4h6z"/>', "নার্স / হেলথকেয়ার সহায়ক"],
-  ['<rect x="7" y="5" width="10" height="14" rx="2"/><path d="M7 9h10M7 15h10M4 4v16M20 4v16"/>', "গার্মেন্টস / সেলাই কর্মী"],
-  ['<path d="M12 21V11"/><path d="M12 11C12 7 9 5 5 5c0 4 2 6 7 6z"/><path d="M12 14c0-3 2-5 6-5 0 4-2 6-6 6z"/>', "কৃষিকর্মী / গার্ডেনার"],
-  ['<path d="M3 21V11l6 4v-4l6 4V5h6v16z"/><path d="M3 21h18"/>', "মেশিন অপারেটর / ফ্যাক্টরি কর্মী"]
+  ['<path d="M4 16a8 8 0 0 1 16 0"/><path d="M2.5 16h19v2.5h-19z"/><path d="M12 8v4"/>', "সাধারণ শ্রমিক / নির্মাণকর্মী", "construction labour helper worker site"],
+  ['<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 14v7M3.5 10.5 10 12M20.5 10.5 14 12"/>', "ড্রাইভার", "driver"],
+  ['<path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15v4M17 17h4"/>', "ক্লিনার / হাউসকিপিং", "cleaner housekeeping"],
+  ['<path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M12 17c-2-1.4-3-2.3-3-3.5a1.6 1.6 0 0 1 3-.7 1.6 1.6 0 0 1 3 .7c0 1.2-1 2.1-3 3.5z"/>', "গৃহকর্মী", "housemaid maid domestic helper"],
+  ['<path d="M12 21V11"/><path d="M12 11C12 7 9 5 5 5c0 4 2 6 7 6z"/><path d="M12 14c0-3 2-5 6-5 0 4-2 6-6 6z"/>', "কৃষিকর্মী", "farmer farm agriculture"],
+  ['<path d="M3 21V11l6 4v-4l6 4V5h6v16z"/><path d="M3 21h18"/>', "মেশিন অপারেটর / ফ্যাক্টরি কর্মী", "machine operator factory worker"],
+  ['<rect x="7" y="5" width="10" height="14" rx="2"/><path d="M7 9h10M7 15h10M4 4v16M20 4v16"/>', "গার্মেন্টস / সেলাই কর্মী", "garments sewing tailor"],
+  ['<path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="m9 12 2 2 4-4"/>', "সেফটি গার্ড", "security guard safety"],
+  ['<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>', "ইলেকট্রিশিয়ান", "electrician"],
+  ['<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>', "প্লাম্বার / পাইপ ফিটার", "plumber pipe fitter"],
+  ['<path d="M12 3c1 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3 2-4 .5 1.2 1 1.7 2 2 0-3-1-5 1-7z"/>', "ওয়েল্ডার / ফ্যাব্রিকেটর", "welder fabricator"],
+  ['<rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 9.7h18M3 14.3h18M9 5v4.7M15 9.7v4.6M9 14.3V19"/>', "মেসন (রাজমিস্ত্রি)", "mason bricklayer"],
+  ['<path d="M3 17 17 3l4 4L7 21H3z"/><path d="M13 7l4 4"/>', "কার্পেন্টার", "carpenter woodwork"],
+  ['<path d="M4 8h16M4 12h16M4 16h16M8 4v16M16 4v16"/>', "স্টিল ফিক্সার", "steel fixer rebar"],
+  ['<rect x="3" y="3" width="14" height="6" rx="1.5"/><path d="M17 6h2.5A1.5 1.5 0 0 1 21 7.5V11a1.5 1.5 0 0 1-1.5 1.5H12v3"/><rect x="10.5" y="15.5" width="3" height="5.5" rx="1"/>', "পেইন্টার", "painter paint"],
+  ['<rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/>', "টাইলস ফিটার", "tile fitter tiles"],
+  ['<path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/><path d="m9.5 4.5 2.5 2 2.5-2M9.5 19.5l2.5-2 2.5 2"/>', "এসি ও রেফ্রিজারেটর টেকনিশিয়ান", "ac refrigerator technician air conditioner"],
+  ['<path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>', "সেলসম্যান / ক্যাশিয়ার / শপ অ্যাসিস্ট্যান্ট", "salesman cashier shop assistant retail"],
+  ['<circle cx="12" cy="7" r="3"/><path d="M5 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/>', "কেয়ারগিভার (বয়স্ক ও শিশুর যত্ন)", "caregiver care elderly child nanny"],
+  ['<path d="M10 4h4v6h6v4h-6v6h-4v-6H4v-4h6z"/>', "নার্স", "nurse"],
+  ['<path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v3a4 4 0 0 0 8 0v-2"/><circle cx="18" cy="12" r="2"/>', "হেলথকেয়ার সহায়ক", "healthcare assistant"],
+  ['<path d="M12 21v-9"/><circle cx="12" cy="8" r="3"/><path d="M9 14c-2 0-4-1-5-3M15 14c2 0 4-1 5-3"/>', "গার্ডেনার", "gardener garden"],
+  ['<path d="M7 14a4 4 0 1 1 1-7.7A4 4 0 0 1 16 6a4 4 0 0 1 1 8z"/><path d="M7 14v6h10v-6"/>', "কুক / বাবুর্চি", "cook chef kitchen"],
+  ['<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10"/><path d="M17 3c-2 2-2.5 5-2.5 8h2.5v10"/>', "ওয়েটার / রেস্তোরাঁ কর্মী", "waiter restaurant hotel"],
+  ['<path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>', "লোডার / হেল্পার / প্যাকিং কর্মী", "loader helper packing"],
+  ['<path d="M3 17V8h8v9"/><path d="M11 12h4l2 3v2h-6"/><path d="M19 4v14M19 18h2"/><circle cx="6" cy="18" r="2"/><circle cx="14" cy="18" r="2"/>', "ফোরক্লিফট অপারেটর", "forklift operator"],
+  ['<path d="M5 21V8l7-5 3 2"/><path d="M5 8h15M18 8v6"/><circle cx="18" cy="16" r="2"/><path d="M3 21h8"/>', "ক্রেন অপারেটর / হেভি ইকুইপমেন্ট অপারেটর", "crane heavy equipment operator"],
+  ['<circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l3-7h5l4 7M9 10l-1-3H5"/>', "ডেলিভারি রাইডার / ডেলিভারি ড্রাইভার", "delivery rider driver bike"],
+  ['<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 7.5 20 17M8.5 16.5 20 7"/>', "বারবার / সেলুন কর্মী", "barber salon hair"],
+  ['<circle cx="12" cy="5" r="2"/><path d="M12 7v14M7 11h10M4 15a8 8 0 0 0 16 0"/>', "শিপিং কর্মী / সীম্যান / ডেক ক্রু", "shipping seaman seafarer deck crew ship"],
+  ['<path d="M3 21V9l9-5 9 5v12"/><path d="M8 21v-7h8v7M8 17.5h8"/>', "ওয়্যারহাউস কর্মী / স্টোরকিপার", "warehouse storekeeper store"],
+  ['<path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/>', "ডিশওয়াশার / কিচেন হেল্পার", "dishwasher kitchen helper"],
+  ['<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>', "ডাক্তার / মেডিকেল টেকনোলজিস্ট", "doctor medical technologist"],
+  ['<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>', "ইঞ্জিনিয়ার / টেকনিশিয়ান", "engineer technician"]
 ];
 // যে পেশার লেসন তৈরি হয়ে গেছে, তার নাম এখানে যোগ করুন (যেমন: professionLessons["ড্রাইভার"] = ["লেসন ১", ...])
 const professionLessons = {};
+professionLessons["সাধারণ শ্রমিক / নির্মাণকর্মী"] = ["Common Tools & Equipment","Cement, Sand, Bricks & Rods","Scaffolding & Working at Height","Dig, Lift, Pour & Measure"];
 
-const profCats = [
-  { title:"নির্মাণ ও ভবনের কাজ", sub:"শ্রমিক, রাজমিস্ত্রি, রং ও ফিনিশিং", items:[0,3,8],
-    icon:'<path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M9 11h.01M15 11h.01"/>' },
-  { title:"কারিগরি ও টেকনিক্যাল কাজ", sub:"বিদ্যুৎ, পাইপ, ওয়েল্ডিং ও এসি", items:[4,5,6,7],
-    icon:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>' },
-  { title:"সার্ভিস, হোটেল ও রিটেইল", sub:"পরিচ্ছন্নতা, রেস্তোরাঁ, দোকান ও নিরাপত্তা", items:[9,10,11,12],
-    icon:'<path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 10h2a2 2 0 0 1 0 4h-2"/><path d="M7 2v3M11 2v3"/>' },
-  { title:"ঘর ও স্বাস্থ্যসেবা", sub:"গৃহকর্ম, যত্ন ও হেলথকেয়ার", items:[1,13],
-    icon:'<path d="M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 21.6l8.8-8.6a5.2 5.2 0 0 0 0-7.4z"/>' },
-  { title:"পরিবহন, কারখানা ও কৃষি", sub:"গাড়ি, মেশিন, সেলাই ও খামার", items:[2,16,14,15],
-    icon:'<path d="M1 6h13v10H1z"/><path d="M14 9h4l3 3v4h-7z"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>' }
-];
+const flatOrder = professions.map((_, i) => i);
 const toBn = n => String(n).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
 const CHEV = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>';
 const CHEV_R = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 6 15 12 9 18"></polyline></svg>';
@@ -647,24 +665,20 @@ const CHEV_R = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 
 (function(){
   const wrap = document.getElementById('prof-wrap');
   if(!wrap) return;
-  let coreOpen = true, openCat = null, openProf = null;
+  let coreOpen = true, openProf = null;
 
   wrap.innerHTML =
     '<button class="core-btn open" id="core-btn" aria-expanded="true"><span class="c-main">সব কর্মীর জন্য জরুরি ইংরেজি</span><span class="c-sub">৮টি লেসন · সব পেশায় কাজে লাগে</span><span class="c-chev">' + CHEV + '</span></button>' +
     '<div class="core-panel" id="core-panel"><div class="topic-list" id="topics-core"></div></div>' +
     '<p class="prof-hint">অথবা আপনার পেশা বেছে নিন</p>' +
-    profCats.map((c, ci) =>
-      `<div class="cat" data-cat="${ci}"><button class="cat-row" aria-expanded="false">` +
-        `<span class="cat-ic"><svg viewBox="0 0 24 24" aria-hidden="true">${c.icon}</svg></span>` +
-        `<span class="cat-txt"><span class="cat-title">${c.title}</span><span class="cat-sub">${c.sub}</span></span>` +
-        `<span class="cat-chev">${CHEV}</span></button>` +
-        `<div class="cat-body"><div class="cat-inner"><div class="prof-list">` +
-          c.items.map(i =>
-            `<button class="prof-row" data-key="${i}"><span class="pi"><svg viewBox="0 0 24 24" aria-hidden="true">${professions[i][0]}</svg></span><span class="pn">${professions[i][1]}</span><span class="pc">${CHEV_R}</span></button>` +
-            `<div class="prof-panel" id="pp-${i}" hidden></div>`
-          ).join('') +
-        `</div></div></div></div>`
-    ).join('');
+    '<div class="prof-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="profSearch" placeholder="আপনার পেশা খুঁজুন (বাংলা বা English)" aria-label="আপনার পেশা খুঁজুন" autocomplete="off"></div>' +
+    '<p class="prof-empty" id="profEmpty" hidden>এই নামে কোনো পেশা পাওয়া যায়নি। অন্য নামে খুঁজুন, বা WhatsApp-এ আমাদের জানান।</p>' +
+    '<div class="cat open flat"><div class="prof-list">' +
+      flatOrder.map(i =>
+        `<button class="prof-row" data-key="${i}"><span class="pi"><svg viewBox="0 0 24 24" aria-hidden="true">${professions[i][0]}</svg></span><span class="pn">${professions[i][1]}</span><span class="pc">${CHEV_R}</span></button>` +
+        `<div class="prof-panel" id="pp-${i}" hidden></div>`
+      ).join('') +
+    '</div></div>';
 
   renderTopics('topics-core', topicsData.jobCore);
 
@@ -685,17 +699,31 @@ const CHEV_R = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 
     const cb = document.getElementById('core-btn');
     cb.classList.toggle('open', coreOpen); cb.setAttribute('aria-expanded', coreOpen);
     document.getElementById('core-panel').hidden = !coreOpen;
-    wrap.querySelectorAll('.cat').forEach(c => {
-      const open = +c.dataset.cat === openCat;
-      c.classList.toggle('open', open);
-      c.querySelector('.cat-row').setAttribute('aria-expanded', open);
-    });
     wrap.querySelectorAll('.prof-row').forEach(r => {
       const sel = +r.dataset.key === openProf;
       r.classList.toggle('selected', sel);
       document.getElementById('pp-' + r.dataset.key).hidden = !sel;
     });
   }
+  const norm = s => String(s).toLowerCase().replace(/\s+/g, ' ').trim();
+  let searchTimer;
+  document.getElementById('profSearch').addEventListener('input', e => {
+    const q = norm(e.target.value);
+    let shown = 0;
+    wrap.querySelectorAll('.prof-row').forEach(r => {
+      const i = +r.dataset.key;
+      const hit = !q || norm(professions[i][1] + ' ' + (professions[i][2] || '')).includes(q);
+      r.hidden = !hit;
+      const pn = document.getElementById('pp-' + i);
+      if(!hit){ pn.hidden = true; } else { shown++; }
+    });
+    if(openProf !== null && wrap.querySelector('.prof-row[data-key="' + openProf + '"]').hidden) openProf = null;
+    sync();
+    document.getElementById('profEmpty').hidden = shown > 0;
+    clearTimeout(searchTimer);
+    if(q.length >= 2 && shown === 0) searchTimer = setTimeout(() => track('prof_search_empty', { term: q.slice(0, 40) }), 1200);
+  });
+
   wrap.addEventListener('click', e => {
     if(e.target.closest('[data-go-core]')){
       coreOpen = true; openProf = null; sync();
@@ -707,19 +735,10 @@ const CHEV_R = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 
     if(pr){
       const k = +pr.dataset.key;
       if(openProf === k){ openProf = null; }
-      else { openProf = k; fillPanel(k); }
+      else { openProf = k; fillPanel(k); track('profession_open', { name: professions[k][1], has_lessons: !!(professionLessons[professions[k][1]] || []).length }); }
       sync();
       if(openProf !== null) setTimeout(() => document.getElementById('pp-' + k).scrollIntoView({block:'nearest', behavior:'smooth'}), 80);
       return;
-    }
-    const cr = e.target.closest('.cat-row');
-    if(cr){
-      const ci = +cr.closest('.cat').dataset.cat;
-      openCat = (openCat === ci) ? null : ci;
-      if(openProf !== null && !profCats[ci].items.includes(openProf)) openProf = null;
-      if(openCat === null) openProf = null;
-      sync();
-      if(openCat !== null) setTimeout(() => cr.scrollIntoView({block:'nearest', behavior:'smooth'}), 80);
     }
   });
   sync();
