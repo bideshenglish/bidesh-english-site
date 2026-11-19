@@ -62,6 +62,23 @@
   .btn-line{background:rgba(255,255,255,0.7);color:var(--pine);border:1.5px solid rgba(12,58,39,0.35);}
   .btn-line:hover{background:#fff;}
   .nav-cta{display:none;padding:11px 22px;font-size:16px;}
+  .nav-right{display:flex;align-items:center;gap:10px;}
+  .ns-btn{background:rgba(255,255,255,0.7);border:1.5px solid rgba(12,58,39,0.3);border-radius:12px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;}
+  .ns-btn svg,.ns-field svg{width:20px;height:20px;fill:none;stroke:var(--pine);stroke-width:2.2;stroke-linecap:round;}
+  .ns-panel{display:none;position:absolute;left:0;right:0;top:calc(100% + 2px);z-index:30;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:10px;box-shadow:0 22px 34px -18px rgba(12,58,39,0.6);}
+  .ns.open .ns-panel{display:block;}
+  .ns-field{position:relative;}
+  .ns-field svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);pointer-events:none;}
+  .ns-field input{width:100%;box-sizing:border-box;font:inherit;font-size:17px;font-weight:600;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px 10px 42px;}
+  .ns-field input:focus{outline:3px solid var(--sun);outline-offset:1px;border-color:var(--leaf);}
+  .ns-list{list-style:none;margin:8px 0 0;padding:0;max-height:min(60vh,360px);overflow:auto;}
+  .ns-list[hidden]{display:none;}
+  .ns-item{display:flex;align-items:center;gap:10px;padding:10px 10px;border-radius:12px;cursor:pointer;font-weight:700;font-size:16.5px;line-height:1.4;color:var(--ink);}
+  .ns-item:hover,.ns-item.act{background:var(--leaf-soft);}
+  .ns-tag{flex:none;font-size:13.5px;font-weight:700;border-radius:999px;padding:1px 10px;background:var(--leaf-soft);color:var(--leaf-deep);}
+  .ns-tag.l{background:var(--sun-soft);color:#6B4300;}
+  .ns-nm{flex:1;min-width:0;}
+  .ns-none{padding:10px;font-weight:600;color:var(--ink-soft);font-size:16px;}
   .menu-btn{background:rgba(255,255,255,0.7);border:1.5px solid rgba(12,58,39,0.3);border-radius:12px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
 
   .hero-grid{display:grid;gap:8px;align-items:center;padding-top:10px;}
@@ -183,6 +200,12 @@
   .prof-search input{width:100%;box-sizing:border-box;font:inherit;font-size:17px;font-weight:600;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px 12px 44px;}
   .prof-search input:focus{outline:3px solid var(--sun);outline-offset:1px;border-color:var(--leaf);}
   .prof-empty{margin:8px 2px;font-weight:600;color:var(--ink-soft);}
+  .prof-head{display:flex;align-items:center;gap:14px;margin:26px 0 6px;padding:14px 16px;border-radius:20px;border:1.5px solid #7FB08C;background:linear-gradient(135deg,#FFFFFF 0%,#E2F1E4 100%);box-shadow:0 16px 26px -22px rgba(12,58,39,0.75);}
+  .ph-ic{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background-color:#14582B;background-image:linear-gradient(145deg,#1F8A36 0%,#0C3A27 100%);box-shadow:0 10px 18px -10px rgba(12,58,39,0.8), inset 0 1px 0 rgba(255,255,255,0.25);}
+  .ph-ic svg{width:28px;height:28px;fill:none;stroke:#F4B93E;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+  .ph-tx{min-width:0;}
+  .ph-t{margin:0;font-size:clamp(21px,5.6vw,26px);font-weight:800;line-height:1.35;color:var(--pine);letter-spacing:0;}
+  .ph-s{display:block;margin-top:2px;font-size:15.5px;font-weight:600;line-height:1.5;color:var(--ink-soft);}
   .prof-hint{margin:6px 2px 0;font-weight:700;font-size:16.5px;color:var(--ink-soft);}
 
   .cat{border:1.5px solid var(--line);border-radius:20px;background:#F7FBF8;transition:border-color .2s ease, box-shadow .2s ease;}
@@ -231,6 +254,12 @@
   .prof-soon button:focus-visible{outline:3px solid var(--pine);outline-offset:3px;}
 
   /* ---------- larger screens ---------- */
+  @media (min-width:1060px){
+    .ns-btn{display:none;}
+    .ns-panel{display:block;position:relative;left:auto;right:auto;top:auto;width:220px;padding:0;background:transparent;border:0;box-shadow:none;}
+    .ns-field input{padding:9px 12px 9px 40px;font-size:16px;background:rgba(255,255,255,0.85);}
+    .ns-list{position:absolute;top:calc(100% + 8px);right:0;width:360px;margin:0;padding:6px;background:#fff;border:1.5px solid var(--line);border-radius:16px;box-shadow:0 22px 34px -18px rgba(12,58,39,0.6);}
+  }
   @media (min-width:760px){
     .wrap{padding:0 32px;}
     .menu-btn{display:none;}
@@ -305,10 +334,19 @@
         <li><a href="about.html">About</a></li>
         <li><a href="#mentor">Contact</a></li>
       </ul>
+      <div class="nav-right">
+      <div class="ns" id="ns">
+        <button type="button" class="ns-btn" id="nsBtn" aria-label="সাইটে খুঁজুন" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+        <div class="ns-panel" id="nsPanel">
+          <div class="ns-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="nsQ" placeholder="পেশা বা লেসন খুঁজুন" aria-label="পেশা বা লেসন খুঁজুন" autocomplete="off" enterkeyhint="search"></div>
+          <ul class="ns-list" id="nsList" role="listbox" hidden></ul>
+        </div>
+      </div>
       <a href="#needs" class="btn btn-sun nav-cta">Start Learning Free</a>
       <button class="menu-btn" id="menuBtn" aria-label="মেনু খুলুন">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0C3A27" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
+      </div>
     </nav>
 
     <div class="hero-grid">
@@ -670,7 +708,7 @@ const CHEV_R = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 
   wrap.innerHTML =
     '<button class="core-btn open" id="core-btn" aria-expanded="true"><span class="c-main">সব কর্মীর জন্য জরুরি ইংরেজি</span><span class="c-sub">৮টি লেসন · সব পেশায় কাজে লাগে</span><span class="c-chev">' + CHEV + '</span></button>' +
     '<div class="core-panel" id="core-panel"><div class="topic-list" id="topics-core"></div></div>' +
-    '<p class="prof-hint">অথবা আপনার পেশা বেছে নিন</p>' +
+    '<div class="prof-head"><span class="ph-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></span><span class="ph-tx"><h3 class="ph-t">আপনার পেশা বেছে নিন</h3></span></div>' +
     '<div class="prof-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="profSearch" placeholder="আপনার পেশা খুঁজুন (বাংলা বা English)" aria-label="আপনার পেশা খুঁজুন" autocomplete="off"></div>' +
     '<p class="prof-empty" id="profEmpty" hidden>এই নামে কোনো পেশা পাওয়া যায়নি। অন্য নামে খুঁজুন, বা WhatsApp-এ আমাদের জানান।</p>' +
     '<div class="cat open flat"><div class="prof-list">' +
@@ -758,6 +796,85 @@ document.querySelectorAll('.sub-tabs').forEach(row => {
   firstTab.classList.add('selected');
   renderTopics(targetContainer, topicsData[firstTab.dataset.value]);
 });
+
+
+(function(){
+  const ns = document.getElementById('ns'), btn = document.getElementById('nsBtn'), q = document.getElementById('nsQ'), list = document.getElementById('nsList');
+  if(!ns) return;
+  const alias = {
+    "Talking to Your Boss":"বস মালিক সুপারভাইজার ম্যানেজার boss manager supervisor",
+    "Understanding Instructions on Site":"নির্দেশ বোঝা সাইট কাজের নির্দেশ instruction",
+    "Asking for Tools & Materials":"যন্ত্র যন্ত্রপাতি সরঞ্জাম মালামাল চাওয়া tools materials",
+    "Safety Signs & Warnings":"নিরাপত্তা সাইন সতর্কতা বিপদ সেফটি safety sign warning",
+    "Accident, Injury or Feeling Unwell":"দুর্ঘটনা আঘাত অসুস্থ ব্যথা অ্যাক্সিডেন্ট accident injury sick unwell",
+    "Shift, Attendance & Overtime Hours":"শিফট হাজিরা ওভারটাইম ডিউটি কাজের সময় ছুটি shift attendance overtime",
+    "Breaks, Meals & Prayer Time":"বিরতি খাবার নামাজ জুমা ব্রেক ভাত break lunch meal prayer",
+    "Salary & Payday":"বেতন মাইনা স্যালারি পে-স্লিপ টাকা salary payday payslip",
+    "Camp Life & Roommates":"ক্যাম্প রুমমেট থাকা বিছানা রুম camp roommate room",
+    "Common Tools & Equipment":"হাতুড়ি বেলচা ড্রিল মই যন্ত্র tools hammer drill shovel ladder",
+    "Cement, Sand, Bricks & Rods":"সিমেন্ট বালি ইট রড মালামাল cement sand brick rod",
+    "Scaffolding & Working at Height":"ভারা উঁচুতে হার্নেস মই উচ্চতা scaffolding height harness",
+    "Dig, Lift, Pour & Measure":"খোঁড়া তোলা ঢালা মাপা কংক্রিট dig lift pour measure concrete"
+  };
+  const norm = s => String(s).toLowerCase().replace(/\s+/g,' ').trim();
+  const items = [];
+  Object.keys(lessonLinks).forEach(t => items.push({ type:'l', name:t, key:norm(t + ' ' + (alias[t] || '')), href:lessonLinks[t] }));
+  professions.forEach((p, i) => items.push({ type:'p', name:p[1], key:norm(p[1] + ' ' + (p[2] || '')), idx:i }));
+  let act = -1, shown = [], emptyTimer;
+
+  function render(){
+    const v = norm(q.value);
+    if(!v){ list.hidden = true; list.innerHTML = ''; shown = []; act = -1; return; }
+    shown = items.filter(it => it.key.includes(v)).sort((a,b) => (a.type === b.type ? 0 : a.type === 'l' ? -1 : 1)).slice(0, 8);
+    act = shown.length ? 0 : -1;
+    list.innerHTML = shown.length
+      ? shown.map((it, k) => '<li class="ns-item' + (k === 0 ? ' act' : '') + '" role="option" data-k="' + k + '"><span class="ns-tag ' + it.type + '">' + (it.type === 'l' ? 'লেসন' : 'পেশা') + '</span><span class="ns-nm"></span></li>').join('')
+      : '<li class="ns-none">কিছু পাওয়া যায়নি। অন্য নামে খুঁজুন।</li>';
+    shown.forEach((it, k) => { list.children[k].querySelector('.ns-nm').textContent = it.name; });
+    list.hidden = false;
+    clearTimeout(emptyTimer);
+    if(v.length >= 2 && !shown.length) emptyTimer = setTimeout(() => track('site_search_empty', { term: v.slice(0, 40) }), 1200);
+  }
+  function setAct(n){
+    if(!shown.length) return;
+    act = (n + shown.length) % shown.length;
+    [...list.children].forEach((li, k) => li.classList.toggle('act', k === act));
+    list.children[act].scrollIntoView({ block:'nearest' });
+  }
+  function close(){ ns.classList.remove('open'); btn.setAttribute('aria-expanded','false'); list.hidden = true; }
+  function go(it){
+    track('site_search_select', { type: it.type === 'l' ? 'lesson' : 'profession', name: it.name });
+    q.value = ''; list.hidden = true; list.innerHTML = ''; shown = [];
+    close();
+    if(it.type === 'l'){ location.href = it.href; return; }
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const jobRow = document.querySelector('[data-toggle="job"]');
+    if(!document.getElementById('drill-job').classList.contains('open')) jobRow.click();
+    const lower = document.getElementById('profSearch');
+    if(lower && lower.value){ lower.value = ''; lower.dispatchEvent(new Event('input')); }
+    const row = document.querySelector('.prof-row[data-key="' + it.idx + '"]');
+    if(row && !row.classList.contains('selected')) row.click();
+    setTimeout(() => (row || jobRow).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block:'start' }), 120);
+  }
+  q.addEventListener('input', render);
+  q.addEventListener('focus', () => { if(q.value) render(); });
+  q.addEventListener('keydown', e => {
+    if(e.key === 'ArrowDown'){ e.preventDefault(); setAct(act + 1); }
+    else if(e.key === 'ArrowUp'){ e.preventDefault(); setAct(act - 1); }
+    else if(e.key === 'Enter'){ e.preventDefault(); if(shown[act]) go(shown[act]); }
+    else if(e.key === 'Escape'){ close(); q.blur(); }
+  });
+  list.addEventListener('click', e => { const li = e.target.closest('.ns-item'); if(li) go(shown[+li.dataset.k]); });
+  btn.addEventListener('click', () => {
+    const open = !ns.classList.contains('open');
+    ns.classList.toggle('open', open); btn.setAttribute('aria-expanded', open);
+    if(open) setTimeout(() => q.focus(), 30); else { list.hidden = true; }
+  });
+  document.addEventListener('click', e => {
+    if(ns.contains(e.target)) return;
+    if(ns.classList.contains('open')) close(); else list.hidden = true;
+  });
+})();
 
 let toastTimer;
 document.getElementById('needs').addEventListener('click', (e) => {
