@@ -5,6 +5,8 @@ window.LESSON = {
   title: "Numbers, Dates & Money",
   titleBn: "সংখ্যা, তারিখ ও টাকা, যা ভুল শুনলে ক্ষতি হয়",
 
+  next: { title: "Spelling Your Name & Filling Out Forms", id: "spelling-forms" },
+
   scene: "এজেন্সির অফিসে কর্মকর্তা বললেন: \"Your salary is fifteen hundred.\" আপনি কী বুঝলেন? ১৫? ৫০? নাকি ১,৫০০? বেতন, ফি, ফ্লাইটের তারিখ, ফোন নম্বর, সবই সংখ্যা। ভুল শুনলে টাকা বা সুযোগ দুটোই হারাতে পারেন। আজ শিখবেন কীভাবে ঠিক শুনবেন, ঠিক বলবেন, আর সন্দেহ হলে কী বলে নিশ্চিত হবেন।",
 
   phrases: [
