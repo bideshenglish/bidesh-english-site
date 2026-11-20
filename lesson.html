@@ -181,6 +181,9 @@
   .hear-mini{all:unset;cursor:pointer;flex:none;width:34px;height:34px;border-radius:50%;background:var(--leaf-deep);display:grid;place-items:center;}
   .hear-mini svg{width:18px;height:18px;fill:#fff;}
   .hear-mini:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+  .slow{all:unset;box-sizing:border-box;cursor:pointer;margin-top:12px;padding:5px 15px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font-weight:700;font-size:15.5px;color:var(--pine);}
+  .slow:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+  .hint{margin:10px 0 0;font-size:15px;font-weight:600;color:var(--ink-soft);}
   /* ---------- trap (ফাঁদ) ---------- */
   .trap-tag{display:inline-block;padding:3px 14px;border-radius:999px;background:#FBE3DD;color:#7A2414;font-weight:800;font-size:15.5px;margin:0 0 10px;}
   .trap-pair{display:flex;flex-direction:column;gap:10px;margin:14px 0 4px;}
@@ -191,13 +194,6 @@
   .trap-tx b{font-size:22px;color:var(--pine);font-weight:800;}
   .trap-tx span{font-size:16.5px;font-weight:700;color:var(--leaf-deep);}
   .trap-tip{margin:12px 0 0;padding:12px 15px;border-radius:16px;background:var(--sun-soft);color:#4A3000;font-weight:700;font-size:17px;line-height:1.65;}
-  /* ---------- today's card ---------- */
-  .tcard{margin:20px auto 0;max-width:420px;text-align:left;border:2.5px dashed var(--leaf-deep);border-radius:22px;padding:16px 18px;background:#fff;}
-  .tcard h3{margin:0 0 8px;font-size:18px;font-weight:800;color:var(--pine);}
-  .tcard ul{margin:0;padding:0 0 0 20px;}
-  .tcard li{padding:3px 0;font-weight:700;font-size:17px;line-height:1.55;color:var(--ink);}
-  .tcard .tc-site{margin:10px 0 0;font-size:14.5px;font-weight:700;color:var(--ink-soft);}
-  .tcard .btn{margin-top:12px;padding:10px 20px;font-size:16px;width:100%;}
   @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;}}
 </style>
 <!-- Google Analytics -->
@@ -236,6 +232,7 @@
   var id = (params.get('id') || '').replace(/[^a-z0-9-]/gi, '');
   var $ = function(s){ return document.querySelector(s); };
   var stage = $('#stage');
+  var reviewMode = params.get('review') === '1';
   var L, flow, idx = 0, S, WHO = 'বস', sub = 0, startSub = 0, curBack = null, hideBack = false;
 
   var STEP_NAME = { scene:'দৃশ্য', phrases:'Phrase Cards', traps:'ফাঁদ চিনুন', listen:'শুনে চেনা', speak:'বলে Practice', dialogue:'কথোপকথন', quiz:'Quick Quiz', done:'সম্পন্ন!' };
@@ -262,11 +259,11 @@
   /* ---------- speech ---------- */
   var canSpeak = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
   var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  function say(text){
+  function say(text, rate){
     if (!canSpeak) return;
     try {
       speechSynthesis.cancel();
-      var u = new SpeechSynthesisUtterance(text); u.lang = 'en-US'; u.rate = 0.9;
+      var u = new SpeechSynthesisUtterance(text); u.lang = 'en-US'; u.rate = rate || 0.9;
       var vs = speechSynthesis.getVoices();
       var v = vs.find(function(x){ return /^en[-_]US/i.test(x.lang); }) || vs.find(function(x){ return /^en/i.test(x.lang); });
       if (v) u.voice = v;
@@ -310,9 +307,10 @@
     $('#stepName').textContent = showDone
       ? '✓ আপনি এই লেসন শেষ করেছেন · ' + bn(doneStars) + '/৫ ⭐'
       : 'ধাপ ' + bn(idx+1) + '/' + bn(flow.length) + ' · ' + STEP_NAME[flow[idx]] + (doneBefore && flow[idx] !== 'done' ? ' · আবার practice' : '');
-    $('#backBtn').style.visibility = (hideBack || flow[idx] === 'scene' || flow[idx] === 'done') ? 'hidden' : 'visible';
+    $('#backBtn').style.visibility = (hideBack || (reviewMode && idx === 0) || flow[idx] === 'scene' || flow[idx] === 'done') ? 'hidden' : 'visible';
   }
   function saveResume(){
+    if (reviewMode) return;
     var m = read('be_resume', {});
     if (flow[idx] === 'done' || flow[idx] === 'scene' || pctNow() === 0) { delete m[L.id]; }
     else { m[L.id] = { step: idx, sub: sub, pct: pctNow(), S: S, at: Date.now() }; }
@@ -375,13 +373,14 @@
         '<div class="tk-head">' + (p.tag ? '<span class="tag">' + esc(p.tag) + '</span>' : '<span></span>') + '<span class="tk-count">Phrase ' + bn(i+1) + '/' + bn(P.length) + '</span></div>' +
         '<div class="tk-body"><div class="tk-main"><p class="big-en">' + esc(p.en) + '</p>' +
           (canSpeak ? '<button class="hear" id="hear" aria-label="শুনুন">' + ICON_SPEAKER + '</button>' : '') +
-        '</div></div>' +
+        '</div>' + (canSpeak ? '<button type="button" class="slow" id="slow">🐢 ধীরে শুনুন</button>' : '') + '</div>' +
         '<div class="tk-perf"></div>' +
         '<div class="tk-foot"><p class="bn-line">' + esc(p.bn) + '</p>' +
-          (p.pr ? '<p class="pr-line">উচ্চারণ: ' + esc(p.pr) + '</p>' : '') + '</div>' +
+          (p.pr ? '<p class="pr-line">আনুমানিক উচ্চারণ: ' + esc(p.pr) + '</p>' : '') + '</div>' +
         '<div class="tk-actions"><div class="row"><button class="btn btn-main" id="nextCard">' + (last ? 'পরের ধাপ →' : 'পরের phrase →') + '</button></div>' +
-          (canSpeak ? '' : '<p class="note info">আপনার ডিভাইসে শব্দ শোনার সুবিধা নেই। ইংরেজি লেখা আর উচ্চারণ দেখে পড়ুন।</p>') + '</div>';
+          (canSpeak ? (i === 0 ? '<p class="hint">🔊 শব্দ না এলে ভলিউম বাড়ান বা Chrome-এ খুলুন।</p>' : '') : '<p class="note info">আপনার ডিভাইসে শব্দ শোনার সুবিধা নেই। ইংরেজি লেখা আর উচ্চারণ দেখে পড়ুন।</p>') + '</div>';
       if ($('#hear')) $('#hear').onclick = function(){ say(p.en); };
+      if ($('#slow')) $('#slow').onclick = function(){ say(p.en, 0.55); };
       $('#nextCard').onclick = function(){ if (last) next(); else { i++; card(); enter(); } };
     }
     card();
@@ -418,9 +417,10 @@
       stage.innerHTML =
         '<p class="counter">প্রশ্ন ' + bn(q+1) + '/' + bn(Q.length) + '</p>' +
         '<h2>' + (canSpeak ? 'শুনুন, তারপর অর্থ বাছুন' : 'এই বাক্যের অর্থ কী?') + '</h2>' +
-        (canSpeak ? '<button class="btn btn-alt" id="play">' + ICON_SPEAKER + 'বাজান</button>' : '<p class="big-en">' + esc(item.say) + '</p>') +
+        (canSpeak ? '<div class="row" style="margin-top:6px"><button class="btn btn-alt" id="play">' + ICON_SPEAKER + 'বাজান</button><button class="btn btn-alt" id="playSlow">🐢 ধীরে</button></div>' : '<p class="big-en">' + esc(item.say) + '</p>') +
         '<div class="opts" id="opts">' + opts.map(function(o, k){ return '<button class="opt" data-k="' + k + '">' + esc(o.t) + '</button>'; }).join('') + '</div>' +
         '<div id="fb"></div>';
+      if ($('#playSlow')) $('#playSlow').onclick = function(){ say(item.say, 0.55); };
       if ($('#play')) { $('#play').onclick = function(){ say(item.say); }; setTimeout(function(){ say(item.say); }, 250); }
       document.querySelectorAll('#opts .opt').forEach(function(b){
         b.onclick = function(){
@@ -592,10 +592,10 @@
     var five = max ? Math.max(1, Math.round(5 * got / max)) : 5;
     var prog = read('be_progress', {});
     var prev = prog[L.id] ? prog[L.id].stars : 0;
-    prog[L.id] = { stars: Math.max(prev, five), date: dstr(new Date()) };
-    write('be_progress', prog);
+    if (reviewMode){ var rv = read('be_review', {}); rv[L.id] = dstr(new Date()); write('be_review', rv); }
+    else { prog[L.id] = { stars: Math.max(prev, five), date: dstr(new Date()) }; write('be_progress', prog); }
     var streak = bumpStreak();
-    track('lesson_complete',{lesson_id:L.id,stars:five});
+    track(reviewMode ? 'lesson_review_done' : 'lesson_complete',{lesson_id:L.id,stars:five});
     var rows = '';
     if (nL) rows += '<li><span>শুনে চেনা</span><b>' + bn(okL) + '/' + bn(nL) + '</b></li>';
     if (nD) rows += '<li><span>কথোপকথনের তারা</span><b>' + bn(sumD) + '/' + bn(nD * 3) + '</b></li>';
@@ -607,22 +607,15 @@
     var review = miss.length && canSpeak
       ? '<div class="review"><h3>এই বাক্যগুলো আবার শুনুন</h3><ul>' + miss.map(function(m){ return '<li><button type="button" class="hear-mini" data-say="' + esc(m) + '" aria-label="শুনুন">' + ICON_SPEAKER + '</button><span>' + esc(m) + '</span></li>'; }).join('') + '</ul></div>'
       : (miss.length ? '<div class="review"><h3>এই বাক্যগুলো আবার পড়ুন</h3><ul>' + miss.map(function(m){ return '<li><span>' + esc(m) + '</span></li>'; }).join('') + '</ul></div>' : '');
-    var cardHtml = '';
-    if (L.card && L.card.lines && L.card.lines.length){
-      cardHtml = '<div class="tcard"><h3>📌 আজকের কার্ড: ' + esc(L.card.title || L.titleBn || L.title) + '</h3><ul>' +
-        L.card.lines.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' +
-        '<p class="tc-site">bideshenglish.com</p>' +
-        '<a class="btn btn-alt" id="shareCard" target="_blank" rel="noopener" href="#">WhatsApp-এ বন্ধুকে পাঠান</a></div>';
-    }
     var nextLabel = L.next && L.next.title ? 'পরের লেসন: ' + esc(L.next.title) : '';
     var starHtml = ''; for (var k = 0; k < five; k++) starHtml += '<span style="animation-delay:' + (0.15 + k * 0.12) + 's">⭐</span>';
     stage.innerHTML =
       '<div class="result"><div class="party" aria-hidden="true">🎉</div>' +
-      '<h2>অভিনন্দন! লেসন সম্পন্ন</h2>' +
-      '<p class="lede" style="margin-bottom:6px">আপনি “' + esc(L.title) + '” শেষ করেছেন।</p>' +
+      '<h2>' + (reviewMode ? 'রিভিশন সম্পন্ন!' : 'অভিনন্দন! লেসন সম্পন্ন') + '</h2>' +
+      '<p class="lede" style="margin-bottom:6px">আপনি “' + esc(L.title) + '” ' + (reviewMode ? 'ঝালিয়ে নিয়েছেন।' : 'শেষ করেছেন।') + '</p>' +
       '<div class="big-stars" aria-label="৫ এর মধ্যে ' + bn(five) + ' তারা">' + starHtml + '</div>' +
       '<p class="score-line">৫ এর মধ্যে ' + bn(five) + '</p>' +
-      '<ul class="stats">' + rows + '</ul>' + review + cardHtml +
+      '<ul class="stats">' + rows + '</ul>' + review +
       '<div class="streak">🔥 ' + bn(streak) + ' দিন টানা practice</div>' +
       '<div class="row">' +
         '<button class="btn btn-alt" id="again">আবার করুন</button>' +
@@ -630,11 +623,6 @@
         '<a class="btn ' + (nextLabel && L.next.id ? 'btn-alt' : 'btn-main') + '" href="index.html#needs">সব লেসন দেখুন</a>' +
       '</div></div>';
     stage.querySelectorAll('.hear-mini').forEach(function(b){ b.onclick = function(){ say(b.getAttribute('data-say')); }; });
-    if ($('#shareCard')){
-      var txt = '📌 ' + (L.card.title || L.title) + '\n' + L.card.lines.map(function(x){ return '• ' + x; }).join('\n') + '\n\nফ্রি স্পোকেন ইংরেজি: https://www.bideshenglish.com/lesson.html?id=' + L.id;
-      $('#shareCard').href = 'https://wa.me/?text=' + encodeURIComponent(txt);
-      $('#shareCard').onclick = function(){ track('card_share',{lesson_id:L.id}); };
-    }
     $('#again').onclick = function(){ S = {}; startSub = 0; go(0); };
   };
 
@@ -647,11 +635,17 @@
   function start(){
     L = window.LESSON; S = {}; WHO = L.who || 'বস';
     var pr = read('be_progress', {})[L.id];
-    track('lesson_open',{lesson_id:L.id,repeat:!!pr});
+    if (!reviewMode) track('lesson_open',{lesson_id:L.id,repeat:!!pr});
     doneBefore = !!pr; doneStars = pr && pr.stars ? pr.stars : 0; replayStarted = false;
     document.title = L.title + ' | Bidesh English';
     $('#lessonTitle').textContent = L.title;
     $('#lessonSub').textContent = L.titleBn || '';
+    if (reviewMode){
+      L.listening = shuffle(L.listening || []).slice(0, 4);
+      flow = ['listen', 'done']; doneBefore = false; replayStarted = true;
+      track('lesson_review_open',{lesson_id:L.id});
+      go(0); return;
+    }
     flow = L.type === 'B' ? ['phrases','listen','speak','done'] : ['scene','phrases','listen','speak','dialogue','quiz','done'];
     if (L.traps && L.traps.length){ flow.splice(flow.indexOf('phrases') + 1, 0, 'traps'); }
     var saved = read('be_resume', {})[L.id];

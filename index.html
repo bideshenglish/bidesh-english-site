@@ -105,7 +105,10 @@
 
   /* ---------- section heads ---------- */
   section{padding:38px 0 0;}
-  .lead{font-weight:800;font-size:clamp(26px,6.4vw,34px);line-height:1.25;letter-spacing:-0.015em;margin:0 0 6px;color:var(--pine);}
+  .rv{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 14px;margin:0 auto 18px;max-width:620px;padding:12px 16px;border-radius:18px;background:var(--sun-soft);border:1.5px solid #E8C877;color:#4A3000;font-weight:700;font-size:16.5px;line-height:1.5;}
+  .rv[hidden]{display:none;}
+  .rv .btn{padding:9px 20px;font-size:15.5px;}
+  .lead{font-weight;font-size:clamp(26px,6.4vw,34px);line-height:1.25;letter-spacing:-0.015em;margin:0 0 6px;color:var(--pine);}
   .lead-sub{font-size:17px;font-weight:500;color:var(--ink-soft);margin:0 0 24px;}
 
   /* ---------- boarding passes ---------- */
@@ -436,6 +439,7 @@
     <div class="wrap">
       <h2 class="lead">আপনি এখন কোন পর্যায়ে আছেন?</h2>
       <p class="lead-sub">Pick where you are, then choose Work, Study, or Everyday Life.</p>
+      <div class="rv" id="reviewBox" hidden></div>
 
       <div class="passes">
         <div class="pass-card" data-card="going">
@@ -598,6 +602,26 @@ const lessonLinks = {
   "Scaffolding & Working at Height": "lesson.html?id=con-height",
   "Dig, Lift, Pour & Measure": "lesson.html?id=con-tasks"
 };
+
+(function(){
+  const box = document.getElementById('reviewBox'); if (!box) return;
+  try {
+    const rd = k => JSON.parse(localStorage.getItem(k) || '{}');
+    const prog = rd('be_progress'), rev = rd('be_review'), t = new Date();
+    const ds = t.getFullYear() + '-' + String(t.getMonth()+1).padStart(2,'0') + '-' + String(t.getDate()).padStart(2,'0');
+    const byId = {}; Object.keys(lessonLinks).forEach(n => { byId[new URLSearchParams(lessonLinks[n].split('?')[1]).get('id')] = n; });
+    let pick = null;
+    Object.keys(prog).forEach(id => {
+      if (!byId[id] || !prog[id].date || prog[id].date === ds || rev[id] === ds) return;
+      if (!pick || prog[id].date < prog[pick].date) pick = id;
+    });
+    if (!pick) return;
+    box.innerHTML = '<span>🔁 ২ মিনিটে ঝালিয়ে নিন: <b></b></span><a class="btn btn-sun" href="lesson.html?id=' + pick + '&review=1">রিভিশন শুরু</a>';
+    box.querySelector('b').textContent = byId[pick];
+    box.querySelector('a').addEventListener('click', () => { if (window.track) track('review_banner_click', { lesson_id: pick }); });
+    box.hidden = false;
+  } catch(e){}
+})();
 
 function lessonId(href){ try { return new URLSearchParams(href.split('?')[1]).get('id'); } catch(e){ return null; } }
 function lessonDone(href){
