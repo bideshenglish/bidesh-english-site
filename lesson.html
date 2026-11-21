@@ -193,7 +193,7 @@
   .hook-row{display:flex;align-items:center;justify-content:space-between;gap:12px;}
   .hook-row .big-en{font-size:clamp(22px,6vw,28px);}
   .hook-bn{margin:6px 0 0;font-weight:700;font-size:17px;color:var(--leaf-deep);}
-  /* ---------- trap (ফাঁদ) ---------- */
+  /* ---------- trap (সাবধান) ---------- */
   .trap-tag{display:inline-block;padding:3px 14px;border-radius:999px;background:#FBE3DD;color:#7A2414;font-weight:800;font-size:15.5px;margin:0 0 10px;}
   .trap-pair{display:flex;flex-direction:column;gap:10px;margin:14px 0 4px;}
   .trap-it{display:flex;align-items:center;gap:12px;background:var(--paper);border:2px solid var(--line);border-radius:18px;padding:12px 14px;}
@@ -244,7 +244,7 @@
   var reviewMode = params.get('review') === '1';
   var L, flow, idx = 0, S, WHO = 'বস', sub = 0, startSub = 0, curBack = null, hideBack = false;
 
-  var STEP_NAME = { scene:'দৃশ্য', phrases:'Phrase Cards', traps:'ফাঁদ চিনুন', type:'লিখে দেখুন', listen:'শুনে চেনা', speak:'বলে Practice', dialogue:'কথোপকথন', quiz:'Quick Quiz', done:'সম্পন্ন!' };
+  var STEP_NAME = { scene:'দৃশ্য', phrases:'Phrase Cards', traps:'সাবধান! ভুল এড়ান', type:'লিখে দেখুন', listen:'শুনে চেনা', speak:'বলে Practice', dialogue:'কথোপকথন', quiz:'Quick Quiz', done:'সম্পন্ন!' };
   var ICON_SPEAKER = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4h4l5 4V6L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
   var ICON_MIC = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-3.1A7 7 0 0 0 19 11h-2z"/></svg>';
   var ICON_PLANE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21,16.01L21,14L13,9V3.5C13,2.67 12.33,2 11.5,2S10,2.67 10,3.5V9L2,14V16L10,13.5V19L7.5,20.5V22L11.5,21L15.5,22V20.5L13,19V13.5L21,16.01Z"/></svg>';
@@ -404,7 +404,7 @@
       var t = T[i], last = i === T.length - 1;
       setSub(i);
       stage.innerHTML =
-        '<span class="trap-tag">⚠ ফাঁদ ' + bn(i+1) + '/' + bn(T.length) + '</span>' +
+        '<span class="trap-tag">⚠ সাবধান ' + bn(i+1) + '/' + bn(T.length) + '</span>' +
         '<h2>' + esc(t.title) + '</h2>' +
         (t.intro ? '<p class="lede" style="font-size:18px">' + esc(t.intro) + '</p>' : '') +
         '<div class="trap-pair">' + t.items.map(function(it, k){
@@ -412,7 +412,7 @@
             '<div class="trap-tx"><b>' + esc(it.en) + '</b>' + (it.note ? '<span>' + esc(it.note) + '</span>' : '') + '</div></div>';
         }).join('') + '</div>' +
         '<p class="trap-tip">' + esc(t.tip) + '</p>' +
-        nextBtn(last ? 'পরের ধাপ →' : 'পরের ফাঁদ →', 'nextTrap');
+        nextBtn(last ? 'পরের ধাপ →' : 'পরেরটা →', 'nextTrap');
       stage.querySelectorAll('.hear-mini').forEach(function(b){ b.onclick = function(){ var it = t.items[+b.dataset.k]; say(it.say || it.en); }; });
       $('#nextTrap').onclick = function(){ if (last) next(); else { i++; card(); enter(); } };
     }
