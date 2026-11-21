@@ -184,6 +184,15 @@
   .slow{all:unset;box-sizing:border-box;cursor:pointer;margin-top:12px;padding:5px 15px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font-weight:700;font-size:15.5px;color:var(--pine);}
   .slow:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
   .hint{margin:10px 0 0;font-size:15px;font-weight:600;color:var(--ink-soft);}
+  .tin{box-sizing:border-box;width:100%;margin-top:16px;padding:15px 16px;border:2px solid var(--line);border-radius:18px;font:inherit;font-size:22px;font-weight:700;color:var(--ink);background:var(--paper);}
+  .tin:focus{outline:3px solid var(--pine);outline-offset:2px;background:#fff;}
+  .tin.shake{animation:shake .35s ease;border-color:#C24A33;}
+  .spell-out{display:flex;align-items:center;gap:12px;margin:12px 0 0;}
+  .spell-out b{font-size:24px;letter-spacing:.06em;color:var(--pine);}
+  .hook{margin:14px 0 0;padding:14px 16px;border-radius:18px;background:var(--paper);border:1.5px solid #C5DCCB;}
+  .hook-row{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .hook-row .big-en{font-size:clamp(22px,6vw,28px);}
+  .hook-bn{margin:6px 0 0;font-weight:700;font-size:17px;color:var(--leaf-deep);}
   /* ---------- trap (ফাঁদ) ---------- */
   .trap-tag{display:inline-block;padding:3px 14px;border-radius:999px;background:#FBE3DD;color:#7A2414;font-weight:800;font-size:15.5px;margin:0 0 10px;}
   .trap-pair{display:flex;flex-direction:column;gap:10px;margin:14px 0 4px;}
@@ -235,7 +244,7 @@
   var reviewMode = params.get('review') === '1';
   var L, flow, idx = 0, S, WHO = 'বস', sub = 0, startSub = 0, curBack = null, hideBack = false;
 
-  var STEP_NAME = { scene:'দৃশ্য', phrases:'Phrase Cards', traps:'ফাঁদ চিনুন', listen:'শুনে চেনা', speak:'বলে Practice', dialogue:'কথোপকথন', quiz:'Quick Quiz', done:'সম্পন্ন!' };
+  var STEP_NAME = { scene:'দৃশ্য', phrases:'Phrase Cards', traps:'ফাঁদ চিনুন', type:'লিখে দেখুন', listen:'শুনে চেনা', speak:'বলে Practice', dialogue:'কথোপকথন', quiz:'Quick Quiz', done:'সম্পন্ন!' };
   var ICON_SPEAKER = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4h4l5 4V6L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
   var ICON_MIC = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-3.1A7 7 0 0 0 19 11h-2z"/></svg>';
   var ICON_PLANE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21,16.01L21,14L13,9V3.5C13,2.67 12.33,2 11.5,2S10,2.67 10,3.5V9L2,14V16L10,13.5V19L7.5,20.5V22L11.5,21L15.5,22V20.5L13,19V13.5L21,16.01Z"/></svg>';
@@ -284,7 +293,7 @@
 
   /* ---------- shell ---------- */
   function unitsOf(st){
-    return st === 'phrases' ? (L.phrases || []).length : st === 'traps' ? (L.traps || []).length : st === 'listen' ? (L.listening || []).length :
+    return st === 'phrases' ? (L.phrases || []).length : st === 'traps' ? (L.traps || []).length : st === 'type' ? (L.typing || []).length : st === 'listen' ? (L.listening || []).length :
            st === 'speak' ? (L.speak || []).length : st === 'dialogue' ? (L.dialogue || []).length :
            st === 'quiz' ? (L.quiz || []).length : 0;
   }
@@ -359,7 +368,9 @@
   var R = {};
 
   R.scene = function(){
-    stage.innerHTML = '<div class="scene-ic">' + ICON_PLANE + '</div><h2>পরিস্থিতি</h2><p class="lede">' + esc(L.scene) + '</p>' + nextBtn(doneBefore && !replayStarted ? 'আবার practice করি →' : 'শুরু করি →');
+    stage.innerHTML = '<div class="scene-ic">' + ICON_PLANE + '</div><h2>পরিস্থিতি</h2><p class="lede">' + esc(L.scene) + '</p>' +
+      (L.hook ? '<div class="hook"><div class="hook-row"><p class="big-en">' + esc(L.hook.en) + '</p>' + (canSpeak ? '<button type="button" class="hear-mini" id="hookHear" aria-label="শুনুন">' + ICON_SPEAKER + '</button>' : '') + '</div>' + (L.hook.bn ? '<p class="hook-bn">' + esc(L.hook.bn) + '</p>' : '') + '</div>' : '') + nextBtn(doneBefore && !replayStarted ? 'আবার practice করি →' : 'শুরু করি →');
+    if ($('#hookHear')) $('#hookHear').onclick = function(){ say(L.hook.en); };
     $('#nextBtn').onclick = function(){ replayStarted = true; track('lesson_start',{lesson_id:L.id}); next(); };
   };
 
@@ -406,6 +417,51 @@
       $('#nextTrap').onclick = function(){ if (last) next(); else { i++; card(); enter(); } };
     }
     card();
+  };
+
+  R.type = function(){
+    var T = L.typing, q = Math.min(startSub, T.length - 1);
+    function norm(t){ return String(t).replace(/[০-৯]/g, function(d){ return '০১২৩৪৫৬৭৮৯'.indexOf(d); }).toLowerCase().replace(/[\s,.\-_'"!?$]/g, ''); }
+    function ask(){
+      var it = T[q], last = q === T.length - 1, tries = 0, done = false;
+      setSub(q);
+      stage.innerHTML =
+        '<p class="counter">লিখুন ' + bn(q+1) + '/' + bn(T.length) + '</p>' +
+        '<h2>' + esc(it.ask) + '</h2>' +
+        (it.en ? '<p class="big-en" style="font-size:clamp(22px,5.8vw,28px);margin:0 0 6px">' + esc(it.en) + '</p>' : '') +
+        (it.say ? (canSpeak ? '<div class="row" style="margin-top:6px"><button class="btn btn-alt" id="tPlay">' + ICON_SPEAKER + 'বাজান</button><button class="btn btn-alt" id="tSlow">🐢 ধীরে</button></div>' : '<p class="big-en" style="font-size:24px">' + esc(it.say) + '</p>') : '') +
+        '<input class="tin" id="tIn" type="text" inputmode="' + (it.num ? 'numeric' : 'text') + '" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="' + esc(it.ph || 'এখানে লিখুন') + '" aria-label="আপনার উত্তর">' +
+        '<div class="row" id="tBtns"><button class="btn btn-main" id="tCheck">দেখি</button><button class="btn btn-alt" id="tSkip">এড়িয়ে যান</button></div><div id="fb"></div>';
+      if ($('#tPlay')) { $('#tPlay').onclick = function(){ say(it.say); }; $('#tSlow').onclick = function(){ say(it.say, 0.55); }; setTimeout(function(){ say(it.say); }, 250); }
+      var inp = $('#tIn');
+      function advance(){ if (last) next(); else { q++; ask(); enter(); } }
+      function finish(kind, title, extra){
+        done = true; inp.setAttribute('readonly', 'readonly'); $('#tBtns').innerHTML = '';
+        $('#fb').innerHTML = fbHtml(kind, title) + (extra || '') + nextBtn(last ? 'পরের ধাপ →' : 'পরের প্রশ্ন →', 'nx');
+        var sp = $('#spellHear'); if (sp) sp.onclick = function(){ say(sp.getAttribute('data-say'), 0.6); };
+        $('#nx').onclick = advance; $('#nx').focus();
+      }
+      function check(){
+        if (done) return;
+        var v = inp.value.trim();
+        if (!v){ inp.focus(); return; }
+        if (it.free){
+          var letters = v.replace(/[^A-Za-z]/g, '').toUpperCase().split('');
+          var extra = letters.length ? '<p class="spell-out">' + (canSpeak ? '<button type="button" class="hear-mini" id="spellHear" data-say="' + esc(letters.join(', ')) + '" aria-label="বানান শুনুন">' + ICON_SPEAKER + '</button>' : '') + '<b>' + esc(letters.join(' - ')) + '</b></p><p class="hint">কাউন্টারে এভাবে ধীরে বানান বলবেন।</p>' : '<p class="hint">ইংরেজি অক্ষরে লিখলে বানান শোনাতে পারব।</p>';
+          finish('ok', praise(), extra); return;
+        }
+        tries++;
+        var ok = it.answers.some(function(a){ return norm(a) === norm(v); });
+        if (ok) finish('ok', tries === 1 ? praise() : 'Got it!', it.why ? '<p class="why">' + esc(it.why) + '</p>' : '');
+        else if (tries >= 2) finish('mid', 'প্রায় হয়েছে! সঠিক: ' + (it.show || it.answers[0]), it.why ? '<p class="why">' + esc(it.why) + '</p>' : '');
+        else { inp.classList.add('shake'); setTimeout(function(){ inp.classList.remove('shake'); }, 400); $('#fb').innerHTML = fbHtml('no', 'আরেকবার চেষ্টা করুন'); inp.focus(); inp.select(); }
+      }
+      $('#tCheck').onclick = check;
+      $('#tSkip').onclick = advance;
+      inp.onkeydown = function(e){ if (e.key === 'Enter'){ e.preventDefault(); check(); } };
+      curBack = function(){ if (q > 0){ q--; ask(); enter(); return true; } return false; };
+    }
+    ask();
   };
 
   R.listen = function(){
@@ -648,6 +704,7 @@
     }
     flow = L.type === 'B' ? ['phrases','listen','speak','done'] : ['scene','phrases','listen','speak','dialogue','quiz','done'];
     if (L.traps && L.traps.length){ flow.splice(flow.indexOf('phrases') + 1, 0, 'traps'); }
+    if (L.typing && L.typing.length){ flow.splice(flow.indexOf('listen') + 1, 0, 'type'); }
     var saved = read('be_resume', {})[L.id];
     var ok = saved && typeof saved.step === 'number' && saved.step > 0 && saved.step < flow.length - 1 && flow[saved.step] !== 'scene';
     if (ok){
