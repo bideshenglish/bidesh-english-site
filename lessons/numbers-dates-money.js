@@ -8,7 +8,7 @@ window.LESSON = {
     "title": "Spelling Your Name & Filling Out Forms",
     "id": "spelling-forms"
   },
-  "scene": "এজেন্সির অফিসে কেউ বলল: \"Your salary is fifteen hundred.\" আপনি ১৫ বুঝলেন, নাকি ১,৫০০? ভুল শুনলে টাকা বা সুযোগ হারাতে পারেন। আজ শিখবেন ঠিক শুনতে, আর সন্দেহ হলে কী বলবেন।",
+  "scene": "ভুল সংখ্যা শুনলে টাকা বা সুযোগ হারাতে পারেন। আজ ঠিক শুনতে শিখবেন।",
   "phrases": [
     {
       "tag": "আপনি বলবেন",
@@ -322,6 +322,44 @@ window.LESSON = {
       "q": "টাকার অঙ্ক নিয়ে সন্দেহ হলে লিখে দিতে বলা কি লজ্জার ব্যাপার?",
       "a": false,
       "why": "মোটেই না। \"Please write the amount.\" বলা সম্পূর্ণ স্বাভাবিক, আর এতে ভুলের ঝুঁকি কমে।"
+    }
+  ],
+  "hook": {
+    "en": "Your salary is fifteen hundred.",
+    "bn": "১৫? ১৫০? নাকি ১,৫০০?"
+  },
+  "typing": [
+    {
+      "ask": "যা শুনলেন, সংখ্যাটা লিখুন",
+      "say": "The fee is fifteen hundred.",
+      "num": true,
+      "answers": [
+        "1500"
+      ],
+      "show": "1,500",
+      "why": "fifteen hundred = ১,৫০০",
+      "ph": "সংখ্যা লিখুন"
+    },
+    {
+      "ask": "যা শুনলেন, সংখ্যাটা লিখুন",
+      "say": "Your medical test fee is thirty dollars.",
+      "num": true,
+      "answers": [
+        "30"
+      ],
+      "show": "30",
+      "why": "thirty = ৩০ (শুরুতে জোর)",
+      "ph": "সংখ্যা লিখুন"
+    },
+    {
+      "ask": "৮:৪৫ বলতে ফাঁকা ঘরে কী বসবে?",
+      "en": "a quarter ___ nine",
+      "answers": [
+        "to"
+      ],
+      "show": "to",
+      "why": "to = আগে। নয়টার ১৫ মিনিট আগে = ৮:৪৫",
+      "ph": "ইংরেজি শব্দ"
     }
   ]
 };
