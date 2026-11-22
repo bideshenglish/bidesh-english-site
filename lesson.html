@@ -96,9 +96,9 @@
   .tag.ear{background:var(--leaf-soft);color:var(--pine);}
   .tk-count{font-weight:700;font-size:16px;color:#fff;}
   .tag{display:inline-block;padding:2px 14px;border-radius:999px;background:var(--sun-soft);color:#4A3000;font-weight:800;font-size:15.5px;line-height:1.6;}
-  .tk-body{padding:26px 20px 20px;}
+  .tk-body{padding:22px 20px 6px;}
   .ph-bn{margin:12px 0 0;font-size:clamp(19px,5.2vw,22px);font-weight:700;line-height:1.6;color:var(--ink-soft);}
-  .ph-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+  .ph-actions{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 18px;}
   .play{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:10px;padding:0 22px 0 14px;height:52px;border-radius:999px;background:var(--leaf-deep);color:#fff;font-weight:800;font-size:18px;box-shadow:0 10px 18px -8px rgba(12,58,39,0.7);transition:transform .12s ease;}
   .play:active{transform:scale(.97);}
   .play:focus-visible{outline:3px solid var(--pine);outline-offset:3px;}
@@ -107,8 +107,8 @@
   .play.playing .play-ic{animation:pulse 1s ease-in-out infinite;}
   .slow.playing{background:var(--leaf-soft);border-color:var(--leaf-deep);}
   @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0.55);}50%{box-shadow:0 0 0 7px rgba(255,255,255,0);}}
-  .pr-label{display:block;font-size:14.5px;font-weight:700;color:var(--ink-soft);margin:0 0 6px;}
-  .pr-text{margin:0;font-size:18px;font-weight:700;line-height:1.6;color:var(--leaf-deep);background:var(--leaf-soft);padding:10px 14px;border-radius:14px;}
+  .pr-label{display:block;font-size:14px;font-weight:700;color:var(--ink-soft);margin:0 0 2px;}
+  .pr-text{margin:12px 0 0;font-size:18px;font-weight:700;line-height:1.6;color:var(--leaf-deep);background:var(--leaf-soft);padding:9px 14px 11px;border-radius:14px;}
   .btn-next{width:100%;font-size:19px;padding:16px 26px;}
   .btn-next svg{width:22px;height:22px;}
   .tk-main{display:flex;align-items:center;justify-content:space-between;gap:14px;}
@@ -121,7 +121,7 @@
   .tk-foot{padding:18px 20px 6px;background:#fff;}
   .bn-line{font-size:20px;font-weight:700;margin:0 0 10px;color:var(--ink);line-height:1.6;}
   .pr-line{font-size:17px;color:var(--leaf-deep);font-weight:700;margin:0;background:var(--leaf-soft);display:inline-block;padding:5px 14px;border-radius:12px;}
-  .tk-actions{padding:6px 20px 22px;}
+  .tk-actions{padding:4px 20px 22px;}
   .tk-actions .row{margin-top:14px;}
 
   /* ---------- options ---------- */
@@ -407,11 +407,12 @@
       stage.innerHTML =
         '<div class="tk-top"><div class="tk-head">' + (p.tag ? '<span class="tag' + (ear ? ' ear' : '') + '">' + (ear ? '👂 ' : '💬 ') + esc(p.tag) + '</span>' : '<span></span>') + '<span class="tk-count">' + bn(i+1) + ' / ' + bn(P.length) + '</span></div>' +
         '<div class="dots" aria-hidden="true">' + dots + '</div></div>' +
-        '<div class="tk-body"><p class="big-en">' + esc(p.en) + '</p>' +
-          '<p class="ph-bn">' + esc(p.bn) + '</p>' +
+        '<div class="tk-body">' +
           (canSpeak ? '<div class="ph-actions"><button type="button" class="play" id="hear" aria-label="শুনুন"><span class="play-ic">' + ICON_SPEAKER + '</span>শুনুন</button><button type="button" class="slow" id="slow">🐢 ধীরে শুনুন</button></div>' : '') +
+          '<p class="big-en">' + esc(p.en) + '</p>' +
+          '<p class="ph-bn">' + esc(p.bn) + '</p>' +
+          (p.pr ? '<p class="pr-text"><span class="pr-label">আনুমানিক উচ্চারণ</span>' + esc(p.pr) + '</p>' : '') +
         '</div>' +
-        (p.pr ? '<div class="tk-perf"></div><div class="tk-foot"><span class="pr-label">বাংলায় আনুমানিক উচ্চারণ</span><p class="pr-text">' + esc(p.pr) + '</p></div>' : '') +
         '<div class="tk-actions"><div class="row"><button class="btn btn-main btn-next" id="nextCard">Next <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>' +
           (canSpeak ? (i === 0 ? '<p class="hint">🔊 শব্দ না এলে ভলিউম বাড়ান বা Chrome-এ খুলুন।</p>' : '') : '<p class="note info">আপনার ডিভাইসে শব্দ শোনার সুবিধা নেই। ইংরেজি লেখা আর উচ্চারণ দেখে পড়ুন।</p>') + '</div>';
       if ($('#hear')) $('#hear').onclick = function(){ say(p.en, 0.9, $('#hear')); };
