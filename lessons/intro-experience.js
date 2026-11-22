@@ -5,7 +5,8 @@ window.LESSON = {
   "title": "Introducing Yourself & Your Experience",
   "titleBn": "নিজের পরিচয় ও কাজের অভিজ্ঞতা বলা",
   "next": {
-    "title": "Job Interview & Trade Test"
+    "title": "Job Interview & Trade Test",
+    "id": "interview-trade-test"
   },
   "scene": "ইন্টারভিউয়ের প্রথম প্রশ্ন প্রায় সবসময় একটাই। আজ ৪ লাইনে তার উত্তর শিখবেন।",
   "hook": {
