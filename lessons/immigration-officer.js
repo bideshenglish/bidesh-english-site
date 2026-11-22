@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "ইমিগ্রেশন অফিসার",
   "title": "Immigration Officer Questions",
   "titleBn": "ইমিগ্রেশন অফিসারের প্রশ্ন",
-  "next": { "title": "Arriving: Pickup, Check-in & First Day" },
+  "next": { "title": "Arriving: Pickup, Check-in & First Day", "id": "arriving-first-day" },
   "scene": "ইমিগ্রেশনে প্রশ্ন সহজ, কিন্তু ভয়ে ভুল হয়। উত্তর ছোট দিন, সত্য বলুন, কাগজের সাথে মিলিয়ে।",
   "hook": { "en": "I am here to work.", "bn": "আমি কাজ করতে এসেছি।" },
   "phrases": [
