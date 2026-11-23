@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "রেস্তোরাঁর কর্মী",
   "title": "Ordering Food & Asking About Halal",
   "titleBn": "খাবার অর্ডার ও হালাল জিজ্ঞেস করা",
-  "next": { "title": "Basic Shopping & Asking Prices" },
+  "next": { "title": "Basic Shopping & Asking Prices", "id": "shopping-prices" },
   "scene": "সব দোকানের খাবার হালাল নাও হতে পারে। আজ অর্ডার করা আর ঠিকমতো জিজ্ঞেস করা শিখবেন।",
   "hook": { "en": "Is this halal?", "bn": "এটা কি হালাল?" },
   "phrases": [
