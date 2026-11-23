@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Bidesh English</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bidesh English">
+<meta property="og:locale" content="bn_BD">
+<meta property="og:title" content="Bidesh English | বিদেশের জন্য Spoken English, ফ্রি">
+<meta property="og:description" content="বিদেশে যাওয়ার আগে ও পরে দরকারি Spoken English। কাজের জায়গার ইংরেজি বাংলায় শিখুন, সম্পূর্ণ বিনামূল্যে।">
+<meta property="og:url" content="https://www.bideshenglish.com/">
+<meta property="og:image" content="https://www.bideshenglish.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.bideshenglish.com/">
+<meta name="description" content="বিদেশে যাওয়ার আগে ও পরে দরকারি Spoken English। Practical English for Bangladeshis building a life abroad.">
+<meta name="theme-color" content="#BCE0F3">
+<meta name="color-scheme" content="light only">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#0C3A27; --leaf:#1F8A36; --leaf-deep:#17692A; --leaf-soft:#E2F1E4;
+    --sky:#CFE8F5; --paper:#F1F8F2; --page:#DFEEE3; --sun:#F4B93E; --sun-soft:#FCEBC4;
+    --ink:#14261C; --ink-soft:#33463B; --line:#A9C9B3; --wa:#25D366;
+    --font:'Anek Bangla','Noto Sans Bengali','Segoe UI',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--page);color:var(--ink);font-family:var(--font);font-size:17px;font-weight:500;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  button{font-family:inherit;color:inherit;}
+  a{color:inherit;}
+  :focus-visible{outline:3px solid var(--pine);outline-offset:3px;border-radius:6px;}
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      radial-gradient(60% 40% at 12% 30%, rgba(255,255,255,0.85), transparent 70%),
+      radial-gradient(50% 35% at 88% 12%, rgba(255,255,255,0.8), transparent 70%),
+      linear-gradient(180deg, #BCE0F3 0%, #D2EBEE 58%, var(--page) 100%);
+    padding-bottom:34px;overflow:hidden;
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;position:relative;z-index:5;}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:19px;color:var(--pine);letter-spacing:-0.01em;}
+  .brand img{width:42px;height:42px;border-radius:50%;box-shadow:0 4px 12px -4px rgba(12,58,39,0.4);}
+  .nav-links{display:none;list-style:none;margin:0;padding:0;gap:28px;align-items:center;}
+  .nav-links a{text-decoration:none;font-weight:700;font-size:16.5px;color:var(--pine);padding:6px 2px;border-bottom:2px solid transparent;}
+  .nav-links a:hover{border-bottom-color:var(--leaf);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:999px;padding:14px 26px;font-weight:700;font-size:17px;text-decoration:none;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;}
+  .btn:active{transform:translateY(1px);}
+  .btn-sun{background:var(--sun);color:var(--pine);box-shadow:0 8px 18px -8px rgba(190,120,0,0.6);}
+  .btn-sun:hover{box-shadow:0 12px 22px -8px rgba(190,120,0,0.7);transform:translateY(-1px);}
+  .btn-line{background:rgba(255,255,255,0.7);color:var(--pine);border:1.5px solid rgba(12,58,39,0.35);}
+  .btn-line:hover{background:#fff;}
+  .nav-cta{display:none;padding:11px 22px;font-size:16px;}
+  .nav-right{display:flex;align-items:center;gap:10px;}
+  .ns-btn{background:rgba(255,255,255,0.7);border:1.5px solid rgba(12,58,39,0.3);border-radius:12px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;}
+  .ns-btn svg,.ns-field svg{width:20px;height:20px;fill:none;stroke:var(--pine);stroke-width:2.2;stroke-linecap:round;}
+  .ns-panel{display:none;position:absolute;left:0;right:0;top:calc(100% + 2px);z-index:30;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:10px;box-shadow:0 22px 34px -18px rgba(12,58,39,0.6);}
+  .ns.open .ns-panel{display:block;}
+  .ns-field{position:relative;}
+  .ns-field svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);pointer-events:none;}
+  .ns-field input{width:100%;box-sizing:border-box;font:inherit;font-size:17px;font-weight:600;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px 10px 42px;}
+  .ns-field input:focus{outline:3px solid var(--sun);outline-offset:1px;border-color:var(--leaf);}
+  .ns-list{list-style:none;margin:8px 0 0;padding:0;max-height:min(60vh,360px);overflow:auto;}
+  .ns-list[hidden]{display:none;}
+  .ns-item{display:flex;align-items:center;gap:10px;padding:10px 10px;border-radius:12px;cursor:pointer;font-weight:700;font-size:16.5px;line-height:1.4;color:var(--ink);}
+  .ns-item:hover,.ns-item.act{background:var(--leaf-soft);}
+  .ns-tag{flex:none;font-size:13.5px;font-weight:700;border-radius:999px;padding:1px 10px;background:var(--leaf-soft);color:var(--leaf-deep);}
+  .ns-tag.l{background:var(--sun-soft);color:#6B4300;}
+  .ns-nm{flex:1;min-width:0;}
+  .ns-none{padding:10px;font-weight:600;color:var(--ink-soft);font-size:16px;}
+  .menu-btn{background:rgba(255,255,255,0.7);border:1.5px solid rgba(12,58,39,0.3);border-radius:12px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+
+  .hero-grid{display:grid;gap:8px;align-items:center;padding-top:10px;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 16px 7px 12px;font-size:16px;font-weight:700;color:var(--leaf-deep);box-shadow:0 4px 12px -6px rgba(12,58,39,0.3);}
+  .badge i{width:8px;height:8px;border-radius:50%;background:var(--leaf);display:block;}
+  h1{font-weight:800;font-size:clamp(36px,9.4vw,62px);line-height:1.08;letter-spacing:-0.025em;margin:16px 0 14px;color:var(--pine);max-width:15ch;}
+  .hero-bn{font-size:clamp(19px,5vw,23px);font-weight:600;color:var(--ink);margin:0 0 8px;max-width:34ch;line-height:1.65;}
+  .hero-en{font-size:17px;font-weight:500;color:var(--ink-soft);margin:0 0 24px;max-width:40ch;}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;}
+  .hero-job{display:flex;align-items:center;gap:10px;flex:1 1 100%;max-width:460px;padding:12px 16px;background:rgba(255,255,255,0.75);border:1.5px solid var(--line);border-radius:16px;color:var(--pine);font-weight:700;font-size:17px;line-height:1.5;text-decoration:none;}
+  .hero-job:hover{background:#fff;border-color:var(--leaf);}
+  .hero-job:focus-visible{outline:3px solid var(--sun);outline-offset:2px;}
+  .hc-start{order:1;} .hc-job{order:2;} .hc-wa{order:3;}
+  @media (min-width:700px){ .hc-wa{order:2;} .hc-job{order:3;margin-top:4px;} }
+  .hj-ic{font-size:20px;flex:none;}
+  .hj-t{flex:1;}
+  .hj-ar{font-size:26px;line-height:1;color:var(--leaf-deep);flex:none;}
+
+  .hero-visual{position:relative;width:min(430px,100%);aspect-ratio:400/300;margin:14px auto 0;}
+  .hero-visual svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
+  .emblem{position:absolute;right:4%;bottom:0;width:62%;aspect-ratio:1;border-radius:50%;border:0;
+    box-shadow:0 30px 50px -24px rgba(12,58,39,0.55), 0 0 0 1px rgba(12,58,39,0.08);background:transparent;}
+  .emblem img{width:100%;height:100%;display:block;border-radius:50%;}
+
+  /* ---------- section heads ---------- */
+  section{padding:38px 0 0;}
+  .rv{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 14px;margin:0 auto 18px;max-width:620px;padding:12px 16px;border-radius:18px;background:var(--sun-soft);border:1.5px solid #E8C877;color:#4A3000;font-weight:700;font-size:16.5px;line-height:1.5;}
+  .rv[hidden]{display:none;}
+  .rv .btn{padding:9px 20px;font-size:15.5px;}
+  .lead{font-weight;font-size:clamp(26px,6.4vw,34px);line-height:1.25;letter-spacing:-0.015em;margin:0 0 6px;color:var(--pine);}
+  .lead-sub{font-size:17px;font-weight:500;color:var(--ink-soft);margin:0 0 24px;}
+
+  /* ---------- boarding passes ---------- */
+  .passes{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:start;}
+  .pass-card{min-width:0;position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 30px -22px rgba(12,58,39,0.5);}
+  .pass-row{all:unset;box-sizing:border-box;display:grid;grid-template-columns:92px 1fr auto;align-items:stretch;width:100%;cursor:pointer;position:relative;border-radius:20px;}
+  .pass-row:focus-visible{outline:3px solid var(--pine);outline-offset:3px;}
+  .pass-row::before,.pass-row::after{content:'';position:absolute;left:81px;width:22px;height:22px;border-radius:50%;background:var(--page);border:1px solid var(--line);z-index:2;}
+  .pass-row::before{top:-12px;clip-path:inset(50% 0 0 0);}
+  .pass-row::after{bottom:-12px;clip-path:inset(0 0 50% 0);}
+  .pass-card.active .pass-row::after{display:none;}
+  .pass-stub{background:linear-gradient(160deg,#1A7A2E 0%,#0F5A22 100%);color:#fff;border-radius:19px 0 0 19px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:18px 8px;text-align:center;}
+  .pass-card.active .pass-stub{border-bottom-left-radius:0;}
+  .pass-stub svg{width:28px;height:28px;}
+  .pass-stage{font-size:14.5px;font-weight:700;line-height:1.3;}
+  .pass-main{padding:20px 12px 20px 22px;border-left:2px dashed rgba(12,58,39,0.22);min-width:0;}
+  .pass-title{display:block;font-weight:800;font-size:23px;line-height:1.2;color:var(--pine);letter-spacing:-0.01em;}
+  .pass-bn{display:block;font-size:17px;font-weight:600;color:var(--ink);margin-top:4px;line-height:1.5;}
+  .pass-count{display:inline-block;margin-top:10px;font-size:15px;font-weight:700;color:var(--leaf-deep);background:var(--leaf-soft);border-radius:999px;padding:2px 10px;}
+  .pass-chev{align-self:center;margin-right:16px;width:34px;height:34px;border-radius:50%;background:var(--leaf-soft);color:var(--leaf-deep);display:flex;align-items:center;justify-content:center;transition:transform .25s ease, background .25s ease;}
+  .pass-card.active .pass-chev{transform:rotate(180deg);background:var(--sun-soft);}
+
+  .drill{max-height:0;overflow:hidden;transition:max-height .35s ease;border-radius:0 0 20px 20px;}
+  .drill.open{max-height:2600px;}
+  .drill-inner{padding:6px 16px 20px;border-top:1px solid var(--line);}
+  .sub-tabs{display:flex;gap:6px;margin:16px 0 6px;background:var(--leaf-soft);padding:4px;border-radius:14px;}
+  .sub-tab{flex:1;text-align:center;background:transparent;border:none;border-radius:10px;padding:10px 4px;font-size:15px;font-weight:700;line-height:1.3;cursor:pointer;color:var(--ink-soft);}
+  .sub-tab.selected{background:#fff;color:var(--pine);box-shadow:0 2px 8px -2px rgba(12,58,39,0.35);}
+  .topic-list{margin-top:10px;display:flex;flex-direction:column;gap:8px;}
+  .topic-item{all:unset;box-sizing:border-box;width:100%;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 12px 14px 10px;font-size:17px;font-weight:600;line-height:1.4;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer;transition:border-color .15s ease, background .15s ease;}
+  .topic-item:hover{border-color:var(--leaf);background:#fff;}
+  .topic-item:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+  .t-left{display:flex;align-items:center;gap:10px;min-width:0;}
+  .t-num{width:28px;height:28px;border-radius:50%;background:#fff;border:1px solid var(--line);font-size:14px;font-weight:700;color:var(--leaf-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .t-name{min-width:0;line-height:1.35;}
+  .soon-chip{font-size:14.5px;font-weight:700;color:#6B4300;background:var(--sun-soft);border-radius:999px;padding:2px 10px;flex-shrink:0;white-space:nowrap;}
+  .live-chip{font-size:14.5px;font-weight:700;color:#FFFFFF;background:#17692A;border-radius:999px;padding:2px 12px;flex-shrink:0;white-space:nowrap;}
+
+  /* ---------- values ---------- */
+  .values{display:grid;gap:0;margin-top:6px;border-top:1px solid var(--line);}
+  .value{display:flex;align-items:center;gap:14px;padding:18px 2px;border-bottom:1px solid var(--line);}
+  .value svg{width:26px;height:26px;color:var(--leaf);flex-shrink:0;}
+  .value p{margin:0;font-weight:700;font-size:19px;line-height:1.5;color:var(--pine);}
+
+  /* ---------- mentor ---------- */
+  .mentor{margin-top:44px;background:var(--pine);color:#F2FAF4;border-radius:26px;padding:30px 24px;display:grid;gap:18px;position:relative;overflow:hidden;}
+  .mentor::after{content:'';position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;border:1.5px dashed rgba(255,255,255,0.25);}
+  .mentor h2{margin:0;font-weight:800;font-size:clamp(25px,6vw,32px);letter-spacing:-0.015em;line-height:1.2;}
+  .mentor p{margin:0;font-size:18px;font-weight:500;color:#EDF7F0;max-width:46ch;}
+  .wa-btn{background:var(--wa);color:#06210F;align-self:start;position:relative;z-index:1;box-shadow:0 10px 20px -10px rgba(0,0,0,0.5);}
+  .wa-btn:hover{transform:translateY(-1px);}
+
+  footer{padding:34px 0 46px;text-align:center;}
+  footer img{width:40px;height:40px;border-radius:50%;}
+  footer p{margin:8px 0 0;font-size:16.5px;font-weight:600;color:var(--ink);}
+
+  /* ---------- menu overlay (mobile) ---------- */
+  .nav-overlay{position:fixed;inset:0;background:var(--pine);z-index:50;display:flex;flex-direction:column;padding:22px 24px 40px;transform:translateY(-100%);transition:transform .32s ease;visibility:hidden;}
+  .nav-overlay.open{transform:translateY(0);visibility:visible;}
+  .nav-overlay-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px;}
+  .nav-overlay .brand{color:#fff;}
+  .close-btn{background:none;border:1.5px solid rgba(255,255,255,0.4);border-radius:12px;width:42px;height:42px;color:#fff;font-size:18px;cursor:pointer;}
+  .overlay-links{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;}
+  .overlay-links a{display:block;color:#fff;text-decoration:none;font-size:24px;font-weight:700;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.15);}
+  .nav-overlay .btn{margin-top:auto;}
+  .nav-overlay :focus-visible{outline-color:#fff;}
+
+  #toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);background:var(--pine);color:#fff;padding:12px 20px;border-radius:999px;font-size:17px;font-weight:700;box-shadow:0 12px 26px rgba(0,0,0,0.25);opacity:0;pointer-events:none;transition:opacity .25s ease, transform .25s ease;z-index:60;max-width:88%;text-align:center;}
+  #toast.show{opacity:1;transform:translate(-50%,0);}
+
+
+  /* ---------- My Job English: accordion ---------- */
+  #prof-wrap{display:flex;flex-direction:column;gap:12px;padding-top:16px;}
+  .core-btn{all:unset;box-sizing:border-box;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:82px;padding:14px 52px 14px 20px;border-radius:20px;text-align:center;cursor:pointer;color:var(--pine);border:1.5px solid #E2BC57;
+    background-color:#FBE3A6;background-image:linear-gradient(135deg,#FFF1C9 0%,#F7CE6A 100%);box-shadow:0 14px 22px -16px rgba(150,95,0,0.8),inset 0 1px 0 rgba(255,255,255,0.7);transition:transform .1s ease;}
+  .core-btn:active{transform:scale(.99);}
+  .core-btn:focus-visible{outline:3px solid var(--pine);outline-offset:3px;}
+  .core-btn .c-main{font-size:21px;font-weight:700;line-height:1.5;letter-spacing:0;}
+  .core-btn .c-sub{display:inline-block;margin-top:3px;padding:2px 14px;border-radius:999px;font-size:16px;font-weight:600;line-height:1.6;color:#4A3000;background:rgba(255,255,255,0.55);}
+  .core-btn .c-chev{position:absolute;right:14px;top:50%;width:34px;height:34px;margin-top:-17px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,0.6);transition:transform .25s ease;}
+  .core-btn .c-chev svg,.cat-chev svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
+  .core-btn.open{background-color:var(--pine);background-image:linear-gradient(135deg,#14582B 0%,#0C3A27 100%);border-color:var(--pine);color:#fff;}
+  .core-btn.open .c-sub{color:#FFF3CC;background:rgba(255,255,255,0.16);}
+  .core-btn.open .c-chev{transform:rotate(180deg);background:rgba(255,255,255,0.18);color:#fff;}
+  .core-panel{padding:2px 0 4px;}
+  .core-panel[hidden]{display:none;}
+  .core-panel .topic-item,.prof-panel .topic-item{background:#fff;}
+
+  .prof-row[hidden]{display:none;}
+  .prof-search{position:relative;margin:10px 0 4px;}
+  .prof-search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;fill:none;stroke:var(--leaf-deep);stroke-width:2.2;stroke-linecap:round;pointer-events:none;}
+  .prof-search input{width:100%;box-sizing:border-box;font:inherit;font-size:17px;font-weight:600;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px 12px 44px;}
+  .prof-search input:focus{outline:3px solid var(--sun);outline-offset:1px;border-color:var(--leaf);}
+  .prof-empty{margin:8px 2px;font-weight:600;color:var(--ink-soft);}
+  .prof-head{display:flex;align-items:center;gap:14px;margin:26px 0 6px;padding:14px 16px;border-radius:20px;border:1.5px solid #7FB08C;background:linear-gradient(135deg,#FFFFFF 0%,#E2F1E4 100%);box-shadow:0 16px 26px -22px rgba(12,58,39,0.75);}
+  .ph-ic{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background-color:#14582B;background-image:linear-gradient(145deg,#1F8A36 0%,#0C3A27 100%);box-shadow:0 10px 18px -10px rgba(12,58,39,0.8), inset 0 1px 0 rgba(255,255,255,0.25);}
+  .ph-ic svg{width:28px;height:28px;fill:none;stroke:#F4B93E;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+  .ph-tx{min-width:0;}
+  .ph-t{margin:0;font-size:clamp(21px,5.6vw,26px);font-weight:800;line-height:1.35;color:var(--pine);letter-spacing:0;}
+  .ph-s{display:block;margin-top:2px;font-size:15.5px;font-weight:600;line-height:1.5;color:var(--ink-soft);}
+  .prof-hint{margin:6px 2px 0;font-weight:700;font-size:16.5px;color:var(--ink-soft);}
+
+  .cat{border:1.5px solid var(--line);border-radius:20px;background:#F7FBF8;transition:border-color .2s ease, box-shadow .2s ease;}
+  .cat.open{border-color:#7FB08C;background:#fff;box-shadow:0 18px 26px -22px rgba(12,58,39,0.7);}
+  .cat-row{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:13px;padding:13px 14px;cursor:pointer;border-radius:20px;}
+  .cat-row:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+  .cat-ic{flex:none;width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background-color:#14582B;background-image:linear-gradient(145deg,#1F8A36 0%,#0C3A27 100%);box-shadow:0 12px 18px -12px rgba(12,58,39,0.95),inset 0 1px 0 rgba(255,255,255,0.28);}
+  .cat-ic svg{width:25px;height:25px;fill:none;stroke:#F4B93E;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+  .cat-txt{min-width:0;flex:1;}
+  .cat-title{display:block;margin:0;font-size:18.5px;font-weight:800;color:var(--pine);line-height:1.4;letter-spacing:0;}
+  .cat-sub{display:block;margin:0;font-size:15.5px;font-weight:600;color:var(--ink-soft);line-height:1.5;}
+  .cat-chev{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--leaf-soft);color:var(--leaf-deep);transition:transform .25s ease, background .25s ease;}
+  .cat.open .cat-chev{transform:rotate(180deg);background:var(--sun-soft);}
+  .cat-count{display:inline-block;margin-top:3px;font-size:14.5px;font-weight:700;color:var(--leaf-deep);background:var(--leaf-soft);border-radius:999px;padding:0 10px;}
+  .cat-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease;}
+  .cat.open .cat-body{grid-template-rows:1fr;}
+  .cat-inner{overflow:hidden;min-height:0;}
+  .cat.flat .prof-list{border-top:0;margin:0 14px;padding:4px 0 12px;}
+  .prof-list{display:flex;flex-direction:column;padding:2px 12px 12px;border-top:1.5px dashed #C3DACA;margin:0 14px;padding-left:0;padding-right:0;}
+
+  .prof-row{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:12px;padding:11px 8px;border-radius:14px;cursor:pointer;margin-top:6px;transition:background .15s ease;}
+  .prof-row:hover{background:var(--leaf-soft);}
+  .prof-row:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+  .prof-row .pi{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--leaf-soft);}
+  .prof-row .pi svg{width:22px;height:22px;fill:none;stroke:var(--leaf-deep);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .prof-row .pn{flex:1;min-width:0;font-size:17.5px;font-weight:700;line-height:1.4;color:var(--ink);}
+  .prof-row .pc{flex:none;width:26px;height:26px;display:grid;place-items:center;color:var(--leaf-deep);transition:transform .2s ease;}
+  .prof-row .pc svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
+  .prof-row.selected{background:var(--leaf-soft);}
+  .prof-row.selected .pi{background:var(--leaf-deep);}
+  .prof-row.selected .pi svg{stroke:#fff;}
+  .prof-row.selected .pc{transform:rotate(90deg);}
+
+  .prof-panel{margin:6px 0 2px;padding:10px;border-radius:16px;background:#F1F8F2;border:1.5px solid #CFE3D4;animation:panelIn .25s ease both;}
+  .prof-panel[hidden]{display:none;}
+  @keyframes panelIn{from{opacity:0;transform:translateY(-5px);}to{opacity:1;transform:none;}}
+  .prof-panel .topic-list{margin-top:0;}
+
+  .prof-soon{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background-color:#FFF4D6;background-image:linear-gradient(160deg,#FFF9E8 0%,#FCE8B5 100%);border:1.5px dashed #E2BC57;}
+  .prof-soon .ps-ic{flex:none;width:42px;height:42px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 6px 12px -6px rgba(150,95,0,0.7);}
+  .prof-soon .ps-ic svg{width:22px;height:22px;stroke:#B07A00;}
+  .prof-soon .ps-tx{min-width:0;flex:1;}
+  .prof-soon h4{margin:0;font-size:17.5px;font-weight:800;color:var(--pine);line-height:1.4;}
+  .prof-soon p{margin:0;font-weight:600;font-size:15.5px;line-height:1.5;color:#5A3D00;}
+  .prof-soon button{all:unset;cursor:pointer;display:inline-block;margin-top:6px;font-weight:800;font-size:15.5px;color:var(--leaf-deep);text-decoration:underline;text-underline-offset:3px;}
+  .prof-soon button:focus-visible{outline:3px solid var(--pine);outline-offset:3px;}
+
+  /* ---------- larger screens ---------- */
+  @media (min-width:1060px){
+    .ns-btn{display:none;}
+    .ns-panel{display:block;position:relative;left:auto;right:auto;top:auto;width:220px;padding:0;background:transparent;border:0;box-shadow:none;}
+    .ns-field input{padding:9px 12px 9px 40px;font-size:16px;background:rgba(255,255,255,0.85);}
+    .ns-list{position:absolute;top:calc(100% + 8px);right:0;width:360px;margin:0;padding:6px;background:#fff;border:1.5px solid var(--line);border-radius:16px;box-shadow:0 22px 34px -18px rgba(12,58,39,0.6);}
+  }
+  @media (min-width:760px){
+    .wrap{padding:0 32px;}
+    .menu-btn{display:none;}
+    .nav-links{display:flex;}
+    .nav-cta{display:inline-flex;}
+    .hero{padding-bottom:56px;}
+    .hero-grid{grid-template-columns:1.1fr 0.9fr;gap:30px;padding-top:36px;}
+    .hero-visual{margin:0 0 0 auto;width:100%;max-width:440px;}
+    section{padding-top:60px;}
+    .passes{grid-template-columns:minmax(0,1fr);gap:22px;}
+    section:has(.passes){text-align:center;}
+    .passes{max-width:760px;margin:0 auto;text-align:left;}
+    .values{grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line);}
+    .value{border-bottom:none;padding:26px 22px;}
+    .value + .value{border-left:1px solid var(--line);}
+    .mentor{grid-template-columns:1fr auto;align-items:center;padding:44px 48px;gap:30px;margin-top:64px;}
+    .mentor .wa-btn{align-self:center;}
+  }
+  @media (max-width:380px){
+    .pass-row{grid-template-columns:78px 1fr auto;}
+    .pass-row::before,.pass-row::after{left:67px;}
+    .pass-chev{margin-right:10px;}
+    .sub-tab{font-size:13.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+
+  /* ---------- colour clarity overrides ---------- */
+  :root{color-scheme:light only;}
+  h1,h2,.lead,.pass-title,.pass-main,.value p,.brand,.topic-item,.t-name{color:var(--ink);}
+  h1,.lead,.pass-title,.brand,.value p{color:var(--pine);}
+  .pass-stub,.pass-stage{color:#FFFFFF;}
+  .pass-card{border:1.5px solid var(--line);box-shadow:0 16px 28px -18px rgba(12,58,39,0.55);}
+  .topic-item{background:var(--paper);border:1.5px solid var(--line);}
+  .values{gap:14px;border:none;margin-top:4px;}
+  .value{background:#FFFFFF;border:1.5px solid var(--line);border-radius:18px;padding:18px 20px;}
+  .value + .value{border-left:1.5px solid var(--line);}
+  .btn-line{background:#FFFFFF;color:var(--pine);border:2px solid var(--pine);}
+  .mentor,.mentor h2{color:#FFFFFF;}
+  .mentor p{color:#F1FAF3;}
+  .nav-overlay,.overlay-links a,.nav-overlay .brand{color:#FFFFFF;}
+  footer p{color:var(--pine);}
+  @media (min-width:760px){
+    .values{gap:18px;}
+    .value{padding:24px 22px;}
+  }
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PFNZNQD0X9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PFNZNQD0X9');
+  window.track = function(n, p){ try { gtag('event', n, p || {}); } catch(e){} };
+</script>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#">
+        <img src="logo.png" alt="Bidesh English লোগো" width="42" height="42">
+        <span>Bidesh English</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#needs">Learn English</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#mentor">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+      <div class="ns" id="ns">
+        <button type="button" class="ns-btn" id="nsBtn" aria-label="সাইটে খুঁজুন" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+        <div class="ns-panel" id="nsPanel">
+          <div class="ns-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="nsQ" placeholder="পেশা বা লেসন খুঁজুন" aria-label="পেশা বা লেসন খুঁজুন" autocomplete="off" enterkeyhint="search"></div>
+          <ul class="ns-list" id="nsList" role="listbox" hidden></ul>
+        </div>
+      </div>
+      <a href="#needs" class="btn btn-sun nav-cta">Start Learning Free</a>
+      <button class="menu-btn" id="menuBtn" aria-label="মেনু খুলুন">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0C3A27" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      </div>
+    </nav>
+
+    <div class="hero-grid">
+      <div>
+        <span class="badge"><i></i>বিদেশ যাত্রার সঙ্গী</span>
+        <h1>Learn the English your journey needs</h1>
+        <p class="hero-bn">বিদেশে যাওয়ার আগে ও পরে দরকারি Spoken English, একসাথে একজায়গায়।</p>
+        <p class="hero-en">Practical English for Bangladeshis building a life abroad.</p>
+        <div class="hero-cta">
+          <a href="#needs" class="btn btn-sun hc-start">Start Learning Free</a>
+          <a href="#needs" class="hero-job hc-job" id="heroJob"><span class="hj-ic" aria-hidden="true">💼</span><span class="hj-t">কাজ করছেন? কাজের জায়গার ৮টা জরুরি ইংরেজি লেসন দেখুন</span><span class="hj-ar" aria-hidden="true">›</span></a>
+          <a href="https://wa.me/8801356265826" target="_blank" rel="noopener" class="btn btn-line hc-wa">WhatsApp-এ মেসেজ করুন</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 400 300">
+          <defs>
+            <linearGradient id="pbody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#E3F5E6"/><stop offset="1" stop-color="#7FCB8B"/></linearGradient>
+            <linearGradient id="pwing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3FD05A"/><stop offset=".5" stop-color="#119A33"/><stop offset="1" stop-color="#07591F"/></linearGradient>
+            <linearGradient id="peng" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6B5A"/><stop offset="1" stop-color="#C8101A"/></linearGradient>
+            <linearGradient id="ptrail" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".95"/></linearGradient>
+            <linearGradient id="pgreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF5A4A"/><stop offset="1" stop-color="#D4161B"/></linearGradient>
+            <filter id="planeShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="0" stdDeviation="2.6" flood-color="#FFFFFF" flood-opacity=".95" result="g"/><feDropShadow dx="2" dy="5" stdDeviation="2.5" flood-color="#0C3A27" flood-opacity=".45"/></filter>
+          </defs>
+          <path id="flightPath" d="M8 262 C 60 80, 210 10, 352 34" fill="none" stroke="#0C3A27" stroke-opacity="0.45" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="1 11"/>
+          <g>
+            <g transform="scale(0.75)">
+              <path d="M-8 -9.2 L-62 -9.2 L-62 -8 Z" fill="url(#ptrail)"/>
+              <path d="M-8 9.2 L-62 9.2 L-62 8 Z" fill="url(#ptrail)"/>
+              <g filter="url(#planeShadow)">
+              <path d="M4 -1.8 L-8 -24 L-15.5 -24 L-9 -1.8 Z" fill="url(#pwing)" stroke="#0C3A27" stroke-width=".7" stroke-linejoin="round"/>
+              <path d="M4 1.8 L-8 24 L-15.5 24 L-9 1.8 Z" fill="url(#pwing)" stroke="#0C3A27" stroke-width=".7" stroke-linejoin="round"/>
+              <path d="M3 -2 L-7.6 -22 M3 2 L-7.6 22" stroke="#fff" stroke-width=".8" stroke-linecap="round"/>
+              <path d="M-7 -2 L-13 -22.5 M-7 2 L-13 22.5" stroke="#0D5A24" stroke-width=".35" opacity=".8"/>
+              <path d="M-8.4 -24 L-15.5 -24 L-14.9 -26.4 L-10.6 -26.4 Z" fill="url(#pgreen)" stroke="#0C3A27" stroke-width=".3"/>
+              <path d="M-8.4 24 L-15.5 24 L-14.9 26.4 L-10.6 26.4 Z" fill="url(#pgreen)" stroke="#0C3A27" stroke-width=".3"/>
+              <path d="M-17.5 -1.4 L-24 -10.5 L-27.5 -10.5 L-24 -1.4 Z" fill="url(#pwing)" stroke="#0C3A27" stroke-width=".45" stroke-linejoin="round"/>
+              <path d="M-17.5 1.4 L-24 10.5 L-27.5 10.5 L-24 1.4 Z" fill="url(#pwing)" stroke="#0C3A27" stroke-width=".45" stroke-linejoin="round"/>
+              <ellipse cx="-1.5" cy="-9.2" rx="5" ry="2.5" fill="url(#peng)" stroke="#0C3A27" stroke-width=".7"/>
+              <ellipse cx="-1.5" cy="9.2" rx="5" ry="2.5" fill="url(#peng)" stroke="#0C3A27" stroke-width=".7"/>
+              <ellipse cx="3" cy="-9.2" rx="1.1" ry="2" fill="#D4161B" stroke="#0C3A27" stroke-width=".3"/>
+              <ellipse cx="3" cy="9.2" rx="1.1" ry="2" fill="#D4161B" stroke="#0C3A27" stroke-width=".3"/>
+              <ellipse cx="3.4" cy="-9.2" rx=".45" ry="1" fill="#0F2A44"/>
+              <ellipse cx="3.4" cy="9.2" rx=".45" ry="1" fill="#0F2A44"/>
+              <path d="M-29 0 C-27 -3 -14 -3.9 0 -3.9 C12 -3.9 22 -2.5 27 0 C22 2.5 12 3.9 0 3.9 C-14 3.9 -27 3 -29 0 Z" fill="url(#pbody)" stroke="#0C3A27" stroke-width=".8"/>
+              <path d="M-29 0 C-27.5 -1.4 -23.5 -1.8 -18 -1.8 L-18 1.8 C-23.5 1.8 -27.5 1.4 -29 0 Z" fill="url(#pgreen)"/>
+              <path d="M17.5 -3.3 C21.5 -3.1 25 -1.8 27 0 C25 1.8 21.5 3.1 17.5 3.3 Z" fill="url(#pgreen)" stroke="#0C3A27" stroke-width=".6" stroke-linejoin="round"/>
+              <path d="M15.5 -2.1 C19.5 -1.9 23.2 -1 24.8 0 C23.2 1 19.5 1.9 15.5 2.1 Z" fill="#0F2A44"/>
+              <path d="M17 -1.3 L21.5 -.6" stroke="#9CC6E0" stroke-width=".55" stroke-linecap="round"/>
+              <g fill="#0F2A44" opacity=".75"><circle cx="-13" cy="0" r=".6"/><circle cx="-11" cy="0" r=".6"/><circle cx="-9" cy="0" r=".6"/><circle cx="-7" cy="0" r=".6"/><circle cx="-5" cy="0" r=".6"/><circle cx="-3" cy="0" r=".6"/><circle cx="-1" cy="0" r=".6"/><circle cx="1" cy="0" r=".6"/><circle cx="3" cy="0" r=".6"/><circle cx="5" cy="0" r=".6"/><circle cx="7" cy="0" r=".6"/><circle cx="9" cy="0" r=".6"/><circle cx="11" cy="0" r=".6"/><circle cx="13" cy="0" r=".6"/></g>
+              <path d="M-14 -2.2 H15" stroke="#D4161B" stroke-width="1.1" stroke-linecap="round"/>
+              <path d="M-14 2.4 H15" stroke="#0F7A2A" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M-17 -3.1 L18 -3.1" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" opacity=".95"/>
+              </g>
+            </g>
+            <animateMotion id="planeMotion" dur="3.2s" begin="0.4s" fill="freeze" rotate="auto" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.3 1">
+              <mpath href="#flightPath"/>
+            </animateMotion>
+          </g>
+        </svg>
+        <div class="emblem"><img src="logo-hero.png" alt="" width="480" height="480"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay" aria-hidden="true">
+  <div class="nav-overlay-top">
+    <a class="brand" href="#">
+      <img src="logo.png" alt="" width="42" height="42">
+      <span>Bidesh English</span>
+    </a>
+    <button class="close-btn" id="closeBtn" aria-label="মেনু বন্ধ করুন">✕</button>
+  </div>
+  <ul class="overlay-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#needs" class="overlay-go">Learn English</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#mentor" class="overlay-go">Contact</a></li>
+  </ul>
+  <a href="#needs" class="btn btn-sun" id="ctaOverlay">Start Learning Free</a>
+</div>
+
+<main>
+  <section id="needs">
+    <div class="wrap">
+      <h2 class="lead">আপনি এখন কোন পর্যায়ে আছেন?</h2>
+      <p class="lead-sub">Pick where you are, then choose Work, Study, or Everyday Life.</p>
+      <div class="rv" id="reviewBox" hidden></div>
+
+      <div class="passes">
+        <div class="pass-card" data-card="going">
+          <button class="pass-row" data-toggle="going" aria-expanded="false">
+            <span class="pass-stub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21,16.01L21,14L13,9V3.5C13,2.67 12.33,2 11.5,2S10,2.67 10,3.5V9L2,14V16L10,13.5V19L7.5,20.5V22L11.5,21L15.5,22V20.5L13,19V13.5L21,16.01Z"/></svg>
+              <span class="pass-stage">যাত্রার আগে</span>
+            </span>
+            <span class="pass-main">
+              <span class="pass-title">I'm Going Abroad</span>
+              <span class="pass-bn">বিদেশে যাওয়ার প্রস্তুতি নিচ্ছেন</span>
+              <span class="pass-count">২৪টি বিষয়</span>
+            </span>
+            <span class="pass-chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <div class="drill" id="drill-going">
+            <div class="drill-inner">
+              <div class="sub-tabs" data-group="going">
+                <button class="sub-tab" data-value="goingWork">💼 Work</button>
+                <button class="sub-tab" data-value="goingStudy">🎓 Study</button>
+                <button class="sub-tab" data-value="goingLife">🧳 Everyday Life</button>
+              </div>
+              <div class="topic-list" id="topics-going"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pass-card" data-card="already">
+          <button class="pass-row" data-toggle="already" aria-expanded="false">
+            <span class="pass-stub">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+              <span class="pass-stage">বিদেশে আছি</span>
+            </span>
+            <span class="pass-main">
+              <span class="pass-title">I'm Already Abroad</span>
+              <span class="pass-bn">ইতোমধ্যে বিদেশে আছেন</span>
+              <span class="pass-count">২৯টি বিষয়</span>
+            </span>
+            <span class="pass-chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <div class="drill" id="drill-already">
+            <div class="drill-inner">
+              <div class="sub-tabs" data-group="already">
+                <button class="sub-tab" data-value="alreadyWork">💼 Work</button>
+                <button class="sub-tab" data-value="alreadyStudy">🎓 Study</button>
+                <button class="sub-tab" data-value="alreadyLife">🏠 Everyday Life</button>
+              </div>
+              <div class="topic-list" id="topics-already"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pass-card" data-card="job">
+          <button class="pass-row" data-toggle="job" aria-expanded="false">
+            <span class="pass-stub">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <span class="pass-stage">আপনার কাজ</span>
+            </span>
+            <span class="pass-main">
+              <span class="pass-title">My Job English</span>
+              <span class="pass-bn">আপনার পেশার নির্দিষ্ট ইংরেজি</span>
+              <span class="pass-count">৩৪টি পেশা</span>
+            </span>
+            <span class="pass-chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+          </button>
+          <div class="drill" id="drill-job">
+            <div class="drill-inner">
+              <div id="prof-wrap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="values">
+        <div class="value">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <p>বাস্তব জীবনের ব্যবহারিক English</p>
+        </div>
+        <div class="value">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <p>বাংলা ও ইংরেজি দুটোই সহজভাবে</p>
+        </div>
+        <div class="value">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+          <p>শুরু করুন সম্পূর্ণ Free</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mentor">
+    <div class="wrap">
+      <div class="mentor">
+        <div>
+          <h2>Want a real mentor?</h2>
+          <p style="margin-top:10px;">ইংরেজিতে কথা বলা শিখতে চান? যদি আপনার সরাসরি গাইডেন্স দরকার হয়, WhatsApp-এ যোগাযোগ করুন।</p>
+        </div>
+        <a class="btn wa-btn" href="https://wa.me/8801356265826" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+          WhatsApp-এ মেসেজ করুন
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="logo.png" alt="" width="40" height="40">
+    <p>Bidesh English — আপনার বিদেশযাত্রার ইংরেজি সঙ্গী</p>
+    <p style="margin-top:2px;font-weight:700"><a href="about.html" style="color:var(--leaf-deep);margin:0 8px">About Us</a><a href="privacy.html" style="color:var(--leaf-deep);margin:0 8px">Privacy Policy</a><a href="terms.html" style="color:var(--leaf-deep);margin:0 8px">Terms &amp; Conditions</a></p>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const closeBtn = document.getElementById('closeBtn');
+const navOverlay = document.getElementById('navOverlay');
+function setMenu(open){
+  navOverlay.classList.toggle('open', open);
+  navOverlay.setAttribute('aria-hidden', open ? 'false' : 'true');
+}
+menuBtn.addEventListener('click', () => setMenu(true));
+closeBtn.addEventListener('click', () => setMenu(false));
+document.getElementById('ctaOverlay').addEventListener('click', () => setMenu(false));
+document.querySelectorAll('.overlay-go').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+const topicsData = {
+  goingWork: ["Numbers, Dates & Money","Spelling Your Name & Filling Out Forms","Introducing Yourself & Your Experience","Job Interview & Trade Test","Understanding Your Job Contract","Recruitment Agency & Medical Test","Visa & Embassy Questions","Airport Check-in, Security & Transit","Immigration Officer Questions","Arriving: Pickup, Check-in & First Day"],
+  goingStudy: ["Student Visa Interview","University Admission Interview","Explaining Your Study Plan & Funding","Emailing & Calling the University","Understanding Offer Letter, Fees & Deadlines","Arriving at University: Pickup & First Day"],
+  goingLife: ["Greetings & Small Talk","Phone Calls in English","Getting Around: Taxi, Bus & Train","Asking for Directions","Ordering Food & Asking About Halal","Basic Shopping & Asking Prices","SIM Card, Wi-Fi & Calling Home","Lost Passport, Lost Bag & Asking for Help"],
+  alreadyWork: ["Talking to Your Boss","Asking Coworkers for Help & Sharing Tasks","Sick Leave, Emergency Leave & Going Home","Understanding Fast Speakers & Different Accents","Workplace Small Talk","Speaking Up: Mistakes, Complaints & Disagreements","Understanding Your Rights at Work","Reporting a Serious Problem: HR, Embassy & Helpline","Asking for a Raise or a Better Job"],
+  alreadyStudy: ["Classroom English Basics","Making Friends & Campus Life","Group Work, Presentations & Assignments","Talking to Professors & Advisors","Library, Labs & Campus Services","Exams, Deadlines & Asking for Extensions","Part-Time Jobs for Students"],
+  alreadyLife: ["Renewing Visa, Work Permit & ID","Renting a Room & Dealing with Landlords","Doctor, Pharmacy & Hospital Visits","Emergency Calls: Police, Fire & Ambulance","Police & ID Checks: What to Say","Opening a Bank Account & Using ATM","Sending Money Home","Bills, Fines & Official Letters","Post Office, Courier & Parcels","Reading Public Signs & Notices","Making Appointments & Leaving Messages","Talking to Neighbors & Building Community","Avoiding Scams & Fake Offers"],
+  jobCore: ["Understanding Instructions on Site","Asking for Tools & Materials","Safety Signs & Warnings","Accident, Injury or Feeling Unwell","Shift, Attendance & Overtime Hours","Breaks, Meals & Prayer Time","Salary & Payday","Camp Life & Roommates"]
+};
+
+// যে লেসনগুলো তৈরি হয়ে গেছে, সেগুলো এখানে যোগ করুন: "লেসনের নাম": "lesson.html?id=ফাইলের-নাম"
+const lessonLinks = {
+  "Numbers, Dates & Money": "lesson.html?id=numbers-dates-money",
+  "Spelling Your Name & Filling Out Forms": "lesson.html?id=spelling-forms",
+  "Introducing Yourself & Your Experience": "lesson.html?id=intro-experience",
+  "Job Interview & Trade Test": "lesson.html?id=interview-trade-test",
+  "Understanding Your Job Contract": "lesson.html?id=job-contract",
+  "Recruitment Agency & Medical Test": "lesson.html?id=recruitment-medical",
+  "Visa & Embassy Questions": "lesson.html?id=visa-embassy",
+  "Airport Check-in, Security & Transit": "lesson.html?id=airport-transit",
+  "Immigration Officer Questions": "lesson.html?id=immigration-officer",
+  "Arriving: Pickup, Check-in & First Day": "lesson.html?id=arriving-first-day",
+  "Greetings & Small Talk": "lesson.html?id=greetings-small-talk",
+  "Phone Calls in English": "lesson.html?id=phone-calls",
+  "Getting Around: Taxi, Bus & Train": "lesson.html?id=getting-around",
+  "Asking for Directions": "lesson.html?id=directions",
+  "Ordering Food & Asking About Halal": "lesson.html?id=food-halal",
+  "Basic Shopping & Asking Prices": "lesson.html?id=shopping-prices",
+  "SIM Card, Wi-Fi & Calling Home": "lesson.html?id=sim-wifi",
+  "Spelling Your Name & Filling Out Forms": "lesson.html?id=spelling-forms",
+  "Talking to Your Boss": "lesson.html?id=boss",
+  "Understanding Instructions on Site": "lesson.html?id=site-instructions",
+  "Asking for Tools & Materials": "lesson.html?id=tools-materials",
+  "Safety Signs & Warnings": "lesson.html?id=safety-signs",
+  "Accident, Injury or Feeling Unwell": "lesson.html?id=accident-unwell",
+  "Shift, Attendance & Overtime Hours": "lesson.html?id=shift-overtime",
+  "Breaks, Meals & Prayer Time": "lesson.html?id=breaks-meals",
+  "Salary & Payday": "lesson.html?id=salary-payday",
+  "Camp Life & Roommates": "lesson.html?id=camp-roommates",
+  "Common Tools & Equipment": "lesson.html?id=con-tools",
+  "Cement, Sand, Bricks & Rods": "lesson.html?id=con-materials",
+  "Scaffolding & Working at Height": "lesson.html?id=con-height",
+  "Dig, Lift, Pour & Measure": "lesson.html?id=con-tasks"
+};
+
+(function(){
+  const box = document.getElementById('reviewBox'); if (!box) return;
+  try {
+    const rd = k => JSON.parse(localStorage.getItem(k) || '{}');
+    const prog = rd('be_progress'), rev = rd('be_review'), t = new Date();
+    const ds = t.getFullYear() + '-' + String(t.getMonth()+1).padStart(2,'0') + '-' + String(t.getDate()).padStart(2,'0');
+    const byId = {}; Object.keys(lessonLinks).forEach(n => { byId[new URLSearchParams(lessonLinks[n].split('?')[1]).get('id')] = n; });
+    let pick = null;
+    Object.keys(prog).forEach(id => {
+      if (!byId[id] || !prog[id].date || prog[id].date === ds || rev[id] === ds) return;
+      if (!pick || prog[id].date < prog[pick].date) pick = id;
+    });
+    if (!pick) return;
+    box.innerHTML = '<span>🔁 ২ মিনিটে ঝালিয়ে নিন: <b></b></span><a class="btn btn-sun" href="lesson.html?id=' + pick + '&review=1">রিভিশন শুরু</a>';
+    box.querySelector('b').textContent = byId[pick];
+    box.querySelector('a').addEventListener('click', () => { if (window.track) track('review_banner_click', { lesson_id: pick }); });
+    box.hidden = false;
+  } catch(e){}
+})();
+
+function lessonId(href){ try { return new URLSearchParams(href.split('?')[1]).get('id'); } catch(e){ return null; } }
+function lessonDone(href){
+  try {
+    const p = JSON.parse(localStorage.getItem('be_progress') || '{}');
+    const id = lessonId(href);
+    return p[id] ? p[id].stars : 0;
+  } catch(e){ return 0; }
+}
+function lessonResume(href){
+  try {
+    const r = JSON.parse(localStorage.getItem('be_resume') || '{}')[lessonId(href)];
+    return r && r.pct > 0 ? r.pct : 0;
+  } catch(e){ return 0; }
+}
+const toBnNum = n => String(n).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+const topicMemo = {};
+
+function renderTopics(containerId, items){
+  topicMemo[containerId] = items;
+  document.getElementById(containerId).innerHTML =
+    items.map((t, i) => {
+      const href = lessonLinks[t];
+      const stars = href ? lessonDone(href) : 0;
+      const part = href && !stars ? lessonResume(href) : 0;
+      const chip = href
+        ? `<span class="live-chip">${stars ? '✓ সম্পন্ন' : part ? 'চলছে ' + toBnNum(part) + '%' : 'শুরু করুন'}</span>`
+        : `<span class="soon-chip">শীঘ্রই</span>`;
+      return `<button class="topic-item" data-lesson="${t}"${href ? ` data-href="${href}"` : ''}>
+      <span class="t-left"><span class="t-num">${i + 1}</span><span class="t-name">${t}</span></span>
+      ${chip}
+    </button>`;
+    }).join('');
+}
+
+window.addEventListener('pageshow', e => { if (e.persisted) Object.keys(topicMemo).forEach(id => { if (document.getElementById(id)) renderTopics(id, topicMemo[id]); }); });
+
+document.querySelectorAll('.pass-row').forEach(row => {
+  row.addEventListener('click', () => {
+    const key = row.dataset.toggle;
+    track('card_toggle',{card:key});
+    const drill = document.getElementById('drill-' + key);
+    const card = row.closest('.pass-card');
+    const isOpen = drill.classList.contains('open');
+    document.querySelectorAll('.drill').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.pass-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.pass-row').forEach(r => r.setAttribute('aria-expanded', 'false'));
+    if(!isOpen){ drill.classList.add('open'); card.classList.add('active'); row.setAttribute('aria-expanded', 'true'); }
+  });
+});
+
+document.getElementById('heroJob').addEventListener('click', e => {
+  e.preventDefault(); track('hero_job_click');
+  const drill = document.getElementById('drill-job'), row = document.querySelector('[data-toggle="job"]');
+  if (!drill.classList.contains('open')) row.click();
+  const card = row.closest('.pass-card');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setTimeout(() => card.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }), 60);
+});
+
+const professions = [
+  ['<path d="M4 16a8 8 0 0 1 16 0"/><path d="M2.5 16h19v2.5h-19z"/><path d="M12 8v4"/>', "সাধারণ শ্রমিক / নির্মাণকর্মী", "construction labour helper worker site"],
+  ['<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 14v7M3.5 10.5 10 12M20.5 10.5 14 12"/>', "ড্রাইভার", "driver"],
+  ['<path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15v4M17 17h4"/>', "ক্লিনার / হাউসকিপিং", "cleaner housekeeping"],
+  ['<path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M12 17c-2-1.4-3-2.3-3-3.5a1.6 1.6 0 0 1 3-.7 1.6 1.6 0 0 1 3 .7c0 1.2-1 2.1-3 3.5z"/>', "গৃহকর্মী", "housemaid maid domestic helper"],
+  ['<path d="M12 21V11"/><path d="M12 11C12 7 9 5 5 5c0 4 2 6 7 6z"/><path d="M12 14c0-3 2-5 6-5 0 4-2 6-6 6z"/>', "কৃষিকর্মী", "farmer farm agriculture"],
+  ['<path d="M3 21V11l6 4v-4l6 4V5h6v16z"/><path d="M3 21h18"/>', "মেশিন অপারেটর / ফ্যাক্টরি কর্মী", "machine operator factory worker"],
+  ['<rect x="7" y="5" width="10" height="14" rx="2"/><path d="M7 9h10M7 15h10M4 4v16M20 4v16"/>', "গার্মেন্টস / সেলাই কর্মী", "garments sewing tailor"],
+  ['<path d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="m9 12 2 2 4-4"/>', "সেফটি গার্ড", "security guard safety"],
+  ['<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>', "ইলেকট্রিশিয়ান", "electrician"],
+  ['<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>', "প্লাম্বার / পাইপ ফিটার", "plumber pipe fitter"],
+  ['<path d="M12 3c1 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3 2-4 .5 1.2 1 1.7 2 2 0-3-1-5 1-7z"/>', "ওয়েল্ডার / ফ্যাব্রিকেটর", "welder fabricator"],
+  ['<rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 9.7h18M3 14.3h18M9 5v4.7M15 9.7v4.6M9 14.3V19"/>', "মেসন (রাজমিস্ত্রি)", "mason bricklayer"],
+  ['<path d="M3 17 17 3l4 4L7 21H3z"/><path d="M13 7l4 4"/>', "কার্পেন্টার", "carpenter woodwork"],
+  ['<path d="M4 8h16M4 12h16M4 16h16M8 4v16M16 4v16"/>', "স্টিল ফিক্সার", "steel fixer rebar"],
+  ['<rect x="3" y="3" width="14" height="6" rx="1.5"/><path d="M17 6h2.5A1.5 1.5 0 0 1 21 7.5V11a1.5 1.5 0 0 1-1.5 1.5H12v3"/><rect x="10.5" y="15.5" width="3" height="5.5" rx="1"/>', "পেইন্টার", "painter paint"],
+  ['<rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/>', "টাইলস ফিটার", "tile fitter tiles"],
+  ['<path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/><path d="m9.5 4.5 2.5 2 2.5-2M9.5 19.5l2.5-2 2.5 2"/>', "এসি ও রেফ্রিজারেটর টেকনিশিয়ান", "ac refrigerator technician air conditioner"],
+  ['<path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>', "সেলসম্যান / ক্যাশিয়ার / শপ অ্যাসিস্ট্যান্ট", "salesman cashier shop assistant retail"],
+  ['<circle cx="12" cy="7" r="3"/><path d="M5 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/>', "কেয়ারগিভার (বয়স্ক ও শিশুর যত্ন)", "caregiver care elderly child nanny"],
+  ['<path d="M10 4h4v6h6v4h-6v6h-4v-6H4v-4h6z"/>', "নার্স", "nurse"],
+  ['<path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v3a4 4 0 0 0 8 0v-2"/><circle cx="18" cy="12" r="2"/>', "হেলথকেয়ার সহায়ক", "healthcare assistant"],
+  ['<path d="M12 21v-9"/><circle cx="12" cy="8" r="3"/><path d="M9 14c-2 0-4-1-5-3M15 14c2 0 4-1 5-3"/>', "গার্ডেনার", "gardener garden"],
+  ['<path d="M7 14a4 4 0 1 1 1-7.7A4 4 0 0 1 16 6a4 4 0 0 1 1 8z"/><path d="M7 14v6h10v-6"/>', "কুক / বাবুর্চি", "cook chef kitchen"],
+  ['<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10"/><path d="M17 3c-2 2-2.5 5-2.5 8h2.5v10"/>', "ওয়েটার / রেস্তোরাঁ কর্মী", "waiter restaurant hotel"],
+  ['<path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>', "লোডার / হেল্পার / প্যাকিং কর্মী", "loader helper packing"],
+  ['<path d="M3 17V8h8v9"/><path d="M11 12h4l2 3v2h-6"/><path d="M19 4v14M19 18h2"/><circle cx="6" cy="18" r="2"/><circle cx="14" cy="18" r="2"/>', "ফোরক্লিফট অপারেটর", "forklift operator"],
+  ['<path d="M5 21V8l7-5 3 2"/><path d="M5 8h15M18 8v6"/><circle cx="18" cy="16" r="2"/><path d="M3 21h8"/>', "ক্রেন অপারেটর / হেভি ইকুইপমেন্ট অপারেটর", "crane heavy equipment operator"],
+  ['<circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l3-7h5l4 7M9 10l-1-3H5"/>', "ডেলিভারি রাইডার / ডেলিভারি ড্রাইভার", "delivery rider driver bike"],
+  ['<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 7.5 20 17M8.5 16.5 20 7"/>', "বারবার / সেলুন কর্মী", "barber salon hair"],
+  ['<circle cx="12" cy="5" r="2"/><path d="M12 7v14M7 11h10M4 15a8 8 0 0 0 16 0"/>', "শিপিং কর্মী / সীম্যান / ডেক ক্রু", "shipping seaman seafarer deck crew ship"],
+  ['<path d="M3 21V9l9-5 9 5v12"/><path d="M8 21v-7h8v7M8 17.5h8"/>', "ওয়্যারহাউস কর্মী / স্টোরকিপার", "warehouse storekeeper store"],
+  ['<path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/>', "ডিশওয়াশার / কিচেন হেল্পার", "dishwasher kitchen helper"],
+  ['<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>', "ডাক্তার / মেডিকেল টেকনোলজিস্ট", "doctor medical technologist"],
+  ['<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>', "ইঞ্জিনিয়ার / টেকনিশিয়ান", "engineer technician"]
+];
+// যে পেশার লেসন তৈরি হয়ে গেছে, তার নাম এখানে যোগ করুন (যেমন: professionLessons["ড্রাইভার"] = ["লেসন ১", ...])
+const professionLessons = {};
+professionLessons["সাধারণ শ্রমিক / নির্মাণকর্মী"] = ["Common Tools & Equipment","Cement, Sand, Bricks & Rods","Scaffolding & Working at Height","Dig, Lift, Pour & Measure"];
+
+const flatOrder = professions.map((_, i) => i);
+const toBn = n => String(n).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+const CHEV = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+const CHEV_R = '<svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 6 15 12 9 18"></polyline></svg>';
+
+(function(){
+  const wrap = document.getElementById('prof-wrap');
+  if(!wrap) return;
+  let coreOpen = true, openProf = null;
+
+  wrap.innerHTML =
+    '<button class="core-btn open" id="core-btn" aria-expanded="true"><span class="c-main">সব কর্মীর জন্য জরুরি ইংরেজি</span><span class="c-sub">৮টি লেসন · সব পেশায় কাজে লাগে</span><span class="c-chev">' + CHEV + '</span></button>' +
+    '<div class="core-panel" id="core-panel"><div class="topic-list" id="topics-core"></div></div>' +
+    '<div class="prof-head"><span class="ph-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></span><span class="ph-tx"><h3 class="ph-t">আপনার পেশা বেছে নিন</h3></span></div>' +
+    '<div class="prof-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input type="search" id="profSearch" placeholder="আপনার পেশা খুঁজুন (বাংলা বা English)" aria-label="আপনার পেশা খুঁজুন" autocomplete="off"></div>' +
+    '<p class="prof-empty" id="profEmpty" hidden>এই নামে কোনো পেশা পাওয়া যায়নি। অন্য নামে খুঁজুন, বা WhatsApp-এ আমাদের জানান।</p>' +
+    '<div class="cat open flat"><div class="prof-list">' +
+      flatOrder.map(i =>
+        `<button class="prof-row" data-key="${i}"><span class="pi"><svg viewBox="0 0 24 24" aria-hidden="true">${professions[i][0]}</svg></span><span class="pn">${professions[i][1]}</span><span class="pc">${CHEV_R}</span></button>` +
+        `<div class="prof-panel" id="pp-${i}" hidden></div>`
+      ).join('') +
+    '</div></div>';
+
+  renderTopics('topics-core', topicsData.jobCore);
+
+  function fillPanel(i){
+    const panel = document.getElementById('pp-' + i);
+    const lessons = professionLessons[professions[i][1]];
+    if(lessons && lessons.length){
+      panel.innerHTML = '<div class="topic-list" id="topics-p' + i + '"></div>';
+      renderTopics('topics-p' + i, lessons);
+    } else {
+      panel.innerHTML =
+        '<div class="prof-soon"><div class="ps-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>' +
+        '<div class="ps-tx"><h4>শীঘ্রই আসছে</h4><p>এই পেশার লেসন তৈরি হচ্ছে।</p>' +
+        '<button type="button" data-go-core="1">জরুরি লেসন দেখুন →</button></div></div>';
+    }
+  }
+  function sync(){
+    const cb = document.getElementById('core-btn');
+    cb.classList.toggle('open', coreOpen); cb.setAttribute('aria-expanded', coreOpen);
+    document.getElementById('core-panel').hidden = !coreOpen;
+    wrap.querySelectorAll('.prof-row').forEach(r => {
+      const sel = +r.dataset.key === openProf;
+      r.classList.toggle('selected', sel);
+      document.getElementById('pp-' + r.dataset.key).hidden = !sel;
+    });
+  }
+  const norm = s => String(s).toLowerCase().replace(/\s+/g, ' ').trim();
+  let searchTimer;
+  document.getElementById('profSearch').addEventListener('input', e => {
+    const q = norm(e.target.value);
+    let shown = 0;
+    wrap.querySelectorAll('.prof-row').forEach(r => {
+      const i = +r.dataset.key;
+      const hit = !q || norm(professions[i][1] + ' ' + (professions[i][2] || '')).includes(q);
+      r.hidden = !hit;
+      const pn = document.getElementById('pp-' + i);
+      if(!hit){ pn.hidden = true; } else { shown++; }
+    });
+    if(openProf !== null && wrap.querySelector('.prof-row[data-key="' + openProf + '"]').hidden) openProf = null;
+    sync();
+    document.getElementById('profEmpty').hidden = shown > 0;
+    clearTimeout(searchTimer);
+    if(q.length >= 2 && shown === 0) searchTimer = setTimeout(() => track('prof_search_empty', { term: q.slice(0, 40) }), 1200);
+  });
+
+  wrap.addEventListener('click', e => {
+    if(e.target.closest('[data-go-core]')){
+      coreOpen = true; openProf = null; sync();
+      document.getElementById('core-btn').scrollIntoView({block:'center', behavior:'smooth'});
+      return;
+    }
+    if(e.target.closest('#core-btn')){ coreOpen = !coreOpen; sync(); return; }
+    const pr = e.target.closest('.prof-row');
+    if(pr){
+      const k = +pr.dataset.key;
+      if(openProf === k){ openProf = null; }
+      else { openProf = k; fillPanel(k); track('profession_open', { name: professions[k][1], has_lessons: !!(professionLessons[professions[k][1]] || []).length }); }
+      sync();
+      if(openProf !== null) setTimeout(() => document.getElementById('pp-' + k).scrollIntoView({block:'nearest', behavior:'smooth'}), 80);
+      return;
+    }
+  });
+  sync();
+})();
+
+document.querySelectorAll('.sub-tabs').forEach(row => {
+  const group = row.dataset.group;
+  const targetContainer = 'topics-' + group;
+  row.addEventListener('click', (e) => {
+    const tab = e.target.closest('.sub-tab');
+    if(!tab) return;
+    row.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('selected'));
+    tab.classList.add('selected');
+    renderTopics(targetContainer, topicsData[tab.dataset.value]);
+  });
+  const firstTab = row.querySelector('.sub-tab');
+  firstTab.classList.add('selected');
+  renderTopics(targetContainer, topicsData[firstTab.dataset.value]);
+});
+
+
+(function(){
+  const ns = document.getElementById('ns'), btn = document.getElementById('nsBtn'), q = document.getElementById('nsQ'), list = document.getElementById('nsList');
+  if(!ns) return;
+  const alias = {
+    "Understanding Your Job Contract":"চুক্তি কন্ট্রাক্ট চাকরির চুক্তি সই বেতন শর্ত employment contract sign probation notice",
+    "Recruitment Agency & Medical Test":"এজেন্সি রিক্রুটিং মেডিকেল পরীক্ষা ডাক্তার রিপোর্ট ফিট আনফিট রসিদ খরচ টাকা recruitment agency medical fit unfit receipt blood test x-ray gamca wafid",
+    "Visa & Embassy Questions":"ভিসা দূতাবাস এমব্যাসি পাসপোর্ট আঙুলের ছাপ বায়োমেট্রিক অ্যাপয়েন্টমেন্ট কাগজ visa embassy passport fingerprint biometric appointment document expire valid",
+    "Airport Check-in, Security & Transit":"বিমানবন্দর এয়ারপোর্ট চেক-ইন সিকিউরিটি ট্রানজিট ব্যাগ ওজন বোর্ডিং পাস গেট ফ্লাইট দেরি airport check-in security transit boarding gate baggage flight delayed",
+    "Immigration Officer Questions":"ইমিগ্রেশন অফিসার প্রশ্ন পাসপোর্ট কন্ট্রোল কাস্টমস উদ্দেশ্য immigration officer passport control customs questions purpose declare cash",
+    "Arriving: Pickup, Check-in & First Day":"পৌঁছানো এয়ারপোর্ট পিকআপ ড্রাইভার ক্যাম্প প্রথম দিন সিম কার্ড পাসপোর্ট arriving pickup driver camp first day sim card passport residence permit",
+    "Greetings & Small Talk":"সালাম হ্যালো কেমন আছেন ছোট কথা আলাপ পরিচয় প্রতিবেশী greetings small talk hello how are you nice to meet you slowly sorry pardon",
+    "Phone Calls in English":"ফোন কল ফোনে কথা কল মোবাইল ওটিপি ঠকবাজ স্ক্যাম ব্যাংক phone call otp scam spell message hold on call back",
+    "Getting Around: Taxi, Bus & Train":"ট্যাক্সি বাস ট্রেন মেট্রো ভাড়া মিটার স্টপ টিকিট কার্ড ঠকানো taxi bus train metro meter fare ticket card stop get off",
+    "Asking for Directions":"পথ জিজ্ঞেস ঠিকানা ডানে বাঁয়ে সোজা মসজিদ ম্যাপ directions left right straight map landmark mosque lost",
+    "Ordering Food & Asking About Halal":"খাবার অর্ডার হালাল রেস্তোরাঁ হোটেল শূকর অ্যালকোহল ঝাল বিল food order halal restaurant pork alcohol spicy bill take away",
+    "Basic Shopping & Asking Prices":"কেনাকাটা দাম দোকান বাজার ছাড় ফেরত রসিদ ফোন কেনা shopping price discount refund exchange receipt cash card change phone",
+    "SIM Card, Wi-Fi & Calling Home":"সিম কার্ড ওয়াই-ফাই ইন্টারনেট ডেটা ব্যালেন্স রিচার্জ দেশে ফোন হোয়াটসঅ্যাপ কল sim card wifi data balance top up whatsapp call prepaid vpn",
+    "Job Interview & Trade Test":"ইন্টারভিউ ট্রেড টেস্ট কাজের পরীক্ষা সাক্ষাৎকার job interview trade test skill test",
+    "Introducing Yourself & Your Experience":"নিজের পরিচয় অভিজ্ঞতা ইন্টারভিউ নিজের সম্পর্কে বলা কাজের অভিজ্ঞতা introduce yourself experience tell me about yourself",
+    "Spelling Your Name & Filling Out Forms":"নামের বানান ফর্ম পূরণ সারনেম সই পাসপোর্ট নাম spelling name form surname sign passport",
+    "Spelling Your Name & Filling Out Forms":"নাম বানান ফর্ম পূরণ সই ঠিকানা পাসপোর্ট name spelling form fill sign surname address",
+    "Numbers, Dates & Money":"সংখ্যা নম্বর তারিখ টাকা সময় ঘণ্টা ফোন নম্বর numbers dates money time phone number",
+    "Talking to Your Boss":"বস মালিক সুপারভাইজার ম্যানেজার boss manager supervisor",
+    "Understanding Instructions on Site":"নির্দেশ বোঝা সাইট কাজের নির্দেশ instruction",
+    "Asking for Tools & Materials":"যন্ত্র যন্ত্রপাতি সরঞ্জাম মালামাল চাওয়া tools materials",
+    "Safety Signs & Warnings":"নিরাপত্তা সাইন সতর্কতা বিপদ সেফটি safety sign warning",
+    "Accident, Injury or Feeling Unwell":"দুর্ঘটনা আঘাত অসুস্থ ব্যথা অ্যাক্সিডেন্ট accident injury sick unwell",
+    "Shift, Attendance & Overtime Hours":"শিফট হাজিরা ওভারটাইম ডিউটি কাজের সময় ছুটি shift attendance overtime",
+    "Breaks, Meals & Prayer Time":"বিরতি খাবার নামাজ জুমা ব্রেক ভাত break lunch meal prayer",
+    "Salary & Payday":"বেতন মাইনা স্যালারি পে-স্লিপ টাকা salary payday payslip",
+    "Camp Life & Roommates":"ক্যাম্প রুমমেট থাকা বিছানা রুম camp roommate room",
+    "Common Tools & Equipment":"হাতুড়ি বেলচা ড্রিল মই যন্ত্র tools hammer drill shovel ladder",
+    "Cement, Sand, Bricks & Rods":"সিমেন্ট বালি ইট রড মালামাল cement sand brick rod",
+    "Scaffolding & Working at Height":"ভারা উঁচুতে হার্নেস মই উচ্চতা scaffolding height harness",
+    "Dig, Lift, Pour & Measure":"খোঁড়া তোলা ঢালা মাপা কংক্রিট dig lift pour measure concrete"
+  };
+  const norm = s => String(s).toLowerCase().replace(/\s+/g,' ').trim();
+  const items = [];
+  Object.keys(lessonLinks).forEach(t => items.push({ type:'l', name:t, key:norm(t + ' ' + (alias[t] || '')), href:lessonLinks[t] }));
+  professions.forEach((p, i) => items.push({ type:'p', name:p[1], key:norm(p[1] + ' ' + (p[2] || '')), idx:i }));
+  let act = -1, shown = [], emptyTimer;
+
+  function render(){
+    const v = norm(q.value);
+    if(!v){ list.hidden = true; list.innerHTML = ''; shown = []; act = -1; return; }
+    shown = items.filter(it => it.key.includes(v)).sort((a,b) => (a.type === b.type ? 0 : a.type === 'l' ? -1 : 1)).slice(0, 8);
+    act = shown.length ? 0 : -1;
+    list.innerHTML = shown.length
+      ? shown.map((it, k) => '<li class="ns-item' + (k === 0 ? ' act' : '') + '" role="option" data-k="' + k + '"><span class="ns-tag ' + it.type + '">' + (it.type === 'l' ? 'লেসন' : 'পেশা') + '</span><span class="ns-nm"></span></li>').join('')
+      : '<li class="ns-none">কিছু পাওয়া যায়নি। অন্য নামে খুঁজুন।</li>';
+    shown.forEach((it, k) => { list.children[k].querySelector('.ns-nm').textContent = it.name; });
+    list.hidden = false;
+    clearTimeout(emptyTimer);
+    if(v.length >= 2 && !shown.length) emptyTimer = setTimeout(() => track('site_search_empty', { term: v.slice(0, 40) }), 1200);
+  }
+  function setAct(n){
+    if(!shown.length) return;
+    act = (n + shown.length) % shown.length;
+    [...list.children].forEach((li, k) => li.classList.toggle('act', k === act));
+    list.children[act].scrollIntoView({ block:'nearest' });
+  }
+  function close(){ ns.classList.remove('open'); btn.setAttribute('aria-expanded','false'); list.hidden = true; }
+  function go(it){
+    track('site_search_select', { type: it.type === 'l' ? 'lesson' : 'profession', name: it.name });
+    q.value = ''; list.hidden = true; list.innerHTML = ''; shown = [];
+    close();
+    if(it.type === 'l'){ location.href = it.href; return; }
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const jobRow = document.querySelector('[data-toggle="job"]');
+    if(!document.getElementById('drill-job').classList.contains('open')) jobRow.click();
+    const lower = document.getElementById('profSearch');
+    if(lower && lower.value){ lower.value = ''; lower.dispatchEvent(new Event('input')); }
+    const row = document.querySelector('.prof-row[data-key="' + it.idx + '"]');
+    if(row && !row.classList.contains('selected')) row.click();
+    setTimeout(() => (row || jobRow).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block:'start' }), 120);
+  }
+  q.addEventListener('input', render);
+  q.addEventListener('focus', () => { if(q.value) render(); });
+  q.addEventListener('keydown', e => {
+    if(e.key === 'ArrowDown'){ e.preventDefault(); setAct(act + 1); }
+    else if(e.key === 'ArrowUp'){ e.preventDefault(); setAct(act - 1); }
+    else if(e.key === 'Enter'){ e.preventDefault(); if(shown[act]) go(shown[act]); }
+    else if(e.key === 'Escape'){ close(); q.blur(); }
+  });
+  list.addEventListener('click', e => { const li = e.target.closest('.ns-item'); if(li) go(shown[+li.dataset.k]); });
+  btn.addEventListener('click', () => {
+    const open = !ns.classList.contains('open');
+    ns.classList.toggle('open', open); btn.setAttribute('aria-expanded', open);
+    if(open) setTimeout(() => q.focus(), 30); else { list.hidden = true; }
+  });
+  document.addEventListener('click', e => {
+    if(ns.contains(e.target)) return;
+    if(ns.classList.contains('open')) close(); else list.hidden = true;
+  });
+})();
+
+let toastTimer;
+document.getElementById('needs').addEventListener('click', (e) => {
+  const item = e.target.closest('.topic-item');
+  if(!item) return;
+  if(item.dataset.href){ location.href = item.dataset.href; return; }
+  const toast = document.getElementById('toast');
+  toast.textContent = '🚧 এই লেসন শীঘ্রই আসছে!';
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+});
+
+if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const m = document.getElementById('planeMotion');
+  if (m) { m.setAttribute('dur', '0.001s'); m.setAttribute('begin', '0s'); }
+}
+</script>
+<script src="wa-float.js" defer></script>
+</body>
+</html>
