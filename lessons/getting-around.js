@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "ট্যাক্সি ড্রাইভার / বাসের কর্মী",
   "title": "Getting Around: Taxi, Bus & Train",
   "titleBn": "ট্যাক্সি, বাস ও ট্রেনে চলাফেরা",
-  "next": { "title": "Asking for Directions" },
+  "next": { "title": "Asking for Directions", "id": "directions" },
   "scene": "ভাড়া নিয়ে ঠকা আর ভুল স্টপে নামা, নতুনদের বড় ভয়। আজ ঠিকানা দেখানো আর জিজ্ঞেস করা শিখবেন।",
   "hook": { "en": "Please use the meter.", "bn": "মিটার চালান, দয়া করে।" },
   "phrases": [
