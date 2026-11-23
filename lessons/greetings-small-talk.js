@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "প্রতিবেশী / সহকর্মী",
   "title": "Greetings & Small Talk",
   "titleBn": "সালাম-হ্যালো ও ছোট কথাবার্তা",
-  "next": { "title": "Phone Calls in English" },
+  "next": { "title": "Phone Calls in English", "id": "phone-calls" },
   "scene": "ভুল ইংরেজি বললেও চলে, চুপ থাকাটাই বেশি ক্ষতি করে। আজ সহজ উত্তরে কথা শুরু করুন।",
   "hook": { "en": "I'm good, thank you. And you?", "bn": "ভালো আছি, ধন্যবাদ। আপনি?" },
   "phrases": [
