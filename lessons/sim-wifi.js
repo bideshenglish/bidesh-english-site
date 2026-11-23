@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "মোবাইল দোকানের কর্মী",
   "title": "SIM Card, Wi-Fi & Calling Home",
   "titleBn": "সিম কার্ড, ওয়াই-ফাই ও দেশে ফোন",
-  "next": { "title": "Lost Passport, Lost Bag & Asking for Help" },
+  "next": { "title": "Lost Passport, Lost Bag & Asking for Help", "id": "lost-help" },
   "scene": "দেশে পরিবারের সাথে কথা বলা সবার আগে দরকার। আজ সিম কেনা, ডেটা আর কলের ইংরেজি শিখবেন।",
   "hook": { "en": "Does WhatsApp calling work here?", "bn": "এখানে কি হোয়াটসঅ্যাপে ফোন চলে?" },
   "phrases": [
