@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "পথচারী / দোকানদার",
   "title": "Asking for Directions",
   "titleBn": "পথ জিজ্ঞেস করা",
-  "next": { "title": "Ordering Food & Asking About Halal" },
+  "next": { "title": "Ordering Food & Asking About Halal", "id": "food-halal" },
   "scene": "অনেক শহরে রাস্তার নাম নয়, পরিচিত দোকান-ভবন দিয়ে পথ বলে। আজ পথ জিজ্ঞেস করা আর মিলিয়ে নেওয়া শিখবেন।",
   "hook": { "en": "Can you show me on the map?", "bn": "ম্যাপে দেখিয়ে দিতে পারবেন?" },
   "phrases": [
