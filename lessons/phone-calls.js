@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "সুপারভাইজার / রিসেপশন / অজানা কলার",
   "title": "Phone Calls in English",
   "titleBn": "ইংরেজিতে ফোনে কথা",
-  "next": { "title": "Getting Around: Taxi, Bus & Train" },
+  "next": { "title": "Getting Around: Taxi, Bus & Train", "id": "getting-around" },
   "scene": "ফোনে মুখ দেখা যায় না, তাই বোঝা কঠিন। আজ ফোনের সহজ বাক্য আর ঠকবাজ কল চেনা শিখবেন।",
   "hook": { "en": "Can you spell that, please?", "bn": "বানান করে বলবেন, দয়া করে?" },
   "phrases": [
