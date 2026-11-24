@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "ডাক্তার / ফার্মাসিস্ট",
   "title": "Doctor, Pharmacy & Hospital Visits",
   "titleBn": "ডাক্তার, ফার্মেসি ও হাসপাতালে কথা বলা",
-  "next": { "title": "Emergency Calls: Police, Fire & Ambulance" },
+  "next": { "title": "Emergency Calls: Police, Fire & Ambulance", "id": "emergency-calls" },
   "scene": "এটা ইংরেজির লেসন, চিকিৎসা পরামর্শ নয়। ওষুধ ডাক্তার বা ফার্মাসিস্টের কথামতো নিন।",
   "hook": { "en": "I have had a fever for two days.", "bn": "আমার দুই দিন ধরে জ্বর।" },
   "phrases": [
