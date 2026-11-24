@@ -4,8 +4,8 @@ window.LESSON = {
   "title": "Talking to Your Boss",
   "titleBn": "বসের সাথে কথা বলা",
   "next": {
-    "title": "Talking to Coworkers",
-    "id": null
+    "title": "Asking Coworkers for Help & Sharing Tasks",
+    "id": "coworkers-help"
   },
   "scene": "ভুল হলে বস আপনাকে ডাকেন। তখন কী বলবেন, আজ সেটাই শিখবেন।",
   "phrases": [
