@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "সুপারভাইজার",
   "title": "Understanding Fast Speakers & Different Accents",
   "titleBn": "দ্রুত বলা কথা ও নানা উচ্চারণ বোঝা",
-  "next": { "title": "Workplace Small Talk" },
+  "next": { "title": "Workplace Small Talk", "id": "workplace-small-talk" },
   "scene": "সাইটে সবাই দ্রুত বলে, উচ্চারণও নানা রকম। না বুঝে \"yes\" বলার চেয়ে আবার জিজ্ঞেস করা অনেক নিরাপদ।",
   "hook": { "en": "Sorry, can you say that again, slowly?", "bn": "দুঃখিত, আবার বলবেন, ধীরে?" },
   "phrases": [
