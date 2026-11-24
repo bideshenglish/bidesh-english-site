@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "জরুরি অপারেটর",
   "title": "Emergency Calls: Police, Fire & Ambulance",
   "titleBn": "জরুরি ফোন: পুলিশ, ফায়ার ও অ্যাম্বুলেন্স",
-  "next": { "title": "Police & ID Checks: What to Say" },
+  "next": { "title": "Police & ID Checks: What to Say", "id": "police-id-checks" },
   "scene": "জরুরি ফোনে প্রথমে সেবার নাম, তারপর কোথায়, তারপর কী হয়েছে। এই ক্রম মুখস্থ করুন।",
   "hook": { "en": "I need an ambulance.", "bn": "আমার অ্যাম্বুলেন্স দরকার।" },
   "phrases": [
