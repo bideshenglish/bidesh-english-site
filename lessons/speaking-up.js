@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "সুপারভাইজার",
   "title": "Speaking Up: Mistakes, Complaints & Disagreements",
   "titleBn": "ভুল স্বীকার, অভিযোগ ও দ্বিমত ভদ্রভাবে বলা",
-  "next": { "title": "Understanding Your Rights at Work" },
+  "next": { "title": "Understanding Your Rights at Work", "id": "know-your-rights" },
   "scene": "ভুল হলে চুপ থাকলে সমস্যা বাড়ে। শান্ত আর ভদ্র ইংরেজিতে বললে সমস্যা ছোট থাকে।",
   "hook": { "en": "It was my mistake. I will fix it now.", "bn": "এটা আমার ভুল। আমি এখনই ঠিক করছি।" },
   "phrases": [
