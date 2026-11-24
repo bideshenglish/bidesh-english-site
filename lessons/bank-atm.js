@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "ব্যাংক কর্মী",
   "title": "Opening a Bank Account & Using ATM",
   "titleBn": "ব্যাংক অ্যাকাউন্ট খোলা ও এটিএম ব্যবহার",
-  "next": { "title": "Sending Money Home" },
+  "next": { "title": "Sending Money Home", "id": "send-money-home" },
   "scene": "নিজের নামে অ্যাকাউন্ট, নিজের হাতে এটিএম। টাকা আর পিন নিজের কাছেই রাখুন।",
   "hook": { "en": "I would like to open a salary account.", "bn": "আমি একটা স্যালারি অ্যাকাউন্ট খুলতে চাই।" },
   "phrases": [
