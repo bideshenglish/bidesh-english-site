@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "পিআরও / অফিস কর্মী",
   "title": "Renewing Visa, Work Permit & ID",
   "titleBn": "ভিসা, ওয়ার্ক পারমিট ও আইডি নবায়ন",
-  "next": { "title": "Renting a Room & Dealing with Landlords" },
+  "next": { "title": "Renting a Room & Dealing with Landlords", "id": "renting-room" },
   "scene": "মেয়াদ শেষ হলে জরিমানা ও ঝামেলা। আজ মেয়াদ জানা, খরচ জিজ্ঞেস করা আর অফিসে কথা বলা শিখুন।",
   "hook": { "en": "When does my visa expire?", "bn": "আমার ভিসার মেয়াদ কবে শেষ?" },
   "phrases": [
