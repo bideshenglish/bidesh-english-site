@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "বাড়িওয়ালা / এজেন্ট",
   "title": "Renting a Room & Dealing with Landlords",
   "titleBn": "ঘর ভাড়া নেওয়া ও বাড়িওয়ালার সাথে কথা",
-  "next": { "title": "Doctor, Pharmacy & Hospital Visits" },
+  "next": { "title": "Doctor, Pharmacy & Hospital Visits", "id": "doctor-pharmacy" },
   "scene": "ঘর ভাড়ার আগে টাকা আর শর্ত পরিষ্কার জেনে নিন। আজ প্রশ্ন করা আর রসিদ চাওয়া শিখুন।",
   "hook": { "en": "Is water and electricity included?", "bn": "পানি আর বিদ্যুৎ কি ভাড়ার মধ্যে ধরা?" },
   "phrases": [
