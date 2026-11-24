@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "সহকর্মী",
   "title": "Workplace Small Talk",
   "titleBn": "কাজের জায়গায় হালকা কথাবার্তা",
-  "next": { "title": "Speaking Up: Mistakes, Complaints & Disagreements" },
+  "next": { "title": "Speaking Up: Mistakes, Complaints & Disagreements", "id": "speaking-up" },
   "scene": "বিরতিতে চা হাতে সহকর্মীরা গল্প করে। দু-চার কথা বললেই সম্পর্ক ভালো হয়, কাজও সহজ হয়।",
   "hook": { "en": "Do you want some tea?", "bn": "একটু চা খাবেন?" },
   "phrases": [
