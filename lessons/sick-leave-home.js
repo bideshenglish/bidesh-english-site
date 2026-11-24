@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "সুপারভাইজার / এইচআর / ডাক্তার",
   "title": "Sick Leave, Emergency Leave & Going Home",
   "titleBn": "অসুস্থতা, জরুরি ছুটি ও দেশে ফেরা",
-  "next": { "title": "Understanding Fast Speakers & Different Accents" },
+  "next": { "title": "Understanding Fast Speakers & Different Accents", "id": "fast-accents" },
   "scene": "বাড়ির জরুরি খবর বা অসুস্থতায় ছুটি চাইতে হয়। আজ কী বলবেন আর কী লিখিয়ে নেবেন, শিখবেন।",
   "hook": { "en": "I need emergency leave. My father is very sick.", "bn": "আমার জরুরি ছুটি দরকার। বাবা খুব অসুস্থ।" },
   "phrases": [
