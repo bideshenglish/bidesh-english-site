@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "পুলিশ / দূতাবাস / এইচআর",
   "title": "Reporting a Serious Problem: HR, Embassy & Helpline",
   "titleBn": "গুরুতর সমস্যা জানানো: এইচআর, দূতাবাস ও হেল্পলাইন",
-  "next": { "title": "Asking for a Raise or a Better Job" },
+  "next": { "title": "Asking for a Raise or a Better Job", "id": "raise-better-job" },
   "scene": "বিপদ বা বড় সমস্যায় আগে নিরাপদ হোন, তারপর শান্তভাবে, ছোট বাক্যে জানান।",
   "hook": { "en": "I need help. It is serious.", "bn": "আমার সাহায্য দরকার। এটা গুরুতর।" },
   "phrases": [
