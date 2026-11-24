@@ -719,6 +719,20 @@
     if (!reviewMode) track('lesson_open',{lesson_id:L.id,repeat:!!pr});
     doneBefore = !!pr; doneStars = pr && pr.stars ? pr.stars : 0; replayStarted = false;
     document.title = L.title + ' | Bidesh English';
+    try{
+      var ttl = L.title + (L.titleBn ? ' - ' + L.titleBn : '') + ' | Bidesh English';
+      var desc = (L.titleBn ? L.titleBn + '। ' : '') + (L.scene || '') + ' বাংলায় ধাপে ধাপে, বিনামূল্যে।';
+      var url = 'https://www.bideshenglish.com/lesson.html?id=' + encodeURIComponent(L.id);
+      document.title = ttl;
+      var setM = function(sel, attr, val){ var e = document.querySelector(sel); if (e) e.setAttribute(attr, val); };
+      setM('meta[name="description"]','content',desc);
+      setM('meta[property="og:title"]','content',ttl);
+      setM('meta[property="og:description"]','content',desc);
+      setM('meta[property="og:url"]','content',url);
+      var c = document.querySelector('link[rel="canonical"]');
+      if (!c){ c = document.createElement('link'); c.rel = 'canonical'; document.head.appendChild(c); }
+      c.href = url;
+    }catch(e){}
     $('#lessonTitle').textContent = L.title;
     $('#lessonSub').textContent = L.titleBn || '';
     if (reviewMode){
