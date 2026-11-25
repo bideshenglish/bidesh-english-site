@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "প্রফেসর / পরীক্ষক",
   "title": "Exams, Deadlines & Asking for Extensions",
   "titleBn": "পরীক্ষা, ডেডলাইন ও সময় চাওয়া",
-  "next": { "title": "Part-Time Jobs for Students" },
+  "next": { "title": "Part-Time Jobs for Students", "id": "student-part-time-jobs" },
   "scene": "কাজ জমা দিতে না পারলে আগে থেকে ভদ্রভাবে সময় চান। পরীক্ষার হলে নিয়ম মানাই আসল।",
   "hook": { "en": "Could I have an extension until Friday?", "bn": "আমি কি শুক্রবার পর্যন্ত সময় পেতে পারি?" },
   "phrases": [
