@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "কুরিয়ার কর্মী",
   "title": "Post Office, Courier & Parcels",
   "titleBn": "ডাকঘর, কুরিয়ার ও পার্সেল",
-  "next": { "title": "Reading Public Signs & Notices" },
+  "next": { "title": "Reading Public Signs & Notices", "id": "public-signs" },
   "scene": "দেশে উপহার পাঠানো আর নিজের পার্সেল নেওয়া, দুটোতেই ইংরেজি লাগে। সত্য বলুন, রসিদ নিন।",
   "hook": { "en": "Can I have a tracking number?", "bn": "ট্র্যাকিং নম্বর পেতে পারি?" },
   "phrases": [
