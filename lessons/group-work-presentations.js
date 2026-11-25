@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "গ্রুপের সদস্য",
   "title": "Group Work, Presentations & Assignments",
   "titleBn": "গ্রুপ কাজ, প্রেজেন্টেশন ও অ্যাসাইনমেন্ট",
-  "next": { "title": "Talking to Professors & Advisors" },
+  "next": { "title": "Talking to Professors & Advisors", "id": "professors-advisors" },
   "scene": "গ্রুপ প্রজেক্টে চুপ থাকলে সব কাজ আপনার ঘাড়ে আসে বা আপনাকে বাদ দেওয়া হয়। নিজের অংশ নিয়ে বলুন।",
   "hook": { "en": "I can take this part.", "bn": "আমি এই অংশটা নিতে পারি।" },
   "phrases": [
