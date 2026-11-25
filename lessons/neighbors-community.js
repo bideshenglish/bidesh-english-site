@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "প্রতিবেশী",
   "title": "Talking to Neighbors & Building Community",
   "titleBn": "প্রতিবেশীর সাথে কথা ও কমিউনিটি গড়া",
-  "next": { "title": "Avoiding Scams & Fake Offers" },
+  "next": { "title": "Avoiding Scams & Fake Offers", "id": "avoid-scams" },
   "scene": "বিদেশে একা লাগলে ভালো প্রতিবেশী আর বন্ধুই সবচেয়ে বড় ভরসা। আজ ভদ্রভাবে কাছে আসা শিখুন।",
   "hook": { "en": "Would you like to have tea with us?", "bn": "আমাদের সাথে চা খাবেন?" },
   "phrases": [
