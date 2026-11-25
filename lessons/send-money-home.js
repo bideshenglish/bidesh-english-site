@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "এক্সচেঞ্জ হাউসের কর্মী",
   "title": "Sending Money Home",
   "titleBn": "দেশে টাকা পাঠানো",
-  "next": { "title": "Bills, Fines & Official Letters" },
+  "next": { "title": "Bills, Fines & Official Letters", "id": "bills-fines-letters" },
   "scene": "কষ্টের টাকা, তাই রেট, চার্জ আর রসিদ পরিষ্কার জেনে পাঠান। ছোট প্রশ্নেই অনেক টাকা বাঁচে।",
   "hook": { "en": "How much will my family receive?", "bn": "আমার পরিবার কত পাবে?" },
   "phrases": [
