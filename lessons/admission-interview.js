@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "ভর্তি ইন্টারভিউয়ার",
   "title": "University Admission Interview",
   "titleBn": "বিশ্ববিদ্যালয় ভর্তি ইন্টারভিউ",
-  "next": { "title": "Explaining Your Study Plan & Funding" },
+  "next": { "title": "Explaining Your Study Plan & Funding", "id": "study-plan-funding" },
   "scene": "ইন্টারভিউয়ার দেখতে চান আপনি কীভাবে ভাবেন। ঘাবড়াবেন না, সত্য বলুন, না বুঝলে আবার জিজ্ঞেস করুন।",
   "hook": { "en": "Thank you for meeting me.", "bn": "আমার সাথে দেখা করার জন্য ধন্যবাদ।" },
   "phrases": [
