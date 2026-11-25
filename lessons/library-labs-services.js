@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "লাইব্রেরিয়ান",
   "title": "Library, Labs & Campus Services",
   "titleBn": "লাইব্রেরি, ল্যাব ও ক্যাম্পাস সেবা",
-  "next": { "title": "Exams, Deadlines & Asking for Extensions" },
+  "next": { "title": "Exams, Deadlines & Asking for Extensions", "id": "exams-deadlines-extensions" },
   "scene": "ক্যাম্পাসে অনেক সেবা বিনামূল্যে পাওয়া যায়, কিন্তু না জিজ্ঞেস করলে কেউ বলে না।",
   "hook": { "en": "How do I borrow this book?", "bn": "এই বইটা কীভাবে ধার নেব?" },
   "phrases": [
