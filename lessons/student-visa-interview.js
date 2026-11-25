@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "ভিসা অফিসার",
   "title": "Student Visa Interview",
   "titleBn": "স্টুডেন্ট ভিসা ইন্টারভিউ",
-  "next": { "title": "University Admission Interview" },
+  "next": { "title": "University Admission Interview", "id": "admission-interview" },
   "scene": "ইন্টারভিউ খুব ছোট, কয়েক মিনিটের। সত্য বলুন, ছোট বাক্যে বলুন, প্রশ্ন না বুঝলে আবার জিজ্ঞেস করুন।",
   "hook": { "en": "I plan to return to Bangladesh after my studies.", "bn": "পড়াশোনা শেষে আমি বাংলাদেশে ফিরে আসার পরিকল্পনা করছি।" },
   "phrases": [
