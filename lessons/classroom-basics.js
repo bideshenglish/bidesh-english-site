@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "শিক্ষক / প্রফেসর",
   "title": "Classroom English Basics",
   "titleBn": "ক্লাসের ইংরেজি: প্রাথমিক কথা",
-  "next": { "title": "Making Friends & Campus Life" },
+  "next": { "title": "Making Friends & Campus Life", "id": "making-friends-campus" },
   "scene": "ক্লাসে শিক্ষক দ্রুত কথা বলেন। না বুঝে চুপ থাকলে পিছিয়ে পড়বেন। ভদ্রভাবে আবার বলতে বলুন।",
   "hook": { "en": "Sorry, could you repeat that, please?", "bn": "দুঃখিত, আবার বলবেন, প্লিজ?" },
   "phrases": [
