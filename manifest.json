@@ -1,0 +1,20 @@
+{
+  "name": "Bidesh English",
+  "short_name": "Bidesh English",
+  "description": "বিদেশের জন্য Spoken English, বাংলায়, বিনামূল্যে।",
+  "lang": "bn",
+  "dir": "ltr",
+  "id": "/",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#E6F1EA",
+  "theme_color": "#BCE0F3",
+  "categories": ["education"],
+  "icons": [
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
