@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "সহপাঠী",
   "title": "Making Friends & Campus Life",
   "titleBn": "বন্ধু বানানো ও ক্যাম্পাস জীবন",
-  "next": { "title": "Group Work, Presentations & Assignments" },
+  "next": { "title": "Group Work, Presentations & Assignments", "id": "group-work-presentations" },
   "scene": "নতুন দেশে বন্ধু ছাড়া একা লাগে। প্রায়ই আপনাকেই আগে কথা শুরু করতে হবে।",
   "hook": { "en": "Hi, I'm Rahim. Nice to meet you.", "bn": "হাই, আমি রহিম। আপনার সাথে পরিচিত হয়ে ভালো লাগল।" },
   "phrases": [
