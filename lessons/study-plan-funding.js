@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "অফিসার",
   "title": "Explaining Your Study Plan & Funding",
   "titleBn": "পড়ার পরিকল্পনা ও খরচ বোঝানো",
-  "next": { "title": "Emailing & Calling the University" },
+  "next": { "title": "Emailing & Calling the University", "id": "email-call-university" },
   "scene": "অফিসার জানতে চান, কী পড়বেন, কতদিন, আর খরচ কে দেবে। কাগজ আর উত্তর মিলিয়ে সত্য বলুন।",
   "hook": { "en": "My parents will pay for my tuition and living costs.", "bn": "আমার বাবা-মা টিউশন ও থাকা-খাওয়ার খরচ দেবেন।" },
   "phrases": [
