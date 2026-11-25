@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "রিসেপশনিস্ট",
   "title": "Making Appointments & Leaving Messages",
   "titleBn": "অ্যাপয়েন্টমেন্ট নেওয়া ও মেসেজ রেখে যাওয়া",
-  "next": { "title": "Talking to Neighbors & Building Community" },
+  "next": { "title": "Talking to Neighbors & Building Community", "id": "neighbors-community" },
   "scene": "ডাক্তার, অফিস বা দূতাবাস, সবখানে সময় নিতে হয়। সময় আর নাম পরিষ্কার বললে বারবার যেতে হয় না।",
   "hook": { "en": "I would like to make an appointment.", "bn": "আমি একটা অ্যাপয়েন্টমেন্ট নিতে চাই।" },
   "phrases": [
