@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "প্রফেসর",
   "title": "Talking to Professors & Advisors",
   "titleBn": "প্রফেসর ও অ্যাডভাইজারের সাথে কথা",
-  "next": { "title": "Library, Labs & Campus Services" },
+  "next": { "title": "Library, Labs & Campus Services", "id": "library-labs-services" },
   "scene": "প্রফেসরের কাছে যেতে ভয় লাগে? অফিস আওয়ারে যাওয়াই নিয়ম। আগে নাম, ক্লাস আর কী জানতে চান, বলুন।",
   "hook": { "en": "I have a question about the assignment.", "bn": "অ্যাসাইনমেন্ট নিয়ে আমার একটা প্রশ্ন আছে।" },
   "phrases": [
