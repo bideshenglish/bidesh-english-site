@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "সুপারভাইজার / ম্যানেজার",
   "title": "Asking for a Raise or a Better Job",
   "titleBn": "বেতন বাড়ানো বা ভালো কাজ চাওয়া",
-  "next": { "title": "Classroom English Basics" },
+  "next": { "title": "Classroom English Basics", "id": "classroom-basics" },
   "scene": "ভালো কাজ করলেও না চাইলে কেউ বেতন বাড়ায় না। ভদ্রভাবে, প্রমাণ দিয়ে চাইতে শিখুন।",
   "hook": { "en": "I would like to ask for a raise.", "bn": "আমি বেতন বাড়ানোর অনুরোধ করতে চাই।" },
   "phrases": [
