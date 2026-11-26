@@ -144,6 +144,18 @@
   .mis .mt{flex:1;display:flex;flex-direction:column;gap:2px;}
   .mis .mt b{font-size:18px;}
   .mis .mt span{font-size:15px;color:#4a5a4f;}
+  .bd-box{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start;min-height:74px;margin:14px 0 10px;padding:10px;border:2px dashed #7EA88B;border-radius:16px;background:#fff;}
+  .bd-box.ok{border-style:solid;border-color:var(--leaf);background:#E6F1EA;}
+  .bd-box .bd-ph{color:#5b6b60;font-size:15px;font-weight:600;margin:auto 4px;}
+  .bd-pool{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px;}
+  .bd-chip{all:unset;box-sizing:border-box;cursor:pointer;padding:10px 15px;border-radius:12px;border:2px solid var(--line);background:var(--paper);font-size:19px;font-weight:800;color:var(--ink);line-height:1.2;}
+  .bd-chip:hover{border-color:var(--leaf);}
+  .bd-chip:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+  .bd-box .bd-chip{background:#E6F1EA;border-color:var(--leaf);}
+  .bd-box.ok .bd-chip{cursor:default;}
+  .bd-msg{margin:6px 0 0;font-size:16px;font-weight:700;color:#8a2d1c;min-height:0;}
+  .bd-msg.good{color:var(--pine);}
+  .bd-show{all:unset;cursor:pointer;color:var(--pine);font-weight:700;font-size:15px;text-decoration:underline;padding:6px 0;}
   .opt:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
   .opt.good{background:var(--good-bg);border-color:var(--leaf-deep);color:var(--good-ink);}
   .opt.good::before{content:'✓';background:var(--leaf-deep);border-color:var(--leaf-deep);}
@@ -220,6 +232,7 @@
   .hint{margin:10px 0 0;font-size:15px;font-weight:600;color:var(--ink-soft);}
   .tin{box-sizing:border-box;width:100%;margin-top:16px;padding:15px 16px;border:2px solid var(--line);border-radius:18px;font:inherit;font-size:22px;font-weight:700;color:var(--ink);background:var(--paper);}
   .tin:focus{outline:3px solid var(--pine);outline-offset:2px;background:#fff;}
+  .bd-box.shake{animation:shake .35s ease;border-color:#C24A33;}
   .tin.shake{animation:shake .35s ease;border-color:#C24A33;}
   .spell-out{display:flex;align-items:center;gap:12px;margin:12px 0 0;}
   .spell-out b{font-size:24px;letter-spacing:.06em;color:var(--pine);}
@@ -425,6 +438,7 @@
           (canSpeak ? '<div class="ph-actions"><button type="button" class="play" id="hear" aria-label="শুনুন"><span class="play-ic">' + ICON_SPEAKER + '</span>শুনুন</button><button type="button" class="slow" id="slow">🐢 ধীরে শুনুন</button></div>' : '') +
           '<p class="big-en">' + esc(p.en) + '</p>' +
           '<p class="ph-bn">' + esc(p.bn) + '</p>' +
+          (L.build ? '<div class="bd-box" id="bdBox" aria-live="polite"></div><div class="bd-pool" id="bdPool"></div><p class="bd-msg" id="bdMsg"></p>' : '') +
           (p.pr ? '<p class="pr-text"><span class="pr-label">আনুমানিক উচ্চারণ</span>' + esc(p.pr) + '</p>' : '') +
         '</div>' +
         '<div class="tk-actions"><div class="row"><button class="btn btn-main btn-next" id="nextCard">Next <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>' +
@@ -432,6 +446,38 @@
       if ($('#hear')) $('#hear').onclick = function(){ say(p.en, 0.9, $('#hear')); };
       if ($('#slow')) $('#slow').onclick = function(){ say(p.en, 0.55, $('#slow')); };
       $('#nextCard').onclick = function(){ if (last) next(); else { i++; card(); enter(); } };
+      if (L.build) buildIt(p);
+    }
+    function buildIt(p){
+      var words = p.en.split(/\s+/).filter(Boolean), pool = shuffle(words.map(function(w, k){ return { w: w, id: k }; })), placed = [], fin = false, wrongN = 0;
+      if (words.length > 1 && pool.map(function(x){ return x.w; }).join(' ') === p.en) pool.reverse();
+      var nb = $('#nextCard'), prEl = stage.querySelector('.pr-text'), msg = $('#bdMsg');
+      nb.disabled = true; nb.setAttribute('aria-disabled', 'true'); nb.style.opacity = '.45';
+      if (prEl) prEl.style.display = 'none';
+      function unlock(txt){
+        fin = true; paint(); $('#bdBox').classList.add('ok');
+        msg.className = 'bd-msg good'; msg.textContent = txt;
+        nb.disabled = false; nb.removeAttribute('aria-disabled'); nb.style.opacity = ''; if (prEl) prEl.style.display = '';
+        if (canSpeak) say(p.en, 0.9);
+        nb.focus();
+      }
+      function paint(){
+        var box = $('#bdBox');
+        box.innerHTML = placed.length ? placed.map(function(x, k){ return '<button type="button" class="bd-chip" data-k="' + k + '">' + esc(x.w) + '</button>'; }).join('') : '<span class="bd-ph">শব্দগুলো এখানে সাজান</span>';
+        var used = {}; placed.forEach(function(x){ used[x.id] = 1; });
+        $('#bdPool').innerHTML = fin ? '' : pool.filter(function(x){ return !used[x.id]; }).map(function(x){ return '<button type="button" class="bd-chip" data-id="' + x.id + '">' + esc(x.w) + '</button>'; }).join('') +
+          (wrongN >= 2 ? '<button type="button" class="bd-show" id="bdShow">উত্তর দেখুন</button>' : '');
+        box.querySelectorAll('.bd-chip').forEach(function(b){ b.onclick = function(){ if (fin) return; placed.splice(+b.dataset.k, 1); msg.textContent = ''; paint(); }; });
+        $('#bdPool').querySelectorAll('.bd-chip').forEach(function(b){ b.onclick = function(){
+          var w = pool.filter(function(x){ return x.id === +b.dataset.id; })[0]; placed.push(w); paint();
+          if (placed.length === words.length){
+            if (placed.map(function(x){ return x.w; }).join(' ') === p.en) unlock(wrongN ? 'Got it!' : praise());
+            else { wrongN++; box.classList.add('shake'); setTimeout(function(){ box.classList.remove('shake'); }, 400); msg.className = 'bd-msg'; msg.textContent = 'ক্রম ঠিক হয়নি। শব্দে ট্যাপ করে সরিয়ে আবার সাজান।'; paint(); }
+          }
+        }; });
+        var sh = $('#bdShow'); if (sh) sh.onclick = function(){ placed = words.map(function(w, k){ return { w: w, id: k }; }); unlock('এভাবেই হবে। আবার পড়ে নিন।'); };
+      }
+      paint();
     }
     card();
   };
