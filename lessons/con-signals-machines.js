@@ -219,32 +219,32 @@ window.LESSON = {
   ],
   "typing": [
     {
-      "ask": "ইংরেজিতে লিখুন: \"থামুন!\"",
+      "ask": "Write in English: \"থামুন!\" (ইংরেজিতে লিখুন)",
       "answers": [
         "stop"
       ],
       "show": "Stop",
-      "why": "Stop = থামুন। এক শব্দ, কিন্তু জীবন বাঁচায়।",
-      "ph": "ইংরেজিতে লিখুন"
+      "why": "Stop = থামুন। One word can save a life. (এক শব্দ, জীবন বাঁচায়)",
+      "ph": "Type here · এখানে লিখুন"
     },
     {
-      "ask": "ইংরেজিতে লিখুন: \"পিছনে থাকুন\"",
+      "ask": "Write in English: \"পিছনে থাকুন\" (ইংরেজিতে লিখুন)",
       "answers": [
         "stay back"
       ],
       "show": "Stay back",
-      "why": "Stay = থাকুন, back = পিছনে।",
-      "ph": "ইংরেজিতে লিখুন"
+      "why": "Stay = থাকুন, back = পিছনে। Stay back = পিছনে থাকুন।",
+      "ph": "Type here · এখানে লিখুন"
     },
     {
-      "ask": "শুনুন, তারপর লিখুন",
+      "ask": "Listen, then write what you hear (শুনুন, তারপর যা শুনলেন লিখুন)",
       "say": "Can you see me?",
       "answers": [
         "can you see me"
       ],
       "show": "Can you see me?",
       "why": "মেশিনের কাছে যাওয়ার আগে অপারেটরকে এটা জিজ্ঞেস করুন।",
-      "ph": "যা শুনলেন"
+      "ph": "Type here · এখানে লিখুন"
     }
   ],
   "order": [
