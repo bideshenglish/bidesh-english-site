@@ -134,6 +134,16 @@
   .opt::before{content:'';flex:none;width:24px;height:24px;border-radius:50%;border:2px solid #7EA88B;background:#fff;display:grid;place-items:center;font-size:14px;font-weight:800;color:#fff;line-height:1;}
   .opt:hover{border-color:var(--leaf);background:#fff;}
   .opt:active{transform:scale(.99);}
+  .ord-sel{display:flex;flex-direction:column;gap:8px;margin:12px 0;padding:0;list-style:none;}
+  .ord-sel li{display:flex;gap:10px;align-items:center;background:#E6F1EA;border:2px solid var(--leaf);border-radius:14px;padding:11px 14px;font-weight:700;font-size:17px;line-height:1.4;}
+  .ord-sel li i{flex:none;width:26px;height:26px;border-radius:50%;background:var(--pine);color:#fff;display:grid;place-items:center;font-style:normal;font-size:14px;}
+  .ord-sel li.slot{background:transparent;border:2px dashed var(--line);color:#5b6b60;font-weight:600;}
+  .ord-sel li.slot i{background:#fff;color:#5b6b60;border:2px solid var(--line);}
+  .mis{list-style:none;padding:0;margin:12px 0;display:flex;flex-direction:column;gap:10px;}
+  .mis li{display:flex;gap:10px;align-items:center;background:var(--paper);border:2px solid var(--line);border-radius:16px;padding:12px 14px;}
+  .mis .mt{flex:1;display:flex;flex-direction:column;gap:2px;}
+  .mis .mt b{font-size:18px;}
+  .mis .mt span{font-size:15px;color:#4a5a4f;}
   .opt:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
   .opt.good{background:var(--good-bg);border-color:var(--leaf-deep);color:var(--good-ink);}
   .opt.good::before{content:'✓';background:var(--leaf-deep);border-color:var(--leaf-deep);}
@@ -268,7 +278,7 @@
   var reviewMode = params.get('review') === '1';
   var L, flow, idx = 0, S, WHO = 'বস', sub = 0, startSub = 0, curBack = null, hideBack = false;
 
-  var STEP_NAME = { scene:'দৃশ্য', phrases:'Phrase Cards', traps:'সাবধান! ভুল এড়ান', type:'লিখে দেখুন', listen:'শুনে চেনা', speak:'বলে Practice', dialogue:'কথোপকথন', quiz:'Quick Quiz', done:'সম্পন্ন!' };
+  var STEP_NAME = { scene:'দৃশ্য', phrases:'Phrase Cards', traps:'সাবধান! ভুল এড়ান', type:'লিখে দেখুন', listen:'শুনে চেনা', speak:'বলে Practice', dialogue:'কথোপকথন', quiz:'Quick Quiz', order:'ধাপ সাজান', spot:'ভুল খুঁজুন', mission:'আজকের মিশন', done:'সম্পন্ন!' };
   var ICON_SPEAKER = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4h4l5 4V6L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
   var ICON_MIC = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-3.1A7 7 0 0 0 19 11h-2z"/></svg>';
   var ICON_PLANE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21,16.01L21,14L13,9V3.5C13,2.67 12.33,2 11.5,2S10,2.67 10,3.5V9L2,14V16L10,13.5V19L7.5,20.5V22L11.5,21L15.5,22V20.5L13,19V13.5L21,16.01Z"/></svg>';
@@ -321,7 +331,7 @@
   function unitsOf(st){
     return st === 'phrases' ? (L.phrases || []).length : st === 'traps' ? (L.traps || []).length : st === 'type' ? (L.typing || []).length : st === 'listen' ? (L.listening || []).length :
            st === 'speak' ? (L.speak || []).length : st === 'dialogue' ? (L.dialogue || []).length :
-           st === 'quiz' ? (L.quiz || []).length : 0;
+           st === 'quiz' ? (L.quiz || []).length : st === 'order' ? (L.order || []).length : st === 'spot' ? (L.spot || []).length : st === 'mission' ? 1 : 0;
   }
   var doneBefore = false, doneStars = 0, replayStarted = false;
   function pctNow(){
@@ -666,6 +676,74 @@
     ask();
   };
 
+  R.order = function(){
+    var Q = L.order, q = Math.min(startSub, Q.length - 1);
+    function ask(){
+      var item = Q[q], last = q === Q.length - 1, n = item.steps.length, got = 0, wrong = 0, done = false;
+      var pool = shuffle(item.steps.map(function(x, k){ return { k: k, x: x }; }));
+      setSub(q);
+      stage.innerHTML = '<p class="counter">সাজান ' + bn(q+1) + '/' + bn(Q.length) + '</p><h2>' + esc(item.ask) + '</h2>' +
+        '<p class="lede">১ম ধাপ থেকে শুরু করে একে একে ট্যাপ করুন।</p><ol class="ord-sel" id="ordSel"></ol><div class="opts" id="opts"></div><div id="fb"></div>';
+      function paint(){
+        $('#ordSel').innerHTML = item.steps.map(function(x, k){
+          return k < got ? '<li><i>' + bn(k+1) + '</i><span>' + esc(x.en) + (x.bn ? ' — ' + esc(x.bn) : '') + '</span></li>' : '<li class="slot"><i>' + bn(k+1) + '</i><span>…</span></li>';
+        }).join('');
+        $('#opts').innerHTML = pool.map(function(p, j){ return p.used ? '' : '<button class="opt" data-j="' + j + '">' + esc(p.x.en) + '</button>'; }).join('');
+        document.querySelectorAll('#opts .opt').forEach(function(b){
+          b.onclick = function(){
+            if (done) return;
+            var p = pool[+b.dataset.j];
+            if (p.k === got){ p.used = true; got++; if (canSpeak) say(p.x.en); $('#fb').innerHTML = ''; paint();
+              if (got === n){ done = true; $('#opts').innerHTML = ''; $('#fb').innerHTML = fbHtml('ok', wrong ? 'Got it!' : praise(), item.why, !!wrong) + nextBtn(last ? 'পরের ধাপ →' : 'পরের প্রশ্ন →', 'nx'); wireWhy(); $('#nx').onclick = function(){ if (last) next(); else { q++; ask(); enter(); } }; $('#nx').focus(); }
+            } else { wrong++; b.classList.add('bad','shake'); $('#fb').innerHTML = fbHtml('no', 'এটা এখন নয়, আরেকটা বাছুন');
+              setTimeout(function(){ b.classList.remove('bad','shake'); }, 500); }
+          };
+        });
+      }
+      paint();
+      curBack = function(){ if (q > 0){ q--; ask(); enter(); return true; } return false; };
+    }
+    ask();
+  };
+
+  R.spot = function(){
+    var Q = L.spot, q = Math.min(startSub, Q.length - 1);
+    function ask(){
+      var item = Q[q], opts = shuffle(item.options), done = false, tries = 0, last = q === Q.length - 1;
+      setSub(q);
+      stage.innerHTML = '<p class="counter">ভুল খুঁজুন ' + bn(q+1) + '/' + bn(Q.length) + '</p><h2>' + esc(item.q) + '</h2>' +
+        (item.scene ? '<p class="lede">' + esc(item.scene) + '</p>' : '') +
+        '<div class="opts" id="opts">' + opts.map(function(o, k){ return '<button class="opt" data-k="' + k + '">' + esc(o.t) + '</button>'; }).join('') + '</div><div id="fb"></div>';
+      document.querySelectorAll('#opts .opt').forEach(function(b){
+        b.onclick = function(){
+          if (done || b.getAttribute('aria-disabled') === 'true') return;
+          tries++;
+          var o = opts[+b.dataset.k];
+          function fin(kind, title){ done = true;
+            document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); if (opts[+x.dataset.k].ok) x.classList.add('good'); });
+            $('#fb').innerHTML = fbHtml(kind, title, item.why, true) + nextBtn(last ? 'পরের ধাপ →' : 'পরের প্রশ্ন →', 'nx'); wireWhy();
+            $('#nx').onclick = function(){ if (last) next(); else { q++; ask(); enter(); } }; $('#nx').focus(); }
+          if (o.ok) fin('ok', tries === 1 ? praise() : 'Got it!');
+          else { b.classList.add('bad','shake'); b.setAttribute('aria-disabled','true');
+            if (tries >= 2) fin('no', 'Not quite'); else $('#fb').innerHTML = fbHtml('no', 'Try again'); }
+        };
+      });
+      curBack = function(){ if (q > 0){ q--; ask(); enter(); return true; } return false; };
+    }
+    ask();
+  };
+
+  R.mission = function(){
+    var M = L.mission;
+    setSub(0);
+    stage.innerHTML = '<h2>' + esc(M.title || 'আজ কাজে এই ৩টি বাক্য বলুন') + '</h2>' +
+      (M.intro ? '<p class="lede">' + esc(M.intro) + '</p>' : '') +
+      '<ul class="mis">' + M.items.map(function(it, k){ return '<li>' + (canSpeak ? '<button type="button" class="hear-mini" data-k="' + k + '" aria-label="শুনুন">' + ICON_SPEAKER + '</button>' : '') + '<div class="mt"><b>' + esc(it.en) + '</b><span>' + esc(it.bn) + '</span></div></li>'; }).join('') + '</ul>' +
+      (M.tip ? '<p class="trap-tip">' + esc(M.tip) + '</p>' : '') + nextBtn('মিশন বুঝেছি →', 'nx');
+    stage.querySelectorAll('.hear-mini').forEach(function(b){ b.onclick = function(){ say(M.items[+b.dataset.k].en); }; });
+    $('#nx').onclick = next;
+  };
+
   R.done = function(){
     var has = function(k){ return flow.indexOf(k) > -1; };
     var cnt = function(a){ return (a || []).filter(function(x){ return x === 1; }).length; };
@@ -748,6 +826,9 @@
     flow = L.type === 'B' ? ['phrases','listen','speak','done'] : ['scene','phrases','listen','speak','dialogue','quiz','done'];
     if (L.traps && L.traps.length){ flow.splice(flow.indexOf('phrases') + 1, 0, 'traps'); }
     if (L.typing && L.typing.length){ flow.splice(flow.indexOf('listen') + 1, 0, 'type'); }
+    if (L.order && L.order.length){ flow.splice(flow.indexOf(L.typing && L.typing.length ? 'type' : 'listen') + 1, 0, 'order'); }
+    if (L.spot && L.spot.length){ flow.splice(flow.indexOf(L.order && L.order.length ? 'order' : (L.typing && L.typing.length ? 'type' : 'listen')) + 1, 0, 'spot'); }
+    if (L.mission && L.mission.items && L.mission.items.length){ flow.splice(flow.indexOf('done'), 0, 'mission'); }
     var saved = read('be_resume', {})[L.id];
     var ok = saved && typeof saved.step === 'number' && saved.step > 0 && saved.step < flow.length - 1 && flow[saved.step] !== 'scene';
     if (ok){
