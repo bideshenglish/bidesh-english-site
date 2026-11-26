@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "অ্যাডমিশন অফিস",
   "title": "Emailing & Calling the University",
   "titleBn": "বিশ্ববিদ্যালয়ে ইমেইল ও ফোন",
-  "next": { "title": "Understanding Offer Letter, Fees & Deadlines" },
+  "next": { "title": "Understanding Offer Letter, Fees & Deadlines", "id": "offer-letter-fees" },
   "scene": "আবেদনের পর অনেক প্রশ্ন আসে। ইমেইল বা ফোনে ছোট, ভদ্র, পরিষ্কারভাবে জিজ্ঞেস করুন।",
   "hook": { "en": "I'm calling about my application.", "bn": "আমি আমার আবেদন নিয়ে ফোন করছি।" },
   "phrases": [
