@@ -4,7 +4,7 @@ window.LESSON = {
   "who": "অ্যাডমিশন অফিসার",
   "title": "Understanding Offer Letter, Fees & Deadlines",
   "titleBn": "অফার লেটার, ফি ও সময়সীমা বোঝা",
-  "next": { "title": "Arriving at University: Pickup & First Day" },
+  "next": { "title": "Arriving at University: Pickup & First Day", "id": "arriving-university" },
   "scene": "অফার লেটার পেয়ে খুশি হওয়ার আগে ভালো করে পড়ুন। শর্ত, ডেডলাইন আর ডিপোজিট না বুঝলে ক্ষতি হয়।",
   "hook": { "en": "What are the conditions of my offer?", "bn": "আমার অফারের শর্তগুলো কী?" },
   "phrases": [
