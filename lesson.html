@@ -156,6 +156,41 @@
   .bd-msg{margin:6px 0 0;font-size:16px;font-weight:700;color:#8a2d1c;min-height:0;}
   .bd-msg.good{color:var(--pine);}
   .bd-show{all:unset;cursor:pointer;color:var(--pine);font-weight:700;font-size:15px;text-decoration:underline;padding:6px 0;}
+
+  /* ---------- game layer ---------- */
+  .hud{display:flex;align-items:center;gap:8px;margin:0 0 10px;}
+  .hud[hidden]{display:none;}
+  .hud .chip{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;border-radius:999px;background:#fff;border:2px solid var(--line);font-weight:800;font-size:16px;color:var(--ink);transition:transform .15s ease;}
+  .hud .chip.pop{transform:scale(1.18);}
+  .hud .chip.hot{background:#FFF1D1;border-color:#E9A93A;color:#6B4200;}
+  .hud .snd{all:unset;margin-left:auto;cursor:pointer;width:38px;height:38px;border-radius:50%;background:#fff;border:2px solid var(--line);display:grid;place-items:center;font-size:18px;}
+  .hud .snd:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+  .xp-pop{position:fixed;left:50%;top:38%;z-index:60;transform:translateX(-50%);font-weight:900;font-size:30px;color:#0B6B3A;text-shadow:0 2px 0 #fff,0 0 12px #fff;pointer-events:none;animation:xppop 1s ease-out forwards;}
+  .xp-pop.combo{color:#B45F00;font-size:26px;top:30%;}
+  @keyframes xppop{0%{opacity:0;transform:translate(-50%,10px) scale(.6);}20%{opacity:1;transform:translate(-50%,0) scale(1.15);}100%{opacity:0;transform:translate(-50%,-60px) scale(1);}}
+  .confetti{position:fixed;inset:0;z-index:70;pointer-events:none;overflow:hidden;}
+  .confetti i{position:absolute;top:-16px;width:10px;height:14px;border-radius:2px;animation:cfall 1.9s ease-in forwards;}
+  @keyframes cfall{to{transform:translateY(105vh) rotate(720deg);opacity:.9;}}
+  .mood{margin:0 0 12px;}
+  .mood b{display:block;font-size:15px;margin-bottom:5px;color:var(--ink);}
+  .mood .mbar{height:16px;border-radius:999px;background:#fff;border:2px solid var(--line);overflow:hidden;}
+  .mood .mbar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#E9A93A,#2E9A5B);transition:width .5s ease;}
+  .tbar{height:9px;border-radius:999px;background:#fff;border:2px solid var(--line);overflow:hidden;margin:6px 0 4px;}
+  .tbar span{display:block;height:100%;width:100%;background:#E9A93A;transform-origin:left;animation:tdown var(--t,10s) linear forwards;}
+  @keyframes tdown{to{transform:scaleX(0);}}
+  .mt-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 6px;}
+  .mt-col{display:flex;flex-direction:column;gap:10px;}
+  .mt-tile{all:unset;box-sizing:border-box;cursor:pointer;min-height:64px;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px 10px;border-radius:16px;border:2px solid var(--line);background:var(--paper);font-weight:800;font-size:16px;line-height:1.35;color:var(--ink);}
+  .mt-tile.en{font-size:17px;}
+  .mt-tile.sel{border-color:var(--pine);background:#fff;box-shadow:0 0 0 3px #BCE0F3;}
+  .mt-tile.good{border-color:var(--leaf);background:#E6F1EA;color:var(--good-ink);}
+  .mt-tile.shake{animation:shake .35s ease;border-color:#C24A33;}
+  .mt-tile:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
+  .chest{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;text-align:center;padding:26px 12px;border-radius:22px;background:#FFF1D1;border:3px dashed #E9A93A;margin:16px 0;}
+  .chest .ci{display:block;font-size:64px;line-height:1;animation:cbob 1.4s ease-in-out infinite;}
+  .chest b{display:block;margin-top:10px;font-size:20px;color:#6B4200;}
+  @keyframes cbob{50%{transform:translateY(-8px) rotate(-4deg);}}
+  .chest:focus-visible{outline:3px solid var(--pine);outline-offset:3px;}
   .opt:focus-visible{outline:3px solid var(--pine);outline-offset:2px;}
   .opt.good{background:var(--good-bg);border-color:var(--leaf-deep);color:var(--good-ink);}
   .opt.good::before{content:'✓';background:var(--leaf-deep);border-color:var(--leaf-deep);}
@@ -277,6 +312,7 @@
     <span class="fill" id="fill" style="width:0%"></span>
     <span class="plane" id="plane" style="left:0%"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21,16.01L21,14L13,9V3.5C13,2.67 12.33,2 11.5,2S10,2.67 10,3.5V9L2,14V16L10,13.5V19L7.5,20.5V22L11.5,21L15.5,22V20.5L13,19V13.5L21,16.01Z"/></svg></span>
   </div>
+  <div class="hud" id="hud" hidden><span class="chip" id="hudXp">⚡ <span>0</span> XP</span><span class="chip" id="hudCombo">🔥 <span>0</span></span><button type="button" class="snd" id="hudSnd" aria-label="শব্দ চালু/বন্ধ">🔊</button></div>
   <div class="backrow"><button type="button" class="backmini" id="backBtn" aria-label="Back, আগের ধাপে ফিরুন" style="visibility:hidden"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Back</button></div>
   <section class="card" id="stage" tabindex="-1" aria-live="polite"></section>
 </main>
@@ -291,7 +327,8 @@
   var reviewMode = params.get('review') === '1';
   var L, flow, idx = 0, S, WHO = 'বস', sub = 0, startSub = 0, curBack = null, hideBack = false;
 
-  var STEP_NAME = { scene:'দৃশ্য', phrases:'Phrase Cards', traps:'সাবধান! ভুল এড়ান', type:'লিখে দেখুন', listen:'শুনে চেনা', speak:'বলে Practice', dialogue:'কথোপকথন', quiz:'Quick Quiz', order:'ধাপ সাজান', spot:'ভুল খুঁজুন', mission:'আজকের মিশন', done:'সম্পন্ন!' };
+  var STEP_NAME = { scene:'দৃশ্য', phrases:'Phrase Cards', traps:'সাবধান! ভুল এড়ান', type:'লিখে দেখুন', listen:'শুনে চেনা', speak:'বলে Practice', dialogue:'কথোপকথন', quiz:'Quick Quiz', match:'জোড়া মেলান', order:'ধাপ সাজান', spot:'ভুল খুঁজুন', mission:'আজকের মিশন', done:'সম্পন্ন!' };
+  var GAME_NAME = { scene:'মিশন শুরু 🚀', phrases:'শব্দ সাজান 🧩', match:'জোড়া মেলান 🔗', traps:'সাবধান! ভুল এড়ান ⚠️', listen:'শুনে চেনা 🎧', type:'লিখে দেখুন ✍️', order:'ধাপ সাজান 🪜', spot:'ভুল খুঁজুন 🔍', speak:'বলে Practice 🎤', dialogue:'বসের সাথে কথা 💬', quiz:'স্পিড রাউন্ড ⚡', mission:'ট্রেজার চেস্ট 🎁', done:'বিজয়! 🏆' };
   var ICON_SPEAKER = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4h4l5 4V6L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>';
   var ICON_MIC = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-3.1A7 7 0 0 0 19 11h-2z"/></svg>';
   var ICON_PLANE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21,16.01L21,14L13,9V3.5C13,2.67 12.33,2 11.5,2S10,2.67 10,3.5V9L2,14V16L10,13.5V19L7.5,20.5V22L11.5,21L15.5,22V20.5L13,19V13.5L21,16.01Z"/></svg>';
@@ -340,11 +377,74 @@
   }
   window.__beMatch = matchScore;
 
+
+  /* ---------- game core ---------- */
+  var G = { xp: 0, combo: 0, best: 0 }, actx = null, muted = false;
+  try { muted = localStorage.getItem('be_mute') === '1'; } catch(e){}
+  function tone(f, d, type, t0, vol){
+    if (muted) return;
+    try {
+      actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+      if (actx.state === 'suspended') actx.resume();
+      var o = actx.createOscillator(), g = actx.createGain(), t = actx.currentTime + (t0 || 0);
+      o.type = type || 'sine'; o.frequency.value = f;
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol || 0.16, t + 0.015); g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+      o.connect(g); g.connect(actx.destination); o.start(t); o.stop(t + d + 0.02);
+    } catch(e){}
+  }
+  var SFX = {
+    ok: function(){ tone(660, .1, 'triangle', 0); tone(880, .16, 'triangle', .09); },
+    no: function(){ tone(200, .22, 'sawtooth', 0, .09); },
+    combo: function(){ tone(784, .09, 'triangle', 0); tone(988, .09, 'triangle', .08); tone(1318, .2, 'triangle', .16); },
+    win: function(){ [523, 659, 784, 1047, 1319].forEach(function(f, k){ tone(f, .24, 'triangle', k * .11); }); },
+    tick: function(){ tone(520, .05, 'sine', 0, .08); }
+  };
+  function vib(ms){ try { if (navigator.vibrate && !muted) navigator.vibrate(ms); } catch(e){} }
+  function hudPaint(){
+    if (!L || !L.game || reviewMode) return;
+    var h = $('#hud'); h.hidden = false;
+    $('#hudXp span').textContent = bn(G.xp);
+    $('#hudCombo span').textContent = '×' + bn(G.combo);
+    $('#hudCombo').classList.toggle('hot', G.combo >= 3);
+    $('#hudSnd').textContent = muted ? '🔇' : '🔊';
+  }
+  function bump(id){ var e = $(id); if (!e) return; e.classList.add('pop'); setTimeout(function(){ e.classList.remove('pop'); }, 200); }
+  function popText(t, cls){
+    var e = document.createElement('div'); e.className = 'xp-pop' + (cls ? ' ' + cls : ''); e.textContent = t; document.body.appendChild(e);
+    setTimeout(function(){ e.remove(); }, 1100);
+  }
+  function confetti(n){
+    var c = document.createElement('div'); c.className = 'confetti'; c.setAttribute('aria-hidden', 'true');
+    var cols = ['#2E9A5B','#E9A93A','#3B8FD0','#E0533D','#8E5BD0','#F2C94C'];
+    for (var k = 0; k < (n || 40); k++){ var i = document.createElement('i'); i.style.left = Math.random()*100 + '%'; i.style.background = cols[k % cols.length]; i.style.animationDelay = Math.random()*.5 + 's'; i.style.transform = 'rotate(' + Math.floor(Math.random()*360) + 'deg)'; c.appendChild(i); }
+    document.body.appendChild(c); setTimeout(function(){ c.remove(); }, 2600);
+  }
+  /* kind: 'first' = first try right, 'retry' = right after a mistake, 'bad' = mistake, 'small' = participation */
+  var G_ = {
+    first: function(){
+      var bonus = Math.min(G.combo, 5);
+      G.xp += 10 + bonus; G.combo++; if (G.combo > G.best) G.best = G.combo;
+      SFX.ok(); vib(15); popText('+' + bn(10 + bonus));
+      if (G.combo === 3 || G.combo === 5 || G.combo === 8 || G.combo === 12){ setTimeout(function(){ SFX.combo(); popText('🔥 কম্বো ×' + bn(G.combo) + '!', 'combo'); }, 350); }
+      hudPaint(); bump('#hudXp'); bump('#hudCombo');
+    },
+    retry: function(){ G.xp += 4; SFX.ok(); popText('+' + bn(4)); hudPaint(); bump('#hudXp'); },
+    small: function(){ G.xp += 5; SFX.ok(); popText('+' + bn(5)); hudPaint(); bump('#hudXp'); },
+    bad: function(){ G.combo = 0; SFX.no(); vib(60); hudPaint(); bump('#hudCombo'); },
+    bonus: function(n, label){ G.xp += n; setTimeout(function(){ popText(label + ' +' + bn(n), 'combo'); }, 300); hudPaint(); bump('#hudXp'); }
+  };
+  function gameFb(kind, title){
+    if (!L || !L.game || reviewMode) return;
+    if (kind === 'ok') { if (title === 'Got it!') G_.retry(); else G_.first(); }
+    else if (kind === 'no') G_.bad();
+    else if (kind === 'mid') G_.small();
+  }
+
   /* ---------- shell ---------- */
   function unitsOf(st){
     return st === 'phrases' ? (L.phrases || []).length : st === 'traps' ? (L.traps || []).length : st === 'type' ? (L.typing || []).length : st === 'listen' ? (L.listening || []).length :
            st === 'speak' ? (L.speak || []).length : st === 'dialogue' ? (L.dialogue || []).length :
-           st === 'quiz' ? (L.quiz || []).length : st === 'order' ? (L.order || []).length : st === 'spot' ? (L.spot || []).length : st === 'mission' ? 1 : 0;
+           st === 'quiz' ? (L.quiz || []).length : st === 'match' ? (L.match || []).length : st === 'order' ? (L.order || []).length : st === 'spot' ? (L.spot || []).length : st === 'mission' ? 1 : 0;
   }
   var doneBefore = false, doneStars = 0, replayStarted = false;
   function pctNow(){
@@ -354,6 +454,7 @@
     return tot ? Math.min(99, Math.round((before + sub) / tot * 100)) : 0;
   }
   function paintProgress(){
+    hudPaint();
     var showDone = doneBefore && !replayStarted && flow[idx] === 'scene';
     var pc = showDone ? 100 : pctNow();
     var tf = 'translateX(-' + pc + '%)';
@@ -364,7 +465,7 @@
     $('#plane').style.left = pc + '%'; $('#plane').style.transform = 'translate(-' + pc + '%,-50%)';
     $('#stepName').textContent = showDone
       ? '✓ আপনি এই লেসন শেষ করেছেন · ' + bn(doneStars) + '/৫ ⭐'
-      : 'ধাপ ' + bn(idx+1) + '/' + bn(flow.length) + ' · ' + STEP_NAME[flow[idx]] + (doneBefore && flow[idx] !== 'done' ? ' · আবার practice' : '');
+      : (L.game ? 'লেভেল ' : 'ধাপ ') + bn(idx+1) + '/' + bn(flow.length) + ' · ' + ((L.game && GAME_NAME[flow[idx]]) || STEP_NAME[flow[idx]]) + (doneBefore && flow[idx] !== 'done' ? ' · আবার practice' : '');
     $('#backBtn').style.visibility = (hideBack || (reviewMode && idx === 0) || flow[idx] === 'scene' || flow[idx] === 'done') ? 'hidden' : 'visible';
   }
   function saveResume(){
@@ -394,6 +495,7 @@
   var PRAISE = ['Excellent!', 'Great job!', 'Well done!', 'Perfect!', 'Nice one!'], praiseN = 0;
   function praise(){ var p = PRAISE[praiseN % PRAISE.length]; praiseN++; return p; }
   function fbHtml(kind, title, why, openWhy){
+    gameFb(kind, title);
     var ic = kind === 'ok' ? '✓' : kind === 'no' ? '✕' : '★';
     return '<div class="fb ' + kind + '"><span class="fb-ic" aria-hidden="true">' + ic + '</span><b class="fb-t">' + esc(title) + '</b>' +
       (why ? '<button type="button" class="why-btn" id="whyBtn" aria-expanded="' + (openWhy ? 'true' : 'false') + '">কেন? ' + (openWhy ? '▴' : '▾') + '</button>' : '') + '</div>' +
@@ -456,7 +558,7 @@
       if (prEl) prEl.style.display = 'none';
       function unlock(txt){
         fin = true; paint(); $('#bdBox').classList.add('ok');
-        msg.className = 'bd-msg good'; msg.textContent = txt;
+        msg.className = 'bd-msg good'; msg.textContent = txt; if (L.game && !reviewMode) { if (txt === 'Got it!') G_.retry(); else if (/^এভাবেই/.test(txt)) {} else G_.first(); }
         nb.disabled = false; nb.removeAttribute('aria-disabled'); nb.style.opacity = ''; if (prEl) prEl.style.display = '';
         if (canSpeak) say(p.en, 0.9);
         nb.focus();
@@ -472,7 +574,7 @@
           var w = pool.filter(function(x){ return x.id === +b.dataset.id; })[0]; placed.push(w); paint();
           if (placed.length === words.length){
             if (placed.map(function(x){ return x.w; }).join(' ') === p.en) unlock(wrongN ? 'Got it!' : praise());
-            else { wrongN++; box.classList.add('shake'); setTimeout(function(){ box.classList.remove('shake'); }, 400); msg.className = 'bd-msg'; msg.textContent = 'ক্রম ঠিক হয়নি। শব্দে ট্যাপ করে সরিয়ে আবার সাজান।'; paint(); }
+            else { wrongN++; if (L.game) G_.bad(); box.classList.add('shake'); setTimeout(function(){ box.classList.remove('shake'); }, 400); msg.className = 'bd-msg'; msg.textContent = 'ক্রম ঠিক হয়নি। শব্দে ট্যাপ করে সরিয়ে আবার সাজান।'; paint(); }
           }
         }; });
         var sh = $('#bdShow'); if (sh) sh.onclick = function(){ placed = words.map(function(w, k){ return { w: w, id: k }; }); unlock('এভাবেই হবে। আবার পড়ে নিন।'); };
@@ -609,7 +711,7 @@
         (SR ? '' : '<p class="note info">এই ব্রাউজারে মাইক দিয়ে মেলানো যায় না। জোরে বলে অভ্যাস করুন, তারপর বোতামে চাপুন। মাইক পরীক্ষা করতে Chrome ব্যবহার করুন।</p>') +
         '<div id="after"></div>';
       if ($('#hear')) $('#hear').onclick = function(){ say(p.en); };
-      if ($('#manual')) $('#manual').onclick = advance;
+      if ($('#manual')) $('#manual').onclick = function(){ if (L.game) G_.small(); advance(); };
       if ($('#mic')) $('#mic').onclick = function(){ record(p); };
     }
     function advance(){ if (n === list.length - 1) next(); else { n++; show(); enter(); } }
@@ -629,7 +731,7 @@
         var alts = []; for (var i=0;i<e.results[0].length;i++) alts.push(e.results[0][i].transcript);
         var best = 0, bestT = alts[0] || '';
         alts.forEach(function(a){ var s = matchScore(p.en, a); if (s > best){ best = s; bestT = a; } });
-        if (best >= 0.6){ st.innerHTML = ''; $('#after').innerHTML = '<p class="note good">✅ দারুণ! আপনার বলা মিলে গেছে।</p>'; showNext(true); }
+        if (best >= 0.6){ st.innerHTML = ''; $('#after').innerHTML = '<p class="note good">✅ দারুণ! আপনার বলা মিলে গেছে।</p>'; if (L.game) G_.first(); showNext(true); }
         else { st.innerHTML = ''; $('#after').innerHTML = '<p class="note bad">আমরা শুনেছি: “' + esc(bestT) + '”। আরেকবার ধীরে ধীরে বলুন।</p><div class="row"><button class="btn btn-main" id="again">আবার চেষ্টা করুন</button><button class="btn btn-alt" id="skip">এড়িয়ে যান →</button></div>'; $('#again').onclick = function(){ $('#after').innerHTML = ''; record(p); }; $('#skip').onclick = advance; }
       };
       rec.onerror = function(e){
@@ -653,6 +755,7 @@
       turns.length = t;
       stage.innerHTML =
         '<p class="counter">কথা ' + bn(t+1) + '/' + bn(D.length) + '</p>' +
+        (L.game ? '<div class="mood"><b>😊 ' + esc(WHO) + ' কতটা খুশি?</b><div class="mbar"><span id="moodFill" style="width:' + Math.round(S.D.reduce(function(a, x){ return a + (x || 0); }, 0) / (D.length * 3) * 100) + '%"></span></div></div>' : '') +
         '<div class="chat">' + turns.join('') +
           '<div class="bubble b-boss"><span class="who">' + esc(WHO) + '</span>' + esc(d.boss) + '<small>' + esc(d.bn) + '</small></div>' +
         '</div>' +
@@ -663,7 +766,7 @@
         b.onclick = function(){
           if (b.getAttribute('aria-disabled') === 'true') return;
           var c = choices[+b.dataset.k];
-          if (!seen[t]) { seen[t] = true; S.D[t] = c.stars; }
+          if (!seen[t]) { seen[t] = true; S.D[t] = c.stars; if (L.game){ var mf = $('#moodFill'); if (mf) mf.style.width = Math.round(S.D.reduce(function(a, x){ return a + (x || 0); }, 0) / (D.length * 3) * 100) + '%'; } }
           document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); });
           if (c.stars === 3) b.classList.add('good'); else if (c.stars === 1) b.classList.add('bad', 'shake');
           var kind = c.stars === 3 ? 'ok' : c.stars === 2 ? 'mid' : 'no';
@@ -692,10 +795,11 @@
     var Q = L.quiz, q = Math.min(startSub, Q.length - 1);
     S.Q = S.Q || [];
     function ask(){
-      var item = Q[q], done = false, tries = 0, last = q === Q.length - 1;
+      var item = Q[q], done = false, tries = 0, last = q === Q.length - 1, t0 = Date.now();
       setSub(q);
       stage.innerHTML =
         '<p class="counter">প্রশ্ন ' + bn(q+1) + '/' + bn(Q.length) + '</p>' +
+        (L.game ? '<div class="tbar" aria-hidden="true"><span style="--t:12s"></span></div>' : '') +
         '<h2>' + esc(item.q) + '</h2>' +
         '<div class="opts tf" id="opts"><button class="opt" data-v="true">✔ ঠিক</button><button class="opt" data-v="false">✖ ভুল</button></div><div id="fb"></div>';
       document.querySelectorAll('#opts .opt').forEach(function(b){
@@ -705,7 +809,7 @@
           var v = b.dataset.v === 'true', right = v === item.a;
           if (tries === 1) S.Q[q] = right ? 1 : 0;
           if (right){
-            done = true;
+            done = true; if (L.game && tries === 1 && Date.now() - t0 < 12000 && !reviewMode) G_.bonus(5, '⚡ ফাস্ট!');
             document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); if ((x.dataset.v === 'true') === item.a) x.classList.add('good'); });
             $('#fb').innerHTML = fbHtml('ok', tries === 1 ? praise() : 'Got it!', item.why, tries > 1) + nextBtn(last ? 'ফলাফল দেখুন →' : 'পরের প্রশ্ন →', 'nx');
             wireWhy();
@@ -779,15 +883,50 @@
     ask();
   };
 
+  R.match = function(){
+    var P = L.match.map(function(i){ return L.phrases[i]; }), n = P.length, matched = 0, selS = null, bad = {};
+    var enOrder = shuffle(P.map(function(x, k){ return k; })), bnOrder = shuffle(P.map(function(x, k){ return k; }));
+    setSub(0);
+    stage.innerHTML = '<h2>ইংরেজি আর বাংলা মেলান</h2><p class="lede">একটা ইংরেজি বাক্যে ট্যাপ করুন, তারপর তার বাংলা মানেতে।</p>' +
+      '<div class="mt-grid"><div class="mt-col" id="mtEn"></div><div class="mt-col" id="mtBn"></div></div><div id="fb"></div>';
+    function tiles(){
+      $('#mtEn').innerHTML = enOrder.map(function(k){ return '<button type="button" class="mt-tile en" data-k="' + k + '" data-s="en">' + esc(P[k].en) + '</button>'; }).join('');
+      $('#mtBn').innerHTML = bnOrder.map(function(k){ return '<button type="button" class="mt-tile" data-k="' + k + '" data-s="bn">' + esc(P[k].bn) + '</button>'; }).join('');
+      stage.querySelectorAll('.mt-tile').forEach(function(b){ b.onclick = function(){ tap(b); }; });
+    }
+    function tap(b){
+      if (b.classList.contains('good')) return;
+      if (!selS){ selS = b; b.classList.add('sel'); if (b.dataset.s === 'en' && canSpeak) say(P[+b.dataset.k].en); else SFX.tick(); return; }
+      if (selS === b){ b.classList.remove('sel'); selS = null; return; }
+      if (selS.dataset.s === b.dataset.s){ selS.classList.remove('sel'); selS = b; b.classList.add('sel'); if (b.dataset.s === 'en' && canSpeak) say(P[+b.dataset.k].en); return; }
+      var a = selS; selS = null; a.classList.remove('sel');
+      if (a.dataset.k === b.dataset.k){
+        a.classList.add('good'); b.classList.add('good'); matched++; setSub(matched);
+        if (L.game && !reviewMode){ if (bad[a.dataset.k]) G_.retry(); else G_.first(); }
+        if (matched === n){ $('#fb').innerHTML = '<div class="fb ok"><span class="fb-ic" aria-hidden="true">✓</span><b class="fb-t">সব মিলে গেছে!</b></div>' + nextBtn('পরের লেভেল →', 'nx'); $('#nx').onclick = next; $('#nx').focus(); }
+      } else {
+        bad[a.dataset.k] = bad[b.dataset.k] = 1; if (L.game) G_.bad();
+        [a, b].forEach(function(x){ x.classList.add('shake'); setTimeout(function(){ x.classList.remove('shake'); }, 400); });
+      }
+    }
+    tiles();
+  };
+
   R.mission = function(){
     var M = L.mission;
     setSub(0);
-    stage.innerHTML = '<h2>' + esc(M.title || 'আজ কাজে এই ৩টি বাক্য বলুন') + '</h2>' +
-      (M.intro ? '<p class="lede">' + esc(M.intro) + '</p>' : '') +
-      '<ul class="mis">' + M.items.map(function(it, k){ return '<li>' + (canSpeak ? '<button type="button" class="hear-mini" data-k="' + k + '" aria-label="শুনুন">' + ICON_SPEAKER + '</button>' : '') + '<div class="mt"><b>' + esc(it.en) + '</b><span>' + esc(it.bn) + '</span></div></li>'; }).join('') + '</ul>' +
-      (M.tip ? '<p class="trap-tip">' + esc(M.tip) + '</p>' : '') + nextBtn('মিশন বুঝেছি →', 'nx');
-    stage.querySelectorAll('.hear-mini').forEach(function(b){ b.onclick = function(){ say(M.items[+b.dataset.k].en); }; });
-    $('#nx').onclick = next;
+    function reveal(){
+      stage.innerHTML = '<h2>' + esc(M.title || 'আজ কাজে এই ৩টি বাক্য বলুন') + '</h2>' +
+        (M.intro ? '<p class="lede">' + esc(M.intro) + '</p>' : '') +
+        '<ul class="mis">' + M.items.map(function(it, k){ return '<li>' + (canSpeak ? '<button type="button" class="hear-mini" data-k="' + k + '" aria-label="শুনুন">' + ICON_SPEAKER + '</button>' : '') + '<div class="mt"><b>' + esc(it.en) + '</b><span>' + esc(it.bn) + '</span></div></li>'; }).join('') + '</ul>' +
+        (M.tip ? '<p class="trap-tip">' + esc(M.tip) + '</p>' : '') + nextBtn('মিশন বুঝেছি →', 'nx');
+      stage.querySelectorAll('.hear-mini').forEach(function(b){ b.onclick = function(){ say(M.items[+b.dataset.k].en); }; });
+      $('#nx').onclick = next; enter();
+    }
+    if (L.game && !reviewMode){
+      stage.innerHTML = '<h2>🎉 লেভেল পার! পুরস্কার অপেক্ষা করছে</h2><p class="lede">চেস্টে ট্যাপ করে আজকের মিশন খুলুন।</p><button type="button" class="chest" id="chest"><span class="ci">🎁</span><b>ট্রেজার চেস্ট খুলুন</b></button>';
+      $('#chest').onclick = function(){ SFX.win(); vib(40); confetti(36); G_.bonus(10, '🎁 মিশন'); setTimeout(reveal, 450); };
+    } else reveal();
   };
 
   R.done = function(){
@@ -803,9 +942,16 @@
     var prev = prog[L.id] ? prog[L.id].stars : 0;
     if (reviewMode){ var rv = read('be_review', {}); rv[L.id] = dstr(new Date()); write('be_review', rv); }
     else { prog[L.id] = { stars: Math.max(prev, five), date: dstr(new Date()) }; write('be_progress', prog); }
-    var streak = bumpStreak();
+    var streak = bumpStreak(), totalXp = 0, rankTxt = '';
+    if (L.game && !reviewMode){
+      try { totalXp = (+localStorage.getItem('be_xp') || 0) + G.xp; localStorage.setItem('be_xp', String(totalXp)); } catch(e){}
+      var rk = L.ranks || ['শিক্ষানবিস','দক্ষ কর্মী','সাইট হিরো'];
+      rankTxt = five >= 5 ? rk[2] : five >= 3 ? rk[1] : rk[0];
+      setTimeout(function(){ SFX.win(); confetti(60); vib(80); }, 300);
+    }
     track(reviewMode ? 'lesson_review_done' : 'lesson_complete',{lesson_id:L.id,stars:five});
     var rows = '';
+    if (L.game && !reviewMode){ rows += '<li><span>⚡ এই লেসনে XP</span><b>' + bn(G.xp) + '</b></li><li><span>🔥 সেরা কম্বো</span><b>×' + bn(G.best) + '</b></li><li><span>🏅 আপনার র‍্যাঙ্ক</span><b>' + esc(rankTxt) + '</b></li>'; }
     if (nL) rows += '<li><span>শুনে চেনা</span><b>' + bn(okL) + '/' + bn(nL) + '</b></li>';
     if (nD) rows += '<li><span>কথোপকথনের তারা</span><b>' + bn(sumD) + '/' + bn(nD * 3) + '</b></li>';
     if (nQ) rows += '<li><span>Quick Quiz</span><b>' + bn(okQ) + '/' + bn(nQ) + '</b></li>';
@@ -842,7 +988,8 @@
     stage.innerHTML = '<div class="missing"><p class="lede">এই লেসনটি এখনো তৈরি হয়নি।</p><a class="btn btn-main" href="index.html#needs">সব লেসনে ফিরুন</a></div>';
   }
   function start(){
-    L = window.LESSON; S = {}; WHO = L.who || 'বস';
+    var sb = $('#hudSnd'); if (sb) sb.onclick = function(){ muted = !muted; try { localStorage.setItem('be_mute', muted ? '1' : '0'); } catch(e){} hudPaint(); if (!muted) SFX.ok(); };
+    L = window.LESSON; S = {}; WHO = L.who || 'বস'; G = { xp: 0, combo: 0, best: 0 };
     var pr = read('be_progress', {})[L.id];
     if (!reviewMode) track('lesson_open',{lesson_id:L.id,repeat:!!pr});
     doneBefore = !!pr; doneStars = pr && pr.stars ? pr.stars : 0; replayStarted = false;
@@ -870,7 +1017,8 @@
       go(0); return;
     }
     flow = L.type === 'B' ? ['phrases','listen','speak','done'] : ['scene','phrases','listen','speak','dialogue','quiz','done'];
-    if (L.traps && L.traps.length){ flow.splice(flow.indexOf('phrases') + 1, 0, 'traps'); }
+    if (L.game && L.match && L.match.length){ flow.splice(flow.indexOf('phrases') + 1, 0, 'match'); }
+    if (L.traps && L.traps.length){ flow.splice(flow.indexOf(L.game && L.match && L.match.length ? 'match' : 'phrases') + 1, 0, 'traps'); }
     if (L.typing && L.typing.length){ flow.splice(flow.indexOf('listen') + 1, 0, 'type'); }
     if (L.order && L.order.length){ flow.splice(flow.indexOf(L.typing && L.typing.length ? 'type' : 'listen') + 1, 0, 'order'); }
     if (L.spot && L.spot.length){ flow.splice(flow.indexOf(L.order && L.order.length ? 'order' : (L.typing && L.typing.length ? 'type' : 'listen')) + 1, 0, 'spot'); }
