@@ -613,12 +613,12 @@
       var it = T[q], last = q === T.length - 1, tries = 0, done = false;
       setSub(q);
       stage.innerHTML =
-        '<p class="counter">লিখুন ' + bn(q+1) + '/' + bn(T.length) + '</p>' +
+        '<p class="counter">' + (L.game ? 'Write · ' : '') + 'লিখুন ' + bn(q+1) + '/' + bn(T.length) + '</p>' +
         '<h2>' + esc(it.ask) + '</h2>' +
         (it.en ? '<p class="big-en" style="font-size:clamp(22px,5.8vw,28px);margin:0 0 6px">' + esc(it.en) + '</p>' : '') +
         (it.say ? (canSpeak ? '<div class="row" style="margin-top:6px"><button class="btn btn-alt" id="tPlay">' + ICON_SPEAKER + 'বাজান</button><button class="btn btn-alt" id="tSlow">🐢 ধীরে</button></div>' : '<p class="big-en" style="font-size:24px">' + esc(it.say) + '</p>') : '') +
         '<input class="tin" id="tIn" type="text" inputmode="' + (it.num ? 'numeric' : 'text') + '" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="' + esc(it.ph || 'এখানে লিখুন') + '" aria-label="আপনার উত্তর">' +
-        '<div class="row" id="tBtns"><button class="btn btn-main" id="tCheck">দেখি</button><button class="btn btn-alt" id="tSkip">এড়িয়ে যান</button></div><div id="fb"></div>';
+        '<div class="row" id="tBtns"><button class="btn btn-main" id="tCheck">' + (L.game ? 'Check · ' : '') + 'দেখি</button><button class="btn btn-alt" id="tSkip">' + (L.game ? 'Skip · ' : '') + 'এড়িয়ে যান</button></div><div id="fb"></div>';
       if ($('#tPlay')) { $('#tPlay').onclick = function(){ say(it.say); }; $('#tSlow').onclick = function(){ say(it.say, 0.55); }; setTimeout(function(){ say(it.say); }, 250); }
       var inp = $('#tIn');
       function advance(){ if (last) next(); else { q++; ask(); enter(); } }
@@ -640,8 +640,8 @@
         tries++;
         var ok = it.answers.some(function(a){ return norm(a) === norm(v); });
         if (ok) finish('ok', tries === 1 ? praise() : 'Got it!', it.why ? '<p class="why">' + esc(it.why) + '</p>' : '');
-        else if (tries >= 2) finish('mid', 'প্রায় হয়েছে! সঠিক: ' + (it.show || it.answers[0]), it.why ? '<p class="why">' + esc(it.why) + '</p>' : '');
-        else { inp.classList.add('shake'); setTimeout(function(){ inp.classList.remove('shake'); }, 400); $('#fb').innerHTML = fbHtml('no', 'আরেকবার চেষ্টা করুন'); inp.focus(); inp.select(); }
+        else if (tries >= 2) finish('mid', (L.game ? 'Almost! Correct answer: ' : 'প্রায় হয়েছে! সঠিক: ') + (it.show || it.answers[0]), it.why ? '<p class="why">' + esc(it.why) + '</p>' : '');
+        else { inp.classList.add('shake'); setTimeout(function(){ inp.classList.remove('shake'); }, 400); $('#fb').innerHTML = fbHtml('no', L.game ? 'Try again · আরেকবার চেষ্টা করুন' : 'আরেকবার চেষ্টা করুন'); inp.focus(); inp.select(); }
       }
       $('#tCheck').onclick = check;
       $('#tSkip').onclick = advance;
