@@ -388,5 +388,6 @@ window.LESSON = {
       "why": "pour = ঢালা",
       "ph": "ইংরেজি শব্দ"
     }
-  ]
+  ],
+  "next": {"title": "Hand Signals, Machines & Site Vehicles", "id": "con-signals-machines"}
 };
