@@ -1,6 +1,7 @@
 window.LESSON = {
   "id": "con-signals-machines",
   "type": "A",
+  "build": true,
   "who": "সাইট সুপারভাইজার",
   "title": "Hand Signals, Machines & Site Vehicles",
   "titleBn": "হাতের ইশারা, মেশিন ও সাইটের গাড়ি",
