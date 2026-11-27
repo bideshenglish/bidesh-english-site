@@ -401,5 +401,129 @@ window.LESSON = {
   "next": {
     "title": "Hand Signals, Machines & Site Vehicles",
     "id": "con-signals-machines"
+  },
+  "order": [
+    {
+      "ask": "গর্ত খুঁড়বেন। কোন ক্রমে?",
+      "steps": [
+        {
+          "en": "Ask: How deep?",
+          "bn": "জিজ্ঞেস করুন: কত গভীর?"
+        },
+        {
+          "en": "Repeat the size",
+          "bn": "মাপটা আবার বলুন"
+        },
+        {
+          "en": "Mark the place",
+          "bn": "জায়গা চিহ্নিত করুন"
+        },
+        {
+          "en": "Start digging",
+          "bn": "খোঁড়া শুরু করুন"
+        }
+      ],
+      "why": "মাপ আবার বলে নিশ্চিত হলে কাজ ভুল হয় না।"
+    },
+    {
+      "ask": "কাজ শেষ। কোন ক্রমে?",
+      "steps": [
+        {
+          "en": "Stop the work",
+          "bn": "কাজ থামান"
+        },
+        {
+          "en": "Clean the site",
+          "bn": "সাইট পরিষ্কার করুন"
+        },
+        {
+          "en": "Put the tools back",
+          "bn": "যন্ত্র জায়গায় রাখুন"
+        },
+        {
+          "en": "Say: I finished",
+          "bn": "বলুন: আমি শেষ করেছি"
+        }
+      ],
+      "why": "পরিষ্কার সাইট মানে নিরাপদ সাইট। আর শেষে জানালে ফোরম্যান পরের কাজ দিতে পারেন।"
+    }
+  ],
+  "spot": [
+    {
+      "q": "কোনটা ভুল?",
+      "scene": "ফোরম্যান মাপ বললেন, আপনি পুরো বোঝেননি।",
+      "options": [
+        {
+          "t": "I say \"Okay\" and start digging. (\"Okay\" বলে খুঁড়ি)",
+          "ok": true
+        },
+        {
+          "t": "I repeat the size to check. (মাপ আবার বলি)",
+          "ok": false
+        },
+        {
+          "t": "I ask: Can you show me? (দেখিয়ে দিতে বলি)",
+          "ok": false
+        }
+      ],
+      "why": "না বুঝে শুরু করলে কাজ আবার করতে হয়।"
+    },
+    {
+      "q": "কোনটা ভুল?",
+      "scene": "মেঝেতে কংক্রিট ঢালবেন।",
+      "options": [
+        {
+          "t": "I pour first. I check the level later. (আগে ঢালি, পরে লেভেল দেখি)",
+          "ok": true
+        },
+        {
+          "t": "I check the level first. (আগে লেভেল দেখি)",
+          "ok": false
+        },
+        {
+          "t": "I ask: Is this level? (জিজ্ঞেস করি)",
+          "ok": false
+        }
+      ],
+      "why": "কংক্রিট জমে গেলে ঠিক করা যায় না। আগে লেভেল দেখুন।"
+    },
+    {
+      "q": "কোনটা ভুল?",
+      "scene": "কাজ শেষ হয়েছে।",
+      "options": [
+        {
+          "t": "I leave the site dirty and go home. (নোংরা রেখে চলে যাই)",
+          "ok": true
+        },
+        {
+          "t": "I clean the site. (পরিষ্কার করি)",
+          "ok": false
+        },
+        {
+          "t": "I tell the foreman: I finished. (জানাই)",
+          "ok": false
+        }
+      ],
+      "why": "নোংরা সাইটে পরের দিন কেউ পড়ে যেতে পারে।"
+    }
+  ],
+  "mission": {
+    "title": "আজ কাজে বলুন",
+    "intro": "আজ কাজে অন্তত একবার এই তিনটি বাক্যের একটা ব্যবহার করুন।",
+    "items": [
+      {
+        "en": "How deep should I dig?",
+        "bn": "কত গভীর করে খুঁড়ব?"
+      },
+      {
+        "en": "Is this level?",
+        "bn": "এটা কি সমান (লেভেল)?"
+      },
+      {
+        "en": "I finished. What should I do next?",
+        "bn": "আমি শেষ করেছি। এরপর কী করব?"
+      }
+    ],
+    "tip": "মাপ বুঝে নিন, আবার বলুন, তারপর কাজ শুরু।"
   }
 };

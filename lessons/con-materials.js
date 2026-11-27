@@ -391,5 +391,129 @@ window.LESSON = {
       "why": "many = কয়টা",
       "ph": "ইংরেজি শব্দ"
     }
-  ]
+  ],
+  "order": [
+    {
+      "ask": "ভারী সিমেন্টের বস্তা তুলবেন। কোন ক্রমে?",
+      "steps": [
+        {
+          "en": "Check the weight",
+          "bn": "ওজন দেখুন"
+        },
+        {
+          "en": "Ask for help if it is heavy",
+          "bn": "ভারী হলে সাহায্য চান"
+        },
+        {
+          "en": "Bend your knees",
+          "bn": "হাঁটু বাঁকান"
+        },
+        {
+          "en": "Lift with your legs",
+          "bn": "পা দিয়ে তুলুন"
+        }
+      ],
+      "why": "হাঁটু বাঁকিয়ে, পিঠ সোজা রেখে তুলুন। ভারী হলে সাহায্য নিন (OSHA-র লিফটিং নির্দেশিকা)।"
+    },
+    {
+      "ask": "মশলা মেশাবেন। কোন ক্রমে?",
+      "steps": [
+        {
+          "en": "Mix cement and sand",
+          "bn": "সিমেন্ট আর বালি মেশান"
+        },
+        {
+          "en": "Add water slowly",
+          "bn": "ধীরে পানি দিন"
+        },
+        {
+          "en": "Mix well",
+          "bn": "ভালো করে মেশান"
+        },
+        {
+          "en": "Check: not too wet, not too dry",
+          "bn": "দেখুন: বেশি ভেজা বা শুকনো নয়"
+        }
+      ],
+      "why": "পানি একবারে বেশি দিলে মিশ্রণ নষ্ট হয়। ধীরে দিন। (অনুপাত সাইট-ইঞ্জিনিয়ার বলে দেবেন।)"
+    }
+  ],
+  "spot": [
+    {
+      "q": "কোনটা ভুল?",
+      "scene": "একটা ভারী সিমেন্টের বস্তা তুলতে হবে।",
+      "options": [
+        {
+          "t": "I bend my back and lift it alone. (পিঠ বাঁকিয়ে একা তুলি)",
+          "ok": true
+        },
+        {
+          "t": "I bend my knees and lift. (হাঁটু বাঁকিয়ে তুলি)",
+          "ok": false
+        },
+        {
+          "t": "I ask someone to help me. (কাউকে সাহায্য করতে বলি)",
+          "ok": false
+        }
+      ],
+      "why": "পিঠ বাঁকিয়ে ভারী জিনিস তুললে পিঠে স্থায়ী ব্যথা হয়।"
+    },
+    {
+      "q": "কোনটা ভুল?",
+      "scene": "বৃষ্টির আগে সিমেন্টের বস্তা পড়ে আছে।",
+      "options": [
+        {
+          "t": "I leave the cement open in the rain. (খোলা রেখে দিই)",
+          "ok": true
+        },
+        {
+          "t": "I cover the cement. (ঢেকে রাখি)",
+          "ok": false
+        },
+        {
+          "t": "I keep it dry. (শুকনো রাখি)",
+          "ok": false
+        }
+      ],
+      "why": "ভিজলে সিমেন্ট জমে নষ্ট হয়ে যায়।"
+    },
+    {
+      "q": "কোনটা ভুল?",
+      "scene": "ইট সাজাতে হবে।",
+      "options": [
+        {
+          "t": "I stack the bricks on the road. (রাস্তায় সাজাই)",
+          "ok": true
+        },
+        {
+          "t": "I stack the bricks near the wall. (দেয়ালের পাশে সাজাই)",
+          "ok": false
+        },
+        {
+          "t": "I ask: Where should I stack the bricks? (জিজ্ঞেস করি)",
+          "ok": false
+        }
+      ],
+      "why": "রাস্তায় ইট রাখলে গাড়ি ও মানুষের বিপদ হয়।"
+    }
+  ],
+  "mission": {
+    "title": "আজ কাজে বলুন",
+    "intro": "আজ কাজে অন্তত একবার এই তিনটি বাক্যের একটা ব্যবহার করুন।",
+    "items": [
+      {
+        "en": "This bag is too heavy. Can someone help me?",
+        "bn": "এই বস্তা খুব ভারী। কেউ সাহায্য করবেন?"
+      },
+      {
+        "en": "Is the mix okay now?",
+        "bn": "মিশ্রণ এখন ঠিক আছে?"
+      },
+      {
+        "en": "Where should I stack the bricks?",
+        "bn": "ইট কোথায় সাজাব?"
+      }
+    ],
+    "tip": "ভারী জিনিসে সাহায্য চাওয়া লজ্জার নয়। এতে পিঠ বাঁচে।"
+  }
 };
