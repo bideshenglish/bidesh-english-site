@@ -599,9 +599,35 @@
             '<div class="trap-tx"><b>' + esc(it.en) + '</b>' + (it.note ? '<span>' + esc(it.note) + '</span>' : '') + '</div></div>';
         }).join('') + '</div>' +
         '<p class="trap-tip">' + esc(t.tip) + '</p>' +
-        nextBtn(last ? 'পরের ধাপ →' : 'পরেরটা →', 'nextTrap');
+        nextBtn(L.game ? 'পরীক্ষা দিন ⚡ →' : (last ? 'পরের ধাপ →' : 'পরেরটা →'), 'nextTrap');
       stage.querySelectorAll('.hear-mini').forEach(function(b){ b.onclick = function(){ var it = t.items[+b.dataset.k]; say(it.say || it.en); }; });
-      $('#nextTrap').onclick = function(){ if (last) next(); else { i++; card(); enter(); } };
+      $('#nextTrap').onclick = function(){ if (L.game && !reviewMode) { challenge(t, last); enter(); } else if (last) next(); else { i++; card(); enter(); } };
+    }
+    function challenge(t, last){
+      var qs = shuffle(t.items).slice(0, Math.min(2, t.items.length)), q = 0;
+      function ask(){
+        var it = qs[q], opts = shuffle(t.items), done = false, tries = 0, lastQ = q === qs.length - 1;
+        stage.innerHTML = '<span class="trap-tag">⚡ কুইক টেস্ট ' + bn(q+1) + '/' + bn(qs.length) + '</span>' +
+          '<h2>এটার মানে কী? What does it mean?</h2>' +
+          '<div class="row" style="margin:6px 0 4px;align-items:center"><p class="big-en" style="margin:0;font-size:clamp(26px,7vw,34px)">' + esc(it.en) + '</p>' + (canSpeak ? '<button type="button" class="hear" id="chHear" aria-label="শুনুন">' + ICON_SPEAKER + '</button>' : '') + '</div>' +
+          '<div class="opts" id="opts">' + opts.map(function(o, k){ return '<button class="opt" data-k="' + k + '">' + esc(o.note) + '</button>'; }).join('') + '</div><div id="fb"></div>';
+        if ($('#chHear')) { $('#chHear').onclick = function(){ say(it.say || it.en); }; setTimeout(function(){ say(it.say || it.en); }, 250); }
+        document.querySelectorAll('#opts .opt').forEach(function(b){
+          b.onclick = function(){
+            if (done || b.getAttribute('aria-disabled') === 'true') return;
+            tries++;
+            var o = opts[+b.dataset.k];
+            if (o === it){
+              done = true;
+              document.querySelectorAll('#opts .opt').forEach(function(x){ x.setAttribute('aria-disabled','true'); if (opts[+x.dataset.k] === it) x.classList.add('good'); });
+              $('#fb').innerHTML = fbHtml('ok', tries === 1 ? praise() : 'Got it!', t.tip, false) + nextBtn(lastQ ? (last ? 'পরের লেভেল →' : 'পরের কার্ড →') : 'পরের প্রশ্ন →', 'nx'); wireWhy();
+              $('#nx').onclick = function(){ if (!lastQ){ q++; ask(); enter(); } else if (last) next(); else { i++; card(); enter(); } };
+              $('#nx').focus();
+            } else { b.classList.add('bad', 'shake'); b.setAttribute('aria-disabled', 'true'); $('#fb').innerHTML = fbHtml('no', 'Try again'); }
+          };
+        });
+      }
+      ask();
     }
     card();
   };
@@ -660,6 +686,7 @@
       stage.innerHTML =
         '<p class="counter">প্রশ্ন ' + bn(q+1) + '/' + bn(Q.length) + '</p>' +
         '<h2>' + (canSpeak ? 'শুনুন, তারপর অর্থ বাছুন' : 'এই বাক্যের অর্থ কী?') + '</h2>' +
+        (L.game && canSpeak ? '<p class="big-en" style="font-size:clamp(22px,6vw,28px);margin:2px 0 6px">' + esc(item.say) + '</p>' : '') +
         (canSpeak ? '<div class="row" style="margin-top:6px"><button class="btn btn-alt" id="play">' + ICON_SPEAKER + 'বাজান</button><button class="btn btn-alt" id="playSlow">🐢 ধীরে</button></div>' : '<p class="big-en">' + esc(item.say) + '</p>') +
         '<div class="opts" id="opts">' + opts.map(function(o, k){ return '<button class="opt" data-k="' + k + '">' + esc(o.t) + '</button>'; }).join('') + '</div>' +
         '<div id="fb"></div>';
