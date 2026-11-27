@@ -1,11 +1,21 @@
 window.LESSON = {
   "id": "interview-trade-test",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    0,
+    2,
+    4,
+    5,
+    6
+  ],
   "who": "ইন্টারভিউয়ার",
   "title": "Job Interview & Trade Test",
   "titleBn": "ইন্টারভিউ ও কাজের পরীক্ষা, না বুঝে \"Yes\" বলবেন না",
   "next": {
-    "title": "Understanding Your Job Contract"
+    "title": "Understanding Your Job Contract",
+    "id": "job-contract"
   },
   "scene": "না বুঝে \"Yes, sir\" বললে ইন্টারভিউ বা ট্রেড টেস্টে ভুল হয়। আজ শিখবেন কীভাবে বুঝে নেবেন আর জিজ্ঞেস করবেন।",
   "hook": {

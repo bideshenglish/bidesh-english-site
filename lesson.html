@@ -551,7 +551,9 @@
       if (L.build) buildIt(p);
     }
     function buildIt(p){
-      var words = p.en.split(/\s+/).filter(Boolean), pool = shuffle(words.map(function(w, k){ return { w: w, id: k }; })), placed = [], fin = false, wrongN = 0;
+      var words = p.en.split(/\s+/).filter(Boolean);
+      if (words.length > 10) return;
+      var pool = shuffle(words.map(function(w, k){ return { w: w, id: k }; })), placed = [], fin = false, wrongN = 0;
       if (words.length > 1 && pool.map(function(x){ return x.w; }).join(' ') === p.en) pool.reverse();
       var nb = $('#nextCard'), prEl = stage.querySelector('.pr-text'), msg = $('#bdMsg');
       nb.disabled = true; nb.setAttribute('aria-disabled', 'true'); nb.style.opacity = '.45';

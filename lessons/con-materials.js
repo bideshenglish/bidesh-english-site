@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "con-materials",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    1,
+    2,
+    3,
+    5,
+    9
+  ],
   "who": "ফোরম্যান",
   "title": "Cement, Sand, Bricks & Rods",
   "titleBn": "সিমেন্ট, বালি, ইট ও রড",

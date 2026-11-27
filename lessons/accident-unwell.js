@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "accident-unwell",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    0,
+    1,
+    2,
+    4,
+    5
+  ],
   "who": "সুপারভাইজার",
   "title": "Accident, Injury or Feeling Unwell",
   "titleBn": "দুর্ঘটনা, আঘাত বা শরীর খারাপ হলে",

@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "boss",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
   "title": "Talking to Your Boss",
   "titleBn": "বসের সাথে কথা বলা",
   "next": {

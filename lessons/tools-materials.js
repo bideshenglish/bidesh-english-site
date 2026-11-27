@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "tools-materials",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    0,
+    1,
+    2,
+    4,
+    6
+  ],
   "who": "সুপারভাইজার",
   "title": "Asking for Tools & Materials",
   "titleBn": "যন্ত্রপাতি ও জিনিস চেয়ে নেওয়া",

@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "con-tools",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    0,
+    1,
+    2,
+    3,
+    5
+  ],
   "who": "ফোরম্যান",
   "title": "Common Tools & Equipment",
   "titleBn": "নির্মাণ কাজের সাধারণ যন্ত্রপাতি",

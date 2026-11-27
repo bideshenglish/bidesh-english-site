@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "safety-signs",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
   "who": "সুপারভাইজার",
   "title": "Safety Signs & Warnings",
   "titleBn": "নিরাপত্তার চিহ্ন ও সতর্কবার্তা",

@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "camp-roommates",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    0,
+    1,
+    2,
+    7,
+    10
+  ],
   "who": "ক্যাম্পের সঙ্গী",
   "title": "Camp Life & Roommates",
   "titleBn": "ক্যাম্পে থাকা ও রুমমেটদের সাথে চলা",

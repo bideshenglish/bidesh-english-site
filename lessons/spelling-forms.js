@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "spelling-forms",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    2,
+    3,
+    4,
+    6,
+    7
+  ],
   "who": "কাউন্টারের লোক",
   "title": "Spelling Your Name & Filling Out Forms",
   "titleBn": "নামের বানান বলা ও ফর্ম পূরণ, একটা অক্ষর ভুল হলেই ঝামেলা",

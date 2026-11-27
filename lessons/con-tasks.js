@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "con-tasks",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    0,
+    1,
+    2,
+    6,
+    8
+  ],
   "who": "ফোরম্যান",
   "title": "Dig, Lift, Pour & Measure",
   "titleBn": "খোঁড়া, তোলা, ঢালা ও মাপা",
@@ -389,5 +398,8 @@ window.LESSON = {
       "ph": "ইংরেজি শব্দ"
     }
   ],
-  "next": {"title": "Hand Signals, Machines & Site Vehicles", "id": "con-signals-machines"}
+  "next": {
+    "title": "Hand Signals, Machines & Site Vehicles",
+    "id": "con-signals-machines"
+  }
 };

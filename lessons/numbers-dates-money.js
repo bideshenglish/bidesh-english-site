@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "numbers-dates-money",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    1,
+    2,
+    4,
+    5,
+    7
+  ],
   "who": "অফিস / দোকান",
   "title": "Numbers, Dates & Money",
   "titleBn": "সংখ্যা, তারিখ ও টাকা, যা ভুল শুনলে ক্ষতি হয়",

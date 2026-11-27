@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "intro-experience",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    0,
+    2,
+    3,
+    6,
+    8
+  ],
   "who": "ইন্টারভিউয়ার",
   "title": "Introducing Yourself & Your Experience",
   "titleBn": "নিজের পরিচয় ও কাজের অভিজ্ঞতা বলা",

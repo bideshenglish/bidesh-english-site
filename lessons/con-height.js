@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "con-height",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    0,
+    1,
+    2,
+    4,
+    8
+  ],
   "who": "ফোরম্যান",
   "title": "Scaffolding & Working at Height",
   "titleBn": "ভারা ও উঁচুতে কাজ",

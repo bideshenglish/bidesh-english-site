@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "site-instructions",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
   "who": "সুপারভাইজার",
   "title": "Understanding Instructions on Site",
   "titleBn": "কাজের জায়গায় নির্দেশ বোঝা",

@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "shift-overtime",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    0,
+    1,
+    2,
+    7,
+    8
+  ],
   "who": "সুপারভাইজার",
   "title": "Shift, Attendance & Overtime Hours",
   "titleBn": "শিফট, হাজিরা ও ওভারটাইম",

@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "salary-payday",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    0,
+    1,
+    2,
+    5,
+    7
+  ],
   "who": "সুপারভাইজার",
   "title": "Salary & Payday",
   "titleBn": "বেতন ও পেমেন্টের দিন",

@@ -1,6 +1,15 @@
 window.LESSON = {
   "id": "breaks-meals",
   "type": "A",
+  "build": true,
+  "game": true,
+  "match": [
+    0,
+    1,
+    2,
+    3,
+    5
+  ],
   "who": "সুপারভাইজার",
   "title": "Breaks, Meals & Prayer Time",
   "titleBn": "বিরতি, খাবার ও নামাজের সময়",
