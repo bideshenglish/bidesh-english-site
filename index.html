@@ -655,7 +655,8 @@ const lessonLinks = {
   "Cement, Sand, Bricks & Rods": "lesson.html?id=con-materials",
   "Scaffolding & Working at Height": "lesson.html?id=con-height",
   "Dig, Lift, Pour & Measure": "lesson.html?id=con-tasks",
-  "Hand Signals, Machines & Site Vehicles": "lesson.html?id=con-signals-machines"
+  "Hand Signals, Machines & Site Vehicles": "lesson.html?id=con-signals-machines",
+  "Toolbox Talk, PPE & Site Rules": "lesson.html?id=con-toolbox"
 };
 
 (function(){
@@ -775,7 +776,7 @@ const professions = [
 ];
 // যে পেশার লেসন তৈরি হয়ে গেছে, তার নাম এখানে যোগ করুন (যেমন: professionLessons["ড্রাইভার"] = ["লেসন ১", ...])
 const professionLessons = {};
-professionLessons["সাধারণ শ্রমিক / নির্মাণকর্মী"] = ["Common Tools & Equipment","Cement, Sand, Bricks & Rods","Scaffolding & Working at Height","Dig, Lift, Pour & Measure","Hand Signals, Machines & Site Vehicles"];
+professionLessons["সাধারণ শ্রমিক / নির্মাণকর্মী"] = ["Common Tools & Equipment","Cement, Sand, Bricks & Rods","Scaffolding & Working at Height","Dig, Lift, Pour & Measure","Hand Signals, Machines & Site Vehicles","Toolbox Talk, PPE & Site Rules"];
 
 const flatOrder = professions.map((_, i) => i);
 const toBn = n => String(n).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
@@ -950,7 +951,8 @@ document.querySelectorAll('.sub-tabs').forEach(row => {
     "Cement, Sand, Bricks & Rods":"সিমেন্ট বালি ইট রড মালামাল cement sand brick rod",
     "Scaffolding & Working at Height":"ভারা উঁচুতে হার্নেস মই উচ্চতা scaffolding height harness",
     "Dig, Lift, Pour & Measure":"খোঁড়া তোলা ঢালা মাপা কংক্রিট dig lift pour measure concrete",
-    "Hand Signals, Machines & Site Vehicles":"হাতের ইশারা মেশিন ক্রেন এক্সকাভেটর ট্রাক সাইট গাড়ি hand signals crane excavator truck site vehicles"
+    "Hand Signals, Machines & Site Vehicles":"হাতের ইশারা মেশিন ক্রেন এক্সকাভেটর ট্রাক সাইট গাড়ি hand signals crane excavator truck site vehicles",
+    "Toolbox Talk, PPE & Site Rules":"সেফটি মিটিং হেলমেট সুরক্ষা সরঞ্জাম সাইনবোর্ড নিয়ম toolbox talk ppe helmet danger sign site rules"
   };
   const norm = s => String(s).toLowerCase().replace(/\s+/g,' ').trim();
   const items = [];
