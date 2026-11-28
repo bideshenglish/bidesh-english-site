@@ -525,6 +525,7 @@ window.LESSON = {
     "tip": "সাধারণ সচেতনতার জন্য; আপনার সাইটের নিয়ম ও ট্রেনিং সবার আগে।"
   },
   "next": {
-    "title": "Heat, Water & Weather"
+    "title": "Heat, Water & Weather",
+    "id": "con-heat"
   }
 };
