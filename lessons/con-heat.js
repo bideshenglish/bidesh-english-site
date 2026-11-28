@@ -525,6 +525,7 @@ window.LESSON = {
     "tip": "শরীর খারাপ লাগলে সঙ্গে সঙ্গে বলুন, লজ্জা পাবেন না। সাধারণ সচেতনতার জন্য, আপনার সাইটের নিয়ম সবার আগে।"
   },
   "next": {
-    "title": "Formwork, Concrete & Steel Helper"
+    "title": "Formwork, Concrete & Steel Helper",
+    "id": "con-concrete"
   }
 };
