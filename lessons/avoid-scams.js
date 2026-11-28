@@ -366,5 +366,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। এতে সময় পান আর নিজে যাচাই করতে পারেন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Sorry, I am not interested.",
+        "bn": "দুঃখিত, আমি আগ্রহী নই।"
+      },
+      {
+        "en": "I don't pay for a job.",
+        "bn": "আমি চাকরির জন্য টাকা দিই না।"
+      },
+      {
+        "en": "I will check and call you back.",
+        "bn": "আমি যাচাই করে আপনাকে ফোন করব।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Congratulations! You won a car! Pay fifty dollars today to get it. — অভিনন্দন! আপনি একটা গাড়ি জিতেছেন! পেতে আজ পঞ্চাশ ডলার দিন। (হোয়াটসঅ্যাপে অচেনা নম্বর থেকে ফোন)",
+      "options": [
+        {
+          "t": "Really? Okay, I will pay now!",
+          "ok": true
+        },
+        {
+          "t": "Sorry, I did not enter any contest. I don't pay to get a prize. Goodbye.",
+          "ok": false
+        },
+        {
+          "t": "No, thank you.",
+          "ok": false
+        }
+      ],
+      "why": "জেতার জন্য টাকা দিতে হয় না। দিলে টাকা চলে যাবে, গাড়ি আসবে না।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "This is the immigration office. Your visa has a problem. You will be arrested today unless you send money now. Don't hang up. — এটা ইমিগ্রেশন অফিস। আপনার ভিসায় সমস্যা আছে। এখনই টাকা না পাঠালে আজই গ্রেপ্তার হবেন। ফোন কাটবেন না। (অচেনা নম্বর)",
+      "options": [
+        {
+          "t": "Please, please! I will send the money now.",
+          "ok": true
+        },
+        {
+          "t": "I will check with my company and the office myself. Goodbye.",
+          "ok": false
+        },
+        {
+          "t": "Please give me your name and office.",
+          "ok": false
+        }
+      ],
+      "why": "সরকারি অফিস ফোনে টাকা চায় না। ভয় পেয়ে টাকা পাঠালে সব হারাবেন। ফোন কেটে যাচাই করুন।"
+    }
   ]
 };

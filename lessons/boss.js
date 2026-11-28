@@ -286,5 +286,64 @@ window.LESSON = {
       "why": "letting me know = আমাকে জানানোর জন্য",
       "ph": "ইংরেজি শব্দ"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Good morning, sir. You wanted to see me?",
+        "bn": "সুপ্রভাত, স্যার। আপনি আমাকে দেখতে চেয়েছিলেন?"
+      },
+      {
+        "en": "I'm sorry, I'll fix that right away.",
+        "bn": "দুঃখিত, আমি এখনই এটা ঠিক করে দিচ্ছি।"
+      },
+      {
+        "en": "I'll do better next time.",
+        "bn": "পরের বার আমি আরও ভালো করব।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "There was a small mistake in yesterday's report. — গতকালের রিপোর্টে একটা ছোট ভুল ছিল।",
+      "options": [
+        {
+          "t": "It wasn't my fault.",
+          "ok": true
+        },
+        {
+          "t": "I'm very sorry, I'll fix it right now.",
+          "ok": false
+        },
+        {
+          "t": "Oh... okay.",
+          "ok": false
+        }
+      ],
+      "why": "ভুল হলে আগে স্বীকার করাই ভালো, এতে বস বেশি আস্থা রাখেন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Good. Is there anything you need from me? — ঠিক আছে। আমার কাছ থেকে কি আপনার কিছু লাগবে?",
+      "options": [
+        {
+          "t": "No.",
+          "ok": true
+        },
+        {
+          "t": "No, thank you, sir. I'll let you know if I need anything.",
+          "ok": false
+        },
+        {
+          "t": "Can I leave early today?",
+          "ok": false
+        }
+      ],
+      "why": "শুধু \"No\" বললে রূঢ় শোনায়। বলুন: \"No, thank you, sir.\""
+    }
   ]
 };

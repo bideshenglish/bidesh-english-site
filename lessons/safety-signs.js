@@ -327,5 +327,64 @@ window.LESSON = {
       "why": "sign = চিহ্ন",
       "ph": "ইংরেজি শব্দ"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "What does this sign mean?",
+        "bn": "এই চিহ্নের মানে কী?"
+      },
+      {
+        "en": "Is it safe to go in here?",
+        "bn": "এখানে ঢোকা কি নিরাপদ?"
+      },
+      {
+        "en": "Where is the emergency exit?",
+        "bn": "জরুরি বের হওয়ার পথ কোথায়?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Do not go in there. It's dangerous. — ওখানে ঢুকো না। বিপজ্জনক।",
+      "options": [
+        {
+          "t": "Why? I need to go in.",
+          "ok": true
+        },
+        {
+          "t": "Yes, sir. I understand. Thank you.",
+          "ok": false
+        },
+        {
+          "t": "Okay.",
+          "ok": false
+        }
+      ],
+      "why": "নিরাপত্তার নির্দেশে তর্ক করবেন না। দরকার থাকলে বলুন: \"Is there another way, sir?\""
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Fire! Go to the emergency exit now! — আগুন! এখনই জরুরি বের হওয়ার পথে যাও!",
+      "options": [
+        {
+          "t": "Wait, I take my bag first.",
+          "ok": true
+        },
+        {
+          "t": "Yes, sir! Which way is the exit?",
+          "ok": false
+        },
+        {
+          "t": "What? Please say again.",
+          "ok": false
+        }
+      ],
+      "why": "আগুনে জিনিস নিতে থামবেন না। জীবন আগে, জিনিস পরে।"
+    }
   ]
 };

@@ -370,5 +370,64 @@ window.LESSON = {
       "why": "to = আগে। নয়টার ১৫ মিনিট আগে = ৮:৪৫",
       "ph": "ইংরেজি শব্দ"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Could you say that number again, please?",
+        "bn": "নম্বরটা আবার বলবেন, দয়া করে?"
+      },
+      {
+        "en": "Please write the amount for me.",
+        "bn": "টাকার অঙ্কটা লিখে দিন, দয়া করে।"
+      },
+      {
+        "en": "How much is the total?",
+        "bn": "মোট কত?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Your salary is fifteen hundred a month. — তোমার মাসিক বেতন fifteen hundred।",
+      "options": [
+        {
+          "t": "Okay, thank you.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, could you write the amount, please? Is that one thousand five hundred?",
+          "ok": false
+        },
+        {
+          "t": "Fifteen hundred? Okay.",
+          "ok": false
+        }
+      ],
+      "why": "না বুঝে সই করলে পরে বেতন নিয়ে ঝামেলা হতে পারে। আগে অঙ্ক নিশ্চিত করুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "That is twelve fifty. Here is your change: five dollars. — মোট বারো ডলার পঞ্চাশ সেন্ট। এই নিন আপনার খুচরা, পাঁচ ডলার। (আপনি দিয়েছিলেন ২০ ডলার)",
+      "options": [
+        {
+          "t": "Okay. Thank you.",
+          "ok": true
+        },
+        {
+          "t": "Excuse me, can you check the change, please? I gave you twenty dollars.",
+          "ok": false
+        },
+        {
+          "t": "Is this correct?",
+          "ok": false
+        }
+      ],
+      "why": "এতে ২.৫০ ডলার কম পেলেন। খুচরা গুনে নিন, ভুল হলে তখনই বলুন।"
+    }
   ]
 };

@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। কখন পৌঁছাবেন, সেটাও বলুন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I would like to make an appointment.",
+        "bn": "আমি একটা অ্যাপয়েন্টমেন্ট নিতে চাই।"
+      },
+      {
+        "en": "I finish work at five. Do you have anything after five?",
+        "bn": "আমার কাজ পাঁচটায় শেষ। পাঁচটার পরে কিছু আছে?"
+      },
+      {
+        "en": "Just to confirm, Friday at six thirty, right?",
+        "bn": "নিশ্চিত হতে, শুক্রবার সাড়ে ছয়টায়, ঠিক?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Good morning, City Clinic. How can I help you? — সুপ্রভাত, সিটি ক্লিনিক। কীভাবে সাহায্য করতে পারি? (আপনি ডাক্তারের সময় নিতে ফোন করেছেন, কাজ শেষ হয় পাঁচটায়)",
+      "options": [
+        {
+          "t": "I want doctor now.",
+          "ok": true
+        },
+        {
+          "t": "Good morning. I would like to make an appointment for Friday. I finish work at five. Do you have anything after five?",
+          "ok": false
+        },
+        {
+          "t": "Appointment, please.",
+          "ok": false
+        }
+      ],
+      "why": "জরুরি না হলে আগে সময় নিতে হয়। ভদ্রভাবে \"I would like to make an appointment\" বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Mr. Karim is in a meeting. Can I take a message? — করিম সাহেব মিটিংয়ে আছেন। মেসেজ রাখব? (আপনি অফিসে ফোন করেছেন, দরকারি কথা)",
+      "options": [
+        {
+          "t": "(Hangs up)",
+          "ok": true
+        },
+        {
+          "t": "Yes, please. This is Rahim. Please ask him to call me back after five. It is about my leave.",
+          "ok": false
+        },
+        {
+          "t": "Call me.",
+          "ok": false
+        }
+      ],
+      "why": "ফোন কেটে দিলে কেউ জানে না আপনি কে। মেসেজ রেখে যান।"
+    }
   ]
 };

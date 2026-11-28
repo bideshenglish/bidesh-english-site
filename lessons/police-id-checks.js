@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। নরম সুরে জানতে চাওয়া দোষের নয়।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Yes, officer. Here is my ID.",
+        "bn": "জি অফিসার। এই নিন আমার আইডি।"
+      },
+      {
+        "en": "I am taking out my ID now.",
+        "bn": "আমি এখন আইডি বের করছি।"
+      },
+      {
+        "en": "I don't understand. I need an interpreter.",
+        "bn": "আমি বুঝতে পারছি না। দোভাষী দরকার।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Stop. Show me your ID. — থামুন। আপনার আইডি দেখান। (রাস্তায় পুলিশ অফিসার, আপনার আইডি পকেটে)",
+      "options": [
+        {
+          "t": "Why me? I did nothing wrong!",
+          "ok": true
+        },
+        {
+          "t": "Yes, officer. I am taking out my ID now. Here you are.",
+          "ok": false
+        },
+        {
+          "t": "Yes. (takes out ID quickly)",
+          "ok": false
+        }
+      ],
+      "why": "তর্ক করলে ঝামেলা বাড়ে। আগে আইডি দেখান, তারপর ভদ্রভাবে কারণ জানতে চান।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Come with us. We need to ask some questions. — আমাদের সাথে আসুন। কিছু প্রশ্ন করার আছে। (অফিসার দ্রুত বলছেন, আপনি পুরো বুঝতে পারেননি)",
+      "options": [
+        {
+          "t": "No! I will not go!",
+          "ok": true
+        },
+        {
+          "t": "Yes, officer. Sorry, I don't understand everything. Please speak slowly. Can I call my company? I need an interpreter.",
+          "ok": false
+        },
+        {
+          "t": "Okay, okay.",
+          "ok": false
+        }
+      ],
+      "why": "না করলে বা দৌড় দিলে অবস্থা খারাপ হয়। শান্ত থাকুন, প্রশ্ন করুন আর সাহায্য চান।"
+    }
   ]
 };

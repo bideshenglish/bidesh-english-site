@@ -317,5 +317,64 @@ window.LESSON = {
       "why": "halal = হালাল",
       "ph": "ইংরেজি শব্দ"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "What time is the lunch break?",
+        "bn": "দুপুরের খাওয়ার বিরতি কখন?"
+      },
+      {
+        "en": "Where can I pray?",
+        "bn": "আমি কোথায় নামাজ পড়তে পারি?"
+      },
+      {
+        "en": "Can I go for Friday prayer?",
+        "bn": "আমি কি জুমার নামাজে যেতে পারি?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Lunch break is at twelve. You have thirty minutes. — দুপুরের বিরতি বারোটায়। তোমার ত্রিশ মিনিট আছে।",
+      "options": [
+        {
+          "t": "Thirty minutes is too short.",
+          "ok": true
+        },
+        {
+          "t": "Thank you, sir. Twelve o'clock, thirty minutes. I will be back on time.",
+          "ok": false
+        },
+        {
+          "t": "Okay.",
+          "ok": false
+        }
+      ],
+      "why": "বিরতির নিয়ম নিয়ে সরাসরি আপত্তি না করে বুঝে নিন। কিছু জানতে চাইলে বলুন: \"Sir, how long is the break?\""
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Tomorrow is Friday. Do you need anything? — কাল শুক্রবার। তোমার কি কিছু লাগবে?",
+      "options": [
+        {
+          "t": "I will go. I don't care.",
+          "ok": true
+        },
+        {
+          "t": "Yes, sir. Can I go for Friday prayer? I will come back after one hour.",
+          "ok": false
+        },
+        {
+          "t": "Friday prayer.",
+          "ok": false
+        }
+      ],
+      "why": "না জানিয়ে চলে গেলে সমস্যা হতে পারে। আগে ভদ্রভাবে জিজ্ঞেস করুন।"
+    }
   ]
 };

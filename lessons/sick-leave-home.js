@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। ছাড়ার আগে জিজ্ঞেস করুন: \"What is my final settlement?\""
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I need emergency leave. My father is very sick.",
+        "bn": "আমার জরুরি ছুটি দরকার। বাবা খুব অসুস্থ।"
+      },
+      {
+        "en": "Is it paid leave or unpaid leave?",
+        "bn": "এটা কি বেতনসহ ছুটি, নাকি বিনা বেতনে?"
+      },
+      {
+        "en": "I want to go on leave, not resign.",
+        "bn": "আমি ছুটিতে যেতে চাই, চাকরি ছাড়তে নয়।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Why do you need leave? — আপনার ছুটি কেন লাগবে? (সুপারভাইজার)",
+      "options": [
+        {
+          "t": "I am going home tomorrow.",
+          "ok": true
+        },
+        {
+          "t": "My father is very sick. I need emergency leave for ten days. I can bring the proof.",
+          "ok": false
+        },
+        {
+          "t": "Family problem.",
+          "ok": false
+        }
+      ],
+      "why": "অনুমতি ছাড়া চলে গেলে চাকরির ঝুঁকি। আগে জানান আর অনুমতি নিন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Sign here. This is your leave paper. — এখানে সই করুন। এটা আপনার ছুটির কাগজ। (কাগজের ওপরে লেখা \"Resignation\")",
+      "options": [
+        {
+          "t": "Okay.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, this says resignation. I want leave, not resign. Please give me the leave form.",
+          "ok": false
+        },
+        {
+          "t": "What is this paper?",
+          "ok": false
+        }
+      ],
+      "why": "না পড়ে সই করলে কী মেনে নিলেন জানেন না। আগে পড়ুন।"
+    }
   ]
 };

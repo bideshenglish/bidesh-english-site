@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। বিদায়ের সময় বলা হয়।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Do you want some tea?",
+        "bn": "একটু চা খাবেন?"
+      },
+      {
+        "en": "It's very hot today, isn't it?",
+        "bn": "আজ খুব গরম, তাই না?"
+      },
+      {
+        "en": "See you tomorrow. Take care.",
+        "bn": "কাল দেখা হবে। নিজের খেয়াল রাখবেন।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Hey, do you want some tea? — আরে, চা খাবে? (সহকর্মী চায়ের কাপ হাতে)",
+      "options": [
+        {
+          "t": "No.",
+          "ok": true
+        },
+        {
+          "t": "Yes, please. Thank you!",
+          "ok": false
+        },
+        {
+          "t": "Yes.",
+          "ok": false
+        }
+      ],
+      "why": "শুধু \"No\" রূঢ় শোনায়। বলুন: \"No, thanks. I'm fine.\""
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "How was your weekend? Anything special? — ছুটি কেমন কাটল? কিছু বিশেষ হলো? (সহকর্মী কৌতূহলী)",
+      "options": [
+        {
+          "t": "I spent all my money.",
+          "ok": true
+        },
+        {
+          "t": "It was good, thanks. I rested and called my family. And you?",
+          "ok": false
+        },
+        {
+          "t": "Good.",
+          "ok": false
+        }
+      ],
+      "why": "টাকার কথা সহকর্মীকে না বলাই ভালো। হালকা বিষয়ে থাকুন।"
+    }
   ]
 };

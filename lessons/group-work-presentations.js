@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "হ্যাঁ। আগে অন্যের কথা মানলে তারপর নিজের মত বলা সহজ হয়।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Today I'm going to talk about my country.",
+        "bn": "আজ আমি আমার দেশ নিয়ে বলব।"
+      },
+      {
+        "en": "Thank you. Are there any questions?",
+        "bn": "ধন্যবাদ। কোনো প্রশ্ন আছে?"
+      },
+      {
+        "en": "I see your point, but can I suggest something?",
+        "bn": "আপনার কথা বুঝলাম, কিন্তু একটা পরামর্শ দিতে পারি?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "So, who wants to do the research, and who wants to do the slides? — তাহলে কে গবেষণা করবে আর কে স্লাইড বানাবে? (গ্রুপের নেতা)",
+      "options": [
+        {
+          "t": "I don't know.",
+          "ok": true
+        },
+        {
+          "t": "I can do the research. I'll finish it by Wednesday.",
+          "ok": false
+        },
+        {
+          "t": "Anything is okay.",
+          "ok": false
+        }
+      ],
+      "why": "চুপ থাকলে গ্রুপ আপনাকে ছাড়া এগোয়। কাজ আর দিন বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Interesting. Where did you find these numbers? — মজার তো। এই সংখ্যাগুলো কোথায় পেলে? (প্রেজেন্টেশন শেষে একজন ছাত্র)",
+      "options": [
+        {
+          "t": "Um... I don't remember.",
+          "ok": true
+        },
+        {
+          "t": "Thank you for the question. I found them on the library website. I can show you the source.",
+          "ok": false
+        },
+        {
+          "t": "On the internet.",
+          "ok": false
+        }
+      ],
+      "why": "উৎস মনে না থাকলে কাজের মান কমে যায়। তথ্য নেওয়ার সময়ই উৎস লিখে রাখুন।"
+    }
   ]
 };

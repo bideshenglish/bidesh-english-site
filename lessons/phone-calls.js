@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। তাড়া দেওয়া ঠকবাজের চাল। বলুন: \"I will call you back.\" তারপর ফোন কেটে দিন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Can I speak to Mr. Karim, please?",
+        "bn": "করিম সাহেবের সাথে কথা বলতে পারি, দয়া করে?"
+      },
+      {
+        "en": "Can you spell that, please?",
+        "bn": "বানান করে বলবেন, দয়া করে?"
+      },
+      {
+        "en": "I will call you back.",
+        "bn": "আমি আপনাকে আবার ফোন করব।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Hello, ABC Company. How can I help you? — হ্যালো, এবিসি কোম্পানি। কীভাবে সাহায্য করতে পারি? (আপনি সুপারভাইজার মিস্টার খানকে চাইছেন)",
+      "options": [
+        {
+          "t": "Where is Khan?",
+          "ok": true
+        },
+        {
+          "t": "Hello, can I speak to Mr. Khan, please?",
+          "ok": false
+        },
+        {
+          "t": "Khan?",
+          "ok": false
+        }
+      ],
+      "why": "আগে \"Hello\" আর নিজের পরিচয় বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "This is your bank. There is a problem with your account. Tell me the code on your phone. — আমরা আপনার ব্যাংক। অ্যাকাউন্টে সমস্যা আছে। ফোনে আসা কোডটা বলুন। (অচেনা নম্বর থেকে)",
+      "options": [
+        {
+          "t": "Okay. The code is four, eight, two, nine.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, I will not share the code. I will call the bank myself.",
+          "ok": false
+        },
+        {
+          "t": "Which bank?",
+          "ok": false
+        }
+      ],
+      "why": "কোড দিলে আপনার টাকা চলে যেতে পারে। কখনো ফোনে OTP বলবেন না।"
+    }
   ]
 };

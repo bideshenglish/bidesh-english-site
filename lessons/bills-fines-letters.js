@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। তাড়া দেখানো প্রতারণার লক্ষণ। যাচাই করুন, তথ্য দেবেন না।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "When is the due date?",
+        "bn": "শেষ তারিখ কবে?"
+      },
+      {
+        "en": "Can you explain this letter, please?",
+        "bn": "এই চিঠিটা বুঝিয়ে দেবেন, দয়া করে?"
+      },
+      {
+        "en": "What happens if I don't pay?",
+        "bn": "না দিলে কী হবে?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Your bill is overdue. Pay before Friday or there is a late fee. — আপনার বিলের তারিখ পেরিয়ে গেছে। শুক্রবারের আগে দিন, নইলে দেরির জরিমানা। (অফিস কর্মী দ্রুত বলছেন)",
+      "options": [
+        {
+          "t": "Okay, okay.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, what is the amount? Can I pay today? Can I get a receipt?",
+          "ok": false
+        },
+        {
+          "t": "How much?",
+          "ok": false
+        }
+      ],
+      "why": "কত টাকা, কবে, কীভাবে, না জানলে আবার ঝামেলা। জিজ্ঞেস করুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Brother, I got a message: pay this fine now with this link, or five hundred extra. Should I pay? — ভাই, মেসেজ এসেছে: এখনই এই লিংকে জরিমানা দাও, নইলে পাঁচশো বাড়তি। দেব? (বন্ধু ভয় পেয়ে আপনাকে জিজ্ঞেস করছে)",
+      "options": [
+        {
+          "t": "Yes, pay quickly. Click it.",
+          "ok": true
+        },
+        {
+          "t": "Wait. Don't click the link. Let's check on the official app or ask the office.",
+          "ok": false
+        },
+        {
+          "t": "Maybe it is a scam.",
+          "ok": false
+        }
+      ],
+      "why": "ভুয়া লিংকে কার্ডের তথ্য দিলে টাকা চলে যায়। তাড়া দেখালেই সন্দেহ করুন।"
+    }
   ]
 };

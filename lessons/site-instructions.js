@@ -294,5 +294,64 @@ window.LESSON = {
       "why": "repeat = আবার বলা",
       "ph": "ইংরেজি শব্দ"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Please repeat that, sir.",
+        "bn": "স্যার, দয়া করে আবার বলুন।"
+      },
+      {
+        "en": "I don't understand. Please show me.",
+        "bn": "আমি বুঝতে পারিনি। দয়া করে দেখিয়ে দিন।"
+      },
+      {
+        "en": "Yes, sir. I understand.",
+        "bn": "জি স্যার। আমি বুঝেছি।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Bring these boxes to the store room. — এই বাক্সগুলো স্টোর রুমে নিয়ে যাও।",
+      "options": [
+        {
+          "t": "Yes, yes. No problem.",
+          "ok": true
+        },
+        {
+          "t": "Yes, sir. Where is the store room?",
+          "ok": false
+        },
+        {
+          "t": "Okay.",
+          "ok": false
+        }
+      ],
+      "why": "না বুঝে বা না জেনে \"Yes\" বলা ঠিক নয়, পরে ভুল হলে সমস্যা বাড়ে। বলুন: \"Please show me.\""
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Be careful. The floor is wet. Clean this area first. — সাবধান। মেঝে ভেজা। আগে এই জায়গাটা পরিষ্কার করো।",
+      "options": [
+        {
+          "t": "Yes, sir.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, sir. Please say that again slowly.",
+          "ok": false
+        },
+        {
+          "t": "What?",
+          "ok": false
+        }
+      ],
+      "why": "না বুঝে \"Yes\" বললে ভুল কাজ হতে পারে, বিশেষ করে ভেজা মেঝেতে। না বুঝলে আবার বলতে বলুন।"
+    }
   ]
 };

@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। নাম, পাসপোর্ট নম্বর, কাজ আর মেয়াদ নিজে দেখুন। বুঝতে না পারলে জিজ্ঞেস করুন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I have an appointment today.",
+        "bn": "আজ আমার অ্যাপয়েন্টমেন্ট আছে।"
+      },
+      {
+        "en": "What job is written on my visa?",
+        "bn": "আমার ভিসায় কী কাজ লেখা আছে?"
+      },
+      {
+        "en": "How long is my visa valid?",
+        "bn": "আমার ভিসা কতদিন চালু থাকবে?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Please show your passport and appointment slip. — পাসপোর্ট আর অ্যাপয়েন্টমেন্ট স্লিপ দেখান।",
+      "options": [
+        {
+          "t": "I do not have the slip.",
+          "ok": true
+        },
+        {
+          "t": "Here you are, sir. This is my passport and appointment slip.",
+          "ok": false
+        },
+        {
+          "t": "Passport.",
+          "ok": false
+        }
+      ],
+      "why": "কাগজ ছাড়া গেলে ফিরে আসতে হয়। আগের রাতে সব কাগজ মিলিয়ে নিন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Leave your passport with me. — পাসপোর্ট আমার কাছে রেখে যান। (এজেন্সির লোক বলছে)",
+      "options": [
+        {
+          "t": "Okay.",
+          "ok": true
+        },
+        {
+          "t": "Can you give me a receipt? When will I get it back?",
+          "ok": false
+        },
+        {
+          "t": "When will I get it back?",
+          "ok": false
+        }
+      ],
+      "why": "পাসপোর্ট আপনার সবচেয়ে জরুরি কাগজ। রসিদ আর তারিখ ছাড়া হাতছাড়া করবেন না।"
+    }
   ]
 };

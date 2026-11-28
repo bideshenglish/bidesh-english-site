@@ -369,5 +369,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। এই ৪ লাইনই ইন্টারভিউয়ের প্রথম প্রশ্নের ভালো উত্তর।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Good morning, sir. My name is Rahim.",
+        "bn": "শুভ সকাল, স্যার। আমার নাম রহিম।"
+      },
+      {
+        "en": "I have three years of experience.",
+        "bn": "আমার তিন বছরের অভিজ্ঞতা আছে।"
+      },
+      {
+        "en": "I don't have experience yet, but I can learn fast.",
+        "bn": "আমার এখনো অভিজ্ঞতা নেই, কিন্তু আমি তাড়াতাড়ি শিখতে পারি।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Tell me about yourself. — আপনার সম্পর্কে বলুন।",
+      "options": [
+        {
+          "t": "I am a good man. I work hard.",
+          "ok": true
+        },
+        {
+          "t": "My name is Rahim. I am from Bangladesh. I am a mason. I have three years of experience.",
+          "ok": false
+        },
+        {
+          "t": "My name is Rahim.",
+          "ok": false
+        }
+      ],
+      "why": "\"ভালো মানুষ\" বলে কাজ বোঝা যায় না। কাজের নাম আর বছর বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Do you have experience in this work? — এই কাজে অভিজ্ঞতা আছে? (ধরুন আপনার অভিজ্ঞতা নেই)",
+      "options": [
+        {
+          "t": "Yes, I have five years of experience.",
+          "ok": true
+        },
+        {
+          "t": "I don't have experience yet, but I can learn fast.",
+          "ok": false
+        },
+        {
+          "t": "No experience.",
+          "ok": false
+        }
+      ],
+      "why": "মিথ্যা বললে কাল টেস্টেই ধরা পড়বেন। তখন কাজ বাতিল হতে পারে।"
+    }
   ]
 };

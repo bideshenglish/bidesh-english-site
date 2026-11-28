@@ -316,5 +316,64 @@ window.LESSON = {
       "why": "ambulance = অ্যাম্বুলেন্স",
       "ph": "ইংরেজি শব্দ"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I am hurt. I need help.",
+        "bn": "আমি আঘাত পেয়েছি। আমার সাহায্য দরকার।"
+      },
+      {
+        "en": "I feel dizzy. I don't feel well.",
+        "bn": "আমার মাথা ঘুরছে। ভালো লাগছে না।"
+      },
+      {
+        "en": "I need to see a doctor.",
+        "bn": "আমাকে ডাক্তার দেখাতে হবে।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Are you okay? Where does it hurt? — তুমি ঠিক আছ? কোথায় ব্যথা?",
+      "options": [
+        {
+          "t": "Nothing. No problem.",
+          "ok": true
+        },
+        {
+          "t": "My hand hurts. I need help.",
+          "ok": false
+        },
+        {
+          "t": "I'm okay.",
+          "ok": false
+        }
+      ],
+      "why": "ভয়ে আঘাত লুকালে পরে সমস্যা বাড়তে পারে। সুপারভাইজারকে সঙ্গে সঙ্গে জানান।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "You should see a doctor. Do you want to go to the clinic? — তোমার ডাক্তার দেখানো উচিত। তুমি কি ক্লিনিকে যেতে চাও?",
+      "options": [
+        {
+          "t": "No doctor. I can work.",
+          "ok": true
+        },
+        {
+          "t": "Yes, sir. I need to see a doctor.",
+          "ok": false
+        },
+        {
+          "t": "Maybe later.",
+          "ok": false
+        }
+      ],
+      "why": "ডাক্তার না দেখিয়ে কাজ করলে সমস্যা বাড়তে পারে। খরচ নিয়ে চিন্তা থাকলে সুপারভাইজারকে জানান।"
+    }
   ]
 };

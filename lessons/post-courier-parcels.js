@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। আসতে না পারলে সময় বলুন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I want to send this parcel to Bangladesh.",
+        "bn": "আমি এই পার্সেলটা বাংলাদেশে পাঠাতে চাই।"
+      },
+      {
+        "en": "Is this item allowed?",
+        "bn": "এই জিনিস পাঠানো যায়?"
+      },
+      {
+        "en": "Can I have a tracking number?",
+        "bn": "ট্র্যাকিং নম্বর পেতে পারি?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "What is inside the parcel? — পার্সেলের ভেতরে কী আছে? (কুরিয়ারের কাউন্টার)",
+      "options": [
+        {
+          "t": "Nothing. Just send it.",
+          "ok": true
+        },
+        {
+          "t": "Clothes, shoes and two phone chargers. Is that allowed? And I need a tracking number, please.",
+          "ok": false
+        },
+        {
+          "t": "Gifts.",
+          "ok": false
+        }
+      ],
+      "why": "লুকালে পার্সেল আটকাতে পারে। সত্য বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "This parcel is for you. Pay twenty dollars cash for delivery. — এই পার্সেল আপনার জন্য। ডেলিভারির জন্য বিশ ডলার নগদ দিন। (আপনি কিছু অর্ডার করেননি)",
+      "options": [
+        {
+          "t": "Okay, here is the money.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, I didn't order anything. I will not pay. Please check the name and address.",
+          "ok": false
+        },
+        {
+          "t": "Why twenty dollars?",
+          "ok": false
+        }
+      ],
+      "why": "যা অর্ডার করেননি, তার জন্য টাকা দেবেন না। এটা প্রতারণা হতে পারে।"
+    }
   ]
 };

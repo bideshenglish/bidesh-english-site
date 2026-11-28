@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। চাকরি চলে যেতে পারে। শান্ত থাকুন, আবার কবে কথা বলবেন, জিজ্ঞেস করুন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Can I talk to you about my salary?",
+        "bn": "আমার বেতন নিয়ে কথা বলতে পারি?"
+      },
+      {
+        "en": "I would like to ask for a raise.",
+        "bn": "আমি বেতন বাড়ানোর অনুরোধ করতে চাই।"
+      },
+      {
+        "en": "I want to learn more. Can I get training?",
+        "bn": "আমি আরও শিখতে চাই। প্রশিক্ষণ পেতে পারি?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Yes? What do you want to talk about? — হ্যাঁ? কী নিয়ে কথা বলতে চাও? (আপনি এক বছর ধরে কাজ করছেন, এখন একা কাজ সামলান)",
+      "options": [
+        {
+          "t": "Ahmed gets more than me. Give me a raise or I will leave.",
+          "ok": true
+        },
+        {
+          "t": "Thank you for your time. I have worked here for one year, and I can do this work alone now. I would like to ask for a raise.",
+          "ok": false
+        },
+        {
+          "t": "I need more money.",
+          "ok": false
+        }
+      ],
+      "why": "তুলনা আর হুমকিতে আলোচনা শেষ। যে কাজ করছেন সেটা বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "We need a new supervisor. Can you do it? — আমাদের একজন নতুন সুপারভাইজার লাগবে। তুমি পারবে? (আপনি কাজটা চান, তবে আরও শিখতে হবে)",
+      "options": [
+        {
+          "t": "Only if you pay me double.",
+          "ok": true
+        },
+        {
+          "t": "Yes, I would like to try. I can learn quickly. Can I get some training?",
+          "ok": false
+        },
+        {
+          "t": "Yes.",
+          "ok": false
+        }
+      ],
+      "why": "আগে সুযোগ নিন। বেতন নিয়ে ভদ্রভাবে পরে কথা বলুন।"
+    }
   ]
 };

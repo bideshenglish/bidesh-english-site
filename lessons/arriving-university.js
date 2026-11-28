@@ -365,5 +365,64 @@ window.LESSON = {
       "a": true,
       "why": "হ্যাঁ। বলুন: \"Could you show me where it is?\""
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Hello, I'm a new international student. I'm Rahim.",
+        "bn": "হ্যালো, আমি নতুন আন্তর্জাতিক ছাত্র। আমি রহিম।"
+      },
+      {
+        "en": "Are you from the university?",
+        "bn": "আপনি কি বিশ্ববিদ্যালয় থেকে এসেছেন?"
+      },
+      {
+        "en": "Where do I collect my student ID card?",
+        "bn": "আমার স্টুডেন্ট আইডি কার্ড কোথায় নেব?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Hello! Are you Rahim from Bangladesh? — হ্যালো! আপনি কি বাংলাদেশের রহিম? (বিমানবন্দরে একজন নাম-লেখা প্ল্যাকার্ড হাতে)",
+      "options": [
+        {
+          "t": "Yes. I will go with you.",
+          "ok": true
+        },
+        {
+          "t": "Yes, I am. Could you please check my name on your list? Here is my arrival letter.",
+          "ok": false
+        },
+        {
+          "t": "Yes. Are you from the university?",
+          "ok": false
+        }
+      ],
+      "why": "যাচাই না করে যাবেন না। নাম, তালিকা আর চিঠি মিলিয়ে নিন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Welcome! Have you completed your registration? — স্বাগতম! আপনি কি রেজিস্ট্রেশন শেষ করেছেন? (স্টুডেন্ট সার্ভিসের ডেস্কে)",
+      "options": [
+        {
+          "t": "I don't need an ID card.",
+          "ok": true
+        },
+        {
+          "t": "Not yet. Where do I complete it? And where can I collect my student ID card?",
+          "ok": false
+        },
+        {
+          "t": "No.",
+          "ok": false
+        }
+      ],
+      "why": "আইডি কার্ড লাইব্রেরি ও আরও অনেক সেবায় লাগে। নিতে ভুলবেন না।"
+    }
   ]
 };

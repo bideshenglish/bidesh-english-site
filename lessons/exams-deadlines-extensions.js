@@ -369,5 +369,64 @@ window.LESSON = {
       "a": false,
       "why": "না। হাত তুলে পরীক্ষককে বলুন। অনুমতি পেলে পরীক্ষক সাথে যান।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Could I have an extension until Friday?",
+        "bn": "আমি কি শুক্রবার পর্যন্ত সময় পেতে পারি?"
+      },
+      {
+        "en": "I've finished the research, but I still need to write the conclusion.",
+        "bn": "গবেষণা শেষ, কিন্তু উপসংহার লেখা বাকি।"
+      },
+      {
+        "en": "Excuse me, I don't feel well.",
+        "bn": "দুঃখিত, আমার শরীর ভালো লাগছে না।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Is everything okay with your paper? It's due tomorrow. — তোমার পেপারের সব ঠিক আছে তো? এটা কাল জমা দিতে হবে। (প্রফেসর করিডোরে)",
+      "options": [
+        {
+          "t": "I couldn't do it. Please, please give me time!",
+          "ok": true
+        },
+        {
+          "t": "Actually, I've finished the research, but I still need two more days to write the conclusion. Could I have an extension until Friday?",
+          "ok": false
+        },
+        {
+          "t": "I need more time.",
+          "ok": false
+        }
+      ],
+      "why": "অনুনয় নয়, পরিকল্পনা দিন। কী শেষ আর কবে শেষ করবেন, সেটা বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Yes? Do you need help? — বলুন? সাহায্য লাগবে? (পরীক্ষার মাঝখানে আপনি হাত তুলেছেন, শরীর খারাপ লাগছে)",
+      "options": [
+        {
+          "t": "(Stand up and walk out)",
+          "ok": true
+        },
+        {
+          "t": "Excuse me, I don't feel well. May I go out for a minute?",
+          "ok": false
+        },
+        {
+          "t": "I'm sick.",
+          "ok": false
+        }
+      ],
+      "why": "অনুমতি ছাড়া বের হলে সন্দেহ হতে পারে। আগে হাত তুলুন।"
+    }
   ]
 };

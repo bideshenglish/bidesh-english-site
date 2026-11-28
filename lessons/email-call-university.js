@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। অফিসিয়াল ওয়েবসাইটের ঠিকানার সাথে মিলিয়ে নিন। না মিললে টাকা পাঠাবেন না।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Hello, my name is Rahim. I'm calling about my application.",
+        "bn": "হ্যালো, আমি রহিম। আমার আবেদন নিয়ে ফোন করছি।"
+      },
+      {
+        "en": "I'm calling from Bangladesh. Is this a good time to talk?",
+        "bn": "আমি বাংলাদেশ থেকে ফোন করছি। এখন কি কথা বলার ভালো সময়?"
+      },
+      {
+        "en": "Could you please send that in an email?",
+        "bn": "এটা ইমেইলে পাঠিয়ে দেবেন, প্লিজ?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Admissions office. How can I help you? — অ্যাডমিশন অফিস। আমি কীভাবে সাহায্য করতে পারি? (ফোনে)",
+      "options": [
+        {
+          "t": "Um... Hello? ... I don't know.",
+          "ok": true
+        },
+        {
+          "t": "Hello, my name is Rahim. I'm calling from Bangladesh about my application. Is this a good time to talk?",
+          "ok": false
+        },
+        {
+          "t": "Hello. Application.",
+          "ok": false
+        }
+      ],
+      "why": "ফোন করার আগে প্রথম বাক্য মুখস্থ রাখুন: নাম আর কী নিয়ে ফোন করেছেন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "We're still reviewing your application. We'll email you. — আমরা এখনো আপনার আবেদন যাচাই করছি। আমরা ইমেইল করব। (অফিসের কর্মী)",
+      "options": [
+        {
+          "t": "Please hurry! I need it now!",
+          "ok": true
+        },
+        {
+          "t": "Thank you. Could you tell me when I can expect a decision?",
+          "ok": false
+        },
+        {
+          "t": "Okay.",
+          "ok": false
+        }
+      ],
+      "why": "তাড়া দিলে লাভ হয় না। ধৈর্য ধরুন আর ভদ্রভাবে জিজ্ঞেস করুন।"
+    }
   ]
 };

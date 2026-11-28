@@ -369,5 +369,64 @@ window.LESSON = {
       "a": false,
       "why": "না। ছাত্রদের কাজের ঘণ্টা সীমিত। খরচের প্রমাণ আগে থেকেই দেখাতে হয়।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "My parents will pay for my tuition and living costs.",
+        "bn": "আমার বাবা-মা টিউশন ও থাকা-খাওয়ার খরচ দেবেন।"
+      },
+      {
+        "en": "I have a scholarship that covers my tuition fees.",
+        "bn": "আমার একটা বৃত্তি আছে, যা টিউশন ফি দেয়।"
+      },
+      {
+        "en": "Here is a letter from my father. He agrees to pay.",
+        "bn": "এই আমার বাবার চিঠি। তিনি খরচ দিতে রাজি।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "How will you pay for your tuition and living costs? — আপনি টিউশন আর থাকা-খাওয়ার খরচ কীভাবে দেবেন? (অফিসার)",
+      "options": [
+        {
+          "t": "I will work there and pay my fees.",
+          "ok": true
+        },
+        {
+          "t": "My father will pay both. Here is his bank statement and a letter saying he agrees.",
+          "ok": false
+        },
+        {
+          "t": "My family will pay.",
+          "ok": false
+        }
+      ],
+      "why": "ছাত্রদের কাজের ঘণ্টা সীমিত। খরচের প্রমাণ আগে থেকেই দেখাতে হয়।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "What is your plan after your degree? — ডিগ্রির পর আপনার পরিকল্পনা কী? (অ্যাডমিশন অফিসার)",
+      "options": [
+        {
+          "t": "I don't have a plan yet.",
+          "ok": true
+        },
+        {
+          "t": "After my degree, I plan to work in my field in Bangladesh. The three-year course will give me practical skills.",
+          "ok": false
+        },
+        {
+          "t": "I will get a job.",
+          "ok": false
+        }
+      ],
+      "why": "পরিকল্পনা না থাকলে অফিসার সন্দেহ করেন। আগেই ভেবে রাখুন, আর সত্য বলুন।"
+    }
   ]
 };

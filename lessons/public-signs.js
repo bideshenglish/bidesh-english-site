@@ -370,5 +370,64 @@ window.LESSON = {
       "a": false,
       "why": "না। টিকিট নিন আর নম্বর ডাকা পর্যন্ত অপেক্ষা করুন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "What does this sign say?",
+        "bn": "এই সাইনে কী লেখা?"
+      },
+      {
+        "en": "Is eating allowed here?",
+        "bn": "এখানে খাওয়া চলে?"
+      },
+      {
+        "en": "Sorry, I didn't see the sign.",
+        "bn": "দুঃখিত, আমি সাইনটা দেখিনি।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Sir, this area is staff only. You cannot enter. — স্যার, এটা শুধু কর্মীদের জায়গা। আপনি ঢুকতে পারবেন না। (গার্ড বলছেন, আপনি টয়লেট খুঁজতে ঢুকে পড়েছেন)",
+      "options": [
+        {
+          "t": "The door was open!",
+          "ok": true
+        },
+        {
+          "t": "Sorry, I didn't see the sign. Where is the toilet, please?",
+          "ok": false
+        },
+        {
+          "t": "Sorry.",
+          "ok": false
+        }
+      ],
+      "why": "তর্ক করলে ঝামেলা বাড়ে। ক্ষমা চেয়ে বেরিয়ে আসুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Sir, no photos here. This is a government building. — স্যার, এখানে ছবি তোলা নিষেধ। এটা সরকারি ভবন। (আপনি ফোনে বিল্ডিংয়ের ছবি তুলছিলেন)",
+      "options": [
+        {
+          "t": "It's just a photo. Why not?",
+          "ok": true
+        },
+        {
+          "t": "Sorry, officer. I didn't know. I will not take photos.",
+          "ok": false
+        },
+        {
+          "t": "Okay.",
+          "ok": false
+        }
+      ],
+      "why": "সরকারি ভবনের ছবিতে অনুমতি লাগে। তর্ক নয়, থেমে যান।"
+    }
   ]
 };

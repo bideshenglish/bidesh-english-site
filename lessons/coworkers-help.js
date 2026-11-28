@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। আঙুল দিয়ে দেখিয়ে জিজ্ঞেস করলে ভুল কমে।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Can you show me how, please?",
+        "bn": "কীভাবে করতে হয়, দেখিয়ে দেবেন, দয়া করে?"
+      },
+      {
+        "en": "Ready? Lift on three.",
+        "bn": "তৈরি? তিন গুনে তুলব।"
+      },
+      {
+        "en": "Do you mean this one?",
+        "bn": "আপনি কি এটা বোঝাচ্ছেন?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Carry these pipes to Block B. — এই পাইপগুলো ব্লক বি-তে নিয়ে যাও। (সহকর্মী বলছে, আপনি নতুন, পথ জানেন না)",
+      "options": [
+        {
+          "t": "Yes, yes.",
+          "ok": true
+        },
+        {
+          "t": "Sure. So I carry these pipes to Block B, right? Which way?",
+          "ok": false
+        },
+        {
+          "t": "Okay.",
+          "ok": false
+        }
+      ],
+      "why": "না বুঝে \"yes\" বললে ভুল জায়গায় যেতে পারেন। আগে মিলিয়ে নিন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Can you help me? I need two hands here. — আমাকে একটু সাহায্য করবে? এখানে দুই হাত লাগবে। (আপনি এখন অন্য কাজে ব্যস্ত)",
+      "options": [
+        {
+          "t": "Yes, yes.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, I am busy now. I can help in five minutes.",
+          "ok": false
+        },
+        {
+          "t": "No.",
+          "ok": false
+        }
+      ],
+      "why": "হ্যাঁ বলে না গেলে সহকর্মী ভরসা হারায়। যা পারবেন না, সত্য বলুন।"
+    }
   ]
 };

@@ -363,5 +363,64 @@ window.LESSON = {
       "a": false,
       "why": "না। এটা প্রতারণার লক্ষণ। বলুন: \"I don't pay for a job.\""
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I'm a student. I'm looking for part-time work.",
+        "bn": "আমি ছাত্র। পার্ট-টাইম কাজ খুঁজছি।"
+      },
+      {
+        "en": "I'm available on weekends and evenings.",
+        "bn": "আমি সপ্তাহান্তে আর সন্ধ্যায় ফাঁকা থাকি।"
+      },
+      {
+        "en": "My visa limits my working hours.",
+        "bn": "আমার ভিসা কাজের ঘণ্টা সীমিত করে।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Hi, are you looking for work? — হাই, আপনি কি কাজ খুঁজছেন? (ক্যাফের ম্যানেজার)",
+      "options": [
+        {
+          "t": "Any job. Any time. I need money.",
+          "ok": true
+        },
+        {
+          "t": "Yes. I'm a student, and I'm looking for part-time work. I'm available on weekends and evenings.",
+          "ok": false
+        },
+        {
+          "t": "Yes, job.",
+          "ok": false
+        }
+      ],
+      "why": "\"যেকোনো সময়\" বললে ক্লাস আর কাজ মিলবে না। ফাঁকা সময় নির্দিষ্ট করে বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "The pay is fifteen dollars an hour. Any questions? — বেতন ঘণ্টায় পনেরো ডলার। কোনো প্রশ্ন আছে? (ম্যানেজার)",
+      "options": [
+        {
+          "t": "Can I start now? I'll sort out the paper later.",
+          "ok": true
+        },
+        {
+          "t": "Thank you. Could I see the contract before I start? And when do I get paid?",
+          "ok": false
+        },
+        {
+          "t": "Okay, thank you.",
+          "ok": false
+        }
+      ],
+      "why": "কাগজপত্র ছাড়া কাজ শুরু করলে বেতন বা অধিকার নিয়ে সমস্যা হতে পারে। আগে চুক্তি নিন।"
+    }
   ]
 };

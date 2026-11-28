@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। অফিসার সহজে ধরে ফেলেন। নিজের সত্য কথা নিজের ভাষায় বলুন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Good morning. Here are my documents.",
+        "bn": "শুভ সকাল। এই আমার কাগজপত্র।"
+      },
+      {
+        "en": "I plan to return to Bangladesh after my studies.",
+        "bn": "পড়াশোনা শেষে আমি বাংলাদেশে ফিরে আসার পরিকল্পনা করছি।"
+      },
+      {
+        "en": "Sorry, could you repeat the question, please?",
+        "bn": "দুঃখিত, প্রশ্নটা আবার বলবেন, প্লিজ?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Why do you want to study this program? — কেন এই প্রোগ্রামে পড়তে চান? (ভিসা অফিসার)",
+      "options": [
+        {
+          "t": "Let me tell you my full story. I was born in a small village...",
+          "ok": true
+        },
+        {
+          "t": "I want to study computer science because I like programming. After my degree, I want to work in IT in Bangladesh.",
+          "ok": false
+        },
+        {
+          "t": "It is a good program.",
+          "ok": false
+        }
+      ],
+      "why": "লম্বা গল্প নয়। অফিসারের সময় কম, সরাসরি উত্তর দিন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Will you come back to Bangladesh after your studies? — পড়ার পর কি আপনি বাংলাদেশে ফিরে আসবেন? (ভিসা অফিসার)",
+      "options": [
+        {
+          "t": "I don't know. Maybe I will stay there.",
+          "ok": true
+        },
+        {
+          "t": "Yes. I plan to return and work in my field. My family is here, and I want to build my career here.",
+          "ok": false
+        },
+        {
+          "t": "Maybe.",
+          "ok": false
+        }
+      ],
+      "why": "স্পষ্ট পরিকল্পনা না থাকলে ভিসা পাওয়া কঠিন হতে পারে। নিজের পরিকল্পনা আগে ভাবুন, আর সত্য বলুন।"
+    }
   ]
 };

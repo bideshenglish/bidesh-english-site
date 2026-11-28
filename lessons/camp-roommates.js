@@ -381,5 +381,64 @@ window.LESSON = {
       "why": "visitors = অতিথি",
       "ph": "ইংরেজি শব্দ"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Which bed is mine?",
+        "bn": "কোন বিছানাটা আমার?"
+      },
+      {
+        "en": "Please keep the noise down. I have an early shift.",
+        "bn": "দয়া করে শব্দ কম করুন। আমার সকালে কাজ আছে।"
+      },
+      {
+        "en": "There is no water in the bathroom.",
+        "bn": "বাথরুমে পানি নেই।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Welcome to the camp. This is your bed. Do you have any question? — ক্যাম্পে স্বাগতম। এটা তোমার বিছানা। তোমার কোনো প্রশ্ন আছে?",
+      "options": [
+        {
+          "t": "This bed is bad. Give me another.",
+          "ok": true
+        },
+        {
+          "t": "Thank you, sir. Can I use the kitchen now? And when is lights off?",
+          "ok": false
+        },
+        {
+          "t": "No.",
+          "ok": false
+        }
+      ],
+      "why": "প্রথম দিনেই অভিযোগ ভালো না। সমস্যা থাকলে ভদ্রভাবে বলুন: \"Sir, is another bed possible, please?\""
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "I am the camp boss. Is there any problem? Tell me. — আমি ক্যাম্প বস। কোনো সমস্যা আছে? আমাকে বলো।",
+      "options": [
+        {
+          "t": "This camp is very dirty. Everything is bad.",
+          "ok": true
+        },
+        {
+          "t": "Yes, sir. There is no water in the bathroom since morning. Can you please fix it today?",
+          "ok": false
+        },
+        {
+          "t": "Water problem.",
+          "ok": false
+        }
+      ],
+      "why": "সবকিছুর বদনাম না করে নির্দিষ্ট সমস্যাটা বলুন। তাহলে বস সেটা ঠিক করতে পারেন।"
+    }
   ]
 };

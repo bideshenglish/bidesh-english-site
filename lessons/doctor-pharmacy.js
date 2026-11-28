@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। খরচ আগে জানলে পরে সমস্যা কম হয়।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I have a fever and a headache.",
+        "bn": "আমার জ্বর আর মাথাব্যথা।"
+      },
+      {
+        "en": "It started two days ago.",
+        "bn": "দুই দিন আগে শুরু হয়েছে।"
+      },
+      {
+        "en": "Is this covered by my insurance?",
+        "bn": "এটা কি আমার ইনস্যুরেন্সে ধরা?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Good morning. What seems to be the problem? — সুপ্রভাত। সমস্যাটা কী মনে হচ্ছে? (ডাক্তার)",
+      "options": [
+        {
+          "t": "Doctor, I am sick. Give me medicine.",
+          "ok": true
+        },
+        {
+          "t": "I have had a fever and a headache for two days. My body hurts. I am allergic to some medicines.",
+          "ok": false
+        },
+        {
+          "t": "I have fever.",
+          "ok": false
+        }
+      ],
+      "why": "শুধু \"sick\" বললে ডাক্তার কিছু বোঝেন না। কোথায়, কতদিন ধরে, বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Do you have insurance? Registration is fifty dollars. — ইনস্যুরেন্স আছে? রেজিস্ট্রেশন পঞ্চাশ ডলার। (হাসপাতালের রিসেপশনে)",
+      "options": [
+        {
+          "t": "I have no money. I will go home.",
+          "ok": true
+        },
+        {
+          "t": "Yes, here is my card. Is this covered by my insurance? How much will I pay?",
+          "ok": false
+        },
+        {
+          "t": "How much?",
+          "ok": false
+        }
+      ],
+      "why": "খরচের ভয়ে চুপ চলে যাবেন না। \"Is there a cheaper option?\" জিজ্ঞেস করুন।"
+    }
   ]
 };

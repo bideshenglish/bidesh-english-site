@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। জিনিস আছে বললে সমস্যা মেটে। লুকালে বড় সমস্যা।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Is my bag too heavy?",
+        "bn": "আমার ব্যাগ কি বেশি ভারী?"
+      },
+      {
+        "en": "Where is the transfer desk?",
+        "bn": "ট্রান্সফার ডেস্ক কোথায়?"
+      },
+      {
+        "en": "Is my bag checked through to the final destination?",
+        "bn": "আমার ব্যাগ কি শেষ গন্তব্য পর্যন্ত যাবে?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Your bag is too heavy. You must pay extra. — আপনার ব্যাগ বেশি ভারী। বাড়তি টাকা দিতে হবে।",
+      "options": [
+        {
+          "t": "I will not pay.",
+          "ok": true
+        },
+        {
+          "t": "How much is the extra charge? Can I take something out?",
+          "ok": false
+        },
+        {
+          "t": "Why?",
+          "ok": false
+        }
+      ],
+      "why": "না বলে লাভ নেই। দাম আর কমানোর উপায় জিজ্ঞেস করুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Do you have a power bank or any liquids in your bag? — ব্যাগে পাওয়ার ব্যাংক বা তরল কিছু আছে?",
+      "options": [
+        {
+          "t": "No.",
+          "ok": true
+        },
+        {
+          "t": "Yes, I have a power bank. Where should I put it?",
+          "ok": false
+        },
+        {
+          "t": "I do not understand.",
+          "ok": false
+        }
+      ],
+      "why": "থাকা জিনিস \"না\" বললে সমস্যা বাড়ে। সত্য বলুন।"
+    }
   ]
 };

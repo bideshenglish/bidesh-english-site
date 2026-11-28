@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "হ্যাঁ। প্রফেসরকে বোঝায় যে আপনি ভালো করার চেষ্টা করছেন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Hello, Professor Smith. I'm Rahim from your Tuesday class.",
+        "bn": "হ্যালো, প্রফেসর স্মিথ। আমি আপনার মঙ্গলবারের ক্লাসের রহিম।"
+      },
+      {
+        "en": "I can't make your office hours. Could we meet at another time?",
+        "bn": "আপনার অফিস আওয়ারে আসতে পারব না। অন্য সময় দেখা করা যাবে?"
+      },
+      {
+        "en": "What can I do to improve my work?",
+        "bn": "আমার কাজ ভালো করতে কী করতে পারি?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Come in. What can I help you with? — ভেতরে আসুন। আমি কীভাবে সাহায্য করতে পারি? (প্রফেসরের অফিসের দরজায়)",
+      "options": [
+        {
+          "t": "I don't understand anything.",
+          "ok": true
+        },
+        {
+          "t": "Hello, Professor Smith. I'm Rahim from your Tuesday class. I have a question about the assignment.",
+          "ok": false
+        },
+        {
+          "t": "Hello. I have a question.",
+          "ok": false
+        }
+      ],
+      "why": "\"কিছুই বুঝি না\" বললে প্রফেসর সাহায্য করতে পারেন না। কোন অংশ বোঝেননি, সেটা বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "See me after class if you have questions. — প্রশ্ন থাকলে ক্লাসের পর আমার সাথে দেখা করো। (কিন্তু আপনার আরেকটা ক্লাস আছে)",
+      "options": [
+        {
+          "t": "Okay.",
+          "ok": true
+        },
+        {
+          "t": "Thank you. I have another class after this. Could we meet on Wednesday afternoon?",
+          "ok": false
+        },
+        {
+          "t": "I'm busy.",
+          "ok": false
+        }
+      ],
+      "why": "যেতে না পারলে বলে দিন। না গেলে প্রশ্নের উত্তর পাবেন না।"
+    }
   ]
 };

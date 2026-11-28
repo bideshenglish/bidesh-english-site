@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। ভুল থাকলে সাথে সাথে ধরা পড়ে।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Sorry, can you say that again?",
+        "bn": "দুঃখিত, আবার বলবেন?"
+      },
+      {
+        "en": "Can you speak a little slower, please?",
+        "bn": "একটু ধীরে বলবেন, দয়া করে?"
+      },
+      {
+        "en": "So I go to Gate Two now, right?",
+        "bn": "তাহলে আমি এখন গেট টু-তে যাব, ঠিক?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Gotta finish this before lunch. You're gonna need to move the boxes to Gate Two. — লাঞ্চের আগে এটা শেষ করতে হবে। বাক্সগুলো গেট টু-তে সরাতে হবে। (সুপারভাইজার খুব দ্রুত বলছেন)",
+      "options": [
+        {
+          "t": "Yes, yes.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, can you say that again, slowly? So I move the boxes to Gate Two, right?",
+          "ok": false
+        },
+        {
+          "t": "Sorry?",
+          "ok": false
+        }
+      ],
+      "why": "না বুঝে \"yes\" বললে ভুল কাজ হয়, তখন দোষ আপনার ঘাড়ে আসে।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Bring thirteen bags. Quick. — তেরোটা ব্যাগ আনো। জলদি। (আপনি শুনলেন thirteen না thirty)",
+      "options": [
+        {
+          "t": "Okay, thirty bags.",
+          "ok": true
+        },
+        {
+          "t": "Is that thirteen or thirty? Can you show me with your fingers?",
+          "ok": false
+        },
+        {
+          "t": "How many?",
+          "ok": false
+        }
+      ],
+      "why": "আন্দাজে সংখ্যা ধরবেন না। জিজ্ঞেস করে নিন।"
+    }
   ]
 };

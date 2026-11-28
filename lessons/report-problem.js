@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। শান্ত থাকুন, তথ্য বলুন, প্রমাণ দেখান।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I need help. It is serious.",
+        "bn": "আমার সাহায্য দরকার। এটা গুরুতর।"
+      },
+      {
+        "en": "My employer has not paid me for three months.",
+        "bn": "আমার নিয়োগকর্তা তিন মাস বেতন দেননি।"
+      },
+      {
+        "en": "My passport is with my employer.",
+        "bn": "আমার পাসপোর্ট নিয়োগকর্তার কাছে।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Police. What is your emergency? — পুলিশ। আপনার জরুরি সমস্যা কী? (আপনার বন্ধু সাইটে গুরুতর আহত)",
+      "options": [
+        {
+          "t": "(Hangs up the phone)",
+          "ok": true
+        },
+        {
+          "t": "My friend is badly hurt. We need an ambulance. We are at Labour Camp Three.",
+          "ok": false
+        },
+        {
+          "t": "Help! Please help!",
+          "ok": false
+        }
+      ],
+      "why": "ঘাবড়ে ফোন কাটবেন না। ধীরে বলুন, তারা বুঝে নেবে।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "HR office. What is the problem? — এইচআর অফিস। কী সমস্যা? (আপনি লিখিত অভিযোগ জানাতে এসেছেন)",
+      "options": [
+        {
+          "t": "If you don't pay me, I will make trouble.",
+          "ok": true
+        },
+        {
+          "t": "I want to report a problem. I have not received my salary for three months. I have messages as proof.",
+          "ok": false
+        },
+        {
+          "t": "I need my salary.",
+          "ok": false
+        }
+      ],
+      "why": "হুমকি দিলে আপনার ক্ষতি হয়। শান্ত থাকুন, প্রমাণ দেখান।"
+    }
   ]
 };

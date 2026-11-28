@@ -352,5 +352,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। \"Could you speak slowly, please?\" বলা স্বাভাবিক।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I can start immediately.",
+        "bn": "আমি এখনই কাজ শুরু করতে পারি।"
+      },
+      {
+        "en": "Could you speak slowly, please?",
+        "bn": "আস্তে বলবেন, দয়া করে?"
+      },
+      {
+        "en": "Can you show me what to do?",
+        "bn": "কী করতে হবে, একটু দেখিয়ে দেবেন?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Why do you want this job? — আপনি এই কাজ কেন চান?",
+      "options": [
+        {
+          "t": "Anything is okay.",
+          "ok": true
+        },
+        {
+          "t": "I want to work hard and support my family.",
+          "ok": false
+        },
+        {
+          "t": "I need money.",
+          "ok": false
+        }
+      ],
+      "why": "\"যেকোনো কাজ চলবে\" শুনলে ভাবে আপনি এই কাজ নিয়ে গুরুত্বপূর্ণ নন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "When can you start? — আপনি কবে শুরু করতে পারবেন?",
+      "options": [
+        {
+          "t": "I don't know.",
+          "ok": true
+        },
+        {
+          "t": "I can start immediately, sir.",
+          "ok": false
+        },
+        {
+          "t": "Sometime.",
+          "ok": false
+        }
+      ],
+      "why": "\"I don't know\" শুনলে ভাবে আপনি প্রস্তুত নন।"
+    }
   ]
 };

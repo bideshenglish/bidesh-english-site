@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। শুধু বিশ্ববিদ্যালয়ের অফিসিয়াল পোর্টালে টাকা দিন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I'd like to accept my offer.",
+        "bn": "আমি আমার অফার গ্রহণ করতে চাই।"
+      },
+      {
+        "en": "Is the deposit refundable?",
+        "bn": "ডিপোজিট কি ফেরতযোগ্য?"
+      },
+      {
+        "en": "Can I defer my place to next year?",
+        "bn": "আমার সিট কি আগামী বছরে পিছিয়ে দিতে পারি?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "We're pleased to offer you a place. This is a conditional offer. — আপনাকে একটা সিট দিতে পেরে আমরা খুশি। এটা শর্তসাপেক্ষ অফার। (অ্যাডমিশন অফিসার)",
+      "options": [
+        {
+          "t": "Okay. I don't need to read the letter.",
+          "ok": true
+        },
+        {
+          "t": "Thank you. What are the conditions, and when is the deadline to accept?",
+          "ok": false
+        },
+        {
+          "t": "Thank you.",
+          "ok": false
+        }
+      ],
+      "why": "না পড়ে কাজ করলে শর্ত মিস করতে পারেন। অফার লেটার ভালো করে পড়ুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Please reply to your offer by Friday. — শুক্রবারের মধ্যে আপনার অফারের উত্তর দিন। (অফিসের কর্মী)",
+      "options": [
+        {
+          "t": "I'll reply when I can.",
+          "ok": true
+        },
+        {
+          "t": "I'm sorry, I need a little more time because I'm waiting for my results. Could I have an extension until next Wednesday?",
+          "ok": false
+        },
+        {
+          "t": "I'll try.",
+          "ok": false
+        }
+      ],
+      "why": "উত্তর না দিলে অফার হারাতে পারেন। সময় না পেলে আগে থেকে জানান।"
+    }
   ]
 };

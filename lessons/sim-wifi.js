@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। কিছু দেশে এটা আইনে নিষিদ্ধ। অনুমোদিত অ্যাপ ব্যবহার করুন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Which plan is good for calling Bangladesh?",
+        "bn": "বাংলাদেশে ফোনের জন্য কোন প্ল্যান ভালো?"
+      },
+      {
+        "en": "Is there any extra charge?",
+        "bn": "কোনো বাড়তি খরচ আছে?"
+      },
+      {
+        "en": "Does WhatsApp calling work here?",
+        "bn": "এখানে কি হোয়াটসঅ্যাপে ফোন চলে?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Hello. How can I help you? — হ্যালো। কীভাবে সাহায্য করতে পারি? (মোবাইল দোকানের কর্মী)",
+      "options": [
+        {
+          "t": "Cheap one.",
+          "ok": true
+        },
+        {
+          "t": "I would like a prepaid SIM card, please. Which plan is good for calling Bangladesh?",
+          "ok": false
+        },
+        {
+          "t": "SIM card.",
+          "ok": false
+        }
+      ],
+      "why": "\"সস্তা\" বললে ভুল প্ল্যান পেতে পারেন। কত GB আর কতদিন, জিজ্ঞেস করুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "WhatsApp calling does not work here. Use this app for calls. — এখানে হোয়াটসঅ্যাপে কল চলে না। কলের জন্য এই অ্যাপ ব্যবহার করুন।",
+      "options": [
+        {
+          "t": "I will use a VPN.",
+          "ok": true
+        },
+        {
+          "t": "Thank you. Is this app allowed here? How much is it?",
+          "ok": false
+        },
+        {
+          "t": "Why not work?",
+          "ok": false
+        }
+      ],
+      "why": "কিছু দেশে VPN দিয়ে ব্লক এড়ানো নিষিদ্ধ। ঝুঁকি নেবেন না।"
+    }
   ]
 };

@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। বলুন: \"Which date?\" এবং লিখিত তারিখ চান।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Can I have a copy of my contract?",
+        "bn": "আমার চুক্তির একটা কপি পেতে পারি?"
+      },
+      {
+        "en": "Can I read it first, please?",
+        "bn": "আগে পড়ে নিতে পারি, দয়া করে?"
+      },
+      {
+        "en": "When will I get my passport back?",
+        "bn": "আমার পাসপোর্ট কবে ফেরত পাব?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Give me your passport. I will keep it for you. — তোমার পাসপোর্ট আমাকে দাও। আমি রেখে দেব। (ম্যানেজার বলছেন)",
+      "options": [
+        {
+          "t": "Okay, take it.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, I would like to keep my passport. You can take a copy.",
+          "ok": false
+        },
+        {
+          "t": "When will I get it back?",
+          "ok": false
+        }
+      ],
+      "why": "পাসপোর্ট ছাড়া আপনি ঝুঁকিতে থাকেন। দিতে হলে ফেরতের তারিখ আর লিখিত নিন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Your salary will come next month. Don't worry. — বেতন আগামী মাসে আসবে। চিন্তা করো না। (কোম্পানি দেরি করছে, আপনি এক মাস বেতন পাননি)",
+      "options": [
+        {
+          "t": "Okay, no problem.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, I have not received my salary yet. Can you give me the date in writing?",
+          "ok": false
+        },
+        {
+          "t": "When?",
+          "ok": false
+        }
+      ],
+      "why": "চুপ থাকলে দেরি বাড়তে পারে। বেতন দেরির বিষয়টা ভদ্রভাবে তুলুন।"
+    }
   ]
 };

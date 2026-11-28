@@ -381,5 +381,64 @@ window.LESSON = {
       "why": "expiry = মেয়াদ শেষ",
       "ph": "ইংরেজি শব্দ"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Let me spell it. R, A, H, I, M.",
+        "bn": "আমি বানান করে বলছি। আর, এ, এইচ, আই, এম।"
+      },
+      {
+        "en": "Please write my name exactly like my passport.",
+        "bn": "আমার নাম পাসপোর্টের মতো হুবহু লিখুন।"
+      },
+      {
+        "en": "I don't understand this word. What does it mean?",
+        "bn": "এই শব্দটা বুঝতে পারছি না। এর মানে কী?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "How do you spell your name? — আপনার নামের বানান কী?",
+      "options": [
+        {
+          "t": "Rahim or Rohim, both are okay.",
+          "ok": true
+        },
+        {
+          "t": "It is Rahim. R, A, H, I, M. That is M as in Mike.",
+          "ok": false
+        },
+        {
+          "t": "Rahim.",
+          "ok": false
+        }
+      ],
+      "why": "দুটো বানান ঠিক হয় না। পাসপোর্টের মতো হুবহু বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Please read the declaration and sign here. — ঘোষণাটা (declaration) পড়ুন আর এখানে সই করুন।",
+      "options": [
+        {
+          "t": "Can you sign for me?",
+          "ok": true
+        },
+        {
+          "t": "Sorry, I don't understand \"declaration\". What does it mean?",
+          "ok": false
+        },
+        {
+          "t": "Okay. Where do I sign?",
+          "ok": false
+        }
+      ],
+      "why": "সই নিজের হাতে করতে হয়। না বুঝলে মানে জিজ্ঞেস করুন।"
+    }
   ]
 };

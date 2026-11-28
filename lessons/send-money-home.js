@@ -368,5 +368,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। সমস্যা হলে এগুলোই আপনার প্রমাণ।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I want to send money to Bangladesh.",
+        "bn": "আমি বাংলাদেশে টাকা পাঠাতে চাই।"
+      },
+      {
+        "en": "How much will my family receive?",
+        "bn": "আমার পরিবার মোট কত পাবে?"
+      },
+      {
+        "en": "Can I have a receipt, please?",
+        "bn": "রসিদ পেতে পারি, দয়া করে?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "How can I help you? — কীভাবে সাহায্য করতে পারি? (এক্সচেঞ্জ হাউসের কাউন্টার)",
+      "options": [
+        {
+          "t": "Here is my money. Send it.",
+          "ok": true
+        },
+        {
+          "t": "I want to send two hundred dollars to Bangladesh. What is today's rate and the fee? How much will my family receive?",
+          "ok": false
+        },
+        {
+          "t": "Send money to Bangladesh.",
+          "ok": false
+        }
+      ],
+      "why": "রেট আর ফি না জেনে টাকা দিলে কম পাঠানো হতে পারে। আগে জিজ্ঞেস করুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Hey brother, don't go to the exchange house. Give me the money. I send it cheaper, no receipt, no problem. — ভাই, এক্সচেঞ্জ হাউসে যেও না। আমাকে টাকা দাও। আমি সস্তায় পাঠিয়ে দেব, রসিদ ছাড়াই, কোনো সমস্যা নেই। (এক অচেনা লোক বলছে)",
+      "options": [
+        {
+          "t": "Okay, here is five hundred dollars.",
+          "ok": true
+        },
+        {
+          "t": "No, thank you. I will use the exchange house and take a receipt.",
+          "ok": false
+        },
+        {
+          "t": "Maybe later.",
+          "ok": false
+        }
+      ],
+      "why": "অচেনাকে রসিদ ছাড়া টাকা দিলে সব হারাতে পারেন। কখনো দেবেন না।"
+    }
   ]
 };

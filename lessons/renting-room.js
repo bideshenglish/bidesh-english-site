@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। notice = আগাম জানানো। চুক্তিতে কত মাস লেখা, জেনে রাখুন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Is water and electricity included?",
+        "bn": "পানি আর বিদ্যুৎ কি ভাড়ার মধ্যে ধরা?"
+      },
+      {
+        "en": "How much is the deposit? Is it refundable?",
+        "bn": "জামানত কত? ফেরত পাব?"
+      },
+      {
+        "en": "Can I have a written agreement and a receipt?",
+        "bn": "লিখিত চুক্তি আর রসিদ পেতে পারি?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Room is good. Four hundred dollars. Pay deposit now, I keep the room for you. — ঘর ভালো। চারশো ডলার। এখনই জামানত দিন, আমি ঘর আপনার জন্য রাখছি। (এজেন্ট তাড়া দিচ্ছে)",
+      "options": [
+        {
+          "t": "Okay, here is the money.",
+          "ok": true
+        },
+        {
+          "t": "Can I see the room first? And is the deposit refundable? I need a receipt, please.",
+          "ok": false
+        },
+        {
+          "t": "How much is the deposit?",
+          "ok": false
+        }
+      ],
+      "why": "না দেখে, রসিদ ছাড়া টাকা দিলে ঠকার ঝুঁকি আছে।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Hello? What's the problem? — হ্যালো? কী সমস্যা? (আপনার ঘরের এসি তিন দিন ধরে কাজ করছে না, আপনি বাড়িওয়ালাকে ফোন করেছেন)",
+      "options": [
+        {
+          "t": "Your room is very bad! Fix it now!",
+          "ok": true
+        },
+        {
+          "t": "Hello. The air conditioner in my room is not working for three days. Can you fix it this week, please?",
+          "ok": false
+        },
+        {
+          "t": "AC is broken.",
+          "ok": false
+        }
+      ],
+      "why": "রাগ করলে বাড়িওয়ালা বিগড়ে যান। ভদ্রভাবে সমস্যা আর সময় বলুন।"
+    }
   ]
 };

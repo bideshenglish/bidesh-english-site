@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। মানে \"আপনি কোথা থেকে এসেছেন?\" উত্তর: \"I am from Bangladesh.\""
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I'm good, thank you. And you?",
+        "bn": "ভালো আছি, ধন্যবাদ। আপনি?"
+      },
+      {
+        "en": "Sorry, I didn't catch that.",
+        "bn": "দুঃখিত, আমি বুঝতে পারিনি।"
+      },
+      {
+        "en": "Can you speak slowly, please?",
+        "bn": "ধীরে বলবেন, দয়া করে?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Hi! How's it going? — হাই! কেমন চলছে? (প্রতিবেশী বলছেন)",
+      "options": [
+        {
+          "t": "Yes.",
+          "ok": true
+        },
+        {
+          "t": "I'm good, thank you. And you?",
+          "ok": false
+        },
+        {
+          "t": "Good.",
+          "ok": false
+        }
+      ],
+      "why": "\"How's it going?\" হ্যাঁ-না প্রশ্ন নয়। বলুন: \"Good, thanks.\""
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "How much do you earn here? — এখানে তুমি কত বেতন পাও? (নতুন পরিচিত একজন জিজ্ঞেস করছে)",
+      "options": [
+        {
+          "t": "Eight hundred dollars, and I send money home every month.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, I'd rather not say.",
+          "ok": false
+        },
+        {
+          "t": "Enough.",
+          "ok": false
+        }
+      ],
+      "why": "বেতন আর টাকা পাঠানোর কথা অচেনাকে বললে ঝুঁকি বাড়ে। নিজের কাছে রাখুন।"
+    }
   ]
 };

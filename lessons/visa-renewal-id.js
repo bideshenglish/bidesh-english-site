@@ -368,5 +368,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। বলুন: \"When will I get it back?\""
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "When does my visa expire?",
+        "bn": "আমার ভিসার মেয়াদ কবে শেষ?"
+      },
+      {
+        "en": "Who will pay for the renewal?",
+        "bn": "নবায়নের খরচ কে দেবে?"
+      },
+      {
+        "en": "How long will it take?",
+        "bn": "কতদিন লাগবে?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Your visa expires in two weeks. Give me your passport. I will renew it. — আপনার ভিসার মেয়াদ দুই সপ্তাহ পরে শেষ। পাসপোর্ট দিন, আমি নবায়ন করব। (কোম্পানির পিআরও বলছেন)",
+      "options": [
+        {
+          "t": "Okay, take it.",
+          "ok": true
+        },
+        {
+          "t": "Thank you. Can I get a receipt for my passport? And when will I get it back?",
+          "ok": false
+        },
+        {
+          "t": "When will I get it back?",
+          "ok": false
+        }
+      ],
+      "why": "রসিদ ও ফেরতের তারিখ ছাড়া পাসপোর্ট দেবেন না।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Fingerprints. Left hand. Press here. Quick. — আঙুলের ছাপ। বাঁ হাত। এখানে চাপো। জলদি। (অফিস কর্মী দ্রুত বলছেন)",
+      "options": [
+        {
+          "t": "Yes, yes.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, can you say that slowly, please? Left hand or right hand?",
+          "ok": false
+        },
+        {
+          "t": "Sorry?",
+          "ok": false
+        }
+      ],
+      "why": "না বুঝে \"yes\" বললে ভুল হাত দিয়ে ফেলেন। না বুঝলে বলুন।"
+    }
   ]
 };

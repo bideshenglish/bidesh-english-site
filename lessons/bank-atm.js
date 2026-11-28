@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। কম টাকা তুলুন বা টাকা জমা দিন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I would like to open a salary account.",
+        "bn": "আমি একটা স্যালারি অ্যাকাউন্ট খুলতে চাই।"
+      },
+      {
+        "en": "What documents do I need?",
+        "bn": "কী কী কাগজ লাগবে?"
+      },
+      {
+        "en": "The ATM kept my card. What should I do?",
+        "bn": "এটিএম আমার কার্ড রেখে দিয়েছে। কী করব?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Good morning. How can I help you? — সুপ্রভাত। কীভাবে সাহায্য করতে পারি? (ব্যাংকের কাউন্টার)",
+      "options": [
+        {
+          "t": "My friend will open for me.",
+          "ok": true
+        },
+        {
+          "t": "Good morning. I would like to open a salary account. What documents do I need?",
+          "ok": false
+        },
+        {
+          "t": "Account, please.",
+          "ok": false
+        }
+      ],
+      "why": "অ্যাকাউন্ট নিজের নামে নিজে খুলতে হয়। অন্যকে কাগজ বা পিন দেবেন না।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Let me help you. Give me your card and your PIN. I will take the money. — আমি সাহায্য করি। আপনার কার্ড আর পিন দিন। আমি টাকা তুলে দিই। (এটিএমের সামনে এক অচেনা লোক)",
+      "options": [
+        {
+          "t": "Okay. My PIN is one, two, three, four.",
+          "ok": true
+        },
+        {
+          "t": "No, thank you. I can do it myself.",
+          "ok": false
+        },
+        {
+          "t": "No.",
+          "ok": false
+        }
+      ],
+      "why": "পিন কাউকে বললে টাকা চলে যেতে পারে। কখনো বলবেন না।"
+    }
   ]
 };

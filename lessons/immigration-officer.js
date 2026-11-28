@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। বলুন: \"Sorry, please say it again slowly.\""
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I am here to work.",
+        "bn": "আমি কাজ করতে এসেছি।"
+      },
+      {
+        "en": "I packed my bag myself.",
+        "bn": "আমি নিজেই ব্যাগ গুছিয়েছি।"
+      },
+      {
+        "en": "I have nothing to declare.",
+        "bn": "জানানোর মতো আমার কিছু নেই।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "What is the purpose of your visit? — আপনার আসার উদ্দেশ্য কী?",
+      "options": [
+        {
+          "t": "Tourist.",
+          "ok": true
+        },
+        {
+          "t": "I am here to work. I have a work visa and a contract.",
+          "ok": false
+        },
+        {
+          "t": "Work.",
+          "ok": false
+        }
+      ],
+      "why": "ভিসার সাথে না মিললে ফিরিয়ে দিতে পারে। সব সময় সত্য বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "How much cash do you have? — সাথে কত নগদ টাকা আছে?",
+      "options": [
+        {
+          "t": "I have no money.",
+          "ok": true
+        },
+        {
+          "t": "I have two hundred dollars.",
+          "ok": false
+        },
+        {
+          "t": "A little.",
+          "ok": false
+        }
+      ],
+      "why": "একদম টাকা না থাকলে সন্দেহ হতে পারে। সাথে কিছু টাকা রাখা ভালো।"
+    }
   ]
 };

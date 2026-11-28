@@ -329,5 +329,64 @@ window.LESSON = {
       "why": "day off = ছুটির দিন",
       "ph": "ইংরেজি শব্দ"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "What time does my shift start?",
+        "bn": "আমার শিফট কখন শুরু?"
+      },
+      {
+        "en": "I am sorry. I will be late.",
+        "bn": "দুঃখিত। আমার দেরি হবে।"
+      },
+      {
+        "en": "Is this overtime? Will it be paid?",
+        "bn": "এটা কি ওভারটাইম? এর টাকা কি দেওয়া হবে?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Your shift starts at seven tomorrow. Don't be late. — কাল তোমার শিফট সাতটায় শুরু। দেরি করো না।",
+      "options": [
+        {
+          "t": "Why so early?",
+          "ok": true
+        },
+        {
+          "t": "Yes, sir. Seven o'clock. I will be on time.",
+          "ok": false
+        },
+        {
+          "t": "Okay.",
+          "ok": false
+        }
+      ],
+      "why": "শিফটের সময় নিয়ে প্রশ্ন না করে আগে বুঝে নিন। জানতে চাইলে বলুন: \"What time do I finish, sir?\""
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Please work two extra hours today. We have a lot of work. — আজ দুই ঘণ্টা বেশি কাজ করো। অনেক কাজ আছে।",
+      "options": [
+        {
+          "t": "No. I am tired. I don't work.",
+          "ok": true
+        },
+        {
+          "t": "Yes, sir. Is this overtime? Will it be paid?",
+          "ok": false
+        },
+        {
+          "t": "Okay.",
+          "ok": false
+        }
+      ],
+      "why": "ক্লান্ত হলে রূঢ়ভাবে না বলে ভদ্রভাবে জানান: \"Sorry, sir. I am very tired. Can I go home today?\""
+    }
   ]
 };

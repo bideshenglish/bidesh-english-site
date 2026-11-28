@@ -317,5 +317,64 @@ window.LESSON = {
       "why": "deducted = কেটে নেওয়া হয়েছে",
       "ph": "ইংরেজি শব্দ"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "When is payday?",
+        "bn": "বেতন কবে দেওয়া হয়?"
+      },
+      {
+        "en": "Can I see my payslip, please?",
+        "bn": "আমি কি আমার বেতনের হিসাব (পে-স্লিপ) দেখতে পারি, দয়া করে?"
+      },
+      {
+        "en": "I did not get my salary yet.",
+        "bn": "আমি এখনো বেতন পাইনি।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Your first month is finished. Do you have any question? — তোমার প্রথম মাস শেষ। তোমার কোনো প্রশ্ন আছে?",
+      "options": [
+        {
+          "t": "Give me money now.",
+          "ok": true
+        },
+        {
+          "t": "Yes, sir. When is payday? And how will I get the salary?",
+          "ok": false
+        },
+        {
+          "t": "No question.",
+          "ok": false
+        }
+      ],
+      "why": "হুকুমের সুরে না বলে ভদ্রভাবে জিজ্ঞেস করুন: \"When is payday, please?\""
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Here is your payslip. Please check it. — এই নাও তোমার পে-স্লিপ। দেখে নাও।",
+      "options": [
+        {
+          "t": "This is wrong! Give me full money!",
+          "ok": true
+        },
+        {
+          "t": "Thank you, sir. Why is this amount deducted? Can you explain, please?",
+          "ok": false
+        },
+        {
+          "t": "Okay.",
+          "ok": false
+        }
+      ],
+      "why": "রেগে দাবি করার আগে কারণ জিজ্ঞেস করুন। তাতে সমাধান সহজ হয়।"
+    }
   ]
 };

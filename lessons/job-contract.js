@@ -358,5 +358,64 @@ window.LESSON = {
       "a": false,
       "why": "না। সই করার আগে বুঝে নিন। \"What does this mean?\" জিজ্ঞেস করুন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Can I read the contract before I sign?",
+        "bn": "সই করার আগে কি চুক্তিটা পড়তে পারি?"
+      },
+      {
+        "en": "Can I have a copy of the contract?",
+        "bn": "চুক্তির একটা কপি পেতে পারি?"
+      },
+      {
+        "en": "Is this the same as my first contract?",
+        "bn": "এটা কি আমার আগের চুক্তির মতোই?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Please sign here. We are in a hurry. — এখানে সই করুন। আমাদের তাড়া আছে।",
+      "options": [
+        {
+          "t": "Okay. I will sign.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, can I read the contract first, please?",
+          "ok": false
+        },
+        {
+          "t": "What is this paper?",
+          "ok": false
+        }
+      ],
+      "why": "না পড়ে সই মানে কী মেনে নিলেন তা জানেন না। আগে পড়ুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Your salary is eight hundred dollars. Food is deducted. — আপনার বেতন আটশো ডলার। খাবার কেটে নেওয়া হবে।",
+      "options": [
+        {
+          "t": "I will not pay. This is not okay.",
+          "ok": true
+        },
+        {
+          "t": "How much is deducted for food and accommodation?",
+          "ok": false
+        },
+        {
+          "t": "Why is it deducted?",
+          "ok": false
+        }
+      ],
+      "why": "রাগ না করে ভদ্রভাবে পরিমাণ জিজ্ঞেস করুন।"
+    }
   ]
 };

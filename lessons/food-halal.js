@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। মাংসের উৎস নিয়ে নিশ্চিত হওয়ার ভালো প্রশ্ন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Is this halal?",
+        "bn": "এটা কি হালাল?"
+      },
+      {
+        "en": "Does it contain pork or alcohol?",
+        "bn": "এতে কি শূকরের মাংস বা অ্যালকোহল আছে?"
+      },
+      {
+        "en": "Can I have the bill, please?",
+        "bn": "বিলটা দিতে পারেন, দয়া করে?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Hi. What would you like? — হাই। কী নেবেন? (রেস্তোরাঁর কর্মী)",
+      "options": [
+        {
+          "t": "Give me chicken.",
+          "ok": true
+        },
+        {
+          "t": "I would like chicken rice, please. Is it halal?",
+          "ok": false
+        },
+        {
+          "t": "Chicken rice.",
+          "ok": false
+        }
+      ],
+      "why": "\"Give me\" রূঢ় শোনায়। বলুন: \"I would like..., please.\""
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "I think it is halal. I am not sure. — আমার মনে হয় হালাল। আমি নিশ্চিত না।",
+      "options": [
+        {
+          "t": "It is okay. I will eat.",
+          "ok": true
+        },
+        {
+          "t": "Thank you for telling me. I will choose something else.",
+          "ok": false
+        },
+        {
+          "t": "Maybe okay.",
+          "ok": false
+        }
+      ],
+      "why": "আপনার নিয়ম মানতে চাইলে নিশ্চিত না হয়ে খাবেন না।"
+    }
   ]
 };

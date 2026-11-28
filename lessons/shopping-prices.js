@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। সুপারমার্কেটে সাধারণত দাম ঠিক করা থাকে। দরদাম বাজার বা ছোট দোকানে।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Is this the final price?",
+        "bn": "এটাই কি শেষ দাম?"
+      },
+      {
+        "en": "Can I open the box and check it?",
+        "bn": "বক্স খুলে দেখে নিতে পারি?"
+      },
+      {
+        "en": "Can I return or exchange it?",
+        "bn": "এটা ফেরত দিতে বা বদলাতে পারব?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Brand new phone. Very cheap. Two hundred dollars. Only today! — একদম নতুন ফোন। খুব সস্তা। দুইশো ডলার। শুধু আজ! (রাস্তার বিক্রেতা)",
+      "options": [
+        {
+          "t": "Okay, I will take it.",
+          "ok": true
+        },
+        {
+          "t": "Can I open the box and turn it on first?",
+          "ok": false
+        },
+        {
+          "t": "Is it new?",
+          "ok": false
+        }
+      ],
+      "why": "না দেখে কিনলে ফোনের জায়গায় অন্য কিছু পাওয়ার ঝুঁকি থাকে।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Sorry, no refund. Only exchange. Do you have the receipt? — দুঃখিত, টাকা ফেরত নেই। শুধু বদল। রসিদ আছে? (ক্যাশিয়ার)",
+      "options": [
+        {
+          "t": "Give me my money!",
+          "ok": true
+        },
+        {
+          "t": "Yes, here is my receipt. I will take an exchange.",
+          "ok": false
+        },
+        {
+          "t": "No receipt.",
+          "ok": false
+        }
+      ],
+      "why": "রাগ করলে লাভ নেই। ভদ্রভাবে বলুন: \"Can I speak to the manager, please?\""
+    }
   ]
 };

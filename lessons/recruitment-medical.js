@@ -363,5 +363,64 @@ window.LESSON = {
       "a": false,
       "why": "না। ভুয়া রিপোর্ট বিদেশে ধরা পড়তে পারে। চাকরি যেতে পারে।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Can I get a receipt, please?",
+        "bn": "রসিদ পেতে পারি, দয়া করে?"
+      },
+      {
+        "en": "What is the total cost?",
+        "bn": "মোট খরচ কত?"
+      },
+      {
+        "en": "Can you write the cost on paper?",
+        "bn": "খরচটা কাগজে লিখে দিতে পারেন?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Give me the money today. No need for a receipt. — আজ টাকা দিন। রসিদ লাগবে না।",
+      "options": [
+        {
+          "t": "Okay. Here is the money.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, I need a receipt, please.",
+          "ok": false
+        },
+        {
+          "t": "Is a receipt necessary?",
+          "ok": false
+        }
+      ],
+      "why": "রসিদ ছাড়া টাকা দিলে পরে প্রমাণ থাকে না।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Your report shows a problem. You need a repeat test. — রিপোর্টে সমস্যা দেখা যাচ্ছে। আবার পরীক্ষা করতে হবে। (ডাক্তার বলছেন)",
+      "options": [
+        {
+          "t": "Please make me fit. I will pay you.",
+          "ok": true
+        },
+        {
+          "t": "What is the problem, doctor? Can I see the report?",
+          "ok": false
+        },
+        {
+          "t": "Am I fit?",
+          "ok": false
+        }
+      ],
+      "why": "ভুয়া রিপোর্ট বিপদ ডাকে। বিদেশে ধরা পড়লে চাকরি যেতে পারে।"
+    }
   ]
 };

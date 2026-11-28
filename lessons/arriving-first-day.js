@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। বিপদে ঘাবড়ে নম্বর খুঁজতে হবে না।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Can I call my company, please?",
+        "bn": "আমি কি আমার কোম্পানিকে ফোন করতে পারি, দয়া করে?"
+      },
+      {
+        "en": "Where can I buy a SIM card?",
+        "bn": "সিম কার্ড কোথায় কিনতে পারি?"
+      },
+      {
+        "en": "When will I get my passport back?",
+        "bn": "আমার পাসপোর্ট কখন ফেরত পাব?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Taxi? Come with me. I take you to your company. — ট্যাক্সি? আমার সাথে আসুন। আপনাকে কোম্পানিতে নিয়ে যাব। (অচেনা লোক বলছে)",
+      "options": [
+        {
+          "t": "Okay, let's go.",
+          "ok": true
+        },
+        {
+          "t": "No, thank you. My company driver is coming.",
+          "ok": false
+        },
+        {
+          "t": "Which company?",
+          "ok": false
+        }
+      ],
+      "why": "অচেনা লোকের সাথে যাওয়া ঝুঁকিপূর্ণ। আগে কোম্পানিকে ফোন করুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Give me your passport. We need it for the residence permit. — আপনার পাসপোর্ট দিন। বসবাসের অনুমতির জন্য লাগবে। (ক্যাম্প সুপারভাইজার)",
+      "options": [
+        {
+          "t": "No, I will not give.",
+          "ok": true
+        },
+        {
+          "t": "Okay. When will I get it back? Can I keep a copy?",
+          "ok": false
+        },
+        {
+          "t": "When will I get it back?",
+          "ok": false
+        }
+      ],
+      "why": "রাগ না করে জিজ্ঞেস করুন কেন লাগবে, কবে ফেরত পাবেন।"
+    }
   ]
 };

@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। নিরাপত্তার বিষয়ে ভদ্রভাবে না বলা আপনার অধিকার।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "It was my mistake. I'm sorry.",
+        "bn": "এটা আমার ভুল। দুঃখিত।"
+      },
+      {
+        "en": "Can I talk to you for a minute?",
+        "bn": "এক মিনিট কথা বলতে পারি?"
+      },
+      {
+        "en": "I don't think it's safe.",
+        "bn": "আমার মনে হয় এটা নিরাপদ নয়।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "This wall is wrong! You didn't follow my instruction! — এই দেয়াল ভুল! তুমি আমার কথা মানোনি! (সুপারভাইজার রেগে আছেন, ভুলটা আপনারই)",
+      "options": [
+        {
+          "t": "It's not my fault. Ahmed told me.",
+          "ok": true
+        },
+        {
+          "t": "I'm sorry. It was my mistake. I will fix it now.",
+          "ok": false
+        },
+        {
+          "t": "Sorry, sorry.",
+          "ok": false
+        }
+      ],
+      "why": "অন্যের নাম টেনে দোষ দিলে বস আরও রেগে যান, সহকর্মীও বিরক্ত হয়।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Go up there. No need for a harness. Quick! — ওপরে যাও। বেল্ট লাগবে না। জলদি! (উঁচু জায়গার কাজ)",
+      "options": [
+        {
+          "t": "Okay, okay.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, I don't think it's safe. Can I get a harness first, please?",
+          "ok": false
+        },
+        {
+          "t": "Is it safe?",
+          "ok": false
+        }
+      ],
+      "why": "উঁচু জায়গায় বেল্ট ছাড়া কাজ জীবনঝুঁকি। না বলা লজ্জার নয়।"
+    }
   ]
 };

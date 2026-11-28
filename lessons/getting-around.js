@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। বিমানবন্দর বা স্টেশনে নকল ট্যাক্সি থাকে। চিহ্নযুক্ত লাইসেন্সধারী ট্যাক্সি বা অ্যাপের গাড়ি নিন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Please use the meter.",
+        "bn": "মিটার চালান, দয়া করে।"
+      },
+      {
+        "en": "Please stop here.",
+        "bn": "এখানে থামান, দয়া করে।"
+      },
+      {
+        "en": "Where do I get off?",
+        "bn": "আমি কোথায় নামব?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Where to? — কোথায় যাবেন? (ট্যাক্সি ড্রাইভার)",
+      "options": [
+        {
+          "t": "Just drive.",
+          "ok": true
+        },
+        {
+          "t": "To this address, please. Please use the meter.",
+          "ok": false
+        },
+        {
+          "t": "To the camp.",
+          "ok": false
+        }
+      ],
+      "why": "গন্তব্য না বললে ড্রাইভার আন্দাজে চালাতে পারে, ভাড়াও বাড়ে।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "The meter is broken. Fixed price, fifty dollars. — মিটার নষ্ট। ভাড়া পঞ্চাশ ডলার। (ড্রাইভার)",
+      "options": [
+        {
+          "t": "Okay.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, please use the meter. Otherwise I will take another taxi.",
+          "ok": false
+        },
+        {
+          "t": "Too much. Twenty dollars.",
+          "ok": false
+        }
+      ],
+      "why": "বেশি ভাড়া মেনে নিলে ঠকা হয়। মিটার চাইতে শিখুন।"
+    }
   ]
 };

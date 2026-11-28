@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। দেখিয়ে বললে ভুল কমে।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Excuse me, where is the nearest mosque?",
+        "bn": "মাফ করবেন, সবচেয়ে কাছের মসজিদ কোথায়?"
+      },
+      {
+        "en": "Can you show me on the map?",
+        "bn": "ম্যাপে দেখিয়ে দিতে পারবেন?"
+      },
+      {
+        "en": "Let me check: straight, then left. Right?",
+        "bn": "মিলিয়ে নিই: সোজা, তারপর বাঁয়ে। ঠিক?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Go straight, then take the second right, then left at the big supermarket, then straight. — সোজা যান, দ্বিতীয় রাস্তায় ডানে, তারপর বড় সুপারমার্কেটে বাঁয়ে, তারপর সোজা। (এক নিঃশ্বাসে বলে ফেললেন)",
+      "options": [
+        {
+          "t": "Yes, yes. Okay, thank you.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, that is a lot. Can you tell me the first step only?",
+          "ok": false
+        },
+        {
+          "t": "Can you say it slowly, please?",
+          "ok": false
+        }
+      ],
+      "why": "না বুঝে \"ঠিক আছে\" বললে পথ হারাবেন। আগেই জিজ্ঞেস করুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Sorry, I don't know this place. — দুঃখিত, আমি এই জায়গাটা চিনি না।",
+      "options": [
+        {
+          "t": "Okay, I go that way.",
+          "ok": true
+        },
+        {
+          "t": "No problem, thank you. I will ask someone else.",
+          "ok": false
+        },
+        {
+          "t": "You must know.",
+          "ok": false
+        }
+      ],
+      "why": "আন্দাজে হাঁটলে আরও হারাবেন। কাউকে জিজ্ঞেস করুন বা ম্যাপ দেখুন।"
+    }
   ]
 };

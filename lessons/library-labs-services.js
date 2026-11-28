@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "হ্যাঁ। লাইব্রেরিয়ানরা সাহায্যের জন্যই আছেন। চ্যাট বা সময় ঠিক করে দেখাও করা যায়।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "How do I borrow this book?",
+        "bn": "এই বইটা কীভাবে ধার নেব?"
+      },
+      {
+        "en": "Can I renew this book?",
+        "bn": "এই বইয়ের মেয়াদ বাড়ানো যাবে?"
+      },
+      {
+        "en": "How do I book a study room?",
+        "bn": "স্টাডি রুম কীভাবে বুক করব?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Hi. How can I help you? — হাই। আমি কীভাবে সাহায্য করতে পারি? (লাইব্রেরির ডেস্কে)",
+      "options": [
+        {
+          "t": "Can I just take it home?",
+          "ok": true
+        },
+        {
+          "t": "Hi. I'd like to borrow this book. Here is my student ID.",
+          "ok": false
+        },
+        {
+          "t": "Borrow.",
+          "ok": false
+        }
+      ],
+      "why": "নিবন্ধন ছাড়া বই নেওয়া যায় না। আইডি কার্ড দেখান আর \"How do I borrow this book?\" জিজ্ঞেস করুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Study rooms are booked online. Would you like to book one? — স্টাডি রুম অনলাইনে বুক করতে হয়। আপনি কি একটা বুক করবেন? (ডেস্কের কর্মী)",
+      "options": [
+        {
+          "t": "I'll just sit in an empty room.",
+          "ok": true
+        },
+        {
+          "t": "Yes, please. Is there a room free tomorrow at three?",
+          "ok": false
+        },
+        {
+          "t": "Where is the website?",
+          "ok": false
+        }
+      ],
+      "why": "ফাঁকা দেখালেও রুম বুক থাকতে পারে। আগে জিজ্ঞেস করুন।"
+    }
   ]
 };

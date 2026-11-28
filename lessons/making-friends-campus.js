@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। হাসিমুখে ছোট বাক্যে বলুন, দরকারে \"Could you repeat that, please?\""
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Hi, I'm Rahim. Nice to meet you.",
+        "bn": "হাই, আমি রহিম। পরিচিত হয়ে ভালো লাগল।"
+      },
+      {
+        "en": "Is this seat taken?",
+        "bn": "এই সিটে কি কেউ আছে?"
+      },
+      {
+        "en": "Would you like to get coffee after class?",
+        "bn": "ক্লাসের পর কফি খেতে যাবেন?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Hi! Is this your first week here? — হাই! এটা কি তোমার এখানে প্রথম সপ্তাহ? (পাশের সহপাঠী)",
+      "options": [
+        {
+          "t": "Yes, but my English is very bad. Sorry.",
+          "ok": true
+        },
+        {
+          "t": "Yes, it is. I'm Rahim, from Bangladesh. How about you?",
+          "ok": false
+        },
+        {
+          "t": "Yes.",
+          "ok": false
+        }
+      ],
+      "why": "বারবার দুঃখিত বললে কথা আটকে যায়। হাসিমুখে ছোট বাক্যে বলুন, দরকারে আবার বলতে বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Hi! Are you interested in the cricket club? — হাই! তুমি কি ক্রিকেট ক্লাবে আগ্রহী? (ক্যাম্পাস মেলায় ক্লাবের স্টলে)",
+      "options": [
+        {
+          "t": "(Smile and walk away)",
+          "ok": true
+        },
+        {
+          "t": "Yes, I love cricket. How do I join?",
+          "ok": false
+        },
+        {
+          "t": "Maybe. What time do you meet?",
+          "ok": false
+        }
+      ],
+      "why": "ক্লাব বন্ধু পাওয়ার সবচেয়ে সহজ জায়গা। লজ্জা না পেয়ে একটা প্রশ্ন করুন।"
+    }
   ]
 };

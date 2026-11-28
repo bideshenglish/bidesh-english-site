@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "হ্যাঁ। না বোঝা অংশের স্লাইড বা পৃষ্ঠা নম্বর লিখে রেখে পরে জিজ্ঞেস করা যায়।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Sorry, could you repeat that, please?",
+        "bn": "দুঃখিত, আবার বলবেন, প্লিজ?"
+      },
+      {
+        "en": "Could you speak a little more slowly?",
+        "bn": "একটু আস্তে বলবেন?"
+      },
+      {
+        "en": "May I ask a question?",
+        "bn": "আমি কি একটা প্রশ্ন করতে পারি?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "So the main point is that demand drives price. Does that make sense? — তাহলে মূল কথা হলো, চাহিদা দাম ঠিক করে। বিষয়টা কি বোঝা গেল? (শিক্ষক দ্রুত বলে গেলেন, আপনি শেষটা বোঝেননি)",
+      "options": [
+        {
+          "t": "Yes.",
+          "ok": true
+        },
+        {
+          "t": "Sorry, I didn't catch the last part. Could you say it again more slowly?",
+          "ok": false
+        },
+        {
+          "t": "Sorry?",
+          "ok": false
+        }
+      ],
+      "why": "না বুঝে Yes বললে শিক্ষক এগিয়ে যান আর আপনি পিছিয়ে পড়েন। ভদ্রভাবে আবার বলতে বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "That's all for today. Any questions before you go? — আজকের মতো শেষ। যাওয়ার আগে কোনো প্রশ্ন আছে? (আপনি বাড়ির কাজ বুঝতে পারেননি)",
+      "options": [
+        {
+          "t": "No questions.",
+          "ok": true
+        },
+        {
+          "t": "Yes, please. Could you tell me what the homework is?",
+          "ok": false
+        },
+        {
+          "t": "Can I email you later?",
+          "ok": false
+        }
+      ],
+      "why": "প্রশ্ন থাকা সত্ত্বেও চুপ থাকলে কাজ না জেনেই বাড়ি যাবেন। না জানলে জিজ্ঞেস করুন।"
+    }
   ]
 };

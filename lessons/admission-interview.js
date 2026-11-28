@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "হ্যাঁ। শান্ত, পরিষ্কার জায়গায় বসুন, আর নেট সমস্যা হলে ঘাবড়াবেন না।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I chose this university because of its engineering program.",
+        "bn": "আমি এই বিশ্ববিদ্যালয় বেছেছি এর ইঞ্জিনিয়ারিং প্রোগ্রামের জন্য।"
+      },
+      {
+        "en": "My strength is that I work hard and learn quickly.",
+        "bn": "আমার শক্তি হলো, আমি পরিশ্রম করি আর দ্রুত শিখি।"
+      },
+      {
+        "en": "What support is there for international students?",
+        "bn": "আন্তর্জাতিক ছাত্রদের জন্য কী সহায়তা আছে?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Tell me about yourself. — আপনার সম্পর্কে বলুন। (ইন্টারভিউয়ার, হাসিমুখে)",
+      "options": [
+        {
+          "t": "Um... I don't know what to say.",
+          "ok": true
+        },
+        {
+          "t": "I'm Rahim from Dhaka. I enjoy mathematics and programming, so I want to study computer science.",
+          "ok": false
+        },
+        {
+          "t": "I am Rahim. I am a student.",
+          "ok": false
+        }
+      ],
+      "why": "আগে থেকে তিন বাক্য তৈরি রাখুন: আমি কে, কী ভালো লাগে, কী পড়তে চাই।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Do you have any questions for us? — আপনার কি আমাদের জন্য কোনো প্রশ্ন আছে? (ইন্টারভিউ শেষের দিকে)",
+      "options": [
+        {
+          "t": "No questions.",
+          "ok": true
+        },
+        {
+          "t": "Yes, please. What support is there for international students in the first semester?",
+          "ok": false
+        },
+        {
+          "t": "How much is the fee?",
+          "ok": false
+        }
+      ],
+      "why": "এক-দুইটা প্রশ্ন তৈরি রাখলে আগ্রহ বোঝা যায়। চুপ থাকলে সুযোগ হারান।"
+    }
   ]
 };

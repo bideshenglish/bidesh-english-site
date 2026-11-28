@@ -367,5 +367,64 @@ window.LESSON = {
       "a": false,
       "why": "না। \"Don't use the lift.\" সিঁড়ি দিয়ে বেরোন।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I need an ambulance.",
+        "bn": "আমার অ্যাম্বুলেন্স দরকার।"
+      },
+      {
+        "en": "We are near the mosque, at Gate Two.",
+        "bn": "আমরা মসজিদের কাছে, গেট টু-তে।"
+      },
+      {
+        "en": "Please speak slowly. My English is not good.",
+        "bn": "ধীরে বলুন। আমার ইংরেজি ভালো না।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Emergency. Which service? — জরুরি সেবা। কোন সেবা লাগবে? (আপনাদের ক্যাম্পের রান্নাঘরে আগুন, ধোঁয়া ছড়াচ্ছে)",
+      "options": [
+        {
+          "t": "Help! Help!",
+          "ok": true
+        },
+        {
+          "t": "Fire! There is a fire in our camp kitchen. Labour Camp Three, near the blue gate. Two people may be inside.",
+          "ok": false
+        },
+        {
+          "t": "Fire! Please come!",
+          "ok": false
+        }
+      ],
+      "why": "শুধু \"Help\" বললে অপারেটর কিছু বোঝেন না। সেবার নাম আর জায়গা বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Police. What happened? Where? How many people? — পুলিশ। কী হয়েছে? কোথায়? কতজন? (রাস্তায় গাড়ির দুর্ঘটনা, অপারেটর দ্রুত বলছেন)",
+      "options": [
+        {
+          "t": "(Hangs up because they speak too fast)",
+          "ok": true
+        },
+        {
+          "t": "Sorry, please speak slowly. There was a car accident near the petrol station on the main road. Two people are hurt.",
+          "ok": false
+        },
+        {
+          "t": "Accident. Please come.",
+          "ok": false
+        }
+      ],
+      "why": "না বুঝলে ফোন কাটবেন না। বলুন: \"Please speak slowly.\""
+    }
   ]
 };

@@ -277,5 +277,64 @@ window.LESSON = {
       "why": "return = ফেরত দিন",
       "ph": "ইংরেজি শব্দ"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Do you have gloves for me?",
+        "bn": "আমার জন্য গ্লাভস আছে?"
+      },
+      {
+        "en": "I need a bucket and a mop.",
+        "bn": "আমার একটা বালতি ও মপ দরকার।"
+      },
+      {
+        "en": "This one is broken. Can I get another?",
+        "bn": "এটা ভাঙা। আরেকটা পেতে পারি?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Do you need anything before you start? — কাজ শুরুর আগে তোমার কিছু লাগবে?",
+      "options": [
+        {
+          "t": "Give me gloves.",
+          "ok": true
+        },
+        {
+          "t": "Yes, sir. I need gloves and a bucket.",
+          "ok": false
+        },
+        {
+          "t": "No.",
+          "ok": false
+        }
+      ],
+      "why": "\"Give me\" আদেশের মতো শোনায়। বলুন: \"Do you have gloves for me?\""
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Take this box to the third floor, then return the tools. — এই বাক্সটা তিনতলায় নিয়ে যাও, তারপর যন্ত্রপাতি ফেরত দাও।",
+      "options": [
+        {
+          "t": "Where? I don't know.",
+          "ok": true
+        },
+        {
+          "t": "Yes, sir. I'll return the tools when I finish.",
+          "ok": false
+        },
+        {
+          "t": "Okay.",
+          "ok": false
+        }
+      ],
+      "why": "জিজ্ঞেস করা ভালো, কিন্তু ভদ্রভাবে বলুন: \"Sorry, sir. Where is the third floor?\""
+    }
   ]
 };

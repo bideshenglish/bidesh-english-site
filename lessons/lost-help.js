@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। বিপদে ঘাবড়ে নম্বর খুঁজতে হবে না।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "I lost my passport.",
+        "bn": "আমার পাসপোর্ট হারিয়ে গেছে।"
+      },
+      {
+        "en": "Is there anyone who speaks Bengali?",
+        "bn": "বাংলা বলতে পারেন এমন কেউ আছেন?"
+      },
+      {
+        "en": "Where is the Bangladesh Embassy?",
+        "bn": "বাংলাদেশ দূতাবাস কোথায়?"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "When and where did you lose your passport? — আপনি কখন আর কোথায় পাসপোর্ট হারিয়েছেন? (পুলিশ জিজ্ঞেস করছেন)",
+      "options": [
+        {
+          "t": "Somebody stole it.",
+          "ok": true
+        },
+        {
+          "t": "Yesterday evening, near the bus station. I think I lost it on the bus.",
+          "ok": false
+        },
+        {
+          "t": "I don't know.",
+          "ok": false
+        }
+      ],
+      "why": "নিশ্চিত না হলে \"stolen\" বলবেন না। মিথ্যা বললে রিপোর্টে সমস্যা হয়।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Do you need help? — আপনার কি সাহায্য লাগবে? (পথচারী বা পুলিশ)",
+      "options": [
+        {
+          "t": "No, thank you.",
+          "ok": true
+        },
+        {
+          "t": "Yes, please. Is there anyone who speaks Bengali? Where is the Bangladesh Embassy?",
+          "ok": false
+        },
+        {
+          "t": "Help me.",
+          "ok": false
+        }
+      ],
+      "why": "বিপদে সাহায্য নিতে লজ্জা নেই। আগে বলুন কী হয়েছে।"
+    }
   ]
 };

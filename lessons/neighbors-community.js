@@ -367,5 +367,64 @@ window.LESSON = {
       "a": true,
       "why": "ঠিক। সামাজিক সম্পর্ক মন ভালো রাখতে সাহায্য করে।"
     }
+  ],
+  "mission": {
+    "title": "আজ বলুন",
+    "intro": "আজ বাস্তবে অন্তত একবার এই বাক্যগুলোর একটা বলে দেখুন।",
+    "items": [
+      {
+        "en": "Hello, I am your new neighbor. My name is Rahim.",
+        "bn": "হ্যালো, আমি আপনার নতুন প্রতিবেশী। আমার নাম রহিম।"
+      },
+      {
+        "en": "Sorry to bother you. Could you turn the music down, please?",
+        "bn": "বিরক্ত করার জন্য দুঃখিত। গান একটু কমাবেন, দয়া করে?"
+      },
+      {
+        "en": "Thank you for inviting me. I would love to, but I have night duty.",
+        "bn": "ডাকার জন্য ধন্যবাদ। যেতে চাইতাম, কিন্তু আমার রাতের ডিউটি।"
+      }
+    ],
+    "tip": "শেখা বাক্য বাস্তবে একবার বললেই মনে থাকে। সাধারণ সচেতনতার জন্য।"
+  },
+  "spot": [
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Hi! We are having tea and snacks tonight. Would you like to join us? — হাই! আজ রাতে আমরা চা-নাস্তা খাচ্ছি। আপনি যোগ দেবেন? (প্রতিবেশী ডাকছেন, আপনার রাতের ডিউটি)",
+      "options": [
+        {
+          "t": "(Says nothing and walks away)",
+          "ok": true
+        },
+        {
+          "t": "Thank you for inviting me. I would love to, but I have night duty. Maybe next time?",
+          "ok": false
+        },
+        {
+          "t": "Sorry, no.",
+          "ok": false
+        }
+      ],
+      "why": "চুপ চলে গেলে প্রতিবেশী আহত হন। অন্তত \"Thank you\" বলুন।"
+    },
+    {
+      "q": "কোন উত্তরটা সবচেয়ে ভুল?",
+      "scene": "Brother, join our group! Give me one hundred dollars membership today. I will invest it and make it double. — ভাই, আমাদের গ্রুপে আসো! আজ একশো ডলার মেম্বারশিপ দাও। আমি ইনভেস্ট করে দ্বিগুণ করে দেব। (এক অচেনা লোক)",
+      "options": [
+        {
+          "t": "Okay, here is the money.",
+          "ok": true
+        },
+        {
+          "t": "Thank you, but I don't give money to people I don't know. I will think about it.",
+          "ok": false
+        },
+        {
+          "t": "Maybe later.",
+          "ok": false
+        }
+      ],
+      "why": "\"টাকা দ্বিগুণ\" প্রায় সবসময় প্রতারণা। কখনো দেবেন না।"
+    }
   ]
 };
