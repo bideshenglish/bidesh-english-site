@@ -487,6 +487,7 @@ window.LESSON = {
     "tip": "সাধারণ সচেতনতার জন্য; আপনার সাইটের নিয়ম ও ট্রেনিং সবার আগে।"
   },
   "next": {
-    "title": "Toolbox Talk, PPE & Site Rules"
+    "title": "Toolbox Talk, PPE & Site Rules",
+    "id": "con-toolbox"
   }
 };
