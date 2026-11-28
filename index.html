@@ -659,7 +659,8 @@ const lessonLinks = {
   "Toolbox Talk, PPE & Site Rules": "lesson.html?id=con-toolbox",
   "Heat, Water & Weather": "lesson.html?id=con-heat",
   "Formwork, Concrete & Steel Helper": "lesson.html?id=con-concrete",
-  "Plastering, Painting & Finishing Helper": "lesson.html?id=con-finishing"
+  "Plastering, Painting & Finishing Helper": "lesson.html?id=con-finishing",
+  "Mistakes, Rework & Site Cleanup": "lesson.html?id=con-cleanup"
 };
 
 (function(){
@@ -779,7 +780,7 @@ const professions = [
 ];
 // যে পেশার লেসন তৈরি হয়ে গেছে, তার নাম এখানে যোগ করুন (যেমন: professionLessons["ড্রাইভার"] = ["লেসন ১", ...])
 const professionLessons = {};
-professionLessons["সাধারণ শ্রমিক / নির্মাণকর্মী"] = ["Common Tools & Equipment","Cement, Sand, Bricks & Rods","Scaffolding & Working at Height","Dig, Lift, Pour & Measure","Hand Signals, Machines & Site Vehicles","Toolbox Talk, PPE & Site Rules","Heat, Water & Weather","Formwork, Concrete & Steel Helper","Plastering, Painting & Finishing Helper"];
+professionLessons["সাধারণ শ্রমিক / নির্মাণকর্মী"] = ["Common Tools & Equipment","Cement, Sand, Bricks & Rods","Scaffolding & Working at Height","Dig, Lift, Pour & Measure","Hand Signals, Machines & Site Vehicles","Toolbox Talk, PPE & Site Rules","Heat, Water & Weather","Formwork, Concrete & Steel Helper","Plastering, Painting & Finishing Helper","Mistakes, Rework & Site Cleanup"];
 
 const flatOrder = professions.map((_, i) => i);
 const toBn = n => String(n).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
@@ -958,7 +959,8 @@ document.querySelectorAll('.sub-tabs').forEach(row => {
     "Toolbox Talk, PPE & Site Rules":"সেফটি মিটিং হেলমেট সুরক্ষা সরঞ্জাম সাইনবোর্ড নিয়ম toolbox talk ppe helmet danger sign site rules",
     "Heat, Water & Weather":"গরম পানি আবহাওয়া রোদ ঝড় বৃষ্টি heat water weather shade storm rain",
     "Formwork, Concrete & Steel Helper":"ছাঁচ কংক্রিট রড ঢালাই ফর্মওয়ার্ক রিবার formwork concrete rebar steel helper",
-    "Plastering, Painting & Finishing Helper":"প্লাস্টার রং পেইন্ট ফিনিশিং দেয়াল plaster paint finishing wall"
+    "Plastering, Painting & Finishing Helper":"প্লাস্টার রং পেইন্ট ফিনিশিং দেয়াল plaster paint finishing wall",
+    "Mistakes, Rework & Site Cleanup":"ভুল আবার কাজ সাইট পরিষ্কার আবর্জনা mistake rework cleanup waste site"
   };
   const norm = s => String(s).toLowerCase().replace(/\s+/g,' ').trim();
   const items = [];
