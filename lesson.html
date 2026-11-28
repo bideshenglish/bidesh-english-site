@@ -472,7 +472,7 @@
     if (reviewMode) return;
     var m = read('be_resume', {});
     if (flow[idx] === 'done' || flow[idx] === 'scene' || pctNow() === 0) { delete m[L.id]; }
-    else { m[L.id] = { step: idx, sub: sub, pct: pctNow(), S: S, at: Date.now() }; }
+    else { m[L.id] = { step: idx, sub: sub, pct: pctNow(), S: S, G: G, at: Date.now() }; }
     write('be_resume', m);
   }
   function setSub(k){ sub = k; paintProgress(); saveResume(); }
@@ -1057,6 +1057,9 @@
     if (ok){
       var u = unitsOf(flow[saved.step]);
       if (!(saved.sub >= 0 && saved.sub < u)) saved.sub = 0;
+      var isReload = false;
+      try { var nv = performance.getEntriesByType('navigation')[0]; isReload = !!nv && nv.type === 'reload'; } catch(e){}
+      if (isReload){ S = saved.S || {}; if (saved.G) G = saved.G; startSub = saved.sub; go(saved.step); return; }
       idx = saved.step; sub = saved.sub; hideBack = true; paintProgress();
       stage.className = 'card s-resume';
       stage.innerHTML = '<div class="scene-ic">' + ICON_PLANE + '</div><h2>আগের জায়গা থেকে চালিয়ে যাবেন?</h2>' +
@@ -1064,7 +1067,7 @@
         '<div class="row"><button class="btn btn-main" id="resumeGo">চালিয়ে যান →</button></div>' +
         '<div class="row"><button class="btn btn-alt" id="resumeNew">শুরু থেকে করুন</button></div>';
       enter();
-      $('#resumeGo').onclick = function(){ S = saved.S || {}; startSub = saved.sub; go(saved.step); };
+      $('#resumeGo').onclick = function(){ S = saved.S || {}; if (saved.G) G = saved.G; startSub = saved.sub; go(saved.step); };
       $('#resumeNew').onclick = function(){ var m = read('be_resume', {}); delete m[L.id]; write('be_resume', m); S = {}; startSub = 0; sub = 0; go(0); };
       return;
     }
