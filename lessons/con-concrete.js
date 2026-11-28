@@ -528,6 +528,7 @@ window.LESSON = {
     "tip": "সাধারণ সচেতনতার জন্য। আপনার সাইটের নিয়ম আর মিস্ত্রির নির্দেশ সবার আগে।"
   },
   "next": {
-    "title": "Plastering, Painting & Finishing Helper"
+    "title": "Plastering, Painting & Finishing Helper",
+    "id": "con-finishing"
   }
 };
